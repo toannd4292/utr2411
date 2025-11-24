@@ -765,9 +765,66 @@ svg.icon.icon-hamburger {
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  
+{%- endstyle -%}
+{%- style -%}
+{% if settings.show_announcement != blank %}
+  :root {
+    --announcement-height-mobile: 40px; /* default fallback */
+    --announcement-height-desktop: 40px; /* default fallback */
+  }
+  
+  {% assign page_list = settings.show_announcement | split: ',' %}
+  {% for page_handle in page_list %}
+    {% assign trimmed_handle = page_handle | strip %}
+    .utr-{{ trimmed_handle }} .shopify-section.section-header.custom_enable_sticky_header.shopify-section-header-hidden.shopify-section-header-sticky {
+      top: 0 !important;
+    }
 
+    /* Mobile */
+    @media screen and (max-width: 749px) {
+      .utr-{{ trimmed_handle }} .shopify-section.section-header.custom_enable_sticky_header {
+        top: calc(var(--announcement-height-mobile) + 10px) !important;
+      }
+    }
+
+    /* Desktop */
+    @media screen and (min-width: 750px) {
+      .utr-{{ trimmed_handle }} .shopify-section.section-header.custom_enable_sticky_header {
+        top: calc(var(--announcement-height-desktop) + 10px) !important;
+      }
+    }
+    
+    .utr-{{ trimmed_handle }} .shopify-section.section-header.custom_enable_sticky_header.shopify-section-header-sticky.animate {
+      top: 0 !important;
+    }
+  {% endfor %}
+{% endif %}
 {%- endstyle -%}
 
+{% if settings.show_announcement != blank %}
+<script>
+  const announcement = document.getElementById('shopify-section-announcement-bar');
+  if (announcement) {
+    const update = () => {
+      const isMobile = window.innerWidth < 750;
+      const height = announcement.offsetHeight;
+      
+      if (isMobile) {
+        document.documentElement.style.setProperty('--announcement-height-mobile', height + 'px');
+        console.log('Mobile announcement height:', height + 'px');
+      } else {
+        document.documentElement.style.setProperty('--announcement-height-desktop', height + 'px');
+        console.log('Desktop announcement height:', height + 'px');
+      }
+    };
+    
+    update();
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+  }
+</script>
+{% endif %}
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -1076,7 +1133,6 @@ svg.icon.icon-hamburger {
                   </div>
               </div>
                 </nav>
-                {% comment %}
                 <div class="menu-drawer__utility-links">
                   {%- if shop.customer_accounts_enabled -%}
                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link focus-inset h5">
@@ -1165,7 +1221,6 @@ svg.icon.icon-hamburger {
                     {%- endif -%}
                   </ul>
                 </div>
-                {% endcomment %}
               </div>
             </div>
           </div>

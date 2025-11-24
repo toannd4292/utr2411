@@ -7,6 +7,17 @@
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
+     {
+  "name": "Show Announcement on Transparent page",
+  "settings": [
+   {
+      "type": "html",
+      "id": "show_announcement",
+      "label": "Show Announcement Transparent page",
+      "info": "Enter the page you want to show"
+    }
+  ]
+},
   {
   "name": "Sentence Case Exceptions",
   "settings": [

@@ -3186,7 +3186,6 @@ p{line-height:24px;}
 .text-mute{color:var(--color-black); opacity:0.7}
 .text-left{text-align:left}
 .text-center{text-align:center}
-.text-right{text-align:right}
 /* .btn-hover-black:hover, */
 .bg_black{background:var(--color-black)}
 .border-color-black{border-color:var(--color-black)}
@@ -4175,8 +4174,8 @@ img.profile-pic {
     overflow: hidden;
 }
 .image-box{display:block !important;background: var(--blue-teal-gradient);}
-.pro-tennis {margin-bottom: 2rem;display: inline-flex;flex-direction: column;}
-.pro-tennis .pro-tennis-img img {
+.pro-tenniss {margin-bottom: 2rem;display: inline-flex;flex-direction: column;}
+.pro-tenniss .pro-tennis-img img {
     filter: grayscale(100%);
     width: 80px;
     height: 80px;
@@ -4184,17 +4183,17 @@ img.profile-pic {
     min-height: 80px;
     object-fit: cover;
 }
-.pro-tennis:hover .pro-tennis-img img {filter: grayscale(0%);}
-.pro-tennis .pro-tennis-img img,
-.pro-tennis p{ transition: all .4s ease-in-out;}
-.pro-tennis p{    
+.pro-tenniss:hover .pro-tennis-img img {filter: grayscale(0%);}
+.pro-tenniss .pro-tennis-img img,
+.pro-tenniss p{ transition: all .4s ease-in-out;}
+.pro-tenniss p{    
   color: var(--color-black);
   font-size: 14px;
   text-transform: initial;
   margin-top: -1rem;
   margin-bottom: 0;
 }
-.pro-tennis:hover p{color:var(--color-main-teal); font-weight:700 }}
+.pro-tenniss:hover p{color:var(--color-main-teal); font-weight:700 }}
 .select-control{}
 .select-control select{
     display: inline-block;
@@ -4759,7 +4758,7 @@ img.profile-pic {
     padding-bottom: 30px;
   }
   #shopify-section-template--18013426942272__9f761ec2-f432-44e2-8518-70504f360a9d{margin-top:-8rem}
-  .keyheading-wrap{ margin-top: -7rem;position: relative;z-index: 1; padding-bottom:5rem;}
+  .keyheading-wrap{ margin-top: -5rem;position: relative;z-index: 1; padding-bottom:5rem;}
   .count-column-2 .benefits-card{min-height:180px;padding:1.5rem}
   .benefits-card,
   .benefits-card::after {border-radius:13px;}
@@ -6548,8 +6547,4 @@ a.btn-white.min-w-lg-225.min-w-md-180.min-w-sm-160.font-sm-12.font-md-14.text-up
 .out-box.gradient-header-custom .page-width {
     padding-top: 0;
     padding-bottom: 0;
-}
-
-td.DNQ{
-  color: #ff0000 !important;
 }

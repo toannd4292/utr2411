@@ -143,7 +143,7 @@ window.addEventListener("scroll", function () {
 {% schema %}
 {
   "name": "Full Width Video w text",
-  "class": "shopify-cs-za",
+  "presets": [{ "name": "Full Width Video w text", "category": "Full Width Video w text" }],
   "settings": [
     { "type": "image_picker", "id": "section-image-first", "label": "Section Image First" },
     { "type": "text", "id": "section-video-button", "label": "Video Play Button" },
@@ -168,27 +168,6 @@ window.addEventListener("scroll", function () {
     },
     { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
     { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
-  ],
-  "presets": [
-    { 
-      "name": "Full Width Video w text", 
-      "category": "Full Width Video w text",
-      "settings": {
-        "section-image-first": "shopify://shop_images/B07I5646_1.png",
-        "section-video-button": "The Power Subscription",
-        "section-button-url": "https://www.youtube.com/watch?v=1av9dLj1t3c",
-        "heading": "Become a Power Player",
-        "text": "<p>Serious about your game? Track your progress, scout your opponents, find better local matches, and gain access to unbeatable savings on gear and events with the UTR Sports Power Subscription.</p>",
-        "button_label": "Upgrade to Power",
-        "button_link": "https://app.utrsports.net/power-perks",
-        "padding_top": 150,
-        "padding_bottom": 100,
-        "pt_md": 60,
-        "pb_md": 60,
-        "pt_xs": 30,
-        "pb_xs": 30
-      }
-    }
   ]
 }
 {% endschema %}

@@ -1,5 +1,5 @@
 {% render 'partial-style', section: section %}
-<section id="section-{{ section.id }}" class="testimonial-section zg-slider section-{{ section.id }}-padding">
+<section id="section-{{ section.id }}" class="testimonial-section section-{{ section.id }}-padding">
   <div class="page-width">
     <div id="testimonial-{{ section.id }}" class="owl-carousel testimonial-carousel">
       {% for block in section.blocks %}
@@ -136,7 +136,7 @@
 {% schema %}
 {
   "name": "Testimonial slider",
-  "class": "testimonial-slider shopify-cs-za",
+  "class": "testimonial-slider",
   "settings": [
     {
       "type": "color",
@@ -284,62 +284,9 @@
     {
       "name": "Testimonial slider",
       "blocks": [
-        {
-          "type": "item",
-          "settings": {
-            "quote": "The UTR Rating is the best way to measure yourself against all other players regardless of their age or level.",
-            "avatar": "shopify://shop_images/Novak_Djokovic_UTR_Testimonial_ffec90b5-947b-420b-860e-5b3621b397ff.jpg",
-            "name": "Novak Djokovic",
-            "role": "24-time Grand Slam champion"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "quote": "UTR Sports provides a standard for all players... the bigger the network gets, the more beneficial.",
-            "avatar": "shopify://shop_images/jim-courier_UTR_testimonial.png",
-            "name": "Jim Courier",
-            "role": "Four-time Grand Slam champion"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "quote": "The UTR Rating enables youngsters and adults at the same level to play, which is so important for their development and enjoyment.",
-            "avatar": "shopify://shop_images/Jose_Higueras_UTR_testimonial.webp",
-            "name": "Jose Higueras",
-            "role": "Leading Coach, Former Top Player"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "quote": "Their ratings are ageless, genderless, and borderless. UTR Sports truly democratized the game of tennis.",
-            "avatar": "shopify://shop_images/Martina_Navratilova_UTR_testimonial.jpg",
-            "name": "Martina Navratilova",
-            "role": "59-time Grand Slam Champion"
-          }
-        }
-      ],
-      "settings": {
-        "divider_color": "#dfe8ee",
-        "divider_opacity": 100,
-        "quote_max_width": 1100,
-        "quote_size_desktop": 64,
-        "quote_size_mobile": 28,
-        "space_after_quote": 32,
-        "space_after_divider": 24,
-        "loop": true,
-        "autoplay": false,
-        "autoplay_timeout": 5000,
-        "speed": 500,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "pt_md": 85,
-        "pb_md": 85,
-        "pt_xs": 85,
-        "pb_xs": 36
-      }
+        { "type": "item" },
+        { "type": "item" }
+      ]
     }
   ]
 }

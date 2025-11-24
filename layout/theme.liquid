@@ -351,7 +351,9 @@
     {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
     {{ 'owl.carousel.min.css' | asset_url | stylesheet_tag }}
     {{ 'owl.theme.default.min.css' | asset_url | stylesheet_tag }}
+     {% if template == 'index' or template.suffix == 'sports-hub' or template.suffix == 'pickleball-sports-hub' %}
     {{ 'font-style.css' | asset_url | stylesheet_tag }}
+    {% endif %}
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -373,7 +375,7 @@
   {% render 'shogun-head' %}
 </head>
 
-  <body class="gradient {% if template contains 'index' %} hs-pg {% endif %} utr-{{ template.suffix }}">
+  <body class="gradient {% if template contains 'index' %} hs-pg utr-index {% endif %} utr-{{ template.suffix }}" >
     
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KK6P3NC"

@@ -37,7 +37,7 @@
   }
 
   #section-{{ section.id }} span.animation-number {
-      font-size: 160px;
+      font-size: 170px;
       line-height: 150px;
       letter-spacing: -7px;
       font-family: "Inter-SemiBold";
@@ -81,17 +81,6 @@
         font-size: 80px;
         line-height: 70px;
         top: -10px;
-    }
-  }
-    @media (max-width: 901px){ 
-     #section-{{ section.id }} span.animation-number {
-        font-size: 70px;
-        line-height: 71px;
-        letter-spacing: -2px;
-    }
-   #section-{{ section.id }} .stat-suffix {
-        font-size: 70px;
-        line-height: 70px;
     }
   }
   @media (max-width: 749px){
@@ -222,10 +211,11 @@
       counters.forEach((counter) => observer.observe(counter));
   });
 </script>
+
 {% schema %}
 {
   "name": "Stats columns",
-  "class": "stats-columns shopify-cs-za",
+  "class": "stats-columns",
   "settings": [
     {
       "type": "color",
@@ -325,47 +315,10 @@
     {
       "name": "Stats columns",
       "blocks": [
-        {
-          "type": "stat",
-          "settings": {
-            "small_title": "Matches",
-            "number": "3.7M",
-            "suffix": "+",
-            "desc": "Play locally, count globally!"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "small_title": "Countries",
-            "number": "115",
-            "suffix": "+",
-            "desc": "Join and connect with a global community!"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "small_title": "Players",
-            "number": "3.9M",
-            "suffix": "+",
-            "desc": "Compete in a global community centered around level-based play"
-          }
-        }
-      ],
-      "settings": {
-        "divider_color": "#3ec7ff",
-        "divider_opacity": 100,
-        "col_gap": 32,
-        "inner_x_padding": 0,
-        "row_gap": 24,
-        "padding_top": 100,
-        "padding_bottom": 100,
-        "pt_md": 36,
-        "pb_md": 36,
-        "pt_xs": 36,
-        "pb_xs": 36
-      }
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
     }
   ]
 }

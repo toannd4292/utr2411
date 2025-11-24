@@ -11,12 +11,7 @@
 {%- endstyle -%}
 
  <div class="text-sm-center">
-    <div id="Banner2-{{ section.id }}" class="banner banner2" 
-      {% if section.settings.section-image != blank %}
-        style="background:url('{{section.settings.section-image | image_url}}') no-repeat top center; min-height: 140px;width: 100%; background-size: cover;"
-      {% else %}
-        style="background:url('https://cdn.shopify.com/s/files/1/0690/8071/1488/files/gradient-wide-banner_1440_x_160_px.jpg?v=1760710251') no-repeat top center; min-height: 140px;width: 100%; background-size: cover;"
-      {% endif %} >
+    <div id="Banner2-{{ section.id }}" class="banner banner2" style="background:url('{{section.settings.section-image | image_url}}') no-repeat top center; min-height: 140px;width: 100%; background-size: cover;">
        <div class="z-index-2 position-relative">  
          <div class="page-width position-relative z-index-1 pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-5">
             <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop justify-content-center align-items-center">
@@ -120,7 +115,7 @@
       "step": 1,
       "unit": "px",
       "label": "Heading size Desktop",
-      "default": 35
+      "default": 46
     },
     {
       "type": "range",
@@ -130,7 +125,7 @@
       "step": 1,
       "unit": "px",
       "label": "Heading size Mobile",
-      "default": 27
+      "default": 20
     },
        {
  			"type": "image_picker",
@@ -145,7 +140,7 @@
           "step": 10,
           "unit": "%",
           "label": "t:sections.image-banner.settings.image_overlay_opacity.label",
-          "default": 10
+          "default": 0
         },
        {
          "type": "text",
@@ -166,7 +161,7 @@
         "step": 1,
         "unit": "px",
         "label": "Paragraph size Desktop",
-        "default": 17
+        "default": 16
       },
       {
         "type": "range",
@@ -176,7 +171,7 @@
         "step": 1,
         "unit": "px",
         "label": "Paragraph size Mobile",
-        "default": 14
+        "default": 16
       },
       {
         "type": "range",
@@ -186,7 +181,7 @@
         "step": 1,
         "unit": "px",
         "label": "Paragraph Line Height Desktop",
-        "default": 24
+        "default": 26
       },
       {
         "type": "range",
@@ -196,7 +191,7 @@
         "step": 1,
         "unit": "px",
         "label": "Paragraph Line Height Mobile",
-        "default": 24
+        "default": 26
       },
        {
  			"type": "text",

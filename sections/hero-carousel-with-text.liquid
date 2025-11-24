@@ -226,13 +226,14 @@
 {% schema %}
 {
   "name": "Dual Image Hero Carousel",
-  "class": "dual-hero shopify-cs-za",
+  "class": "dual-hero",
   "settings": [
     { "type": "checkbox", "id": "full", "label": "Full width", "default": true },
     { "type": "checkbox", "id": "loop", "label": "Loop", "default": true },
     { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
     { "type": "range", "id": "autoplay_timeout", "label": "Autoplay timeout (ms)", "min": 2000, "max": 9000, "step": 500, "default": 5000 },
     { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 200, "max": 1500, "step": 100, "default": 500 }
+
   ],
   "blocks": [
     {
@@ -249,51 +250,7 @@
     }
   ],
   "presets": [
-    {
-      "name": "Dual Image Hero Carousel",
-      "blocks": [
-        {
-          "type": "slide",
-          "settings": {
-            "main_image": "shopify://shop_images/woman-tennis-player-action-952_825.png",
-            "second_image": "shopify://shop_images/professional-tennis-player-serving-2.png",
-            "main_image_mb": "shopify://shop_images/588a0865308bb2dad7da6f89276cb8f81567ad00_bd1e9f14-ab6c-49a3-9f13-ad8440f2da6d.jpg",
-            "second_image_mb": "shopify://shop_images/ee41c414d22913f73f835cb11c4dcd31d643153d.jpg",
-            "heading": "Play your way",
-            "description": "<p>From recreational player groups to competitive formats, find matches that suit your style. Explore tennis and pickleball leagues, local clubs, and events near you!</p>"
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "main_image": "shopify://shop_images/player-action-shot.png",
-            "second_image": "shopify://shop_images/female-tennis-player-in-action.png",
-            "main_image_mb": "shopify://shop_images/Frame_91758335-5901-4b0a-9306-6cd3d188b8be.png",
-            "second_image_mb": "shopify://shop_images/Frame_e7bce7a0-db41-476b-b1ae-cb7e25b5ee7b.png",
-            "heading": "Level up your game",
-            "description": "<p>Gain insights, track your progress to improve your play, and get rated by the world's most trusted rating systems. See how you compare to other players.</p>"
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "main_image": "shopify://shop_images/two-players-outdoor-pickleball-court.png",
-            "second_image": "shopify://shop_images/tennis-players-handshake.png",
-            "main_image_mb": "shopify://shop_images/Frame_ec86ce95-e667-47c8-9acd-e57b89fca7f6.png",
-            "second_image_mb": "shopify://shop_images/Frame_409a3b2e-2de5-471d-8211-0eb1d2bf7f1b.png",
-            "heading": "Find your community",
-            "description": "<p>Whether you're a beginner or a competitive player, connect with millions of other passionate tennis and pickleball players.</p>"
-          }
-        }
-      ],
-      "settings": {
-        "full": true,
-        "loop": false,
-        "autoplay": false,
-        "autoplay_timeout": 5000,
-        "speed": 500
-      }
-    }
+    { "name": "Dual Image Hero Carousel" }
   ]
 }
 {% endschema %}

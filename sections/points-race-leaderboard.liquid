@@ -53,8 +53,8 @@
       <div class="divider-sm-teal divider-lg-teal"></div>
     {%- endif -%}
     {% if section.settings.updated != blank %}
-      <div class="date-update text-{{ section.settings.text_align }}" style="font-style: italic; font-size: 14px; margin: 40px 0;">
-        {{ section.settings.updated }}
+      <div class="date-update" style="font-style: italic; font-size: 14px">
+        <p>{{ section.settings.updated }}</p>
       </div>
     {% endif %}
   </div>  
@@ -648,11 +648,7 @@
             } else if (index === 7){
                 rowHtml += `<td class="text-center event-play">${cellData}</td>`;
             } else {
-              if(cellData == 'DNQ'){
-                rowHtml += `<td class="text-center DNQ">${cellData}</td>`;
-              }else{
                 rowHtml += `<td class="text-center">${cellData}</td>`;
-              }
             }
         });
 
@@ -816,29 +812,9 @@
           ]
         },
         {
-          "type": "richtext",
+          "type": "text",
           "id": "updated",
           "label": "File update date"
-        },
-        {
-          "type": "select",
-          "id": "text_align",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "center",
-          "label": "Text align"
         },
         {
           "type": "text",

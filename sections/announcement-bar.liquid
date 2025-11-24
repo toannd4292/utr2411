@@ -13,6 +13,7 @@
 }
 .announcement-bar.color-background-1{
   background:var(--color-teal);
+  width:100%;
   color:var(--color-black);
 }
 .announcement-bar.color-background-2{
@@ -20,7 +21,7 @@
   color:var(--color-black);
 }  
  {% if section.settings.hide_announcement != blank %}
-   {{ section.settings.hide_announcement }} {
+   {{ section.settings.hide_announcement }}{
      display: none;
    }
   {% endif %}
@@ -28,7 +29,7 @@
 {%- for block in section.blocks -%}
   {%- case block.type -%}
     {%- when 'announcement' -%}
-      <div class="announcement-bar {% if page.handle != blank %}{{ page.handle }}{% else %} homepage{% endif %} color-{{ block.settings.color_scheme }} gradientbar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+      <div class="announcement-bar {% if page.handle != blank %}{{ page.handle }} {% else %} homepage{% endif %} color-{{ block.settings.color_scheme }} gradientbar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if block.settings.text != blank -%}
           {%- if block.settings.link != blank -%}
             <a id="{{ block.settings.id_block }}" href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset">
@@ -63,7 +64,8 @@
       "id": "hide_announcement",
       "label": "Hide Announcement",
       "info": "Enter the page you want to hide according to the syntax .page-one, .page-two, .page....."
-    } 
+    }
+     
     ],
   "blocks": [
     {

@@ -1,12 +1,12 @@
 {% for i in (0..100) %}
-.shopify-cs-za .w-{{i}}, .utr-sports-hub .w-{{i}}, .utr-pickleball-sports-hub .w-{{i}}, .w-{{i}} {
+.hs-pg .w-{{i}}, .utr-sports-hub .w-{{i}}, .utr-pickleball-sports-hub .w-{{i}} {
   max-width: {{i}}%;
 }
 {% if i == 100 %}
-.shopify-cs-za .w-full, .utr-sports-hub .w-full, .utr-pickleball-sports-hub .w-full , .w-full {
+.hs-pg .w-full, .utr-sports-hub .w-full, .utr-pickleball-sports-hub .w-full {
   width: 100%;
 }
-.shopify-cs-za .h-full, .utr-sports-hub .h-full, .utr-pickleball-sports-hub .h-full, .h-full {
+.hs-pg .h-full, .utr-sports-hub .h-full, .utr-pickleball-sports-hub .h-full {
   height: 100%;
 }
 {% endif %}
@@ -14,20 +14,20 @@
 
 {% for i in (0..100) %}
 {% assign j = 100 | minus: i %}
-.shopify-cs-za .size-{{ j }}, .utr-sports-hub .size-{{ j }}, .utr-pickleball-sports-hub .size-{{ j }}, .size-{{ j }} {
+.hs-pg .size-{{ j }}, .utr-sports-hub .size-{{ j }}, .utr-pickleball-sports-hub .size-{{ j }} {
   font-size: {{ j }}px !important;
 }
-.shopify-cs-za .line-{{ j }}, .utr-sports-hub .line-{{ j }}, .utr-pickleball-sports-hub .line-{{ j }}, .line-{{ j }} {
+.hs-pg .line-{{ j }}, .utr-sports-hub .line-{{ j }}, .utr-pickleball-sports-hub .line-{{ j }} {
   line-height: {{ j }}px !important;
 }
-.shopify-cs-za .padding-bottom-{{ j }}, .utr-sports-hub .padding-bottom-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-{{ j }} , .padding-bottom-{{ j }} {
+.hs-pg .padding-bottom-{{ j }}, .utr-sports-hub .padding-bottom-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-{{ j }} {
   padding-bottom: {{ j }}px !important;
 }
 {% endfor %}
 
 {% for i in (0..50) %}
 {% assign j = 50 | minus: i %}
-.shopify-cs-za .gap-{{ j }}, .utr-sports-hub .gap-{{ j }}, .utr-pickleball-sports-hub .gap-{{ j }} , .gap-{{ j }} {
+.hs-pg .gap-{{ j }}, .utr-sports-hub .gap-{{ j }}, .utr-pickleball-sports-hub .gap-{{ j }} {
   gap: {{ j }}px !important;
 }
 {% endfor %}
@@ -36,16 +36,16 @@
 {% assign value = 40 | minus: i %}
 {% assign spacing = value | divided_by: 10.0 %}
 {% assign class_name = spacing | replace: '.', '-' | replace: '-', '-' %}
-.shopify-cs-za .spacing-{{ class_name }}, .utr-sports-hub .spacing-{{ class_name }}, .utr-pickleball-sports-hub .spacing-{{ class_name }} , .spacing-{{ class_name }} {
+.hs-pg .spacing-{{ class_name }}, .utr-sports-hub .spacing-{{ class_name }}, .utr-pickleball-sports-hub .spacing-{{ class_name }} {
   letter-spacing: {{ spacing }}px !important;
 }
 {% endfor %}
 
-.shopify-cs-za .spacing-0, .utr-sports-hub .spacing-0, .utr-pickleball-sports-hub .spacing-0 , .spacing-0 {
+.hs-pg .spacing-0, .utr-sports-hub .spacing-0, .utr-pickleball-sports-hub .spacing-0 {
   letter-spacing: 0px !important;
 }
 
-.shopify-cs-za .size-17, .utr-sports-hub .size-17, .utr-pickleball-sports-hub .size-17 {
+.hs-pg .size-17, .utr-sports-hub .size-17, .utr-pickleball-sports-hub .size-17 {
   font-size: 17px !important;
   line-height: 1.6;
   letter-spacing: -0.03em;
@@ -57,57 +57,57 @@
   }
   
   {% for i in (0..100) %}
-  .shopify-cs-za .w-md-{{i}}, .utr-sports-hub .w-md-{{i}}, .utr-pickleball-sports-hub .w-md-{{i}}, .w-md-{{i}} {
+  .hs-pg .w-md-{{i}}, .utr-sports-hub .w-md-{{i}}, .utr-pickleball-sports-hub .w-md-{{i}} {
     max-width: {{i}}%;
   }
   {% endfor %}
   
   {% for i in (0..100) %}
   {% assign j = 100 | minus: i %}
-  .shopify-cs-za .size-md-{{ j }}, .utr-sports-hub .size-md-{{ j }}, .utr-pickleball-sports-hub .size-md-{{ j }}, .size-md-{{ j }} {
+  .hs-pg .size-md-{{ j }}, .utr-sports-hub .size-md-{{ j }}, .utr-pickleball-sports-hub .size-md-{{ j }} {
     font-size: {{ j }}px !important;
   }
-  .shopify-cs-za .line-md-{{ j }}, .utr-sports-hub .line-md-{{ j }}, .utr-pickleball-sports-hub .line-md-{{ j }}, .line-md-{{ j }}  {
+  .hs-pg .line-md-{{ j }}, .utr-sports-hub .line-md-{{ j }}, .utr-pickleball-sports-hub .line-md-{{ j }} {
     line-height: {{ j }}px !important;
   }
-  .shopify-cs-za .padding-bottom-md-{{ j }}, .utr-sports-hub .padding-bottom-md-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-md-{{ j }} , .padding-bottom-md-{{ j }} {
+  .hs-pg .padding-bottom-md-{{ j }}, .utr-sports-hub .padding-bottom-md-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-md-{{ j }} {
     padding-bottom: {{ j }}px !important;
   }
   {% endfor %}
   
-  .shopify-cs-za .spacing-md-0, .utr-sports-hub .spacing-md-0, .utr-pickleball-sports-hub .spacing-md-0 {
+  .hs-pg .spacing-md-0, .utr-sports-hub .spacing-md-0, .utr-pickleball-sports-hub .spacing-md-0 {
     letter-spacing: 0px !important;
   }
 }
 
 @media only screen and (max-width: 749px) {
   {% for i in (0..100) %}
-  .shopify-cs-za .w-xs-{{i}}, .utr-sports-hub .w-xs-{{i}}, .utr-pickleball-sports-hub .w-xs-{{i}} , .w-xs-{{i}} {
+  .hs-pg .w-xs-{{i}}, .utr-sports-hub .w-xs-{{i}}, .utr-pickleball-sports-hub .w-xs-{{i}} {
     max-width: {{i}}%;
   }
   {% endfor %}
   
   {% for i in (0..100) %}
   {% assign j = 100 | minus: i %}
-  .shopify-cs-za .size-xs-{{ j }}, .utr-sports-hub .size-xs-{{ j }}, .utr-pickleball-sports-hub .size-xs-{{ j }} , .size-xs-{{ j }} {
+  .hs-pg .size-xs-{{ j }}, .utr-sports-hub .size-xs-{{ j }}, .utr-pickleball-sports-hub .size-xs-{{ j }} {
     font-size: {{ j }}px !important;
   }
-  .shopify-cs-za .line-xs-{{ j }}, .utr-sports-hub .line-xs-{{ j }}, .utr-pickleball-sports-hub .line-xs-{{ j }}, .line-xs-{{ j }} {
+  .hs-pg .line-xs-{{ j }}, .utr-sports-hub .line-xs-{{ j }}, .utr-pickleball-sports-hub .line-xs-{{ j }} {
     line-height: {{ j }}px !important;
   }
-  .shopify-cs-za .padding-bottom-xs-{{ j }}, .utr-sports-hub .padding-bottom-xs-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-xs-{{ j }}, .padding-bottom-xs-{{ j }} {
+  .hs-pg .padding-bottom-xs-{{ j }}, .utr-sports-hub .padding-bottom-xs-{{ j }}, .utr-pickleball-sports-hub .padding-bottom-xs-{{ j }} {
     padding-bottom: {{ j }}px !important;
   }
   {% endfor %}
   
   {% for i in (0..50) %}
   {% assign j = 50 | minus: i %}
-  .shopify-cs-za .gap-xs-{{ j }}, .utr-sports-hub .gap-xs-{{ j }}, .utr-pickleball-sports-hub .gap-xs-{{ j }}, .gap-xs-{{ j }} {
+  .hs-pg .gap-xs-{{ j }}, .utr-sports-hub .gap-xs-{{ j }}, .utr-pickleball-sports-hub .gap-xs-{{ j }} {
     gap: {{ j }}px !important;
   }
   {% endfor %}
   
-  .shopify-cs-za .spacing-xs-0, .utr-sports-hub .spacing-xs-0, .utr-pickleball-sports-hub .spacing-xs-0 , .spacing-xs-0 {
+  .hs-pg .spacing-xs-0, .utr-sports-hub .spacing-xs-0, .utr-pickleball-sports-hub .spacing-xs-0 {
     letter-spacing: 0px !important;
   }
 }
@@ -116,292 +116,268 @@ html {
   scroll-behavior: smooth;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .spacing--0-25 , .spacing--0-25 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .spacing--0-25 {
   letter-spacing: -0.25px;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .pl--0 , .pl--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .pl--0 {
   padding-left: 0px !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .pr--0 , .pr--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .pr--0 {
   padding-right: 0px !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .mg--0, .mg--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .mg--0 {
   margin: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .m-auto, .m-auto {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .m-auto {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .mt--0, .mt--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .mt--0 {
   margin-top: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .mb--0, .mb--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .mb--0 {
   margin-bottom: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .ml--0, .ml--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .ml--0 {
   margin-left: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .mr--0 , .mr--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .mr--0 {
   margin-right: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .line--0 , .line--0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .line--0 {
   line-height: 0 !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .rotate-180 , .rotate-180 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .rotate-180 {
   transform: rotate(180deg);
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .w--fit, .w--fit {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .w--fit {
   width: fit-content !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .cursor-pointer {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .cursor-pointer {
   cursor: pointer;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .object-contain {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .object-contain {
   object-fit: contain;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .object-cover {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .object-cover {
   object-fit: cover;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .visible {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .visible {
   visibility: visible;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .invisible {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .invisible {
   visibility: hidden;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .collapse {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .collapse {
   visibility: collapse;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .static {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .static {
   position: static;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .fixed {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .fixed {
   position: fixed;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .absolute {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .absolute {
   position: absolute;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .relative {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .relative {
   position: relative;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .unset {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .unset {
   position: unset;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .sticky {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .sticky {
   position: sticky;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex {
   display: flex;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .inline-box {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .inline-box {
   display: -webkit-inline-box;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-row {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-row {
   flex-direction: row;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-row-reverse {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-row-reverse {
   flex-direction: row-reverse;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-col {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-col {
   flex-direction: column;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-wrap {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-wrap {
   flex-wrap: wrap;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-nowrap {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .flex-nowrap {
   flex-wrap: nowrap;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .items-start {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .items-start {
   align-items: flex-start;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .items-end {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .items-end {
   align-items: flex-end;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .items-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .items-center {
   align-items: center;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .items-baseline {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .items-baseline {
   align-items: baseline;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .items-stretch {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .items-stretch {
   align-items: stretch;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-start {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-start {
   justify-content: flex-start;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-end {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-end {
   justify-content: flex-end;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-around {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-around {
   justify-content: space-around;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-center {
   justify-content: center;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-between {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .justify-between {
   justify-content: space-between;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .overflow-hidden {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .overflow-hidden {
   overflow: hidden;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .rounded-full {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .rounded-full {
   border-radius: 9999px;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .border-0 {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .border-0 {
   border-width: 0;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .text-left {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .text-left {
   text-align: left !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .text-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .text-center {
   text-align: center !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .text-right {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .text-right {
   text-align: right !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .lowercase {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .lowercase {
   text-transform: lowercase;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .capitalize {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .capitalize {
   text-transform: capitalize;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .normal-case {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .normal-case {
   text-transform: none;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .decoration-none {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .decoration-none {
   text-decoration: none !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .decoration-underline {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .decoration-underline {
   text-decoration: underline !important;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-left {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-left {
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-center {
   align-items: flex-start;
   justify-content: center;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-right {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--top-right {
   align-items: flex-start;
   justify-content: flex-end;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-left {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-left {
   align-items: center;
   justify-content: flex-start;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-center {
   align-items: center;
   justify-content: center;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-right {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--middle-right {
   align-items: center;
   justify-content: flex-end;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-left {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-left {
   align-items: flex-end;
   justify-content: flex-start;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-center {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-center {
   align-items: flex-end;
   justify-content: center;
 }
 
-:is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-right {
+:is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .content--bottom-right {
   align-items: flex-end;
   justify-content: flex-end;
 }
 
 @media only screen and (max-width: 749px) {
-  :is(.shopify-cs-za, .utr-sports-hub, .utr-pickleball-sports-hub) .text-xs-left {
+  :is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .text-xs-left {
     text-align: left !important;
   }
   
-  body:is(.shopify-cs-za, .utr-sports-hub) .page-width:not(.header) {
+  body:is(.hs-pg, .utr-sports-hub) .page-width:not(.header) {
     padding: 0 1.0rem;
   }
-}
-a.button.button--primary {
-    margin: 0px 1px;
-}
-.antr--button .button--primary {
-    z-index: 1;
-    transition: color .8s cubic-bezier(.25,.46,.45,.94);
-}
-.antr--button .button--primary:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: #ffffff !important;
-    transition: left .8s cubic-bezier(.25,.46,.45,.94);
-    z-index: -1;
-}
-.antr--button .button--primary:hover {
-    color: #000;
-} 
-.antr--button .button--primary:hover:before {
-    left: 0;
 }
 
 /* Instagram feed styles - scoped */
@@ -423,11 +399,4 @@ a.button.button--primary {
 
 :is(.hs-pg, .utr-sports-hub, .utr-pickleball-sports-hub) .eapps-instagram-feed-posts-item-instagram-link.es-post-source {
   display: block !important;
-}
-
-.size-17 {
-    letter-spacing: -.03em !important;
-}
-.zg-slider{
-  background : white;
 }

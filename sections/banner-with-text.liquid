@@ -294,15 +294,12 @@
               {%- if block.settings.button_label_1 != blank -%}
                 <div class="antr--button">
                 <a
-                    {% if block.settings.button_link_1 contains 'tennis-near-me' %}
-        onclick="markTennisVisited()"
-      {% endif %}
                   {% if block.settings.button_link_1 == blank %}
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.button_link_1 }}"
                   {% endif %}
-                  class="custom-{{  block.settings.button_label_1 |handle }} button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
                 >
                   {{- block.settings.button_label_1 | escape -}}
                   {% if block.settings.arrow %}
@@ -381,21 +378,22 @@
 {
   "name": "Banner with text",
   "tag": "section",
-  "class": "section shopify-cs-za",
+  "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
-      "type": "video",
-      "id": "video",
-      "label": "Video desktop"
-    },
-    {
-      "type": "video",
-      "id": "video_mobile",
-      "label": "Video mobile"
-    },
+  "type": "video",
+  "id": "video",
+  "label": "Video desktop"
+},
+{
+  "type": "video",
+  "id": "video_mobile",
+  "label": "Video mobile"
+}
+,
     {
       "type": "image_picker",
       "id": "image",
@@ -733,82 +731,8 @@
     {
       "name": "Banner with text",
       "blocks": [
-        {
-          "type": "text_custom",
-          "settings": {
-            "color": "",
-            "color_custom": "",
-            "font_custom": "none",
-            "align": "center",
-            "tag": "h1",
-            "heading": "The Home of Tennis & Pickleball",
-            "html": "",
-            "font": "inter-semibold",
-            "size": "80,40",
-            "height": "89,40",
-            "spacing": "-2,-1.3",
-            "width": "700,300",
-            "space": 17,
-            "space_tablet": 45,
-            "space_mobile": 10,
-            "class": ""
-          }
-        },
-        {
-          "type": "text_custom",
-          "settings": {
-            "color": "#ffffff",
-            "color_custom": "",
-            "font_custom": "inter-regular",
-            "align": "center",
-            "tag": "p",
-            "heading": "Connecting tennis and pickleball players globally through level-based play, ratings, and innovative events.",
-            "html": "",
-            "font": "none",
-            "size": "",
-            "height": "",
-            "spacing": "",
-            "width": "700,300",
-            "space": 50,
-            "space_tablet": 35,
-            "space_mobile": 10,
-            "class": ""
-          }
-        },
-        {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore tennis",
-            "button_link_1": "shopify://pages/tennis-near-me",
-            "button_style_secondary_1": true
-          }
-        },
-        {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Explore pickleball",
-            "button_link_1": "shopify://pages/pickleball-near-me",
-            "button_style_secondary_1": true
-          }
-        }
-      ],
-      "settings": {
-       
-        "image": "shopify://shop_images/Hero_02420ae8-fae9-459c-859d-07c6154c4a09.png",
-        "image_mobile": "shopify://shop_images/Frame_3441921.png",
-        "image_overlay_opacity": 60,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "mobile_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false,
-        "show_text_above": false,
-        "image_mobile_height": 100,
-        "class": ""
-      }
+
+      ]
     }
   ]
 }

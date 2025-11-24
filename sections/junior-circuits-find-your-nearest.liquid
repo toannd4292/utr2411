@@ -1,0 +1,322 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCapzh9VsfXAzC9fAaosZJulONx7H1BFaY&callback=initializeMap" defer></script>
+<div class="page-width text-center pt-lg-5 pt-sm-3">
+   <div class="text-center mb-4">
+    <h2 class="text-uppercase section-title section-title-sm mb-0 lh-sm-37 mb-1">{{section.settings.heading}}</h2>
+    {%- if section.settings.heading-permission == "YES" -%}
+    <div class="divider-sm-teal divider-lg-teal"></div>
+    {%- endif -%}
+  </div>
+  <form id="search-njc-form" class="mr-auto bg_black flex-search-bg">
+    <div class="d-flex gap-2 align-items-center justify-content-center">
+        <div class="flex-column d-flex w-xl-100">
+          <label>Enter Location</label>
+          <div class="position-relative">
+            <svg class="mapicon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.23438 15.3125C6.65513 15.3125 8.29988 14.111 9.6105 12.6204C11.3576 10.6348 12.4219 8.4185 12.4219 6.3125C12.4219 2.97913 9.6825 0.6875 6.23438 0.6875C2.78625 0.6875 0.046875 2.97913 0.046875 6.3125C0.046875 8.4275 1.11113 10.6437 2.85825 12.6271C4.16775 14.1144 5.8125 15.3125 6.23438 15.3125ZM6.23438 10.1375C5.2796 10.1375 4.36392 9.75821 3.68879 9.08308C3.01366 8.40795 2.63438 7.49228 2.63438 6.5375C2.63438 5.58272 3.01366 4.66705 3.68879 3.99192C4.36392 3.31678 5.2796 2.9375 6.23438 2.9375C7.18915 2.9375 8.10483 3.31678 8.77996 3.99192C9.45509 4.66705 9.83437 5.58272 9.83437 6.5375C9.83437 7.49228 9.45509 8.40795 8.77996 9.08308C8.10483 9.75821 7.18915 10.1375 6.23438 10.1375Z" fill="#00C0F7"></path>
+              </svg>
+            <input id="search_input_njc" type="text" class="gotham-bold text-black px-4 text-uppercase" placeholder="Enter a location" autocomplete="off" />
+          </div>      
+        </div>
+       <div class="flex-column d-flex">
+          <button type="button" class="blue-teal-gradient-bg search-icon club-search-btn">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <span class="text-white">
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search"></use>
+              </svg>
+            </span>
+          </summary>
+          </button>
+        </div>
+      </div>   
+  </form>
+</div>
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2 px-sm-0">
+    <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop">
+      <div class="grid__item order-sm-last order-md-last aria-scroll-lg aria-scroll-sm">
+       <div class="ps-xl-2 ps-sm-0 pt-sm-2">
+        <div class="flex-leagues-carousel-mobile owl-carousel owl-items-width" id="junior"></div>   
+      </div> 
+       </div>
+      <div class="grid__item order-sm-first order-md-first ps-sm-2">
+        <div id="map" class="border-radius-lg-3 border-radius-sm-3"></div>
+      </div>
+    </div>
+</div>
+<style>
+    @media screen and (max-width: 749px) {
+        .junior-circuits-nearest {
+            .custom-font-mobile {
+                font-weight: 500;
+            }
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .junior-circuits-nearest {
+            .custom-text-position {
+                position: relative;
+                padding-top: unset;
+            }
+            .rwbtn-lg {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                .btn-black-sm-2 {
+                    padding: 1rem;
+                }
+            }
+            .text-end {
+                position: absolute;
+                right: 0;
+                top: 0;
+                .brige-price {
+                    line-height: 28px;
+                }
+            }
+            .justify-content-sm-end {
+                margin: unset;
+            }
+        }
+    }
+</style>
+{% schema %}
+  {
+    "name": "Junior Circuits Nearest",
+    "class": "junior-circuits-nearest",
+    "presets": [
+      {
+        "name": "Junior Circuits Nearest",
+        "category": "Junior Circuits Nearest"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+	  },
+      {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+  let markerLocations = [];
+  let eventLocations = [];
+  let map;
+
+  function setMarkers() {
+    
+    var infoWindow;
+
+    for (var i = 0; i < eventLocations.length; i++) {
+      var event = eventLocations[i];
+      var myLatLng = new google.maps.LatLng(event[0], event[1]);
+      const pinIcon = "https://cdn.shopify.com/s/files/1/0690/8071/1488/files/location-vector.svg?v=1679692179";
+      // Create an info window to share between markers.
+      infoWindow = new google.maps.InfoWindow();
+      
+      var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: pinIcon,
+          animation: google.maps.Animation.DROP,
+          title: event[2],
+          zIndex: event[3],
+          optimized: true
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infoWindow.close();
+          infoWindow.setContent(marker.getTitle());
+          infoWindow.open(map, marker);
+          for(var j = 0; j < markerLocations.length; j++) {
+            //markerLocations[j].
+          }
+        }
+    
+      })(marker, i)); 
+      
+      // Push marker to markers array
+      markerLocations.push(marker);
+      
+      map.setZoom(4);
+      map.panTo(marker.position);
+
+    }
+    
+  }
+  
+  
+  function reloadMarkers() {
+
+    // Loop through markers and set map to null for each
+    for (var i=0; i<markerLocations.length; i++) {
+
+        markerLocations[i].setMap(null);
+        markerLocations[i] = null;
+    }
+
+    // Reset the markers array
+    markerLocations = [];
+
+    // Call set markers to re-add markers
+    setMarkers();
+
+  }
+
+  window.initializeMap = function(){
+    console.log("Initialize Map");
+    var mapOptions = {
+       zoom: 4,
+       center: { lat: 34.84555, lng: -101.299591 }
+    }
+
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    
+    setMarkers();
+
+    // Bind event listener on button to reload markers
+    //document.getElementById('reloadMarkers').addEventListener('click', reloadMarkers);
+
+  }
+
+  
+  var searchText = "";
+
+  $('#search_input_njc').keypress(function (e) {                                       
+       if (e.which == 13) {
+         e.preventDefault();
+         
+         //do something    
+         searchText = document.getElementById('search_input_njc').value;   
+         fetchDataFromGoogleMapAPI(searchText);
+       }
+  });  
+
+  //Search Functionality
+  let searchBtn = document.querySelector('.club-search-btn');
+  searchBtn.onclick = () => {
+    searchText = document.getElementById('search_input_njc').value;
+    fetchDataFromGoogleMapAPI(searchText);
+  }
+
+  //Fetch initial junior circuits data
+  fetchJuniorCircuits("https://api.utrsports.net/v2/search/juniorCircuits?top=10&skip=0&utrType=verified");
+
+  function fetchJuniorCircuits(fetchURL) {  
+    console.log("fetchJuniorCircuit");
+    
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    eventLocations = [];
+    var cCount = 0;
+    
+    fetch(fetchURL, requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        let data="";
+        
+        result.hits.map((values)=>{
+         // var name = values.source.name.substring(1, 31);
+          var id =  values.source.id;
+          var name = values.source.name;
+          var location = values.source.eventLocations[0].display;
+          var utrRange = values.source.utrRange
+          var team = values.source.teamType;
+          var date = values.source.eventSchedule.eventStartShort;
+          var time = values.source.eventSchedule.eventStartTime.toString().substr(0, 8);
+          var price = values.source.priceRange;
+        var priceShort = price.replace("Division Fees", "").trim();
+            //var priceShort = price.replace(' Entry Fees','');
+          var priceText = 'Entry Fees'; 
+          var llat = values.source.eventLocations[0].latLng[0];
+          var llng = values.source.eventLocations[0].latLng[1];
+          
+          data +='<div class="search-item-data text-black p-2 position-relative custom-position "><div class="d-flex align-items-start flex-sm-column justify-content-between"><h3 class="mb-0 mt-0 fw-bold text-uppercase font-tungsten font-sm-28 font-lg-28 text-black ellipsis-lg lh-normal lh-sm-26 custom-font-mobile">'+name+'</h3></div><p class="mt-1 font-lg-16 font-sm-12 font-md-14 mb-0 gotham-light gotham-sm-bold fw-sm-bold">'+location+'</p><div class="d-flex align-items-end justify-content-between pt-sm-1 custom-text-position"><div class="d-flex gap-lg-2 pt-lg-0 pt-sm-0 flex-sm-column"><p class="font-lg-14 font-sm-14 mt-0 mb-0"><span class="gotham-light">UTR:</span> <span class="gotham-medium">'+utrRange+'</span></p><p class="font-lg-14 font-sm-14 mt-0 mb-0"><span class="gotham-light">Type:</span> <span class="gotham-medium">'+team+'</span></p><p class="gotham-medium d-flex align-items-center font-lg-14 font-sm-14 mb-0 mt-0 gap-1"><span class="gotham-light d-flex justify-content-center"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/calender.svg?v=1672132105" /></span> <span class="gotham-medium">'+date+' <span>|</span> '+time+'</span></p></div><div class="text-end" style="display: none"><div class="brige-price text-black fw-bold font-tungsten lh-xl-78 custom-font-mobile">'+priceShort+'<span class="font-lg-14 font-sm-12 font-md-14 gotham d-block gotham-light" style="display: none">'+priceText+'</span></div></div></div><div class="rwbtn-lg mt-sm-2 mt-md-2 d-sm-flex d-md-flex justify-content-md-end justify-content-sm-end"><a href="https://app.utrsports.net/events/'+''+id+'" class="btn-black-sm-2 btn-outline-black text-uppercase font-12">REGISTER <span class="d-lg-none d-sm-inline">NOW</span></a>  </div></div>';
+
+          eventLocations.push([llat,llng,name,cCount]);
+          cCount+=1;
+          
+        });
+
+        document.getElementById("junior").innerHTML=data;        
+        
+        reloadMarkers();
+        
+      }).catch(error => console.log('error', error));
+
+  }
+
+  function fetchDataFromGoogleMapAPI(region){
+    console.log("fetchDataFromGoogleMapAPI");
+    
+    const fetchURL = 'https://maps.googleapis.com/maps/api/geocode/json?address='+region+'&key=AIzaSyCapzh9VsfXAzC9fAaosZJulONx7H1BFaY&language=en';
+    let latVal = "";
+    let longVal = "";
+    let city = "";
+    let state = "";
+    let country = "";
+    
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };  
+    fetch(fetchURL, requestOptions)
+      .then(response => response.text())
+      .then((data) => {
+        let result = JSON.parse(data);
+        if (result.results.length > 0) {
+
+          latVal = result.results[0].geometry.location.lat;
+          longVal = result.results[0].geometry.location.lng;
+          
+          for (var i=0; i<result.results[0].address_components.length; i++)
+            {
+                if (result.results[0].address_components[i].types[0] == "locality") {
+                        //this is the object you are looking for City
+                        city = result.results[0].address_components[i].long_name;
+                    }
+                if (result.results[0].address_components[i].types[0] == "administrative_area_level_1") {
+                        //this is the object you are looking for State
+                        state = result.results[0].address_components[i].long_name;
+                    }
+                if (result.results[0].address_components[i].types[0] == "country") {
+                        //this is the object you are looking for
+                        country = result.results[0].address_components[i].long_name;
+                    }
+            }
+  
+          if (latVal && longVal) {
+            //fetchJuniorCircuits('https://api.utrsports.net/v2/search/juniorCircuits?top=10&skip=0&utrType=verified&locationInputValue='+variable+'&locationCountryName='+variable+'&locationStateName='+variable);
+            fetchJuniorCircuits('https://api.utrsports.net/v2/search/juniorCircuits?top=10&skip=0&utrType=verified&locationInputValue='+region+'&locationCountryName='+country+'&locationStateName='+state);
+          }          
+        }
+      })
+      .catch(error => console.log('error', error));      
+  }
+  
+{% endjavascript %}

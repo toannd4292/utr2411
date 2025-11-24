@@ -1,0 +1,282 @@
+
+<style>
+  @media(min-width:750px){
+    #Eligibility .px-lg-2-2 {
+      padding-left: 2rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .section-medium-title.section-title-large {
+    font-size: 120px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+  }
+
+  .section-medium-title.section-title-small {
+    font-size: 50px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+  }
+
+  .section-sub-title.section-sub-title-small {
+    font-size: 55px;
+  }
+  .img-fluid {
+    /* object-fit: contain; */
+    /* width: 100%; */
+  }
+  .custom-justify-content {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  @media screen and (max-width: 1158px) {
+    #Eligibility {
+      .custom-grid_item {
+        max-width: unset !important;
+      }
+      #height-grid__item {
+        .px-lg-2-2 {
+           padding-left: unset;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 990px) {
+    .custom-grid_item {
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+        max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2) !important;
+    }
+}
+  
+  @media screen and (max-width: 749px){
+    .section-medium-title.section-title-large {
+      font-size: 60px;
+    }
+
+    .section-medium-title.section-title-small {
+      font-size: 26px;
+    }
+
+    .section-medium-title.section-title-medium {
+      font-size: 40px;
+    }
+
+    .section-sub-title.section-sub-title-small {
+      font-size: 35px;
+    }
+  }
+
+@media (max-width: 450px) {
+  .px-lg-2-2 {
+    padding-bottom: 2.5rem;
+  }
+  .pb-sm-5 {
+    padding-bottom: unset;
+  }
+  .custom-justify-content {
+    li {
+      text-align: center;
+    }
+  }
+}
+</style>
+
+<div id="Eligibility" class="pt-lg-5 pt-sm-5">
+  <div class="page-width pb-lg-5 pb-sm-5">
+    <div class="grid grid--1-col grid--1-col-tablet grid--2-col-deskto d-flex align-items-stretch"> 
+      <div class="grid__item custom-grid_item">
+        <div>
+          <img id="custom-img-height" class="img-fluid border-radius-lg-3 border-radius-sm-3"
+               data-src="{{section.settings.section-image | img_url: 'master' }}"
+            src="{{section.settings.section-image | img_url: 'master' }}"
+               loading="lazy">
+        </div>
+      </div>
+
+      <div id="height-grid__item" class="grid__item" style="width: 240px;">
+        {% for block in section.blocks %}
+          <div class="px-lg-2-2">
+            <!-- Heading -->
+            {% case block.settings.heading_size %}
+              {% when 'h1' %}
+                <h1 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 text-sm-center section-title-large">
+                  {{ block.settings.heading }}
+                </h1>
+              {% when 'h2' %}
+                <h2 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 text-sm-center section-title-medium">
+                  {{ block.settings.heading }}
+                </h2>
+              {% when 'h3' %}
+                <h3 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 text-sm-center section-title-small">
+                  {{ block.settings.heading }}
+                </h3>
+            {% endcase %}
+
+            {% case block.settings.subheading_size %}
+              {% when 'h2' %}
+                <h2 class="section-sub-title text-teal mt-0 mb-0 lh-xl-78 ps-lg-2 text-sm-center section-sub-title-medium">
+                  {{ block.settings.subheading }}
+                </h2>
+              {% when 'h3' %}
+                <h3 class="section-sub-title text-teal mt-0 mb-0 lh-xl-78 ps-lg-2 text-sm-center section-sub-title-small">
+                  {{ block.settings.subheading }}
+                </h3>
+            {% endcase %}
+
+            <ul class="fw-bold font-sm-13 font-lg-18 font-md-14 custom-padding-left custom-justify-content">
+              {%- if block.settings.list != blank -%}
+                <li>{{block.settings.list}}</li>
+              {%- endif -%}
+              {%- if block.settings.list2 != blank -%}
+                <li>{{block.settings.list2}}</li>
+              {%- endif -%}
+              {%- if block.settings.list3 != blank -%}
+                <li>{{block.settings.list3}}</li>
+              {%- endif -%}
+              {%- if block.settings.list4 != blank -%}
+                <li>{{block.settings.list4}}</li>
+              {%- endif -%}
+            </ul>
+
+            <div class="d-flex justify-content-sm-center">
+              <a href="{{ block.settings.button_url }}" class="btn-black btn-sm fst-sm-14 text-uppercase ">
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    // var leftImage = $('.grid__item #custom-img-height');
+    // var rightContent = $('#height-grid__item');
+    // leftImage.hide();
+
+    // $(window).on('load resize', function() {
+    //     var screenWidth = $(window).width();
+    //     var rightContentHeight = rightContent.outerHeight();
+    //     // console.log("height",rightContentHeight);
+    //     if (screenWidth < 1158) {
+    //         leftImage.css({'max-height': 'unset', 'height': 'unset'});
+    //     } else {
+    //         if (rightContentHeight > 600) {
+    //             leftImage.height(rightContentHeight);
+    //         } else {
+    //             leftImage.height(600); 
+    //         }
+    //     }
+    //     leftImage.show();
+    // });
+});
+
+</script>
+
+{% schema %}
+  {
+  "name": "Content List Zago",
+  "presets": [
+    {
+      "name": "Content List Zago",
+      "category": "Content List Zago"
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section-image",
+      "label": "Section Image"
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "heading_and_list",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Title"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "options": [
+            { "value": "h1", "label": "Large" },
+            { "value": "h2", "label": "Medium" },
+            { "value": "h3", "label": "Small" }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "SubTitle"
+        },
+        {
+          "type": "select",
+          "id": "subheading_size",
+          "label": "Sub Header Size",
+          "options": [
+            { "value": "h2", "label": "Medium" },
+            { "value": "h3", "label": "Small" }
+          ],
+          "default": "h2"
+        },
+        {
+			"type":"text",
+			"id":"list",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list2",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list3",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list4",
+			"label": "List"
+		},
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+document.addEventListener("DOMContentLoaded", function() {
+        var images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(function(img) {
+            img.src = img.dataset.src;
+          
+        });
+    });
+{% endjavascript %}

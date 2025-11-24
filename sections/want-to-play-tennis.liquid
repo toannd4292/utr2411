@@ -1,0 +1,72 @@
+ <div class="page-width text-center pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+    <h2 class="text-uppercase section-title section-title-sm  mb-0 lh-xl-78">{{section.settings.heading}}</h2>
+    <h2 class="section-sub-title text-teal mt-0 mb-0 lh-xl-78">{{section.settings.sub-heading}}</h2>
+ </div>
+ 
+ <div class="position-relative text-center page-width text-center pb-lg-5 pb-sm-5 px-sm-0">
+    <div class="wantmore-carousel owl-carousel">
+      {% for block in section.blocks %} 
+        <div class="play-tennis" style="display:block; ">
+          <a href="{{block.settings.section-button-url}}">
+          <div class="play-tennis-img">
+            <img src="{{block.settings.block-image |  img_url:'large'}}" />
+          </div>
+          <div class="out-line-btn-black font-tungsten text-uppercase">{{block.settings.section-button}}</div></a>
+        </div>
+       {% endfor %}
+    </div>
+ </div>  
+ 
+{% schema %}
+  {
+    "name": "Col sl-4 Image Button",
+    "presets": [
+      {
+        "name": "Col sl-4 Image Button",
+        "category": "Col sl-4 Image Button"
+      }
+    ],
+    "settings": [
+       {
+		 "type":"text",
+		 "id":"heading",
+		 "label": "Heading Title"
+	  },
+      {
+		"type":"text",
+		"id":"sub-heading",
+		"label": "Sub Title"
+	  }
+    ],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"image-block",
+		"settings":[
+		 {
+		  "type": "image_picker",
+       	  "id": "block-image",
+       	  "label": "Card Image"
+		 },
+          {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		}
+		
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,239 @@
+<form>
+<div class="page-width text-center">
+  <h2 class="text-uppercase section-title section-title-sm mb-0 lh-sm-90 mb-sm-1">{{section.settings.heading}}</h2>
+    {%- if section.settings.heading-permission == "YES" -%}
+    <div class="divider-sm-teal divider-lg-teal"></div>
+  {%- endif -%}
+  <p class="findtext fw-bold font-sm-14 pt-lg-3 w-xl-75 pb-lg-3 pt-sm-2 pb-sm-2 text-center mr-auto">{{ section.settings.description-title }}</p>
+    <div class="mr-auto bg_black flex-search-bg mb-md-3">
+       <div class="d-flex gap-2 align-items-center justify-content-center mb-md-2">
+       
+        <div class="flex-column d-flex w-xl-100">
+          <label>Enter Location</label>
+          <div class="position-relative">
+            <svg class="mapicon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.23438 15.3125C6.65513 15.3125 8.29988 14.111 9.6105 12.6204C11.3576 10.6348 12.4219 8.4185 12.4219 6.3125C12.4219 2.97913 9.6825 0.6875 6.23438 0.6875C2.78625 0.6875 0.046875 2.97913 0.046875 6.3125C0.046875 8.4275 1.11113 10.6437 2.85825 12.6271C4.16775 14.1144 5.8125 15.3125 6.23438 15.3125ZM6.23438 10.1375C5.2796 10.1375 4.36392 9.75821 3.68879 9.08308C3.01366 8.40795 2.63438 7.49228 2.63438 6.5375C2.63438 5.58272 3.01366 4.66705 3.68879 3.99192C4.36392 3.31678 5.2796 2.9375 6.23438 2.9375C7.18915 2.9375 8.10483 3.31678 8.77996 3.99192C9.45509 4.66705 9.83437 5.58272 9.83437 6.5375C9.83437 7.49228 9.45509 8.40795 8.77996 9.08308C8.10483 9.75821 7.18915 10.1375 6.23438 10.1375Z" fill="#00C0F7"></path>
+              </svg>
+            <input type="text" class="gotham-bold text-black px-4 text-uppercase" placeholder="Denver, USA" />
+          </div>      
+        </div>
+       
+       
+        <div class="flex-column d-flex">
+          <label>Distance</label>
+          <input type="text" class="gotham-bold text-black text-uppercase" placeholder="12" />
+        </div>
+      
+      
+       <div class="flex-column d-flex">
+          <button class="blue-teal-gradient-bg search-icon">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <span class="text-white">
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search"></use>
+              </svg>
+            </span>
+          </summary>
+          </button>
+        </div>
+       
+      </div>   
+    </div>
+   <div class="select-gap-lg-1 select-gap-md-3 pt-lg-5 pb-lg-5 pt-sm-4 pb-sm-0">
+      <div class="pb-sm-2 pb-md-3 select-col-sm-left select-col-md-left">
+        <div class="select-control">
+          <select class="text-uppercase font-sm-12 min-w-sm-100 min-w-md-100">
+            <option>Age</option>
+            <option>U14</option>
+            <option>U16</option>
+            <option>U18</option>
+          </select>
+        </div>   
+     </div>
+     <div class="pb-sm-2 pb-md-3 select-col-sm-right select-col-md-right">
+        <div class="select-control">
+          <select class="text-uppercase font-sm-12 min-w-sm-100 min-w-md-100">
+            <option>All</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>   
+     </div>
+     <div class="pb-sm-2 pb-md-3 select-col-sm-left select-col-md-left">
+        <div class="select-control min-w-sm-100">
+          <select class="text-uppercase font-sm-12  min-w-sm-100 min-w-md-100">
+            <option>Match Type</option>
+            <option>1</option>
+          </select>
+        </div>   
+     </div>
+      <div class="pb-sm-2 pb-md-3 select-col-sm-right select-col-md-right">
+        <div class="select-control">
+          <select class="text-uppercase font-sm-12 min-w-sm-100 min-w-md-100">
+            <option>All</option>
+            <option>Singles</option>
+            <option>Doubles</option>
+          </select>
+        </div>   
+     </div>
+     <div class="pb-sm-2 pb-md-3 select-col-sm-left select-col-md-left">
+        <div class="select-control">
+          <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-100 min-w-md-100">
+            <option>Upcoming</option>
+            <option>1</option>
+          </select>
+        </div>   
+     </div>
+   
+      <div class="pb-sm-2 pb-md-3 select-col-sm-right select-col-md-right">
+        <div class="select-control">
+          <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-100 min-w-md-100">
+            <option>UTR Rating</option>
+            <option>1</option>
+          </select>
+        </div>   
+     </div>
+   </div>
+</div>
+
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2 px-sm-0 clear-both">
+    <div class="grid grid--1-col grid--2-col-tablet grid--2-col-desktop">
+        <div class="grid__item order-sm-last aria-scroll-lg aria-scroll-sm">
+           <div class="flex-leagues-carousel-mobile owl-carousel">
+              <div class="search-item-data pe-lg-6 border-radius-lg-18 border-radius-sm-3 text-black p-2 position-relative">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="mb-1 mt-0 fw-bold text-uppercase lh-normal">Denver Flex Leagues</h3>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-start flex-sm-column align-items-sm-start justify-content-sm-start">
+                      <h4 class="d-flex align-items-lg-center justify-content-lg-center gap-1 mb-0 mt-0">
+                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M3.26133 4.24336C3.26133 3.36814 3.60901 2.52878 4.22788 1.90991C4.84675 1.29104 5.68611 0.943359 6.56133 0.943359C7.43654 0.943359 8.27591 1.29104 8.89478 1.90991C9.51365 2.52878 9.86133 3.36814 9.86133 4.24336C9.86133 5.11857 9.51365 5.95794 8.89478 6.57681C8.27591 7.19568 7.43654 7.54336 6.56133 7.54336C5.68611 7.54336 4.84675 7.19568 4.22788 6.57681C3.60901 5.95794 3.26133 5.11857 3.26133 4.24336ZM11.0613 6.04336C11.0613 5.68879 11.1312 5.33769 11.2669 5.01011C11.4025 4.68253 11.6014 4.38489 11.8521 4.13417C12.1029 3.88345 12.4005 3.68457 12.7281 3.54888C13.0557 3.4132 13.4068 3.34336 13.7613 3.34336C14.1159 3.34336 14.467 3.4132 14.7946 3.54888C15.1222 3.68457 15.4198 3.88345 15.6705 4.13417C15.9212 4.38489 16.1201 4.68253 16.2558 5.01011C16.3915 5.33769 16.4613 5.68879 16.4613 6.04336C16.4613 6.75944 16.1769 7.4462 15.6705 7.95255C15.1642 8.4589 14.4774 8.74336 13.7613 8.74336C13.0452 8.74336 12.3585 8.4589 11.8521 7.95255C11.3458 7.4462 11.0613 6.75944 11.0613 6.04336ZM0.861328 14.4434C0.861328 12.9316 1.46186 11.4818 2.53082 10.4129C3.59978 9.34389 5.04959 8.74336 6.56133 8.74336C8.07306 8.74336 9.52288 9.34389 10.5918 10.4129C11.6608 11.4818 12.2613 12.9316 12.2613 14.4434V14.4458L12.2605 14.541C12.2588 14.6427 12.2313 14.7423 12.1805 14.8305C12.1297 14.9187 12.0573 14.9925 11.9701 15.045C10.3375 16.0281 8.46714 16.5463 6.56133 16.5434C4.58373 16.5434 2.73253 15.9962 1.15333 15.045C1.06601 14.9926 0.993462 14.9188 0.942517 14.8306C0.891573 14.7425 0.863908 14.6428 0.862128 14.541L0.861328 14.4434ZM13.4613 14.4458L13.4605 14.561C13.4561 14.8276 13.3924 15.0899 13.2741 15.329C14.6707 15.4151 16.0657 15.1367 17.3221 14.521C17.4193 14.4735 17.5018 14.4006 17.561 14.31C17.6201 14.2195 17.6537 14.1146 17.6581 14.0066C17.6864 13.3356 17.5408 12.6686 17.2357 12.0704C16.9305 11.4721 16.476 10.9628 15.9162 10.5918C15.3564 10.2207 14.7102 10.0005 14.0403 9.95254C13.3705 9.90454 12.6995 10.0303 12.0925 10.3178C12.9831 11.5086 13.4631 12.9563 13.4605 14.4434V14.4458H13.4613Z" fill="black"></path>
+                          </svg>
+                        <span class="fw-bold font-lg-18">212</span>
+                      </h4>
+                    <div>
+                      <p class="font-lg-14 font-sm-12 mb-0 mt-0 px-lg-2 d-sm-block">Register Now for Nov 8 Session</p>
+                    </div>
+                  </div>
+                  <p class="font-lg-14 font-sm-12 mb-0 pb-sm-2">Denver: <span class="text-decoration-underline d-sm-block">Flex Leagues 8 November - 12 December (Fall Session 2)</span></p>
+                  <div class="rwbtn-lg mt-sm-2 mt-md-2 d-sm-flex d-md-flex justify-content-md-end justify-content-sm-end">
+                    <a href="#" class="btn-black-sm btn-outline-lg-black text-uppercase font-sm-14">REGISTER NOW</a>  
+                 </div>
+              </div><!--./search-item-data-->
+
+             <div class="search-item-data pe-lg-6 border-radius-lg-18 border-radius-sm-3 text-black p-2 position-relative">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="mb-1 mt-0 fw-bold text-uppercase lh-normal">Denver Flex Leagues</h3>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-start flex-sm-column align-items-sm-start justify-content-sm-start">
+                      <h4 class="d-flex align-items-lg-center justify-content-lg-center gap-1 mb-0 mt-0">
+                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M3.26133 4.24336C3.26133 3.36814 3.60901 2.52878 4.22788 1.90991C4.84675 1.29104 5.68611 0.943359 6.56133 0.943359C7.43654 0.943359 8.27591 1.29104 8.89478 1.90991C9.51365 2.52878 9.86133 3.36814 9.86133 4.24336C9.86133 5.11857 9.51365 5.95794 8.89478 6.57681C8.27591 7.19568 7.43654 7.54336 6.56133 7.54336C5.68611 7.54336 4.84675 7.19568 4.22788 6.57681C3.60901 5.95794 3.26133 5.11857 3.26133 4.24336ZM11.0613 6.04336C11.0613 5.68879 11.1312 5.33769 11.2669 5.01011C11.4025 4.68253 11.6014 4.38489 11.8521 4.13417C12.1029 3.88345 12.4005 3.68457 12.7281 3.54888C13.0557 3.4132 13.4068 3.34336 13.7613 3.34336C14.1159 3.34336 14.467 3.4132 14.7946 3.54888C15.1222 3.68457 15.4198 3.88345 15.6705 4.13417C15.9212 4.38489 16.1201 4.68253 16.2558 5.01011C16.3915 5.33769 16.4613 5.68879 16.4613 6.04336C16.4613 6.75944 16.1769 7.4462 15.6705 7.95255C15.1642 8.4589 14.4774 8.74336 13.7613 8.74336C13.0452 8.74336 12.3585 8.4589 11.8521 7.95255C11.3458 7.4462 11.0613 6.75944 11.0613 6.04336ZM0.861328 14.4434C0.861328 12.9316 1.46186 11.4818 2.53082 10.4129C3.59978 9.34389 5.04959 8.74336 6.56133 8.74336C8.07306 8.74336 9.52288 9.34389 10.5918 10.4129C11.6608 11.4818 12.2613 12.9316 12.2613 14.4434V14.4458L12.2605 14.541C12.2588 14.6427 12.2313 14.7423 12.1805 14.8305C12.1297 14.9187 12.0573 14.9925 11.9701 15.045C10.3375 16.0281 8.46714 16.5463 6.56133 16.5434C4.58373 16.5434 2.73253 15.9962 1.15333 15.045C1.06601 14.9926 0.993462 14.9188 0.942517 14.8306C0.891573 14.7425 0.863908 14.6428 0.862128 14.541L0.861328 14.4434ZM13.4613 14.4458L13.4605 14.561C13.4561 14.8276 13.3924 15.0899 13.2741 15.329C14.6707 15.4151 16.0657 15.1367 17.3221 14.521C17.4193 14.4735 17.5018 14.4006 17.561 14.31C17.6201 14.2195 17.6537 14.1146 17.6581 14.0066C17.6864 13.3356 17.5408 12.6686 17.2357 12.0704C16.9305 11.4721 16.476 10.9628 15.9162 10.5918C15.3564 10.2207 14.7102 10.0005 14.0403 9.95254C13.3705 9.90454 12.6995 10.0303 12.0925 10.3178C12.9831 11.5086 13.4631 12.9563 13.4605 14.4434V14.4458H13.4613Z" fill="black"></path>
+                          </svg>
+                        <span class="fw-bold font-lg-18">212</span>
+                      </h4>
+                    <div>
+                      <p class="font-lg-14 font-sm-12 mb-0 mt-0 px-lg-2 d-sm-block">Register Now for Nov 8 Session</p>
+                    </div>
+                  </div>
+                  <p class="font-lg-14 font-sm-12 mb-0 pb-sm-2">Denver: <span class="text-decoration-underline d-sm-block">Flex Leagues 8 November - 12 December (Fall Session 2)</span></p>
+                  <div class="rwbtn-lg mt-sm-2 mt-md-2 d-sm-flex d-md-flex justify-content-md-end justify-content-sm-end">
+                    <a href="#" class="btn-black-sm btn-outline-lg-black text-uppercase font-sm-14">REGISTER NOW</a>  
+                 </div>
+              </div><!--./search-item-data-->
+
+             <div class="search-item-data pe-lg-6 border-radius-lg-18 border-radius-sm-3 text-black p-2 position-relative">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="mb-1 mt-0 fw-bold text-uppercase lh-normal">Denver Flex Leagues</h3>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-start flex-sm-column align-items-sm-start justify-content-sm-start">
+                      <h4 class="d-flex align-items-lg-center justify-content-lg-center gap-1 mb-0 mt-0">
+                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M3.26133 4.24336C3.26133 3.36814 3.60901 2.52878 4.22788 1.90991C4.84675 1.29104 5.68611 0.943359 6.56133 0.943359C7.43654 0.943359 8.27591 1.29104 8.89478 1.90991C9.51365 2.52878 9.86133 3.36814 9.86133 4.24336C9.86133 5.11857 9.51365 5.95794 8.89478 6.57681C8.27591 7.19568 7.43654 7.54336 6.56133 7.54336C5.68611 7.54336 4.84675 7.19568 4.22788 6.57681C3.60901 5.95794 3.26133 5.11857 3.26133 4.24336ZM11.0613 6.04336C11.0613 5.68879 11.1312 5.33769 11.2669 5.01011C11.4025 4.68253 11.6014 4.38489 11.8521 4.13417C12.1029 3.88345 12.4005 3.68457 12.7281 3.54888C13.0557 3.4132 13.4068 3.34336 13.7613 3.34336C14.1159 3.34336 14.467 3.4132 14.7946 3.54888C15.1222 3.68457 15.4198 3.88345 15.6705 4.13417C15.9212 4.38489 16.1201 4.68253 16.2558 5.01011C16.3915 5.33769 16.4613 5.68879 16.4613 6.04336C16.4613 6.75944 16.1769 7.4462 15.6705 7.95255C15.1642 8.4589 14.4774 8.74336 13.7613 8.74336C13.0452 8.74336 12.3585 8.4589 11.8521 7.95255C11.3458 7.4462 11.0613 6.75944 11.0613 6.04336ZM0.861328 14.4434C0.861328 12.9316 1.46186 11.4818 2.53082 10.4129C3.59978 9.34389 5.04959 8.74336 6.56133 8.74336C8.07306 8.74336 9.52288 9.34389 10.5918 10.4129C11.6608 11.4818 12.2613 12.9316 12.2613 14.4434V14.4458L12.2605 14.541C12.2588 14.6427 12.2313 14.7423 12.1805 14.8305C12.1297 14.9187 12.0573 14.9925 11.9701 15.045C10.3375 16.0281 8.46714 16.5463 6.56133 16.5434C4.58373 16.5434 2.73253 15.9962 1.15333 15.045C1.06601 14.9926 0.993462 14.9188 0.942517 14.8306C0.891573 14.7425 0.863908 14.6428 0.862128 14.541L0.861328 14.4434ZM13.4613 14.4458L13.4605 14.561C13.4561 14.8276 13.3924 15.0899 13.2741 15.329C14.6707 15.4151 16.0657 15.1367 17.3221 14.521C17.4193 14.4735 17.5018 14.4006 17.561 14.31C17.6201 14.2195 17.6537 14.1146 17.6581 14.0066C17.6864 13.3356 17.5408 12.6686 17.2357 12.0704C16.9305 11.4721 16.476 10.9628 15.9162 10.5918C15.3564 10.2207 14.7102 10.0005 14.0403 9.95254C13.3705 9.90454 12.6995 10.0303 12.0925 10.3178C12.9831 11.5086 13.4631 12.9563 13.4605 14.4434V14.4458H13.4613Z" fill="black"></path>
+                          </svg>
+                        <span class="fw-bold font-lg-18">212</span>
+                      </h4>
+                    <div>
+                      <p class="font-lg-14 font-sm-12 mb-0 mt-0 px-lg-2 d-sm-block">Register Now for Nov 8 Session</p>
+                    </div>
+                  </div>
+                  <p class="font-lg-14 font-sm-12 mb-0 pb-sm-2">Denver: <span class="text-decoration-underline d-sm-block">Flex Leagues 8 November - 12 December (Fall Session 2)</span></p>
+                 <div class="rwbtn-lg mt-sm-2 mt-md-2 d-sm-flex d-md-flex justify-content-md-end justify-content-sm-end">
+                    <a href="#" class="btn-black-sm btn-outline-lg-black text-uppercase font-sm-14">REGISTER NOW</a>  
+                 </div>
+              </div><!--./search-item-data-->
+
+             <div class="search-item-data pe-lg-6 border-radius-lg-18 border-radius-sm-3 text-black p-2 position-relative">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h3 class="mb-1 mt-0 fw-bold text-uppercase lh-normal">Denver Flex Leagues</h3>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-start flex-sm-column align-items-sm-start justify-content-sm-start">
+                      <h4 class="d-flex align-items-lg-center justify-content-lg-center gap-1 mb-0 mt-0">
+                          <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M3.26133 4.24336C3.26133 3.36814 3.60901 2.52878 4.22788 1.90991C4.84675 1.29104 5.68611 0.943359 6.56133 0.943359C7.43654 0.943359 8.27591 1.29104 8.89478 1.90991C9.51365 2.52878 9.86133 3.36814 9.86133 4.24336C9.86133 5.11857 9.51365 5.95794 8.89478 6.57681C8.27591 7.19568 7.43654 7.54336 6.56133 7.54336C5.68611 7.54336 4.84675 7.19568 4.22788 6.57681C3.60901 5.95794 3.26133 5.11857 3.26133 4.24336ZM11.0613 6.04336C11.0613 5.68879 11.1312 5.33769 11.2669 5.01011C11.4025 4.68253 11.6014 4.38489 11.8521 4.13417C12.1029 3.88345 12.4005 3.68457 12.7281 3.54888C13.0557 3.4132 13.4068 3.34336 13.7613 3.34336C14.1159 3.34336 14.467 3.4132 14.7946 3.54888C15.1222 3.68457 15.4198 3.88345 15.6705 4.13417C15.9212 4.38489 16.1201 4.68253 16.2558 5.01011C16.3915 5.33769 16.4613 5.68879 16.4613 6.04336C16.4613 6.75944 16.1769 7.4462 15.6705 7.95255C15.1642 8.4589 14.4774 8.74336 13.7613 8.74336C13.0452 8.74336 12.3585 8.4589 11.8521 7.95255C11.3458 7.4462 11.0613 6.75944 11.0613 6.04336ZM0.861328 14.4434C0.861328 12.9316 1.46186 11.4818 2.53082 10.4129C3.59978 9.34389 5.04959 8.74336 6.56133 8.74336C8.07306 8.74336 9.52288 9.34389 10.5918 10.4129C11.6608 11.4818 12.2613 12.9316 12.2613 14.4434V14.4458L12.2605 14.541C12.2588 14.6427 12.2313 14.7423 12.1805 14.8305C12.1297 14.9187 12.0573 14.9925 11.9701 15.045C10.3375 16.0281 8.46714 16.5463 6.56133 16.5434C4.58373 16.5434 2.73253 15.9962 1.15333 15.045C1.06601 14.9926 0.993462 14.9188 0.942517 14.8306C0.891573 14.7425 0.863908 14.6428 0.862128 14.541L0.861328 14.4434ZM13.4613 14.4458L13.4605 14.561C13.4561 14.8276 13.3924 15.0899 13.2741 15.329C14.6707 15.4151 16.0657 15.1367 17.3221 14.521C17.4193 14.4735 17.5018 14.4006 17.561 14.31C17.6201 14.2195 17.6537 14.1146 17.6581 14.0066C17.6864 13.3356 17.5408 12.6686 17.2357 12.0704C16.9305 11.4721 16.476 10.9628 15.9162 10.5918C15.3564 10.2207 14.7102 10.0005 14.0403 9.95254C13.3705 9.90454 12.6995 10.0303 12.0925 10.3178C12.9831 11.5086 13.4631 12.9563 13.4605 14.4434V14.4458H13.4613Z" fill="black"></path>
+                          </svg>
+                        <span class="fw-bold font-lg-18">212</span>
+                      </h4>
+                    <div>
+                      <p class="font-lg-14 font-sm-12 mb-0 mt-0 px-lg-2 d-sm-block">Register Now for Nov 8 Session</p>
+                    </div>
+                  </div>
+                  <p class="font-lg-14 font-sm-12 mb-0 pb-sm-2">Denver: <span class="text-decoration-underline d-sm-block">Flex Leagues 8 November - 12 December (Fall Session 2)</span></p>
+                 <div class="rwbtn-lg mt-sm-2 mt-md-2 d-sm-flex d-md-flex justify-content-md-end justify-content-sm-end">
+                    <a href="#" class="btn-black-sm btn-outline-lg-black text-uppercase font-sm-14">REGISTER NOW</a>  
+                 </div>
+              </div><!--./search-item-data-->
+           </div>
+        </div>
+        <div class="grid__item order-sm-first order-md-first ps-sm-2">
+          <iframe class="border-radius-lg-3 border-radius-sm-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196281.1293659887!2d-104.9951981804628!3d39.76451867497525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b80aa231f17cf%3A0x118ef4f8278a36d6!2sDenver%2C%20CO%2C%20USA!5e0!3m2!1sen!2sin!4v1673435796000!5m2!1sen!2sin" width="100%" height="540" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+       </div>
+    </div>
+</div>
+</form> 
+
+{% schema %}
+  {
+    "name": "Ut Team Adult Card Map",
+     "presets": [
+      {
+        "name": "Team Tennis Adult Location Map",
+        "category": "Team Tennis Adult Location Map"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+	  },
+      {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+      {
+       "type": "text",
+       "id": "description-title",
+       "label": "Description"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

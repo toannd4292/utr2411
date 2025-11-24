@@ -1,0 +1,2787 @@
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+  .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    margin-bottom:100px;
+  }
+  .col-6 {
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+  }  
+  /* button.w3-bar-item.w3-button {
+      min-width: 95px;
+  }   */
+      .citiesTab__navLink a {
+    font-size: 13px;
+}
+  .rte-wrap { padding-bottom: 20px;}
+  @media (min-width: 768px) {
+    .col-md-4 {
+        -ms-flex: 0 0 33.33333%;
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }  
+    .citiesTab__navLink a {
+    font-size: 18px;
+}
+    
+  }
+  .citiesTab__navLink a {
+      color: #000;
+      text-decoration: none;
+  }  
+  .citiesTab__navLink a:hover {
+      text-decoration: underline;
+  }  
+  button.w3-bar-item.w3-button {
+      height: auto;
+      text-transform: initial;
+      font-size: 14px;
+      letter-spacing: .5px;
+      font-weight: 700;
+      color: #738b9c;
+      border: 0px;
+      padding: 16px 0px;
+      cursor: pointer;
+      background: transparent;
+      border-bottom: 4px solid transparent;
+  } 
+  .w3-bar.w3-black {
+      margin-bottom: 30px;
+      padding: 0px 0px;
+      padding-top: 20px;
+      border-bottom: 1px solid #f3f3f3;
+        display: flex;
+    gap: 24px;
+  }
+  button.w3-bar-item.w3-button.active {
+      border-bottom: 4px solid #000;
+        color: black;
+  }  
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="rte-wrap">
+
+      <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button active" data-city="Cities">Cities</button>
+        <button class="w3-bar-item w3-button" data-city="States">States</button>
+        <button class="w3-bar-item w3-button" data-city="Countries">Countries</button>
+      </div>
+      
+      <div id="Cities" class="w3-container city">
+        <div class="partial-cities">
+          {% render 'partial-cities', section: section %}
+        </div>
+      </div>
+      
+      <div id="States" class="w3-container city" style="display:none">
+        <div class="partial-states">
+          {% render 'partial-states', section: section %}
+        </div>
+      </div>
+      
+      <div id="Countries" class="w3-container city" style="display:none">
+        <div class="partial-countries">
+          {% render 'partial-countries', section: section %}
+        <div>
+      </div>
+        
+        <script>
+            $(document).ready(function() {
+              $('.w3-bar-item').click(function() {
+                var cityName = $(this).data('city');
+            
+                $('.city').hide();
+            
+                $('#' + cityName).show();
+            
+                $('.w3-bar-item').removeClass('active');
+            
+                $(this).addClass('active');
+              });
+            });
+
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Directory",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "domain",
+      "label": "Domain"
+    }    
+  ],
+  "blocks": [
+    {
+      "type": "cities",
+      "name": "Cities",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "txt_1",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "txt_2",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "text",
+          "id": "txt_3",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 4"
+        },
+        {
+          "type": "text",
+          "id": "txt_4",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 5"
+        },
+        {
+          "type": "text",
+          "id": "txt_5",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_5",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 6"
+        },
+        {
+          "type": "text",
+          "id": "txt_6",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 7"
+        },
+        {
+          "type": "text",
+          "id": "txt_7",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_7",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 8"
+        },
+        {
+          "type": "text",
+          "id": "txt_8",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_8",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 9"
+        },
+        {
+          "type": "text",
+          "id": "txt_9",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_9",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 10"
+        },
+        {
+          "type": "text",
+          "id": "txt_10",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_10",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 11"
+        },
+        {
+          "type": "text",
+          "id": "txt_11",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_11",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 12"
+        },
+        {
+          "type": "text",
+          "id": "txt_12",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_12",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 13"
+        },
+        {
+          "type": "text",
+          "id": "txt_13",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_13",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 14"
+        },
+        {
+          "type": "text",
+          "id": "txt_14",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_14",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 15"
+        },
+        {
+          "type": "text",
+          "id": "txt_15",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_15",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 16"
+        },
+        {
+          "type": "text",
+          "id": "txt_16",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_16",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 17"
+        },
+        {
+          "type": "text",
+          "id": "txt_17",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_17",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 18"
+        },
+        {
+          "type": "text",
+          "id": "txt_18",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_18",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 19"
+        },
+        {
+          "type": "text",
+          "id": "txt_19",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_19",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 20"
+        },
+        {
+          "type": "text",
+          "id": "txt_20",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_20",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 21"
+        },
+        {
+          "type": "text",
+          "id": "txt_21",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_21",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 22"
+        },
+        {
+          "type": "text",
+          "id": "txt_22",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_22",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 23"
+        },
+        {
+          "type": "text",
+          "id": "txt_23",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_23",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 24"
+        },
+        {
+          "type": "text",
+          "id": "txt_24",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_24",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 25"
+        },
+        {
+          "type": "text",
+          "id": "txt_25",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_25",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 26"
+        },
+        {
+          "type": "text",
+          "id": "txt_26",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_26",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 27"
+        },
+        {
+          "type": "text",
+          "id": "txt_27",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_27",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 28"
+        },
+        {
+          "type": "text",
+          "id": "txt_28",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_28",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 29"
+        },
+        {
+          "type": "text",
+          "id": "txt_29",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_29",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 30"
+        },
+        {
+          "type": "text",
+          "id": "txt_30",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_30",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 31"
+        },
+        {
+          "type": "text",
+          "id": "txt_31",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_31",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 32"
+        },
+        {
+          "type": "text",
+          "id": "txt_32",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_32",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 33"
+        },
+        {
+          "type": "text",
+          "id": "txt_33",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_33",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 34"
+        },
+        {
+          "type": "text",
+          "id": "txt_34",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_34",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 35"
+        },
+        {
+          "type": "text",
+          "id": "txt_35",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_35",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 36"
+        },
+        {
+          "type": "text",
+          "id": "txt_36",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_36",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 37"
+        },
+        {
+          "type": "text",
+          "id": "txt_37",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_37",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 38"
+        },
+        {
+          "type": "text",
+          "id": "txt_38",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_38",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 39"
+        },
+        {
+          "type": "text",
+          "id": "txt_39",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_39",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 40"
+        },
+        {
+          "type": "text",
+          "id": "txt_40",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_40",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 41"
+        },
+        {
+          "type": "text",
+          "id": "txt_41",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_41",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 42"
+        },
+        {
+          "type": "text",
+          "id": "txt_42",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_42",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 43"
+        },
+        {
+          "type": "text",
+          "id": "txt_43",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_43",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 44"
+        },
+        {
+          "type": "text",
+          "id": "txt_44",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_44",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 45"
+        },
+        {
+          "type": "text",
+          "id": "txt_45",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_45",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 46"
+        },
+        {
+          "type": "text",
+          "id": "txt_46",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_46",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 47"
+        },
+        {
+          "type": "text",
+          "id": "txt_47",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_47",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 48"
+        },
+        {
+          "type": "text",
+          "id": "txt_48",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_48",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 49"
+        },
+        {
+          "type": "text",
+          "id": "txt_49",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_49",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 50"
+        },
+        {
+          "type": "text",
+          "id": "txt_50",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_50",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 51"
+        },
+        {
+          "type": "text",
+          "id": "txt_51",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_51",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 52"
+        },
+        {
+          "type": "text",
+          "id": "txt_52",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_52",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 53"
+        },
+        {
+          "type": "text",
+          "id": "txt_53",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_53",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 54"
+        },
+        {
+          "type": "text",
+          "id": "txt_54",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_54",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 55"
+        },
+        {
+          "type": "text",
+          "id": "txt_55",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_55",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 56"
+        },
+        {
+          "type": "text",
+          "id": "txt_56",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_56",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 57"
+        },
+        {
+          "type": "text",
+          "id": "txt_57",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_57",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 58"
+        },
+        {
+          "type": "text",
+          "id": "txt_58",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_58",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 59"
+        },
+        {
+          "type": "text",
+          "id": "txt_59",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_59",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 60"
+        },
+        {
+          "type": "text",
+          "id": "txt_60",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_60",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 61"
+        },
+        {
+          "type": "text",
+          "id": "txt_61",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_61",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 62"
+        },
+        {
+          "type": "text",
+          "id": "txt_62",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_62",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 63"
+        },
+        {
+          "type": "text",
+          "id": "txt_63",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_63",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 64"
+        },
+        {
+          "type": "text",
+          "id": "txt_64",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_64",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 65"
+        },
+        {
+          "type": "text",
+          "id": "txt_65",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_65",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 66"
+        },
+        {
+          "type": "text",
+          "id": "txt_66",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_66",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 67"
+        },
+        {
+          "type": "text",
+          "id": "txt_67",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_67",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 68"
+        },
+        {
+          "type": "text",
+          "id": "txt_68",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_68",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 69"
+        },
+        {
+          "type": "text",
+          "id": "txt_69",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_69",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 70"
+        },
+        {
+          "type": "text",
+          "id": "txt_70",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_70",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 71"
+        },
+        {
+          "type": "text",
+          "id": "txt_71",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_71",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 72"
+        },
+        {
+          "type": "text",
+          "id": "txt_72",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_72",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 73"
+        },
+        {
+          "type": "text",
+          "id": "txt_73",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_73",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 74"
+        },
+        {
+          "type": "text",
+          "id": "txt_74",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_74",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 75"
+        },
+        {
+          "type": "text",
+          "id": "txt_75",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_75",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 76"
+        },
+        {
+          "type": "text",
+          "id": "txt_76",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_76",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 77"
+        },
+        {
+          "type": "text",
+          "id": "txt_77",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_77",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 78"
+        },
+        {
+          "type": "text",
+          "id": "txt_78",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_78",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 79"
+        },
+        {
+          "type": "text",
+          "id": "txt_79",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_79",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 80"
+        },
+        {
+          "type": "text",
+          "id": "txt_80",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_80",
+          "label": "Url"
+        }
+      ]
+    },
+    {
+      "type": "states",
+      "name": "States",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "txt_1",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "txt_2",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "text",
+          "id": "txt_3",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 4"
+        },
+        {
+          "type": "text",
+          "id": "txt_4",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 5"
+        },
+        {
+          "type": "text",
+          "id": "txt_5",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_5",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 6"
+        },
+        {
+          "type": "text",
+          "id": "txt_6",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 7"
+        },
+        {
+          "type": "text",
+          "id": "txt_7",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_7",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 8"
+        },
+        {
+          "type": "text",
+          "id": "txt_8",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_8",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 9"
+        },
+        {
+          "type": "text",
+          "id": "txt_9",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_9",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 10"
+        },
+        {
+          "type": "text",
+          "id": "txt_10",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_10",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 11"
+        },
+        {
+          "type": "text",
+          "id": "txt_11",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_11",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 12"
+        },
+        {
+          "type": "text",
+          "id": "txt_12",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_12",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 13"
+        },
+        {
+          "type": "text",
+          "id": "txt_13",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_13",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 14"
+        },
+        {
+          "type": "text",
+          "id": "txt_14",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_14",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 15"
+        },
+        {
+          "type": "text",
+          "id": "txt_15",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_15",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 16"
+        },
+        {
+          "type": "text",
+          "id": "txt_16",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_16",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 17"
+        },
+        {
+          "type": "text",
+          "id": "txt_17",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_17",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 18"
+        },
+        {
+          "type": "text",
+          "id": "txt_18",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_18",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 19"
+        },
+        {
+          "type": "text",
+          "id": "txt_19",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_19",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 20"
+        },
+        {
+          "type": "text",
+          "id": "txt_20",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_20",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 21"
+        },
+        {
+          "type": "text",
+          "id": "txt_21",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_21",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 22"
+        },
+        {
+          "type": "text",
+          "id": "txt_22",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_22",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 23"
+        },
+        {
+          "type": "text",
+          "id": "txt_23",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_23",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 24"
+        },
+        {
+          "type": "text",
+          "id": "txt_24",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_24",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 25"
+        },
+        {
+          "type": "text",
+          "id": "txt_25",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_25",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 26"
+        },
+        {
+          "type": "text",
+          "id": "txt_26",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_26",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 27"
+        },
+        {
+          "type": "text",
+          "id": "txt_27",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_27",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 28"
+        },
+        {
+          "type": "text",
+          "id": "txt_28",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_28",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 29"
+        },
+        {
+          "type": "text",
+          "id": "txt_29",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_29",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 30"
+        },
+        {
+          "type": "text",
+          "id": "txt_30",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_30",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 31"
+        },
+        {
+          "type": "text",
+          "id": "txt_31",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_31",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 32"
+        },
+        {
+          "type": "text",
+          "id": "txt_32",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_32",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 33"
+        },
+        {
+          "type": "text",
+          "id": "txt_33",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_33",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 34"
+        },
+        {
+          "type": "text",
+          "id": "txt_34",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_34",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 35"
+        },
+        {
+          "type": "text",
+          "id": "txt_35",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_35",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 36"
+        },
+        {
+          "type": "text",
+          "id": "txt_36",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_36",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 37"
+        },
+        {
+          "type": "text",
+          "id": "txt_37",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_37",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 38"
+        },
+        {
+          "type": "text",
+          "id": "txt_38",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_38",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 39"
+        },
+        {
+          "type": "text",
+          "id": "txt_39",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_39",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 40"
+        },
+        {
+          "type": "text",
+          "id": "txt_40",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_40",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 41"
+        },
+        {
+          "type": "text",
+          "id": "txt_41",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_41",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 42"
+        },
+        {
+          "type": "text",
+          "id": "txt_42",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_42",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 43"
+        },
+        {
+          "type": "text",
+          "id": "txt_43",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_43",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 44"
+        },
+        {
+          "type": "text",
+          "id": "txt_44",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_44",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 45"
+        },
+        {
+          "type": "text",
+          "id": "txt_45",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_45",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 46"
+        },
+        {
+          "type": "text",
+          "id": "txt_46",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_46",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 47"
+        },
+        {
+          "type": "text",
+          "id": "txt_47",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_47",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 48"
+        },
+        {
+          "type": "text",
+          "id": "txt_48",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_48",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 49"
+        },
+        {
+          "type": "text",
+          "id": "txt_49",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_49",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 50"
+        },
+        {
+          "type": "text",
+          "id": "txt_50",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_50",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 51"
+        },
+        {
+          "type": "text",
+          "id": "txt_51",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_51",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 52"
+        },
+        {
+          "type": "text",
+          "id": "txt_52",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_52",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 53"
+        },
+        {
+          "type": "text",
+          "id": "txt_53",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_53",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 54"
+        },
+        {
+          "type": "text",
+          "id": "txt_54",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_54",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 55"
+        },
+        {
+          "type": "text",
+          "id": "txt_55",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_55",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 56"
+        },
+        {
+          "type": "text",
+          "id": "txt_56",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_56",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 57"
+        },
+        {
+          "type": "text",
+          "id": "txt_57",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_57",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 58"
+        },
+        {
+          "type": "text",
+          "id": "txt_58",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_58",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 59"
+        },
+        {
+          "type": "text",
+          "id": "txt_59",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_59",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 60"
+        },
+        {
+          "type": "text",
+          "id": "txt_60",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_60",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 61"
+        },
+        {
+          "type": "text",
+          "id": "txt_61",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_61",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 62"
+        },
+        {
+          "type": "text",
+          "id": "txt_62",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_62",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 63"
+        },
+        {
+          "type": "text",
+          "id": "txt_63",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_63",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 64"
+        },
+        {
+          "type": "text",
+          "id": "txt_64",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_64",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 65"
+        },
+        {
+          "type": "text",
+          "id": "txt_65",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_65",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 66"
+        },
+        {
+          "type": "text",
+          "id": "txt_66",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_66",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 67"
+        },
+        {
+          "type": "text",
+          "id": "txt_67",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_67",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 68"
+        },
+        {
+          "type": "text",
+          "id": "txt_68",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_68",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 69"
+        },
+        {
+          "type": "text",
+          "id": "txt_69",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_69",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 70"
+        },
+        {
+          "type": "text",
+          "id": "txt_70",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_70",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 71"
+        },
+        {
+          "type": "text",
+          "id": "txt_71",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_71",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 72"
+        },
+        {
+          "type": "text",
+          "id": "txt_72",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_72",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 73"
+        },
+        {
+          "type": "text",
+          "id": "txt_73",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_73",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 74"
+        },
+        {
+          "type": "text",
+          "id": "txt_74",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_74",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 75"
+        },
+        {
+          "type": "text",
+          "id": "txt_75",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_75",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 76"
+        },
+        {
+          "type": "text",
+          "id": "txt_76",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_76",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 77"
+        },
+        {
+          "type": "text",
+          "id": "txt_77",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_77",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 78"
+        },
+        {
+          "type": "text",
+          "id": "txt_78",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_78",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 79"
+        },
+        {
+          "type": "text",
+          "id": "txt_79",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_79",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 80"
+        },
+        {
+          "type": "text",
+          "id": "txt_80",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_80",
+          "label": "Url"
+        }
+      ]
+    },    
+{
+      "type": "countries",
+      "name": "Countries",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "txt_1",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "txt_2",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "text",
+          "id": "txt_3",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 4"
+        },
+        {
+          "type": "text",
+          "id": "txt_4",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_4",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 5"
+        },
+        {
+          "type": "text",
+          "id": "txt_5",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_5",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 6"
+        },
+        {
+          "type": "text",
+          "id": "txt_6",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_6",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 7"
+        },
+        {
+          "type": "text",
+          "id": "txt_7",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_7",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 8"
+        },
+        {
+          "type": "text",
+          "id": "txt_8",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_8",
+          "label": "Url"
+        },
+        
+        {
+          "type": "header",
+          "content": "Item 9"
+        },
+        {
+          "type": "text",
+          "id": "txt_9",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_9",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 10"
+        },
+        {
+          "type": "text",
+          "id": "txt_10",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_10",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 11"
+        },
+        {
+          "type": "text",
+          "id": "txt_11",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_11",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 11"
+        },
+        {
+          "type": "text",
+          "id": "txt_12",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_12",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 13"
+        },
+        {
+          "type": "text",
+          "id": "txt_13",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_13",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 14"
+        },
+        {
+          "type": "text",
+          "id": "txt_14",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_14",
+          "label": "Url"
+        },
+        {
+          "type": "header",
+          "content": "Item 15"
+        },
+        {
+          "type": "text",
+          "id": "txt_15",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url_15",
+          "label": "Url"
+        }
+      ]
+    }     
+  ],
+  "presets": [
+    {
+      "name": "Directory"
+    }
+  ]
+}
+{% endschema %}

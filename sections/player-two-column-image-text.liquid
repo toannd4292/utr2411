@@ -1,0 +1,108 @@
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+    {% for block in section.blocks %}
+      <div class="grid__item">
+       <div class="card-box-d">
+         <div class="position-relative img-bottom-shadow">
+        	<div class="card-img-d media--square media--square-sm border-radius-lg-3 border-radius-sm-3" style="background:url('{{block.settings.block-image |  img_url:'large'}}') no-repeat top center; background-size: cover;"> 
+    		<div class="card-overlay-a-content z-index-1 text-lg-center text-sm-left fst-align-items-start"> 
+              <div class="e-preview">
+                <div class="text-sm-left ps-sm-1-5">
+                  <div class="text-uppercase section-title section-title-sm mb-0 lh-xl-78 text-white">{{block.settings.heading}}</div>
+                  <div class="section-sub-title font-best-friend lh-xl-78 text-teal text-white text-sm-center">{{block.settings.subheading}}</div>
+                </div>  
+                  <a href="{{block.settings.section-button-url}}" class="btn-white-outline d-inline-block min-w-lg-225 min-w-sm-130 text-uppercase mt-5 mb-4">{{block.settings.section-button}}</a>
+              </div>   
+                <div class="card-footer-a card-footer-e border-radius-lg-3 border-radius-sm-3">
+                    <p class="pb-lg-1 font-sm-14 font-lg-16 font-md-12 fw-lg-bold lh-sm-normal">{{block.settings.description}}</p>
+                    <div class="pt-lg-2 pb-lg-2 pt-sm-1 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center gap-2">
+                      <a href="{{block.settings.section-get-stared-button-url}}" class="btn-black btn-outline-lg-black btn-teal-sm fs-sm-12 font-md-12 d-flex justify-content-center align-items-center min-w-lg-225 min-w-md-160 text-uppercase text-center">{{block.settings.section-get-stated-button}}</a>
+                      <a href="{{block.settings.section-contact-button-url}}" class="btn-black btn-outline-lg-black btn-teal-sm fs-sm-12 font-md-12 d-flex justify-content-center align-items-center min-w-lg-225 min-w-md-160 text-uppercase text-center">{{block.settings.section-contact-button}}</a>
+                    </div>  
+                 </div>  
+              
+            </div>
+          </div> 
+         </div>  
+        </div>
+      </div>
+    {% endfor %}
+   </div>   
+</div>  
+{% schema %}
+  {
+    "name": "Player two column image",
+    "presets": [
+      {
+        "name": "Player two column image",
+        "category": "Player two column"
+      }
+    ],
+    "settings": [],
+     "blocks":[
+	  {
+		"type":"home-card",
+		"name":"section-block",
+		"settings":[
+           {
+  		      "type": "image_picker",
+         	  "id": "block-image",
+         	  "label": "Card Image"
+  		   },
+           {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		  },
+           {
+			"type":"text",
+			"id":"subheading",
+			"label": "Sub Title"
+		  },
+  		  {
+           "type": "text",
+           "id": "description",
+           "label": "Description Title"
+          },
+          {
+   			"type": "text",
+   			"id": "section-button",
+   			"label": "Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-button-url",
+     			"label": "Button Link"
+    		},
+           {
+   			"type": "text",
+   			"id": "section-get-stated-button",
+   			"label": "Get started Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-get-stared-button-url",
+     			"label": "Get started Button Link"
+    		},
+          {
+   			"type": "text",
+   			"id": "section-contact-button",
+   			"label": "Contact Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-contact-button-url",
+     			"label": "Contact Button Link"
+    		}
+          
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

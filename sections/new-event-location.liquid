@@ -1,0 +1,1370 @@
+{%- style -%}
+  #{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    border-bottom: 1px solid rgba(215, 224, 234, 1);
+    
+  }
+
+  @media screen and (min-width: 750px) {
+    #{{ section.id }}{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="{{ section.id }}" class="border_bt">
+<div class="page-width">
+    {% if section.settings.title_section != blank %}
+        <div class="title-event-location">
+            <h2 class="section-title section-title-medium lh-sm-100 lh-xl-100">{{section.settings.title_section}}</h2>
+            {% comment %} <div class="divider-sm-teal divider-lg-teal"></div> {% endcomment %}
+            <div class="btn_toggle">
+                {% if section.settings.btn_text != blank %}
+                    <a href="{{ section.settings.btn_link }}" class="filter-apply-btn gradient-button">
+                        <span>{{ section.settings.btn_text }}</span>
+                    </a>
+                {% endif %}
+                <div class="events-arrows">
+                    <button class="arrow-prev" aria-label="Prev"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.5312 8.67188L1.58456 8.67187" stroke="black" stroke-width="1.5"></path> <path d="M9.13184 16.2187L1.58496 8.67187L9.13184 1.125" stroke="black" stroke-width="1.5"></path> </svg></button>
+                    <button class="arrow-next" aria-label="Next"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.46875 8.32812L17.4154 8.32813" stroke="black" stroke-width="1.5"></path> <path d="M9.87012 0.78125L17.417 8.32813L9.87012 15.875" stroke="black" stroke-width="1.5"></path> </svg></button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="tabs">
+        <div class="btn_tab" {% unless section.settings.show_tennis_pickleball == 'show_all' %} id="{{ section.settings.show_tennis_pickleball }}" {% endunless %} >
+            <div class="tab tab_left {% if section.settings.show_tennis_pickleball == 'show_tennis' or section.settings.show_tennis_pickleball == 'show_all' %}active {% else %} tab_tennis {% endif %}">Tennis</div>
+            <div class="tab tab_right {% if section.settings.show_tennis_pickleball == 'show_pickleball' %}active {% else %} tab_pickleball {% endif %}">Pickleball</div>
+        </div>
+    </div>
+
+    {% comment %} <hr style="border: none; border-top: 1px solid #CFD7E2; margin: 20px 0;"> {% endcomment %}
+
+    <div class="filters">
+        <button class="filter ">Now Playing</button>
+        <button class="filter active">Upcoming</button>
+        <div class="dropdown-container">
+            <button class="filter dropdown-toggle" style="padding: 10px 20px;">Type ▼</button>
+            <div class="dropdown-menu" id="eventDropdown">
+                {% capture tennis_types_string %}
+                    Tournament:tournament:show_tournament_t,
+                    UTR Flex League:flex_league:show_flex_league_t,
+                    UTR Team Tennis:team_league:show_team_league_t,
+                    Camp:camp:show_camp_t,
+                    Clinic:clinic:show_clinic_t,
+                    Match Play:match_play:show_match_play_t,
+                    Player Created Play:group_play:show_group_play_t,
+                    Paid Hit:paid_hit:show_paid_hit_t
+                {% endcapture %}
+                {% assign tennis_types = tennis_types_string | strip | replace: '\n', '' | split: "," %}
+
+
+                {% capture pickleball_types_string %}
+                    Tournament:tournament:show_tournament_p,
+                    Camp:camp:show_camp_p,
+                    Clinic:clinic:show_clinic_p,
+                    Match Play:match_play:show_match_play_p,
+                    Player Created Play:group_play:show_group_play_p
+                {% endcapture %}
+                {% assign pickleball_types = pickleball_types_string | strip | replace: '\n', '' | split: "," %}
+
+
+                <!-- Tennis filters -->
+                {% for item in tennis_types %}
+                {% assign parts = item | split: ":" %}
+                {% assign label = parts[0] %}
+                {% assign value = parts[1] %}
+                {% assign setting_key = parts[2] %}
+                {% if section.settings[setting_key] %}
+                    <label data-type="tennis">
+                    <input type="checkbox" class="type-filter" value="{{ value }}"> {{ label }}
+                    </label>
+                {% endif %}
+                {% endfor %}
+
+                <!-- Pickleball filters -->
+                {% for item in pickleball_types %}
+                {% assign parts = item | split: ":" %}
+                {% assign label = parts[0] %}
+                {% assign value = parts[1] %}
+                {% assign setting_key = parts[2] %}
+                {% if section.settings[setting_key] %}
+                    <label data-type="pickleball">
+                    <input type="checkbox" class="type-filter" value="{{ value }}"> {{ label }}
+                    </label>
+                {% endif %}
+                {% endfor %}
+
+                <div style="text-align: right; margin-top: 12px;">
+                    <button id="applyTypeFilters" style="padding: 6px 16px; border: none; background-color: black; color: white; border-radius: 20px; cursor: pointer;">
+                        Apply
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="events-grid compact page-width" id="events-container" data-hardcoded='[
+       {% for block in section.blocks %}
+         {
+            "colorBorder": {{ block.settings.color_border | json }},
+           "url": {{ block.settings.event_url | default: "" | json }}
+         }{% unless forloop.last %},{% endunless %}
+       {% endfor %}
+     ]'>
+            
+    </div>
+    
+    {% if section.settings.btn_text != blank %}
+        <div class="btn_toggle">
+            <a href="{{ section.settings.btn_link }}" class="filter-apply-btn gradient-button"><span>{{ section.settings.btn_text }}</span></a>
+        </div>
+    {% endif %}
+
+</div>
+
+<script>
+    window.utrConfig = {
+            distanceLevels: [
+            {{ section.settings.distance_1 }},
+            {{ section.settings.distance_2 }},
+            {{ section.settings.distance_3 }}
+            ]
+        };
+    let userLat = null;
+    let userLng = null;
+
+    function getUserLocation() {
+        return new Promise((resolve) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        userLat = pos.coords.latitude;
+                        userLng = pos.coords.longitude;
+                        // console.log("📍 Get location from browser:", userLat, userLng);
+                        resolve();
+                    },
+                    (error) => {
+                        console.warn("⚠️ Unable to get user location. Using default location.");
+                        userLat = 34.84555;
+                        userLng = -101.299591;
+                        resolve();
+                    },
+                    { timeout: 5000 }
+                );
+            } else {
+                console.warn("⚠️ Browser does not support location");
+                userLat = 34.84555;
+                userLng = -101.299591;
+                resolve();
+            }
+        });
+    }
+
+    function renderHardcodedEvents() {
+        const container = document.getElementById("events-container");
+        const hardcodedData = JSON.parse(container.dataset.hardcoded || "[]");
+
+        if (!hardcodedData.length) return Promise.resolve();
+
+        const fetchPromises = hardcodedData.map((item, index) => {
+            const eventIdMatch = item.url ? item.url.match(/\/events\/(\d+)/) : null;
+            if (!eventIdMatch) {
+                return Promise.resolve(null);
+            }
+
+            const eventId = eventIdMatch[1];
+            return fetch(`https://api.utrsports.net/v2/tms/events/${eventId}`)
+                .then(res => res.json())
+                .then(event => ({ event, item, index }))
+                .catch(err => {
+                    console.error(`❌ Error fetching hardcoded event ${eventId}:`, err);
+                    return null;
+                });
+        });
+
+        return Promise.all(fetchPromises).then(results => {
+            results.forEach((result, idx) => {
+                if (!result) return;
+                const { event, item, index } = result;
+                const imgUrl = event.photoImages?.banner?.oneX
+                ? `https://prod-cdn.utrsports.net/v1/tms/events/${event.photoImages.banner.oneX}`
+                : "https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Events_Near_You_Default.png?v=1757575582";
+                let statusText = "";
+                switch (event.eventStateId) {
+                    case 1:
+                        statusText = `<div class="utr-card-status" style="background-color: #0968E7; opacity: 0 !important;">PRE-REGISTRATION</div>`;
+                        break;
+                    case 2:
+                        statusText = `<div class="utr-card-status" style="background-color: #0968E7;">REGISTRATION OPEN</div>`;
+                        break;
+                    case 3:
+                        statusText = `<div class="utr-card-status" style="background-color: #778DA9;">REGISTRATION CLOSED</div>`;
+                        break;
+                    case 4:
+                        statusText = `<div class="utr-card-status" style="background-color: #0968E7;">IN-PROGRESS</div>`;
+                        break;
+                    case 5:
+                        statusText = `<div class="utr-card-status" style="background-color: #6AE98A;">COMPLETED</div>`;
+                        break;
+                    default:
+                        statusText = "";
+                }   
+                const card = document.createElement("div");
+                card.className = "utr-card utr-card-hardcode";
+                card.innerHTML = `
+                    <a class="link_url" href="${item.url}">
+                        <div class="utr-card-image" style="border: 1px solid ${item.colorBorder};border-radius: 16px;">
+                            <img src="${imgUrl}" alt="${event.name}" {% comment %}style="object-fit: cover; height: 100%;"{% endcomment %}> 
+                        </div>
+                        <div class="utr-card-body">
+                           ${statusText}
+                            <h3 class="utr-card-title">${event.name}</h3>
+                            <div class="utr-card-subtitle">${event.club.name}</div>
+                            <div class="utr-card-location">${event.eventLocations?.[0]?.display}</div>
+                            <div class="utr-card-dates">${formatEventDate(event.eventSchedule?.eventStartShort)} <span>|</span> ${formatEventDate(event.eventSchedule?.eventStartTime)}</div>
+                        </div>
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+
+            {% comment %} console.log(`✅ Rendered ${results.filter(r => r).length} hardcoded events from API`); {% endcomment %}
+        });
+    }
+
+    async function fetchAndDisplayEvents() {
+        const isTennis = $(".tab.active").text().trim() === "Tennis";
+        const filter = $(".filters .filter.active").text().trim();
+
+        const today = new Date();
+        const minus30 = new Date(today);
+        minus30.setDate(minus30.getDate() - 30);
+        const plus30 = new Date(today);
+        plus30.setDate(plus30.getDate() + 30);
+
+        function formatDate(d) {
+            return `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}/${d.getFullYear()}`;
+        }
+
+        function formatRegistrationEndUTC(utcDate) {
+            if (!utcDate) return "N/A";
+            const date = new Date(utcDate);
+
+            return date.toLocaleString("en-US", {
+                timeZone: "UTC",
+                month: "short",   // Oct
+                day: "numeric",   // 1
+                hour: "numeric",  // 5
+                minute: "2-digit",// 00
+                hour12: true      // AM/PM
+            });
+        }
+
+        function parseISOForceUTC(dateStr) {
+            if (!dateStr) return null;
+            if (/[Zz]|[+\-]\d{2}:\d{2}$/.test(dateStr)) return new Date(dateStr);
+            return new Date(dateStr + 'Z');
+        }
+
+       function formatRegistrationEndUTC(utcDate, { showTime = false } = {}) {
+  const d = parseISOForceUTC(utcDate);
+  if (!d || isNaN(d)) return "N/A";
+
+  const datePart = d.toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    month: "short",
+    day: "numeric"
+  });
+
+  if (!showTime) return datePart; 
+  const timePart = d.toLocaleTimeString("en-US", {
+    timeZone: "UTC",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true
+  });
+  return `${datePart} <span>|</span> ${timePart} UTC`;
+}
+
+
+        const distanceLevels = window.utrConfig?.distanceLevels;
+        const container = document.getElementById("events-container");
+
+        async function fetchEventsForDistance(distance) {
+            let url = "https://api.utrsports.net/v2/search/events?top=40&skip=0&utrType=verified&utrTeamType=singles"
+                + `&showTennisContent=${isTennis}`
+                + `&showPickleballContent=${!isTennis}`
+                + `&searchOrigin=searchPage`;
+
+            if (filter === "Upcoming") {
+                url += `&range=eventSchedule.eventStartUtc%3E%3D${formatDate(today)}`;
+            } else if (filter === "Now Playing") {
+                url += `&range=eventSchedule.eventStartUtc%3E%3D${formatDate(minus30)}`
+                    + `&range=eventSchedule.eventEndUtc%3C%3D${formatDate(plus30)}`
+                    + `&sort=eventSchedule.eventStartUtc%3Adesc`
+                    + `&showInProgressEvents=true`;
+            }
+
+            const selectedTypes = $(".type-filter:checked")
+                .filter(function () {
+                    const type = $(this).closest("label").data("type");
+                    return isTennis ? type === "tennis" : type === "pickleball";
+                })
+                .map(function () { return $(this).val(); })
+                .get();
+
+            if (selectedTypes.length > 0) {
+                const uniqueTypes = [...new Set(selectedTypes)];
+                uniqueTypes.forEach(type => url += `&eventTypes=${encodeURIComponent(type)}`);
+            }
+
+            url += `&pin=${userLat},${userLng}&distance=${distance}mi`;
+            console.log(`🔗 API URL (distance ${distance}):`, url);
+
+            try {
+                const data = await $.getJSON(url);
+                return data.hits || [];
+            } catch (e) {
+                console.error(`❌ Error fetching events for distance ${distance}:`, e);
+                return [];
+            }
+        }
+
+        container.innerHTML = "<p>Loading events...</p>";
+
+        let allEvents = [];
+        const seenIds = new Set();
+
+        for (let i = 0; i < distanceLevels.length; i++) {
+            if (allEvents.length >= 20) break;
+
+            const distance = distanceLevels[i];
+            let events = await fetchEventsForDistance(distance);
+
+            console.log(`📍 Distance ${distance}mi: found ${events.length} events`);
+
+            const nonClosedEvents = events.filter(ev => {
+                const state = ev.source?.eventState?.value || "";
+                return state.indexOf("closed") === -1;
+            });
+            console.log(`🚫 After removing closed: ${nonClosedEvents.length} left`);
+
+            const uniqueEvents = nonClosedEvents.filter(ev => {
+                const id = ev.source?.id;
+                if (!id || seenIds.has(id)) return false;
+                seenIds.add(id);
+                return true;
+            });
+
+            console.log(`🧹 After removing duplicates: ${uniqueEvents.length} unique events left`);
+
+            const remaining = 20 - allEvents.length;
+            const usedEvents = uniqueEvents.slice(0, remaining);
+
+            console.log(`➡️ Get ${usedEvents.length} events from distance ${distance}mi (missing ${remaining})`);
+
+            allEvents = allEvents.concat(usedEvents);
+        }
+
+        console.log(`✅ Total displays ${allEvents.length} events after summing all distances`);
+
+        allEvents.sort((a, b) => {
+            const dateA = new Date(a.source?.eventSchedule?.registrationEndUtc || a.source?.eventSchedule?.eventStartUtc || 0);
+            const dateB = new Date(b.source?.eventSchedule?.registrationEndUtc || b.source?.eventSchedule?.eventStartUtc || 0);
+            return dateA - dateB;
+        });
+
+        console.log("📅 List after arrangement:");
+            allEvents.forEach((ev, i) => {
+            const state = ev.source?.eventState?.value || "";
+            let status = "UNKNOWN";
+
+            if (state.indexOf("pre_registration") > -1) {
+                status = "PRE-REGISTRATION";
+            } else if (state.indexOf("open") > -1) {
+                status = "REGISTRATION OPEN";
+            } else if (state.indexOf("closed") > -1) {
+                status = "REGISTRATION CLOSED";
+            } else if (state.indexOf("progress") > -1) {
+                status = "IN-PROGRESS";
+            }
+
+            console.log(
+                `${i + 1}. 🆔 ${ev.source?.id} | ${ev.source?.name} | ` +
+                `Status: ${status} | ` +
+                `Registration End: ${ev.source?.eventSchedule?.registrationEndUtc || "N/A"} | ` +
+                `Start: ${ev.source?.eventSchedule?.eventStartUtc || "N/A"}`
+            );
+        });
+
+        if (allEvents.length === 0) {
+            container.innerHTML = "<p>No events found.</p>";
+            return;
+        }
+
+        container.innerHTML = "";
+
+        await renderHardcodedEvents();
+
+        allEvents.forEach(item => {
+            const source = item.source;
+            const imgUrl = source.photoImages?.banner?.oneX
+                ? `https://prod-cdn.utrsports.net/v1/tms/events/${source.photoImages.banner.oneX}`
+                : source.photoImages?.default
+                    ? `https://prod-cdn.utrsports.net/v1/tms/events/${source.photoImages.default}`
+                    : 'https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Events_Near_You_Default.png?v=1757575582';
+
+            const card = document.createElement("div");
+            card.className = "utr-card";
+
+            let status = '';
+            let flag = '';
+            let extraClass = '';
+            let temp = source.eventState.value;
+            if (temp.indexOf('pre_registration') > -1) {
+                status = 'PRE-REGISTRATION';
+                flag = 'pre-registration';
+                extraClass = ' hidden-pre';
+            } else if (temp.indexOf('open') > -1) {
+                status = 'REGISTRATION OPEN';
+                flag = 'open';
+            } else if (temp.indexOf('progress') > -1) {
+                status = 'IN-PROGRESS';
+                flag = 'in-progress';
+            }
+
+            card.innerHTML = `
+                <a class="link_url" href="https://app.utrsports.net/events/${source.id}">
+                    <div class="utr-card-image">
+                        <img src="${imgUrl}" alt="${source.name}">
+                    </div>
+                    <div class="utr-card-body">
+                        <div class="utr-card-status${extraClass}" data-status="${flag}">${status}</div>
+                        <h3 class="utr-card-title">${source.name}</h3>
+                        <div class="utr-card-subtitle">${source.club.name}</div>
+                        <div class="utr-card-location">${source.eventLocations?.[0]?.display || "Unknown location"}</div>
+                        <div class="utr-card-dates" style="display: none;">${formatEventDate(source.eventSchedule?.eventStartShort)} <span>|</span> ${formatEventDate(source.eventSchedule?.eventStartTime)}</div>
+                        <div class="utr-card-dates">
+  ${ source.eventSchedule?.registrationEndUtc
+      ? `${formatRegistrationEndUTC(source.eventSchedule.registrationEndUtc, { showTime: false })}`
+      : ""
+  }
+</div>
+
+                    </div>
+                </a>
+            `;
+            container.appendChild(card);
+        });
+
+        initSlickSlider();
+
+        const $track = $('#events-container .slick-track');
+        const slideCount = $('#events-container .slick-slide').length;
+        if (slideCount < 4) {
+            $track.css({
+                'display': 'flex',
+                'justify-content': 'flex-start',
+                'transform': 'translate3d(0,0,0)',
+                'margin': '0',
+            });
+        }
+    }
+
+
+
+    function initSlickSlider() {
+        const $container = $('#events-container');
+
+        if ($container.hasClass('slick-initialized')) {
+            $container.slick('unslick');
+        }
+
+        $container.slick({
+            dots: false,
+            arrows: false,
+            infinite: true,
+            swipeToSlide: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            responsive: [
+                {
+                    breakpoint: 1280,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 990,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 750,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        $('.events-arrows .arrow-prev').off('click').on('click', function(){
+            $container.slick('slickPrev');
+        });
+
+        $('.events-arrows .arrow-next').off('click').on('click', function(){
+            $container.slick('slickNext');
+        });
+    }
+
+    function formatEventDate(dateStr) {
+        return dateStr || "TBA";
+    }
+
+    function renderStatusBadge(state) {
+        if (!state?.value) return "";
+
+        let label = state.label.toUpperCase();
+        let className = "utr-badge";
+
+        if (state.value === "complete") {
+            className += " utr-badge-gray";
+        } else if (state.value === "registration_closed") {
+            label = "Reg. Closed";
+            className += " utr-badge-blue";
+        } else if (state.value === "open_registration") {
+            label = "Register";
+            className += " utr-badge-green";
+        } else {
+            className += " utr-badge-green";
+        }
+
+        return `<p class="${className}">${label}</p>`;
+    }
+
+    $(document).ready(function () {
+
+        $(".btn_tab .tab").on("click", function () {
+            $(".tab").removeClass("active");
+            $(this).addClass("active");
+            // $(".type-filter").prop("checked", false);
+            updateDropdownByTab();
+            fetchAndDisplayEvents();
+        });
+
+        $(".filters > .filter:not(.dropdown-toggle)").on("click", function () {
+            $(".filters > .filter").removeClass("active");
+            $(this).addClass("active");
+            fetchAndDisplayEvents();
+        });
+
+        $(".dropdown-toggle").on("click", function (e) {
+            e.stopPropagation();
+            $("#eventDropdown").toggle();
+        });
+
+        $(document).on("click", function (e) {
+            if (!$(e.target).closest(".dropdown-container").length) {
+                $("#eventDropdown").hide();
+            }
+        });
+
+        $("#applyTypeFilters").on("click", function () {
+            $("#eventDropdown").hide();
+            fetchAndDisplayEvents();
+        });
+
+        let didAutoCheckTennis = false;
+        let didAutoCheckPickleball = false;
+
+        function updateDropdownByTab() {
+            const isTennis = $(".tab.active").text().trim() === "Tennis";
+
+            const needAutoCheckTennis = isTennis && !didAutoCheckTennis;
+            const needAutoCheckPickle = !isTennis && !didAutoCheckPickleball;
+
+            $("#eventDropdown label").each(function () {
+                const type = $(this).data("type");
+                const checkbox = $(this).find("input");
+
+                const shouldShow = isTennis ? type === "tennis" : type === "pickleball";
+
+
+                $(this).css("display", shouldShow ? "" : "none");
+
+
+                if (shouldShow) {
+                    if (needAutoCheckTennis || needAutoCheckPickle) {
+                        checkbox.prop("checked", true);
+                    }
+                }
+            });
+
+
+            if (isTennis) didAutoCheckTennis = true;
+            else didAutoCheckPickleball = true;
+        }
+        
+        getUserLocation().then(() => {
+            updateDropdownByTab();
+            fetchAndDisplayEvents();
+        });
+
+
+        $('#toggleEvents').on('click', function () {
+            $('#events-container').toggleClass('compact');
+            const isExpanded = !$('#events-container').hasClass('compact');
+            $(this).text(isExpanded ? 'Collapse' : 'See More');
+        });
+    });
+</script>
+
+<style>
+    #events-container{
+        padding-left: 4.8rem;
+    }
+    .events-near-you .page-width{
+        max-width: 100%;
+        padding: 0 4.8rem;
+    }
+    .events-near-you {
+        background: #fff;
+        #show_all {
+            .tab_left {
+                border-radius: 6px;
+            }
+            .tab_pickleball {
+                display: none;
+            }
+        }
+        #show_tennis {
+            .tab_left {
+                border-radius: 6px;
+            }
+            .tab_pickleball {
+                display: none;
+            }
+        }
+        #show_pickleball {
+            .tab_tennis {
+                display: none;
+            }
+            .tab_right {
+                border-radius: 8px;
+            }
+        }
+        .title-event-location {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .title-event-location .section-title {
+            font-family: var(--font-heading-family);
+            font-size: 32px;
+            margin: 0;
+        }
+        .tabs {
+            display: none;
+            /* display: flex; */
+            border-radius: 6px;
+            margin-bottom: 20px;
+            gap: unset;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .tab {
+            line-height: 40px;
+            padding: 0 22px;
+            border: none;
+            cursor: pointer;
+            background-color: #e5e7eb;
+            color: #333;
+            transition: all 0.3s ease;
+            width: 152px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .tab_left {
+            border-radius: 6px 0 0 6px;
+        }
+        .tab_right {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .tab.active {
+            background-color: black;
+            color: white;
+        }
+        .btn_tab {
+            display: flex;
+            text-align: center;
+        }
+        .btn_toggle {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            .filter-apply-btn {
+                position: relative;
+                overflow: hidden;
+                display: block;
+                text-decoration: none;
+                border-radius: 8px;
+                color: #000;
+                border: 1px solid #000;
+                transition: all 0.3s ease;
+                font-family: 'Inter';
+                font-size: 14px;
+                line-height: 40px;
+                font-weight: 500;
+                padding: 0 22px;
+                min-height: 40px;
+                transition: color .8s cubic-bezier(.25,.46,.45,.94);
+            }
+        }
+
+        .btn_toggle {
+            .filter-apply-btn span{
+                position: relative;
+                transition: left .8s cubic-bezier(.25,.46,.45,.94);
+            }
+            .filter-apply-btn:hover,
+            .filter-apply-btn:hover span{
+                color: #fff;
+            }
+        }
+
+        .btn_toggle .filter-apply-btn:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #000 !important;
+            transition: left .8s cubic-bezier(.25,.46,.45,.94);
+        }
+
+        .btn_toggle .filter-apply-btn:hover:before {
+            left: 0;
+        }
+
+        .btn_toggle .filter-apply-btn:after{
+            content: '';
+            position: absolute;
+            top: var(--buttons-border-width);
+            right: var(--buttons-border-width);
+            bottom: var(--buttons-border-width);
+            left: var(--buttons-border-width);
+            z-index: 1;
+            border-radius: var(--buttons-radius);
+            box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)), 0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
+            transition: box-shadow var(--duration-short) ease;
+        }
+
+        .btn_toggle .events-arrows {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn_toggle .events-arrows button{
+            position: relative;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #cfd8dc;
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+            line-height: 46px;
+            font-size: 16px;
+        }
+
+        .events-arrows button:before{
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            padding: 2px;
+            background: conic-gradient(from 0deg, #cfd8dc, #cfd8dc);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            transition: all 0.8s ease;
+        }
+        .events-arrows button:hover::before {
+            animation: borderRotate 0.8s ease forwards;
+        }
+
+        .filters {
+            display: none;
+            /* display: flex; */
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .filter {
+            padding: 4px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 400;
+            cursor: pointer;
+            background-color: #e5e7eb;
+            color: #333;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-family: 'Gotham';  
+        }
+
+        .filter.active {
+            background-color: black;
+            color: white;
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 44px;
+            left: 0;
+            background-color: white;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            width: 250px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu label input {
+            accent-color: #000;
+        }
+
+        {% comment %} #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        } {% endcomment %}
+
+        #events-container .slick-list{
+            padding: 0 120px 0 0;
+        }
+        #events-container .slick-slide {
+            margin-right: 20px;
+        }
+
+        .utr-card {
+            .link_url {
+                text-decoration: none;
+                color: inherit;
+            }
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            {% comment %} box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); {% endcomment %}
+            transition: transform 0.2s ease;
+        }
+
+        {% comment %} .utr-card:hover {
+            transform: translateY(-4px);
+        } {% endcomment %}
+
+        .utr-card-image {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 7 / 3.8;
+            border: 1px solid #D3D3D3;
+            border-radius: 16px;
+        }
+
+        .utr-card-image img {
+            width: 100%;
+            {% comment %} min-height: 195px; {% endcomment %}
+            object-fit: contain;
+            border-radius: 16px;
+            {% comment %} border: 1px solid #D3D3D3; {% endcomment %}
+        }
+
+        .utr-card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1;
+        }
+
+        .utr-card-badge .badge-text {
+            {% comment %} display: flex; {% endcomment %}
+            display:none;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter';
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 12px;
+            color: #fff;
+            background: #00000099;
+            border-radius: 4px;
+            padding: 6px;
+            flex: 0 0 auto;
+            text-transform: initial;
+        }
+
+        .utr-card-badge img {
+            display: block;
+            width: auto !important;
+            height: 24px;
+            min-height: 24px !important;
+            border-radius: 0 !important;
+        }
+
+        .utr-card-body {
+            padding: 20px 0;
+        }
+
+        .utr-card-status {
+            font-family: 'Inter';
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 12px;
+            text-transform: initial;
+            border-radius: 2px;
+            background-color: #0968E7;
+            color: #fff;
+            width: max-content;
+            padding: 2.5px 5px;
+            margin-bottom: 12px;
+        }
+        .hidden-pre {
+            opacity: 0;
+        }
+        .utr-card-status[data-status='closed'] {
+            background-color: #778DA9;
+        }
+
+        .utr-card-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: -0.03px;
+            color: #3C4750;
+        }
+
+        .utr-card-subtitle, .utr-card-location {
+            font-size: 15px;
+            line-height: 1.6;
+            letter-spacing: -0.03px;
+            color: #778DA9;
+        }
+
+        .utr-card-dates {
+            font-size: 15px;
+            line-height: 1.6;
+            letter-spacing: -0.03px;
+            margin-top: 10px;
+            color: #778DA9;
+        }
+        .utr-card-dates span{
+            color: #D0D0D0;
+        }
+
+        .utr-card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .utr-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .utr-badge {
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 8px;
+            font-weight: 600;
+            color: white;
+            text-transform: initial;
+        }
+
+        .utr-badge-gray {
+            background-color: #d1d5db;
+            color: #374151;
+        }
+
+        .utr-badge-blue {
+            background-color: #00C0f7;
+        }
+
+        .utr-badge-green {
+            background: linear-gradient(44.76deg, #00C0F7 10.72%, #01DFCB 85.04%);
+            color: #000000;
+            font-weight: bold;
+            font-family: 'Gotham-Medium';
+        }
+        {% comment %} #events-container.compact .utr-card:nth-child(n+5) {
+            display: none;
+        } {% endcomment %}
+    }
+
+    #events-container + .btn_toggle{
+            display: none;
+    }
+
+    @media (max-width: 749px) {
+        .events-near-you .btn_toggle {
+            display: none;
+        }
+        .events-near-you .page-width {
+            padding: 0 1rem;
+        }
+        .events-near-you .title-event-location {
+            margin-bottom: 30px;
+        }
+        #events-container {
+            padding-left: 1rem;
+        }
+        .events-near-you .title-event-location .section-title{
+            font-size: 24px;
+        }
+        #events-container + .btn_toggle{
+            display: block !important;
+            padding: 0 1rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .events-near-you .btn_toggle .filter-apply-btn {
+            line-height: 54px;
+            min-height: 54px;
+        }
+        .events-near-you #events-container .slick-slide {
+            margin-right: 8px;
+        }
+    }
+    @media (max-width: 430px) {
+        .events-near-you {
+            .dropdown-menu {
+                right: -65px;
+                left: unset;
+            }
+            #events-container {
+                grid-template-columns: repeat(2, 1fr) ;
+            }
+            .utr-card-image {
+                img {
+                    {% comment %} min-height: 150px; {% endcomment %}
+                    padding: unset;
+                }
+            }
+            #events-container {
+                gap: 15px;
+            }
+            .utr-card {
+                .utr-card-image {
+                    aspect-ratio: 6.92 / 3.8;
+                    {% comment %} aspect-ratio: unset;
+                    height: 155px;
+                    width: 270px;    {% endcomment %}
+                    img {
+                        {% comment %} height: 100%;
+                        min-height: unset; {% endcomment %}
+                        min-height: 150px
+                    }    
+                }
+                .utr-card-body {
+                    padding: 20px 0 0;
+                    /* min-height: 185px; */
+                    position: relative;
+                    .utr-card-title {
+                        /* min-height: 65px; */
+                        font-size: 20px !important;
+                        margin: unset;
+                    }
+                    .utr-card-meta {
+                        display: block ;
+                    }
+                    .utr-card-footer {
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        .utr-badge-green {
+                            font-weight: unset;
+                        }
+                        .utr-badge {
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+            .tabs {
+                .btn_toggle {
+                    .filter-apply-btn {
+                        font-size: 11px;
+                        font-family: 'Gotham';
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes borderRotate {
+            0% { background: conic-gradient(from 0deg, #000 0%, #999 0%, #999 100%); }
+            5% { background: conic-gradient(from 0deg, #000 0%, #000 5%, #999 5%, #999 100%); }
+            10% { background: conic-gradient(from 0deg, #000 0%, #000 10%, #999 10%, #999 100%); }
+            15% { background: conic-gradient(from 0deg, #000 0%, #000 15%, #999 15%, #999 100%); }
+            20% { background: conic-gradient(from 0deg, #000 0%, #000 20%, #999 20%, #999 100%); }
+            25% { background: conic-gradient(from 0deg, #000 0%, #000 25%, #999 25%, #999 100%); }
+            30% { background: conic-gradient(from 0deg, #000 0%, #000 30%, #999 30%, #999 100%); }
+            35% { background: conic-gradient(from 0deg, #000 0%, #000 35%, #999 35%, #999 100%); }
+            40% { background: conic-gradient(from 0deg, #000 0%, #000 40%, #999 40%, #999 100%); }
+            45% { background: conic-gradient(from 0deg, #000 0%, #000 45%, #999 45%, #999 100%); }
+            50% { background: conic-gradient(from 0deg, #000 0%, #000 50%, #999 50%, #999 100%); }
+            55% { background: conic-gradient(from 0deg, #000 0%, #000 55%, #999 55%, #999 100%); }
+            60% { background: conic-gradient(from 0deg, #000 0%, #000 60%, #999 60%, #999 100%); }
+            65% { background: conic-gradient(from 0deg, #000 0%, #000 65%, #999 65%, #999 100%); }
+            70% { background: conic-gradient(from 0deg, #000 0%, #000 70%, #999 70%, #999 100%); }
+            75% { background: conic-gradient(from 0deg, #000 0%, #000 75%, #999 75%, #999 100%); }
+            80% { background: conic-gradient(from 0deg, #000 0%, #000 80%, #999 80%, #999 100%); }
+            85% { background: conic-gradient(from 0deg, #000 0%, #000 85%, #999 85%, #999 100%); }
+            90% { background: conic-gradient(from 0deg, #000 0%, #000 90%, #999 90%, #999 100%); }
+            95% { background: conic-gradient(from 0deg, #000 0%, #000 95%, #999 95%, #999 100%); }
+            100% { background: conic-gradient(from 0deg, #000 0%, #000 100%); }
+        }
+</style>
+
+{% schema %}
+{
+  "name": "Events Near You",
+  "class": "events-near-you",
+  "presets": [
+    {
+      "name": "Events Near You",
+      "category": "Events Near You"
+    }
+  ],
+  "max_blocks": 6,
+  "settings": [
+    {
+        "type": "text",
+        "id": "title_section",
+        "label": "Title section"
+    },
+    {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button text"
+    },
+    {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button link"
+    },
+    {
+        "type": "select",
+        "id": "show_tennis_pickleball",
+        "label": "Show Tennis Or Pickleball",
+        "options": [
+            {
+                "value": "show_tennis",
+                "label": "Show tennis"
+            },
+            {
+                "value": "show_pickleball",
+                "label": "Show Pickleball"
+            },
+            {
+                "value": "show_all",
+                "label": "Show All"
+            }
+        ],
+        "default": "show_all"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_tournament_t",
+        "label": "Show Tennis Type Tournament",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_flex_league_t",
+        "label": "Show Tennis Type UTR Flex League",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_team_league_t",
+        "label": "Show Tennis Type UTR Team Tennis",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_camp_t",
+        "label": "Show Tennis Type Camp",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_clinic_t",
+        "label": "Show Tennis Type Clinic",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_match_play_t",
+        "label": "Show Tennis Type Match Play",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_group_play_t",
+        "label": "Show Tennis Type Player Created Play",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_paid_hit_t",
+        "label": "Show Tennis Type Paid Hit",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_tournament_p",
+        "label": "Show Pickleball Type Tournament",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_camp_p",
+        "label": "Show Pickleball Type Camp",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_clinic",
+        "label": "Show Pickleball Type Clinic",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_match_play_p",
+        "label": "Show Pickleball Type Match Play",
+        "default": false
+    },
+    {
+        "type": "checkbox",
+        "id": "show_group_play_p",
+        "label": "Show Pickleball Type Player Created Play",
+        "default": false
+    },
+    {
+        "label": "Distance level 1",
+        "id": "distance_1",
+        "type": "number"
+    },
+    {
+        "label": "Distance level 2",
+        "id": "distance_2",
+        "type": "number"
+    },
+    {
+        "label": "Distance level 3",
+        "id": "distance_3",
+        "type": "number"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hardcoded_event",
+      "name": "Custom Event",
+      "settings": [
+        {
+          "type": "url",
+          "id": "event_url",
+          "label": "Event URL"
+        },
+        {
+            "type": "color",
+            "id": "color_border",
+            "label": "Color Border",
+            "default": "#D3D3D3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

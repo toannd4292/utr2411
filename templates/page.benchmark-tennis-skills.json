@@ -1,0 +1,635 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246439550751e529": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_j9bbbX": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_j9bbbX"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b528b353-ab6c-442b-87bc-f4283792c9c2": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/MOBILE-junior-tennis-player-backhand-national-pathway-event-top-fold-power-800x550.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE-junior-tennis-player-backhand-national-pathway-event-top-fold-power-800x550.jpg",
+        "image_height": "medium",
+        "tagline": "Tennis Drill of the Week",
+        "small-title-size": "h3",
+        "heading": "Benchmark Your Skills",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "How do various aspects of your game stack up? Maybe your serve is on par with a 7 UTR player, but your backhand is more like that of a 5 UTR player. Posting scores for these drills will help you assess which parts of your game are relatively strong and weak.",
+        "section-button": "See this week's drill",
+        "section-button-url": "https://forms.gle/Fhi8EBMw24WqqQw5A",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "gradient_heading_with_text_NCTiUJ": {
+      "type": "gradient-heading-with-text",
+      "settings": {
+        "heading": "Assess strengths & weaknesses",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2"
+      }
+    },
+    "image_with_text_Rmemwy": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9ztE8U": {
+          "type": "heading",
+          "settings": {
+            "heading": "Break down your game.",
+            "heading_size": "h1"
+          }
+        },
+        "text_ytkXaY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Posting drill scores will reveal where in your game you are relatively strong and weak.</p><p>Maybe your forehand drill scores are on par with 5 UTR players, but your backhand scores are more on par with 6 UTR players.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_kYiDdM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_9ztE8U",
+        "text_ytkXaY",
+        "button_kYiDdM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Drill_of_the_Week_Stats_ab640186-9c20-4527-8408-a00a5f00da90.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_Qpi3mt": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_YY9YBR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Track your progress.",
+            "heading_size": "h1"
+          }
+        },
+        "text_QbftRQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Post drill scores on a regular basis to track your progress on the different aspects of your game.</p><p>You can see the relationship between drill performance and UTR. This can help with setting intermediary, skill-based goals in line with your rating goals.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_GYDQAm": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_YY9YBR",
+        "text_QbftRQ",
+        "button_GYDQAm"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Screen_Shot_2024-04-20_at_8.50.27_PM.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_qqwKHc": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3DRE84": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/jnp-girl-hitting-backhand-tennis-flex-leagues-image-1140x880-570x420.jpg",
+            "title": "1. Complete a drill",
+            "text": "<p>Every Monday, a new drill will be dropped.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_nkYqxJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screen_Shot_2024-04-20_at_8.13.54_PM.png",
+            "title": "2. Post your score",
+            "text": "<p>Enter your name, UTR rating, and score for the drill.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wXTpPV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/See_Live_Leaderboard_and_Analytics..png",
+            "title": "3. See live leaderboard and analytics",
+            "text": "<p>Once you've posted your score, you can see the leaderboard and correlation data.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3DRE84",
+        "column_nkYqxJ",
+        "column_wXTpPV"
+      ],
+      "settings": {
+        "title": "How it works:",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "SEE THIS WEEK'S DRILL",
+        "button_link": "https://forms.gle/Fhi8EBMw24WqqQw5A",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "gradient_heading_with_text_XQfbUK": {
+      "type": "gradient-heading-with-text",
+      "settings": {
+        "heading": "Explore Drills",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2"
+      }
+    },
+    "multicolumn_rTxKtJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_AEbp7R": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "Rally in the Alley",
+            "text": "<p><em>1. Line up across from a partner on opposite sides of the doubles alley. </em></p><p><em>2. Choose to hit either forehands or backhands.</em></p><p><em>3. Rally in the alley and keep track of the highest number of consecutive shots in a row YOU make in the alley (ignore your partner's misses).</em></p><p><em>...</em></p><p><a href=\"https://forms.gle/Fhi8EBMw24WqqQw5A\" target=\"_blank\" title=\"https://forms.gle/Fhi8EBMw24WqqQw5A\"><strong>SEE DEMO & POST A SCORE</strong></a></p><p></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3YNyMg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "Cross Court / Down the Lines",
+            "text": "<p><span style=\"text-decoration:underline\">How it works:</span></p><p>1.Have one person only hit down the line, and the other person only hit crosscourt (cooperatively).</p><p>2. Switch roles after a few rounds.</p><p>...</p><p>REGULAR SCORING:</p><p>1. How many in a row can you make when hitting cross court?</p><p>2. How many in a row can you make when hitting down the line?</p><p>...</p><p>ADVANCED SCORING:</p><p><em>1. XC:</em> How many in a row can you hit past the service line or across the doubles alley?</p><p><em>2. DTL</em>: How many in a row can you hit on the half of the court closest to the doubles alley?</p><p>...</p><p><a href=\"https://forms.gle/Fhi8EBMw24WqqQw5A\" target=\"_blank\" title=\"https://forms.gle/Fhi8EBMw24WqqQw5A\"><strong>SEE DEMO & POST A SCORE</strong></a></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GKMC4n": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in April 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yqDyYG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in April 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qHDWcz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in April 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XygJLM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in April 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_AEbp7R",
+        "column_3YNyMg",
+        "column_GKMC4n",
+        "column_yqDyYG",
+        "column_qHDWcz",
+        "column_XygJLM"
+      ],
+      "settings": {
+        "title": "Groundstrokes",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_MqBJQX": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_FGMxzC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_aXgcGK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CbMBhQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_y8YhUk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7jhDfx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NKDGHg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_FGMxzC",
+        "column_aXgcGK",
+        "column_CbMBhQ",
+        "column_y8YhUk",
+        "column_7jhDfx",
+        "column_NKDGHg"
+      ],
+      "settings": {
+        "title": "Serves",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "inverse",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_jciGq6": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QncYEk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QYFUdM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AxTDDq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YyWbrG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_had3mc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kpWMdi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/POST_YOUR_SCORE.png",
+            "title": "TBD (Coming in May 2024)",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QncYEk",
+        "column_QYFUdM",
+        "column_AxTDDq",
+        "column_YyWbrG",
+        "column_had3mc",
+        "column_kpWMdi"
+      ],
+      "settings": {
+        "title": "Returns",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_QL9Tmf": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hDYiFD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Want to recommend a drill?",
+            "heading_size": "h1"
+          }
+        },
+        "text_BNFMGH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are interested in hearing what result-based drills you think would be interesting to chart against UTR ratings. Let us know by filling out the form below!</p>",
+            "text_style": "body"
+          }
+        },
+        "button_djxCpK": {
+          "type": "button",
+          "settings": {
+            "button_label": "SUBMIT DRILL RECOMMENDATION",
+            "button_link": "https://forms.gle/Fhi8EBMw24WqqQw5A"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hDYiFD",
+        "text_BNFMGH",
+        "button_djxCpK"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Adult_team_tennis_hero_image.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_gLtiRd": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex2\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "join_3easy_steps_kARKHb": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "text_iPdnn3": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download the app</p>"
+          }
+        },
+        "text_nypdGB": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create profile, get rated for free</p>"
+          }
+        },
+        "text_eFGbwj": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create groups, find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_iPdnn3",
+        "text_nypdGB",
+        "text_eFGbwj"
+      ],
+      "settings": {
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-two-screenshots-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.com/join",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    },
+    "custom_liquid_7rJDeR": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 0px auto; background-color: #F3FCFF; text-align: center; width: 100%;\">\n<div id=\"snack_dex1\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "17246439550751e529",
+    "main",
+    "b528b353-ab6c-442b-87bc-f4283792c9c2",
+    "gradient_heading_with_text_NCTiUJ",
+    "image_with_text_Rmemwy",
+    "image_with_text_Qpi3mt",
+    "multicolumn_qqwKHc",
+    "gradient_heading_with_text_XQfbUK",
+    "multicolumn_rTxKtJ",
+    "multicolumn_MqBJQX",
+    "multicolumn_jciGq6",
+    "image_with_text_QL9Tmf",
+    "custom_liquid_gLtiRd",
+    "join_3easy_steps_kARKHb",
+    "custom_liquid_7rJDeR"
+  ]
+}

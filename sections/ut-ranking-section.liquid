@@ -1,0 +1,210 @@
+<script>
+  
+  function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("rankingTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+  function filterData() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filter_input");
+  filter = input.value;
+  table = document.getElementById("rankingTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+  
+</script>
+
+<div class="out-box">
+  <div class="shape-box">
+    <div class="image-box blue-teal-gradient-bg">
+      <div class="page-width text-center pt-lg-5 pb-lg-5 pb-sm-3 pt-sm-3">
+        <h2 class="section-medium-title section-title-sm text-uppercase mb-0 lh-xl-78 text-center mb-0">{{section.settings.heading}}</h2>
+        <h2 class="lh-normal section-sub-title font-best-friend text-black mt-0 mb-0">{{section.settings.sub-heading}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+<div class="page-width text-center pt-lg-5 pb-lg-5 pb-sm-3 pt-sm-3 mt-lg-3 mb-lg-3">
+  <form class="mr-auto bg_black flex-search-bg">
+    <div class="d-flex gap-2 align-items-center justify-content-center">
+        <div class="flex-column d-flex w-xl-100">
+          <div class="position-relative">        
+             <svg class="mapicon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.23438 15.3125C6.65513 15.3125 8.29988 14.111 9.6105 12.6204C11.3576 10.6348 12.4219 8.4185 12.4219 6.3125C12.4219 2.97913 9.6825 0.6875 6.23438 0.6875C2.78625 0.6875 0.046875 2.97913 0.046875 6.3125C0.046875 8.4275 1.11113 10.6437 2.85825 12.6271C4.16775 14.1144 5.8125 15.3125 6.23438 15.3125ZM6.23438 10.1375C5.2796 10.1375 4.36392 9.75821 3.68879 9.08308C3.01366 8.40795 2.63438 7.49228 2.63438 6.5375C2.63438 5.58272 3.01366 4.66705 3.68879 3.99192C4.36392 3.31678 5.2796 2.9375 6.23438 2.9375C7.18915 2.9375 8.10483 3.31678 8.77996 3.99192C9.45509 4.66705 9.83437 5.58272 9.83437 6.5375C9.83437 7.49228 9.45509 8.40795 8.77996 9.08308C8.10483 9.75821 7.18915 10.1375 6.23438 10.1375Z" fill="#00C0F7"></path>
+              </svg>
+            <input type="text" id="searchInput" onkeyup="myFunction()" class="gotham-bold text-black px-4" placeholder="Search your name to activate your player profile" />
+          </div>      
+        </div>
+       
+       <div class="flex-column d-flex">
+          <button class="blue-teal-gradient-bg search-icon">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <span class="text-white">
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search"></use>
+              </svg>
+            </span>
+          </summary>
+          </button>
+        </div>
+  </form>
+</div>
+
+<div class="page-width pb-lg-5 pt-lg-1 pt-sm-1 pb-sm-2">
+    <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop d-flex align-items-center">
+        <div class="grid__item d-sm-none" id="cat">
+ 
+        </div>
+      
+       <div class="grid__item ">
+         <div class="d-flex justify-content-lg-end align-items-lg-center gap-2 text-center justify-content-sm-center">
+           <form class="select-control gap-sm-2 mt-sm-1">
+              <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-150" id="filter_input" onChange="filterData()">
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+              </select>
+                <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-150 d-lg-none d-sm-block">
+                  <option>Pro</option>
+                  <option>Pro</option>
+                </select>
+           </form>
+            
+          </div>
+       </div>
+    </div>
+    <div class="d-lg-none d-sm-block">
+       <div class="pt-lg-3 pb-lg-2 pt-sm-2 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center">
+         <a href="#" class="text-uppercase pointer-events-none lightbluebtn button-theme-teal d-flex gap-1 gotham-medium font-sm-14"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/rotate-mobile.svg?v=1672208434">rotate your device</a>
+       </div>  
+    </div>
+  </div>
+
+<div class="page-width">
+  <div class="pb-lg-2 pt-lg-2 pt-sm-2 pb-sm-2 border-radius-lg-3 border-radius-sm-3 bg_white shadow-xxl">
+    <div class="table-responsive table-scroll-black">
+      <table class="table2" id="rankingTable">
+        <thead class="thead-b-bottom">
+          <tr>
+            <th class="text-center font-lg-24 font-sm-18">Rankings</th>
+            <th class="text-left font-lg-24 font-sm-18">Name</th>  
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none">Gender</th>
+            <th class="text-center font-lg-24 font-sm-18 d-sm-none d-md-none">Location</th>
+            <th class="text-center font-lg-24 font-sm-18 d-sm-none d-md-none">3 Mo. Trend</th>
+            <th class="text-center font-lg-24 font-sm-18">UTR</th>
+          </tr>
+        </thead> 
+        <tbody id="table">
+         
+        </tbody>  
+      </table>
+    </div> 
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "UT Rankings Section",
+     "presets": [
+      {
+        "name": "UT Rankings Section",
+        "category": "UT Rankings Section"
+      }
+    ],
+    "settings": [
+       {
+  			"type":"text",
+  			"id":"heading",
+  			"label": "Heading Title"
+  		},
+      {
+       "type": "text",
+       "id": "sub-heading",
+       "label": "Sub Title"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  
+  var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  };
+// fetch("https://api.universaltennis.com/v3/player/searchlimits", requestOptions)
+//   .then(response => response.json())
+//   .then((result) => {
+//     let data="";
+//     result.map((values)=>{
+//           data +='<div class="pro-tennis text-center"><div class="pro-tennis-img"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/asset-6-2.png?v=1672728751"></div><p>'+values.name+'</p></div> ';      
+//     });
+//     document.getElementById("cat").innerHTML=data;
+//   })
+//   .catch(error => console.log('error', error));
+
+  // fetch("https://api.universaltennis.com/v3/player/top?gender=M&count=100", requestOptions)
+  // fetch("https://api.universaltennis.com/v3/player/top?gender=F&count=100", requestOptions)
+  // .then(response => response.json())
+  
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filter_input");
+  filter = input.value;
+  
+  Promise.all([
+  fetch("https://api.universaltennis.com/v3/player/top?gender=M&count=100", requestOptions),
+  fetch("https://api.universaltennis.com/v3/player/top?gender=F&count=100", requestOptions)
+  ]).then(function (responses) {
+  	return Promise.all(responses.map(function (response) {
+		return response.json();
+	}));
+  }) .then(function (result){
+    let data="";
+    console.log(result[0].concat(result[1]))
+    result[0].concat(result[1]).map((values)=>{
+      if(values.threeMonthRating != null){
+        threeMonthRating = values.threeMonthRating;
+      }else{
+        threeMonthRating = '--';
+      }
+
+        if(values.gender == 'Female'){
+        var style = 'none';
+      }
+          data +='<tr style="display:'+style+'"><td>'+values.utrRanking+'</td><td class="fw-bold d-flex gap-1 align-items-center text-sm-left">'+values.firstName+' '+values.lastName+'</td><td class="fw-bold text-left d-sm-none d-md-none">'+values.gender+'</td><td class="text-center d-sm-none d-md-none">'+values.nationality+'</td><td class="text-center d-sm-none d-md-none">'+threeMonthRating+'</td><td class="text-center">'+values.utr+'</td></tr>';
+  }); 
+    
+    document.getElementById("table").innerHTML=data;
+  }) 
+  .catch(error => console.log('error', error));
+  
+{% endjavascript %}

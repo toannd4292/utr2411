@@ -1,0 +1,168 @@
+<div class="banner-container">
+  <div class="page-width banner-wrapper">
+    <div class="banner-content download-app">
+      <div class="content-bold">
+        <p class="title">{{ section.settings.content_banner }}</p>
+        <span class="title-bold">{{ section.settings.content_span_banner }}</span>
+      </div>
+      <a href="{{section.settings.url_button}}" class="link-url">
+        <p class="title-button">{{ section.settings.content_button }}</p>
+      </a>
+      {% comment %}
+      <a href="{{section.settings.google-url}}" target="_blank" class="link-url"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Group_3.png?v=1720689627" alt="Google Pay"></a>
+      <a href="{{section.settings.apple-url}}" target="_blank" class="link-url"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Group_4.png?v=1720689628" alt="App Store"></a> 
+      {
+        "type": "url",
+        "id": "google-url",
+        "label": "Google Url"
+      },
+      {
+        "type": "url",
+        "id": "apple-url",
+        "label": "Apple Url"
+      },
+      {% endcomment %}
+    </div>
+    {% comment %}
+      <div class="banner-content watch-video">
+        <a href="{{section.settings.url_button}}" target="_blank" class="link-url">
+          <p class="title">{{ section.settings.content_button }}</p>
+        </a>
+      </div>
+    {% endcomment %}
+  </div>
+</div>
+<style>
+  .new-section-banner-zago {
+    .banner-container {
+      background: linear-gradient(44.76deg, #00C0F7 31%, #01DFCB 65%);
+      /* margin-bottom: 50px; */
+    }
+    .banner-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      height: 90px;
+    }
+    .banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content-bold {
+      display: flex;
+      align-items: center;
+    }
+    .title {
+      margin: unset;
+      margin-right: 10px;
+      font-size: 20px;
+      color: #000000;
+      line-height: 26px;
+      font-weight: bold;
+      font-family: 'Gotham';
+    }
+    .title-bold {
+      font-size: 26px;
+      color: #000000;
+      line-height: 26px;
+      font-weight: 900;
+      font-family: 'Gotham-Medium';
+    }
+    .title-button {
+      margin: unset;
+      color: #ffffff;
+      text-transform: initial;
+    }
+    .link-url {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #000000;
+      border-radius: 30px;
+      margin-left: 20px;
+    }
+    .link-url:hover {
+      background-color: #ffffff;
+      .title-button {
+        color: #000000;
+      }
+    }
+  }
+@media(max-width:450px) {
+  .new-section-banner-zago {
+    .banner-wrapper {
+      height: auto;
+    }
+    .banner-content {
+      display: block;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .content-bold {
+      display: block;
+    }
+    .title {
+      width: 100%;
+      font-size: 22px;
+      padding-bottom: 5px;
+    }
+    .link-url {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin-left: unset !important;
+      padding: unset;
+      background: unset;
+      border-radius: unset;
+      margin-top: 15px;
+    }
+    .title-button {
+      width: fit-content;
+      margin: unset;
+      color: #ffffff;
+      text-transform: initial;
+      padding: 10px 30px;
+      background-color: #000000;
+      border-radius: 30px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+</style>
+{% schema %}
+  {
+    "name": "New Section Banner Zago",
+    "class": "new-section-banner-zago",
+    "settings": [
+      {
+        "type": "text",
+        "id": "content_banner",
+        "label": "Content Banner"
+      },
+      {
+        "type": "text",
+        "id": "content_span_banner",
+        "label": "Content Bold Banner"
+      },
+      {
+        "type": "text",
+        "id": "content_button",
+        "label": "Content Button"
+      },
+      {
+        "type": "url",
+        "id": "url_button",
+        "label": "Link Button"
+      }
+    ],
+     "presets": [
+      {
+        "name": "New Section Banner Zago"
+      }
+    ]
+  }
+{% endschema %}

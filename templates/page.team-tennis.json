@@ -1,0 +1,263 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "54ac56fd-65e2-44f9-af4d-05f8d46aac8c": {
+      "type": "inner-image-banner-full-content",
+      "settings": {
+        "section-image": "shopify://shop_images/Team_Tennis_hero_image.jpg",
+        "image_mobile": "shopify://shop_images/Team_Tennis_hero_image.jpg",
+        "tagline": "JUNIOR AND ADULT Team Tennis",
+        "small-title-size": "p",
+        "heading": "Play Tennis Leagues",
+        "heading-size": "large",
+        "subheading": "More fun for all",
+        "sub-heading-size": "medium",
+        "description": "The fun and excitement of tennis with the thrill of having an entire team supporting you on every point. UTR Sports Team Tennis Leagues is an innovative format for players and providers to maximize fun! Enjoy level-based play in a team format across multiple seasons throughout the year. Grow and develop your game with matches counting towards Verified UTR Ratings!",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-2": "",
+        "section-button-url-2": ""
+      }
+    },
+    "ads_xK9mDU": {
+      "type": "Ads",
+      "settings": {
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 28,
+        "padding_bottom": 8
+      }
+    },
+    "77a92187-993d-439c-a46b-b3d56b06970a": {
+      "type": "content-with-list-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/high-five-on-court-doubles-men-playing-boca-team-tennis-114x880.jpg",
+        "heading": "CAPTAIN A TEAM",
+        "heading-size": "h2",
+        "subheading": "Victory awaits...",
+        "sub-heading-size": "h2",
+        "list": "Captaining a team has never been easier with our new player availability and lineup management features.",
+        "list2": "Earn free league entry and special captain UTR Sports/Fabletics swag!",
+        "list3": "Four seasons a year: winter, spring, summer, fall. Seasons consist of 6 team matches: 3 home, 3 away. Divisions based on UTR Rating and gender.",
+        "list4": "Recruit players for your team, secure court time for home matches, and lead your team to victory!",
+        "section-button": "CAPTAIN A TEAM",
+        "section-button-url": "https://utr.typeform.com/TTwebpage#mid=xxxxx"
+      }
+    },
+    "b6ec9668-5384-40ba-8f8b-c3f62ef19177": {
+      "type": "ut-card-with-two-column-img",
+      "blocks": {
+        "8b72c7b2-60ec-4a51-b662-7683fa1bd0ad": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Jr_team_tennis.png",
+            "heading": "Play Junior team tennis",
+            "description": "Junior Team Tennis is for all players under the age of 18 looking to play level-based matches in a team format. All season matches count towards your Verified UTR Rating! Make your way to Regional and State Playoffs.",
+            "section-button": "Learn More",
+            "section-button-url": "shopify://pages/junior-team-tennis",
+            "button-permission-hover": "NO"
+          }
+        },
+        "fab07865-289d-47cd-9936-e85d91f3bb85": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Adult_Team_Tennis.png",
+            "heading": "play adult tennis leagues",
+            "description": "Adult Tennis Leagues bring level-based matches to a club near you! Players can easily register on a team through the website and view the team's schedule and results. Each match counts towards Verified UTR Ratings. Level-based matches, flexible formats, and fun guaranteed!",
+            "section-button": "Learn More",
+            "section-button-url": "shopify://pages/adult-team-tennis",
+            "button-permission-hover": "NO"
+          }
+        }
+      },
+      "block_order": [
+        "8b72c7b2-60ec-4a51-b662-7683fa1bd0ad",
+        "fab07865-289d-47cd-9936-e85d91f3bb85"
+      ],
+      "settings": {}
+    },
+    "f334875e-6ab5-47a4-82a1-0fdfede97dc7": {
+      "type": "ut-team-tennis-leagues",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading-size": "h2",
+        "heading-permission": "NO",
+        "team_tennis_league_type": "1",
+        "description-title": ""
+      }
+    },
+    "6c56e56e-d9e6-4eda-9ac7-a957679e4aae": {
+      "type": "testimonials",
+      "blocks": {
+        "28ae7f3d-f6b1-48e0-aa09-509c973b8a5b": {
+          "type": "home-card",
+          "settings": {
+            "description": "UTR Sports Tennis Adult Leagues have a modern and progressive format with true level-based play.",
+            "image": "shopify://shop_images/Mary_Cornell_testimonial.png",
+            "author": "Dana Gill",
+            "author-designation": ""
+          }
+        },
+        "69252434-eb5c-4be0-8912-5cc56f5bbe06": {
+          "type": "home-card",
+          "settings": {
+            "description": "UTR Rating narrows down the divisions and the competition is better.",
+            "image": "shopify://shop_images/Mary_Cornell_testimonial.png",
+            "author": "Mary Cornell",
+            "author-designation": ""
+          }
+        },
+        "5e4c370f-1f5e-44e8-8fbb-b451b14c4377": {
+          "type": "home-card",
+          "settings": {
+            "description": "The team component makes playing fun, and the time commitment is much more family-friendly.",
+            "image": "shopify://shop_images/spare-time-white-logo.jpg",
+            "author": "Chrys Atkinson",
+            "author-designation": ""
+          }
+        }
+      },
+      "block_order": [
+        "28ae7f3d-f6b1-48e0-aa09-509c973b8a5b",
+        "69252434-eb5c-4be0-8912-5cc56f5bbe06",
+        "5e4c370f-1f5e-44e8-8fbb-b451b14c4377"
+      ],
+      "settings": {
+        "heading": "TESTIMONIALS",
+        "sub-heading": "Why they love team tennis leagues..."
+      }
+    },
+    "ads_gaGyJB": {
+      "type": "Ads",
+      "settings": {
+        "ads": "ads-4",
+        "color_scheme": "new",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "3_steps_new_ReMMfP": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_jHmdA7": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_KNcHpC": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_89XWdU": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_jHmdA7",
+        "text_KNcHpC",
+        "text_89XWdU"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports ",
+        "heading-size": "h2",
+        "sub-heading": "in 3 Easy Steps",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "7a51cd36-2e37-4c36-a5bb-fd468e0d5289": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "c3a5a679-0d1f-4a55-b663-2a42da9aed11": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download app</p>"
+          }
+        },
+        "34fb3e71-844d-4504-a719-3520ae30a6e3": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>create profile</p>"
+          }
+        },
+        "ca154266-e8a8-4ab4-8f83-94a50a677a83": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c3a5a679-0d1f-4a55-b663-2a42da9aed11",
+        "34fb3e71-844d-4504-a719-3520ae30a6e3",
+        "ca154266-e8a8-4ab4-8f83-94a50a677a83"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Join UTR Sports ",
+        "heading-size": "h2",
+        "sub-heading": "in 3 Easy Steps",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you with the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-screenshot-two-phone-fold-download-app-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/login",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    },
+    "custom_liquid_JFVKVy": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 0px auto; background-color: #F3FCFF; text-align: center; width: 100%;\">\n<div id=\"snack_dex1\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "54ac56fd-65e2-44f9-af4d-05f8d46aac8c",
+    "ads_xK9mDU",
+    "77a92187-993d-439c-a46b-b3d56b06970a",
+    "b6ec9668-5384-40ba-8f8b-c3f62ef19177",
+    "f334875e-6ab5-47a4-82a1-0fdfede97dc7",
+    "6c56e56e-d9e6-4eda-9ac7-a957679e4aae",
+    "ads_gaGyJB",
+    "3_steps_new_ReMMfP",
+    "7a51cd36-2e37-4c36-a5bb-fd468e0d5289",
+    "custom_liquid_JFVKVy"
+  ]
+}

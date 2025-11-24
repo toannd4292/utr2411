@@ -1,0 +1,354 @@
+<div class="header__icons position-relative">
+          {% style %} 
+            @media (ma-width: 1200px) {
+                .header__icon-cart { display: none !important; }
+            }          
+.searchdropdown.searchIButton.pointer {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.searchdropdown.searchIButton.pointer.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.search-svg.hide {
+  display: none;
+}
+
+
+            .shopify-section-header-sticky .search-svg path {
+    fill: black;
+}
+            svg.search-svg {
+    margin-right: 15px;
+}
+            {% endstyle %}
+          <div class="d-flex justify-content-center align-items-center gap-1 w-sm-full-100"> 
+       <div class="header__icons position-relative">
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" class="search-svg">
+<path d="M32.6667 35L22.1667 24.5C21.3333 25.1667 20.375 25.6944 19.2917 26.0833C18.2083 26.4722 17.0556 26.6667 15.8333 26.6667C12.8056 26.6667 10.2433 25.6178 8.14667 23.52C6.05 21.4222 5.00111 18.86 5 15.8333C4.99889 12.8067 6.04778 10.2444 8.14667 8.14667C10.2456 6.04889 12.8078 5 15.8333 5C18.8589 5 21.4217 6.04889 23.5217 8.14667C25.6217 10.2444 26.67 12.8067 26.6667 15.8333C26.6667 17.0556 26.4722 18.2083 26.0833 19.2917C25.6944 20.375 25.1667 21.3333 24.5 22.1667L35 32.6667L32.6667 35ZM15.8333 23.3333C17.9167 23.3333 19.6878 22.6044 21.1467 21.1467C22.6056 19.6889 23.3344 17.9178 23.3333 15.8333C23.3322 13.7489 22.6033 11.9783 21.1467 10.5217C19.69 9.065 17.9189 8.33556 15.8333 8.33333C13.7478 8.33111 11.9772 9.06056 10.5217 10.5217C9.06611 11.9828 8.33667 13.7533 8.33333 15.8333C8.33 17.9133 9.05945 19.6844 10.5217 21.1467C11.9839 22.6089 13.7544 23.3378 15.8333 23.3333Z" fill="white"/>
+</svg>
+         <div class="searchdropdown searchIButton pointer">
+           <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.8976 10.8565L9.63165 8.59723C10.3627 7.66583 10.7594 6.51567 10.758 5.33162C10.758 4.27712 10.4453 3.24631 9.85942 2.36953C9.27357 1.49275 8.44089 0.809385 7.46666 0.405847C6.49244 0.00231009 5.42043 -0.103274 4.3862 0.102448C3.35197 0.308169 2.40196 0.815957 1.65632 1.5616C0.910683 2.30724 0.402896 3.25724 0.197174 4.29147C-0.00854708 5.3257 0.0970367 6.39771 0.500574 7.37194C0.904111 8.34616 1.58748 9.17885 2.46426 9.76469C3.34104 10.3505 4.37185 10.6632 5.42634 10.6632C6.6104 10.6647 7.76056 10.268 8.69196 9.53693L10.9512 11.8029C11.0132 11.8653 11.0869 11.9149 11.1681 11.9487C11.2493 11.9826 11.3364 12 11.4244 12C11.5124 12 11.5995 11.9826 11.6807 11.9487C11.7619 11.9149 11.8356 11.8653 11.8976 11.8029C11.9601 11.7409 12.0096 11.6672 12.0435 11.586C12.0773 11.5048 12.0947 11.4177 12.0947 11.3297C12.0947 11.2417 12.0773 11.1546 12.0435 11.0734C12.0096 10.9922 11.9601 10.9185 11.8976 10.8565ZM1.42763 5.33162C1.42763 4.54075 1.66215 3.76764 2.10154 3.11005C2.54092 2.45247 3.16543 1.93994 3.8961 1.63729C4.62677 1.33464 5.43078 1.25545 6.20645 1.40974C6.98213 1.56403 7.69463 1.94487 8.25386 2.5041C8.81309 3.06333 9.19393 3.77583 9.34822 4.55151C9.50251 5.32718 9.42332 6.13119 9.12067 6.86186C8.81802 7.59253 8.30549 8.21704 7.64791 8.65642C6.99032 9.09581 6.21721 9.33033 5.42634 9.33033C4.36582 9.33033 3.34873 8.90904 2.59883 8.15913C1.84892 7.40923 1.42763 6.39214 1.42763 5.33162Z" fill="black"></path>
+          </svg>
+           <input id="myInput-zago" type="text" class="searchinput searchinput-zago custom-search" placeholder="Search" autocomplete="off"/> 
+        </div>
+       <!--begin searchmenu1-->
+         <div id="presearch" class="searchdropdown-bg">
+         <div class="position-relative">
+           <div class="search-scroll">
+           <div class="search-inner smenu1">
+             <h4 class="text-white font-lg-20 font-tungsten text-uppercase mb-0 mt-0">What are you looking For?</h4>
+             <div class="divider-blue"></div>
+           </div>
+           <ul class="searchdropdown-menu smenu1 svg-arrow-menu">
+              <li>
+                <a href="https://app.utrsports.net/search?sportTypes=tennis,pickleball&type=players&startDate=03/28/2024&utrTeamType=singles&utrMin=1&utrMax=16&utrType=verified&utrFitPosition=6&lat=27.9516896&lng=-82.45875269999999">Players <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+  </a></li>
+              <li><a href="https://app.utrsports.net/search?type=events&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">All Events <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://app.utrsports.net/search?type=flexLeagues&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Flex Leagues <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+             <li><a href="https://leagues.utrsports.net/search/league/1">Tennis Adult Leagues <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://leagues.utrsports.net/search/league/3">Junior Team Tennis <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://app.utrsports.net/search?type=proTennisTour&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">UTR Pro Tennis Tour <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+   <li><a href="https://app.utrsports.net/search?tours=College%20Camps%20for%20Juniors&type=events&eventTypes=camp&sportTypes=tennis,pickleball&startDate=06/21/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Camps <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://app.utrsports.net/search?type=clubs&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Clubs <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://app.utrsports.net/search?type=colleges&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Colleges <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+              <li><a href="https://app.utrsports.net/search?type=highSchools&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">High Schools <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+   <!-- <li><a href="https://app.utrsports.net/search?type=paidHits&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Paid Hits <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+   <li><a href="https://app.utrsports.net/search?type=paidHitClubs&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Paid Hitters <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li> -->
+   <li><a href="https://app.utrsports.net/search?regionSearch=true&type=juniorCircuits&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Junior Circuits <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+   <li><a href="https://app.utrsports.net/search?type=juniorRegionals&lat=38.8816208&lng=-77.09098089999999&locationInputValue=Arlington,%20VA&location=Arlington,%20VA&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Junior Regionals <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+   <li><a href="https://app.utrsports.net/search?type=collegeCircuits&lat=38.8816208&lng=-77.09098089999999&locationInputValue=Arlington,%20VA&location=Arlington,%20VA&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">College Circuits <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+ <li><a href="https://app.utrsports.net/search?sportTypes=pickleball&tours=UTR%20Sports%20Pickleball%20Amateur%20Series&type=events&startDate=02/02/2024&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">Pickleball Amateur Series<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg></a></li>
+           </ul>
+           </div>
+         </div>
+      </div><!--./searchmenu1-->
+
+  <!--begin searchmenu2-->
+      <div id="postsearch" class="searchdropdown-bg" style="display:none">
+         <div class="position-relative">
+          <div class="search-scroll">
+            <div id="searchresult-zago">
+            </div>
+          </div>
+         </div>
+      </div><!--./searchmenu2-->
+
+        {% comment %} {%- if shop.customer_accounts_enabled -%}
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+            {% render 'icon-account' %}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+          </a>
+        {%- endif -%} {% endcomment %}
+
+         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble" >
+          {%- liquid
+            if cart == empty
+              render 'icon-cart-empty'
+            else
+              render 'icon-cart'
+            endif
+          -%}
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">{{ cart.item_count }}</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+        </a>
+      </div>
+
+       {% comment %}
+        <div class="login-hide-show" id="ut-login-status"></div>
+       {% endcomment %}
+      </div>
+  {% comment %}
+  search old not work
+          <div class="searchdropdown searchIButton pointer">
+            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.8976 10.8565L9.63165 8.59723C10.3627 7.66583 10.7594 6.51567 10.758 5.33162C10.758 4.27712 10.4453 3.24631 9.85942 2.36953C9.27357 1.49275 8.44089 0.809385 7.46666 0.405847C6.49244 0.00231009 5.42043 -0.103274 4.3862 0.102448C3.35197 0.308169 2.40196 0.815957 1.65632 1.5616C0.910683 2.30724 0.402896 3.25724 0.197174 4.29147C-0.00854708 5.3257 0.0970367 6.39771 0.500574 7.37194C0.904111 8.34616 1.58748 9.17885 2.46426 9.76469C3.34104 10.3505 4.37185 10.6632 5.42634 10.6632C6.6104 10.6647 7.76056 10.268 8.69196 9.53693L10.9512 11.8029C11.0132 11.8653 11.0869 11.9149 11.1681 11.9487C11.2493 11.9826 11.3364 12 11.4244 12C11.5124 12 11.5995 11.9826 11.6807 11.9487C11.7619 11.9149 11.8356 11.8653 11.8976 11.8029C11.9601 11.7409 12.0096 11.6672 12.0435 11.586C12.0773 11.5048 12.0947 11.4177 12.0947 11.3297C12.0947 11.2417 12.0773 11.1546 12.0435 11.0734C12.0096 10.9922 11.9601 10.9185 11.8976 10.8565ZM1.42763 5.33162C1.42763 4.54075 1.66215 3.76764 2.10154 3.11005C2.54092 2.45247 3.16543 1.93994 3.8961 1.63729C4.62677 1.33464 5.43078 1.25545 6.20645 1.40974C6.98213 1.56403 7.69463 1.94487 8.25386 2.5041C8.81309 3.06333 9.19393 3.77583 9.34822 4.55151C9.50251 5.32718 9.42332 6.13119 9.12067 6.86186C8.81802 7.59253 8.30549 8.21704 7.64791 8.65642C6.99032 9.09581 6.21721 9.33033 5.42634 9.33033C4.36582 9.33033 3.34873 8.90904 2.59883 8.15913C1.84892 7.40923 1.42763 6.39214 1.42763 5.33162Z"
+                fill="black"
+              ></path>
+            </svg>
+            <input id="myInput" type="text" class="searchinput custom-search" placeholder="Search" autocomplete="off" />
+          </div>
+          
+          <!--begin searchmenu1-->
+          <div id="presearch" class="searchdropdown-bg">
+            <div class="position-relative">
+              <div class="search-scroll">
+                <div class="search-inner smenu1">
+                  <h4 class="text-white font-lg-20 font-tungsten text-uppercase mb-0 mt-0">What are you looking For?</h4>
+                  <div class="divider-blue"></div>
+                </div>
+                <ul class="searchdropdown-menu smenu1 svg-arrow-menu">
+                  <li>
+                    <a href="https://app.utrsports.net/search?sportTypes=tennis,pickleball&type=players&startDate=03/28/2024&utrTeamType=singles&utrMin=1&utrMax=16&utrType=verified&utrFitPosition=6&lat=27.9516896&lng=-82.45875269999999">
+                      Players
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=events&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      All Events
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=flexLeagues&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      Flex Leagues
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://leagues.utrsports.net/search/league/1">
+                      Tennis Adult Leagues
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://leagues.utrsports.net/search/league/3">
+                      Junior Team Tennis
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=proTennisTour&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      UTR Pro Tennis Tour
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://app.utrsports.net/search?tours=College%20Camps%20for%20Juniors&type=events&eventTypes=camp&sportTypes=tennis,pickleball&startDate=06/21/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified"
+                    >
+                      Camps
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=clubs&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      Clubs
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=colleges&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      Colleges
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?type=highSchools&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      High Schools
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?regionSearch=true&type=juniorCircuits&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      Junior Circuits
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://app.utrsports.net/search?type=juniorRegionals&lat=38.8816208&lng=-77.09098089999999&locationInputValue=Arlington,%20VA&location=Arlington,%20VA&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified"
+                    >
+                      Junior Regionals
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://app.utrsports.net/search?type=collegeCircuits&lat=38.8816208&lng=-77.09098089999999&locationInputValue=Arlington,%20VA&location=Arlington,%20VA&startDate=05/04/2023&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified"
+                    >
+                      College Circuits
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://app.utrsports.net/search?sportTypes=pickleball&tours=UTR%20Sports%20Pickleball%20Amateur%20Series&type=events&startDate=02/02/2024&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">
+                      Pickleball Amateur Series
+                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--./searchmenu1-->
+  
+          <!--begin searchmenu2-->
+          <div id="postsearch" class="searchdropdown-bg" style="display:none">
+             <div class="position-relative">
+              <div class="search-scroll">
+                <div id="searchresult">
+                </div>
+              </div>
+             </div>
+          </div><!--./searchmenu2-->
+{% endcomment %}
+
+          {% comment %} {%- if shop.customer_accounts_enabled -%}
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+              {% render 'icon-account' %}
+              <span class="visually-hidden">
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </span>
+            </a>
+          {%- endif -%} {% endcomment %}
+
+          <div class="login-hide-show d-xxl-block d-xl-none" id="ut-login-status"></div>
+  
+           <a href="{{ routes.cart_url }}" class="header__icon header__icon-cart header__icon--cart link focus-inset d-xxl-block d-xl-none" id="cart-icon-bubble">
+            {%- liquid
+              if cart == empty
+                render 'icon-cart-empty'
+              else
+                render 'icon-cart'
+              endif
+            -%}
+            <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+            </a>
+          
+        </div>
+        <script>
+          document.querySelector('.search-svg').addEventListener('click', function() {
+  this.classList.add('hide'); // Ẩn icon search
+  document.querySelector('.searchdropdown.searchIButton.pointer').classList.add('active'); // Hiện dropdown
+});
+
+        </script>

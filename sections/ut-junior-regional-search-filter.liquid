@@ -1,0 +1,438 @@
+<style>
+.ut-jr-api-box-container {
+  display: none;
+}
+.min-h-260{min-height:260px}
+@media(max-width:991px){
+  .ut-jr-api-box-container:nth-child(1),
+  .ut-jr-api-box-container:nth-child(2){
+    display: inline-block;
+    transition: 0.2s ease;
+  }
+}  
+@media(min-width:992px){
+  .ut-jr-api-box-container:nth-child(1),
+  .ut-jr-api-box-container:nth-child(2),
+  .ut-jr-api-box-container:nth-child(3),
+  .ut-jr-api-box-container:nth-child(4),
+  .ut-jr-api-box-container:nth-child(5),
+  .ut-jr-api-box-container:nth-child(6)
+  {
+    display: inline-block;
+    transition: 0.2s ease;
+  }
+  
+}  
+</style>
+<div id={{ section.settings.addlinkdata }}>
+<form class="pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-5 bg_black mb-sm-5">
+  <div class="page-width">
+    <div class="text-center mb-lg-5 mb-sm-3">
+      <h2 class="text-uppercase section-title section-title-sm mb-0 mt-0 fs-text-white lh-sm-90 mb-2 lh-xl-78">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="divider-sm-teal divider-lg-teal"></div>
+      {%- endif -%}
+    </div>  
+    
+
+    <div class="mr-auto bg-dark-gray flex-search-bg mb-md-3" style="display:none;">
+      <div class="d-flex gap-2 align-items-center justify-content-center">
+        <div class="flex-column d-flex w-xl-100">
+          <div class="position-relative">        
+             <svg class="mapicon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.23438 15.3125C6.65513 15.3125 8.29988 14.111 9.6105 12.6204C11.3576 10.6348 12.4219 8.4185 12.4219 6.3125C12.4219 2.97913 9.6825 0.6875 6.23438 0.6875C2.78625 0.6875 0.046875 2.97913 0.046875 6.3125C0.046875 8.4275 1.11113 10.6437 2.85825 12.6271C4.16775 14.1144 5.8125 15.3125 6.23438 15.3125ZM6.23438 10.1375C5.2796 10.1375 4.36392 9.75821 3.68879 9.08308C3.01366 8.40795 2.63438 7.49228 2.63438 6.5375C2.63438 5.58272 3.01366 4.66705 3.68879 3.99192C4.36392 3.31678 5.2796 2.9375 6.23438 2.9375C7.18915 2.9375 8.10483 3.31678 8.77996 3.99192C9.45509 4.66705 9.83437 5.58272 9.83437 6.5375C9.83437 7.49228 9.45509 8.40795 8.77996 9.08308C8.10483 9.75821 7.18915 10.1375 6.23438 10.1375Z" fill="#00C0F7"></path>
+              </svg>
+            <input id="ut-jr-api-searchInput" type="text" class="gotham-bold text-black px-4 ut-jr-api-searchInput" placeholder="Search" autocomplete="off"/>
+          </div>      
+        </div>
+       
+       <div class="flex-column d-flex">
+          <button id="ut-jr-api-searchButton" type="button" class="blue-teal-gradient-bg search-icon ut-jr-api-searchButton">
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+            <span class="text-white">
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search"></use>
+              </svg>
+            </span>
+          </summary>
+          </button>
+        </div>
+       
+      </div>   
+    </div>
+    
+    <div class="select-gap-lg-3 select-gap-md-3 pt-lg-5 pb-lg-5 pt-sm-4 pb-sm-0">
+      <div class="pb-sm-2 pb-md-3">
+        <div class="select-control-white min-w-sm-100">
+          <select class="text-uppercase font-sm-12  min-w-sm-100 min-w-md-100" id="ut-jr-api-eventStatusSelect">
+            <option value="" selected="">EVENT STATUS (ALL)</option>
+             <option value="open_registration" selected="">Open registration</option>
+            <option value="registration_closed">Registration closed</option>
+        	<option value="in_progress">Event in progress</option>
+        	<option value="completed">Event completed</option>
+          </select>
+        </div>   
+    </div>
+      <div class="pb-sm-2 pb-md-3">
+        <div class="select-control-white">
+          <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-100 min-w-md-100" id="ut-jr-api-genderSelect">
+            <option value="" selected="">Gender (All)</option>
+            <option value="m">Boys</option>
+            <option value="f">Girls</option>
+            <option value="all">Co-ed</option>
+          </select>
+        </div>   
+    </div>
+ <div class="pb-sm-2 pb-md-3">
+        <div class="select-control-white">
+          <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100" id="ut-jr-api-regionSelect">
+            <option value="" selected="">REGIONS (ALL)</option>
+            <option value="Florida">Florida & Caribbean</option>
+            <option value="Mid-Atlantic/NC">Mid-Atlantic & NC</option>
+            <option value="Midwest">Midwest</option>
+            <option value="NorCal&PNW">NorCal & PNW</option>
+            <option value="Northeast">Northeast</option>
+            <option value="SoCal&AZ">SoCal & AZ</option>
+            <option value="South">Southern</option>
+            <option value="SouthCentral">South Central</option>
+          </select>
+        </div>   
+     </div>
+     
+  </div>
+
+    <div class="d-flex align-items-center justify-content-center clear-both">
+       <div class="select-control d-lg-block d-sm-none">
+            <select class="text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160" id="ut-jr-api-rangeSelect">
+              <!-- <option selected="">upcoming dates</option> -->
+              <option value="" selected="">upcoming dates</option>
+              <option value="3">March 2023</option>
+              <option value="4">April 2023</option>
+              <option value="5">May 2023</option>
+              <option value="6">June 2023</option>
+              <option value="7">July 2023</option>
+              <option value="8">August 2023</option>
+              <option value="9">September 2023</option>
+              <option value="10">October 2023</option>
+              <option value="11">November 2023</option>
+              <option value="12">December 2023</option>
+            </select>
+      </div>  
+      </div>  
+
+    <div class="grid grid--1-col grid--3-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-3 clear-both ut-jr-api-container-wrap" id="ut-jr-api-grid">
+
+    </div> 
+        
+   <div class="mt-4">      
+     <div class="d-flex justify-content-center justify-content-sm-center text-center">
+        <a href="javascript:void(0)" class="btn-white min-w-lg-225 font-sm-14 min-w-sm-160 text-uppercase ut-jr-api-load-more-btn">Load More</a>
+      </div>      
+   </div>     
+ </div>   
+</form>
+</div>
+        
+
+{% schema %}
+  {
+    "name": "UT Junior Regional",
+     "presets": [
+      {
+        "name": "UT Junior Regional Pathway",
+        "category": "UT Junior Regional"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+      {
+      "type": "text",
+      "label": "add link data",
+      "id": "addlinkdata",
+         "info": "Use '-' instead of blank space"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+  let tour = 'Junior Regionals';
+  let eventState = 'open_registration';
+  let teamType = '';
+  let gender = '';
+  let region = '';
+
+  const date = new Date(); 
+  let dayToday = date.getDate();
+  let monthToday = date.getMonth() + 1;
+  let currentYear = date.getFullYear(); 
+
+  let range = '';
+  let range1 = 'eventSchedule.eventStartUtc<='+dayToday+'/'+monthToday+'/'+currentYear;
+  let range2 = 'eventSchedule.eventStartUtc>='+dayToday+'/'+monthToday+'/'+currentYear; 
+  
+  let searchQuery = '';
+  let currentItem = 0;
+  let loadMoreBtn = document.querySelector('.ut-jr-api-load-more-btn');
+  let searchInputElement = document.querySelector('.ut-jr-api-searchInput');
+  let searchBtn = document.querySelector('.ut-jr-api-searchButton');
+  let shareLink = document.querySelector('.share-link');
+  
+  //Fetch all events 
+  fetchEvents();
+
+  //Search Functionality
+  $('#ut-jr-api-searchInput').keypress(function (e) {                                       
+       if (e.which == 13) {
+         e.preventDefault();
+         
+         //do something    
+         searchQuery = document.getElementById('ut-jr-api-searchInput').value;
+         fetchEvents();
+
+       }
+  });  
+  
+  const inputHandler = function(e) {
+    searchQuery = e.target.value;
+    console.log(searchQuery);
+  }
+  searchInputElement.addEventListener('input', inputHandler);
+  
+  //Search Functionality
+  searchBtn.onclick = () => {
+    searchQuery = document.getElementById('ut-jr-api-searchButton').value;
+    fetchEvents();
+  }
+
+
+  //Share Functionality
+  function shareClicked() {
+  
+    console.log('shareClicked');
+    if (navigator.share) {
+      navigator.share({
+        title: 'WebShare API Demo',
+        url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      })
+      .catch(console.error);    
+    } else {
+      console.log('Browser not supporting Web Share!');
+    }
+
+  }
+  
+  
+  //Load More Functionality
+  loadMoreBtn.onclick = () => {
+    
+    let boxes = [...document.querySelectorAll('.ut-jr-api-container-wrap .ut-jr-api-box-container')];
+    
+    for (var i = 0; i < boxes.length; i++) {
+      boxes[i].style.display = "inline-block";
+    }
+            
+    loadMoreBtn.style.display = "none";
+    
+  }
+
+  //Filter by gender
+  document.getElementById("ut-jr-api-genderSelect").onchange = function() {selectGender()};
+
+  function selectGender() {
+    gender = document.getElementById("ut-jr-api-genderSelect").value;
+    fetchEvents();
+  }
+ 
+  //Filter by event state
+  document.getElementById("ut-jr-api-eventStatusSelect").onchange = function() {selectEventState()};
+
+  function selectEventState() {
+    eventState = document.getElementById("ut-jr-api-eventStatusSelect").value;
+    fetchEvents();
+  }
+
+  /* Comment | No Api available for team type select singles & doubles
+  //Filter by team type
+  document.getElementById("teamTypeSelect").onchange = function() {selectTeamType()};
+  function selectTeamType() {
+    teamType = document.getElementById("teamTypeSelect").value;
+    fetchEvents();
+  }
+  */
+  
+  //Filter by team type
+  document.getElementById("ut-jr-api-regionSelect").onchange = function() {selectRegion()};
+
+  function selectRegion() {
+    region = document.getElementById("ut-jr-api-regionSelect").value;
+    fetchEvents();
+  }
+
+
+  //Filter by team type
+  document.getElementById("ut-jr-api-rangeSelect").onchange = function() {selectRange()};
+
+  function selectRange() {
+    range = document.getElementById("ut-jr-api-rangeSelect").value;
+    if (range) {
+      range1 = 'eventSchedule.eventStartUtc>='+range+'/01/'+currentYear;
+      range2 = 'eventSchedule.eventStartUtc<='+range+'/'+getDaysInMonth(range,currentYear)+'/'+currentYear; 
+    }    
+    
+    fetchEvents();
+  }
+
+  //Fetch Events 
+  function fetchEvents() {
+     
+    var grid_element = document.getElementById("ut-jr-api-grid");
+    grid_element.innerHTML="Fetching....";
+
+      var currentDate = new Date();
+      var formattedCurrentDate = currentDate.toISOString().split('T')[0];
+
+     var addToGrid = false;
+    
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'  
+    };
+
+    let fetchEventURL =  'https://api.utrsports.net/v2/search/events?tours='+tour+'&eventState='+eventState+'&top=250&skip=0'+(searchQuery != "" ? '&query='+searchQuery : "")+(gender != "" ? '&genders='+gender : "")+(teamType != "" ? '&teamType='+teamType : "")+(range != "" ? '&range='+range1+'&range='+range2 : "");
+          
+    fetch(fetchEventURL, requestOptions)
+    .then(response => response.json())
+    .then((result) => {
+      let data="";
+      let i=0;     
+console.log("data", result);
+      result.hits.map((values)=>{        
+        // var name = values.source.name.substring(1, 47);
+        var id =  values.source.id; 
+        var name = values.source.name;
+        var club = values.source.club.name;
+        var regCheck = (values.source.eventRegions[0] && values.source.eventRegions[0].region) ? values.source.eventRegions[0].region.value : null;
+        var location = values.source.eventLocations[0].display;
+        var eventRegEndFullDate = values.source.eventSchedule.registrationEndUtc;
+        var eventStartDate = values.source.eventSchedule.eventStartDate;
+        var eventEndDate = values.source.eventSchedule.eventEndDate;
+        var eventStartMonth = values.source.eventSchedule.eventStartMonth;
+        var eventEndMonth = values.source.eventSchedule.eventEndMonth;
+        var gender = values.source.gender; 
+        var outdoor = values.source.eventDivisions[0].environments[0].label; 
+        var hard = values.source.eventDivisions[0].surfaces[0].label; 
+       
+        var formattedRegEndDate = new Date(eventRegEndFullDate).toISOString().split('T')[0];
+  
+        if (region) {
+          if (regCheck == region) {
+            addToGrid = true;
+          }
+        } else {
+            addToGrid = true;
+        }          
+
+        if(addToGrid) {
+         data += '<div class="grid__item ut-jr-api-box-container">' + 
+'        <div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3 min-h-260">' + 
+'           <div class="feature-card-box fs-p-2">' + 
+'             <div class="d-flex justify-content-between mb-1">' + 
+'               <div>' + 
+'                 <h4 class="fs-sm-14">'+name+'</h4>' + 
+'                 <p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0">'+club+'</p>' + 
+'               </div>  ' + 
+'               <div>' + 
+'                  <!--Hide Share-- <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">' + 
+'<path d="M20 11.5716C21.3807 11.5716 22.5 10.4203 22.5 9.00014C22.5 7.57998 21.3807 6.42871 20 6.42871C18.6193 6.42871 17.5 7.57998 17.5 9.00014C17.5 10.4203 18.6193 11.5716 20 11.5716Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' + 
+'<path d="M10 17.5717C11.3807 17.5717 12.5 16.4204 12.5 15.0003C12.5 13.5801 11.3807 12.4288 10 12.4288C8.61929 12.4288 7.5 13.5801 7.5 15.0003C7.5 16.4204 8.61929 17.5717 10 17.5717Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' + 
+'<path d="M20 23.5714C21.3807 23.5714 22.5 22.4202 22.5 21C22.5 19.5799 21.3807 18.4286 20 18.4286C18.6193 18.4286 17.5 19.5799 17.5 21C17.5 22.4202 18.6193 23.5714 20 23.5714Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' + 
+'<path d="M12.1582 16.2944L17.8499 19.7059" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' + 
+'<path d="M17.8415 10.2943L12.1582 13.7057" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>' + 
+'</svg> --Hide Share-->' + 
+'               </div>' + 
+'             </div> ' + 
+'             <div class="d-flex align-items-center contact-icon">' + 
+'          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">' + 
+'          <path d="M6.00039 13.5812C6.37907 13.5812 7.85934 12.4999 9.0389 11.1583C10.6113 9.37123 11.5691 7.3766 11.5691 5.4812C11.5691 2.48116 9.1037 0.418701 6.00039 0.418701C2.89708 0.418701 0.431641 2.48116 0.431641 5.4812C0.431641 7.3847 1.38947 9.37933 2.96188 11.1644C4.14043 12.5029 5.6207 13.5812 6.00039 13.5812ZM6.00039 8.9237C5.14109 8.9237 4.31698 8.58235 3.70936 7.97473C3.10175 7.36711 2.76039 6.543 2.76039 5.6837C2.76039 4.8244 3.10175 4.00029 3.70936 3.39268C4.31698 2.78506 5.14109 2.4437 6.00039 2.4437C6.85969 2.4437 7.6838 2.78506 8.29142 3.39268C8.89903 4.00029 9.24039 4.8244 9.24039 5.6837C9.24039 6.543 8.89903 7.36711 8.29142 7.97473C7.6838 8.58235 6.85969 8.9237 6.00039 8.9237Z" fill="black"></path>' + 
+'          </svg>' + 
+'          <span class="font-lg-13 font-sm-13 gotham-medium">'+location+'</span></div>' + 
+'                       <div class="d-flex align-items-center contact-icon">' + 
+'          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">' + 
+'          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.35007 15.6425C3.98471 15.6425 3.67183 15.5125 3.41142 15.2526C3.15146 14.9922 3.02148 14.6793 3.02148 14.3139V5.01385C3.02148 4.64849 3.15146 4.33583 3.41142 4.07587C3.67183 3.81547 3.98471 3.68527 4.35007 3.68527H5.01436V2.35669H6.34294V3.68527H11.6573V2.35669H12.9859V3.68527H13.6501C14.0155 3.68527 14.3284 3.81547 14.5888 4.07587C14.8487 4.33583 14.9787 4.64849 14.9787 5.01385V14.3139C14.9787 14.6793 14.8487 14.9922 14.5888 15.2526C14.3284 15.5125 14.0155 15.6425 13.6501 15.6425H4.35007ZM4.35007 14.3139H13.6501V7.67102H4.35007V14.3139ZM6.34203 13.0078C6.15381 13.0078 5.99593 12.944 5.86839 12.8165C5.74129 12.6894 5.67773 12.5317 5.67773 12.3435C5.67773 12.1553 5.74129 11.9974 5.86839 11.8699C5.99593 11.7427 6.15381 11.6792 6.34203 11.6792C6.53024 11.6792 6.68812 11.7427 6.81567 11.8699C6.94277 11.9974 7.00632 12.1553 7.00632 12.3435C7.00632 12.5317 6.94277 12.6894 6.81567 12.8165C6.68812 12.944 6.53024 13.0078 6.34203 13.0078ZM8.99919 13.0078C8.81097 13.0078 8.65332 12.944 8.52621 12.8165C8.39867 12.6894 8.3349 12.5317 8.3349 12.3435C8.3349 12.1553 8.39867 11.9974 8.52621 11.8699C8.65332 11.7427 8.81097 11.6792 8.99919 11.6792C9.18741 11.6792 9.34529 11.7427 9.47283 11.8699C9.59993 11.9974 9.66348 12.1553 9.66348 12.3435C9.66348 12.5317 9.59993 12.6894 9.47283 12.8165C9.34529 12.944 9.18741 13.0078 8.99919 13.0078ZM11.6564 13.0078C11.4681 13.0078 11.3105 12.944 11.1834 12.8165C11.0558 12.6894 10.9921 12.5317 10.9921 12.3435C10.9921 12.1553 11.0558 11.9974 11.1834 11.8699C11.3105 11.7427 11.4681 11.6792 11.6564 11.6792C11.8446 11.6792 12.0022 11.7427 12.1293 11.8699C12.2569 11.9974 12.3206 12.1553 12.3206 12.3435C12.3206 12.5317 12.2569 12.6894 12.1293 12.8165C12.0022 12.944 11.8446 13.0078 11.6564 13.0078ZM5.86839 10.137C5.99593 10.2646 6.15381 10.3283 6.34203 10.3283C6.53024 10.3283 6.68812 10.2646 6.81567 10.137C6.94277 10.0099 7.00632 9.85226 7.00632 9.66405C7.00632 9.47583 6.94277 9.31795 6.81567 9.19041C6.68812 9.06331 6.53024 8.99976 6.34203 8.99976C6.15381 8.99976 5.99593 9.06331 5.86839 9.19041C5.74129 9.31795 5.67773 9.47583 5.67773 9.66405C5.67773 9.85226 5.74129 10.0099 5.86839 10.137ZM8.52621 10.137C8.65332 10.2646 8.81097 10.3283 8.99919 10.3283C9.18741 10.3283 9.34529 10.2646 9.47283 10.137C9.59993 10.0099 9.66348 9.85226 9.66348 9.66405C9.66348 9.47583 9.59993 9.31795 9.47283 9.19041C9.34529 9.06331 9.18741 8.99976 8.99919 8.99976C8.81097 8.99976 8.65332 9.06331 8.52621 9.19041C8.39867 9.31795 8.3349 9.47583 8.3349 9.66405C8.3349 9.85226 8.39867 10.0099 8.52621 10.137ZM11.1834 10.137C11.3105 10.2646 11.4681 10.3283 11.6564 10.3283C11.8446 10.3283 12.0022 10.2646 12.1293 10.137C12.2569 10.0099 12.3206 9.85226 12.3206 9.66405C12.3206 9.47583 12.2569 9.31795 12.1293 9.19041C12.0022 9.06331 11.8446 8.99976 11.6564 8.99976C11.4681 8.99976 11.3105 9.06331 11.1834 9.19041C11.0558 9.31795 10.9921 9.47583 10.9921 9.66405C10.9921 9.85226 11.0558 10.0099 11.1834 10.137Z" fill="black"></path>' + 
+'          </svg>' + 
+'          <span class=" font-lg-13 font-sm-13 gotham-medium">'+eventStartMonth+' '+eventStartDate+' - '+eventEndMonth+' '+eventEndDate+'</span></div>' + 
+'                       <div class="d-flex align-items-center contact-icon">' + 
+'          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">' + 
+'          <path d="M6.68068 10.0835C7.26379 10.8023 7.80656 11.4698 8.364 12.1519C8.64272 11.6825 8.64638 11.6128 8.47768 10.5309H9.42386V12.0895C9.48988 12.1152 9.55589 12.1372 9.6219 12.1629C10.1097 11.5578 10.6194 10.9673 11.0705 10.3365C11.2282 10.1202 11.3492 10.0505 11.5949 10.1055C11.7783 10.1458 11.9727 10.1422 12.1634 10.1458C13.3039 10.1788 14.0924 10.729 14.5912 11.7448C15.376 13.3474 15.0679 14.0809 13.3443 14.5687C11.7453 15.0198 10.0987 15.1078 8.45935 15.0234C7.1611 14.9537 5.85186 14.8181 4.59029 14.532C2.95464 14.1616 2.65392 13.3731 3.35439 11.8475C3.85681 10.7546 4.6783 10.1642 5.89587 10.1385C6.17458 10.1312 6.44964 10.0982 6.68435 10.0835H6.68068Z" fill="black"></path>' + 
+'          <path d="M8.99523 2.25C10.8802 2.25 12.0318 3.39055 12.0685 5.27924C12.0721 5.47361 12.1418 5.66798 12.1932 5.85868C12.3399 6.37944 12.2628 6.87454 11.9951 7.33662C11.8448 7.60067 11.6981 7.86839 11.5184 8.11044C11.1663 8.59086 10.8546 9.12263 10.4218 9.5187C9.53433 10.3402 8.4928 10.3219 7.56862 9.53337C7.31558 9.317 7.0772 9.06395 6.89383 8.7889C6.54543 8.2718 6.20437 7.7437 5.92565 7.18626C5.69827 6.72418 5.60292 6.22908 5.8743 5.71199C5.97332 5.52128 5.92565 5.25723 5.94398 5.02619C6.11268 3.24385 7.20556 2.25 8.99523 2.25ZM8.99523 9.65439C9.36196 9.49303 9.76537 9.42335 9.99641 9.18864C10.4365 8.73756 10.7776 8.18745 11.159 7.67769C11.2433 7.56767 11.2947 7.42464 11.401 7.34029C11.8154 6.99923 11.8521 6.46379 11.4744 6.05672C11.4267 6.00537 11.412 5.92836 11.3863 5.86235C11.137 5.23156 10.4622 4.91984 9.76537 4.99685C9.20793 5.05553 8.62482 5.04453 8.07105 4.95284C7.34125 4.83182 6.97818 4.96384 6.68112 5.64964C6.62245 5.78167 6.59677 5.94303 6.50876 6.04571C6.20437 6.39778 6.17869 6.90754 6.45008 7.23761C6.63711 7.46498 6.78381 7.7217 6.96351 7.95641C7.28257 8.37082 7.57229 8.81824 7.95736 9.16297C8.22141 9.40135 8.62116 9.4857 8.99523 9.65439Z" fill="black"></path>' + 
+'          </svg>' + 
+'          <span class="font-lg-13 font-sm-13 gotham-medium">'+gender+'</span></div>' + 
+'          <div class="d-flex justify-content-center align-items-center mt-4">' + 
+             (formattedRegEndDate < formattedCurrentDate ? '' : 
+'              <a href="https://app.utrsports.net/events/'+id+'" target="_blank" class="btn-black-sm btn-outline-black justify-content-center text-center min-w-160 btn-xs-1 min-w-sm-145 font-lg-16 font-sm-14 text-uppercase">Register</a> ' 
+           )+ 
+'          </div>' + 
+'           </div>' + 
+'        </div>' + 
+'      </div>';  
+
+          //Increment the count
+          i=i+1;  
+        
+        }
+
+        
+
+      });
+
+      if (!addToGrid) {
+        grid_element.innerHTML = '<h3 class="text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160 mb-0" style="color: #fff;">No events found that match your search.</h3>';
+      } else {
+        if (i > 6) {
+          loadMoreBtn.style.display = "inline-block";
+        } else {
+          loadMoreBtn.style.display = "none";
+        }
+        grid_element.innerHTML = data;
+      }
+    })
+    .catch(error => console.log('error', error));    
+  }
+
+  //Helper functions
+  var getDaysInMonth = function(month,year) {
+    // Here January is 1 based
+    //Day 0 is the last day in the previous month
+   return new Date(year, month, 0).getDate();
+  // Here January is 0 based
+  // return new Date(year, month+1, 0).getDate();
+  };
+
+{% endjavascript %}

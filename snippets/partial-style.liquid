@@ -1,0 +1,49 @@
+{%- capture desktop %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'text_custom' -%}
+        {% assign spacing = block.settings.spacing | split: ',' %}
+        {% assign width = block.settings.width | split: ',' %}
+        {% if spacing[0] != blank or width[0] != blank %}.{{ block.id }} { {% if spacing[0] != blank %} letter-spacing: {{ spacing[0] }}px; {% endif %} 
+        {% if width[0] != blank %}max-width: {{ width[0] }}px;{% endif %} } {% endif %}
+        {% if block.settings.font_custom != 'none' %} .{{ block.id }} em { font-family: {{ block.settings.font_custom }}; } {% endif %}
+        {% if block.settings.color_custom != blank %} .{{ block.id }} em { {% if block.settings.color_custom contains 'linear-gradient' %} background: {{ block.settings.color_custom }}; -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-right: 1px; {% else %} color: {{ block.settings.color_custom }}; {% endif %} } {% endif %}
+     
+    {%- endcase -%}
+  {%- endfor %}
+{%- endcapture %}
+{%- capture tablet %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'text_custom' -%}
+        {% assign spacing = block.settings.spacing | split: ',' %}
+        {% assign width = block.settings.width | split: ',' %}
+        {% if spacing[1] != blank or width[1] != blank %}.{{ block.id }} { {% if spacing[1] != blank %} letter-spacing: {{ spacing[1] }}px; {% endif %} 
+        {% if width[1] != blank %}max-width: {{ width[1] }}px; {% endif %} } {% endif %}
+    {%- endcase -%}
+  {%- endfor %}
+{%- endcapture %}
+{%- capture mobile %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'text_custom' -%}
+        {% assign spacing = block.settings.spacing | split: ',' %}
+        {% assign width = block.settings.width | split: ',' %}
+        {% if spacing[2] != blank or width[2] != blank %}.{{ block.id }} { {% if spacing[2] != blank %} letter-spacing: {{ spacing[2] }}px; {% endif %} 
+        {% if width[2] != blank %}max-width: {{ width[2] }}px; {% endif %} } {% endif %}
+    {%- endcase -%}
+  {%- endfor %}
+{%- endcapture %}
+{%- style -%}
+  .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+  {% if section.settings.corner_radius_image %} .section-{{ section.id }}-padding .image-with-text__media img { border-radius: {{section.settings.corner_radius_image}}px !important; } {% endif %}
+  {{ desktop }}
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_md }}px; padding-bottom: {{ section.settings.pb_md }}px; }
+    {{ tablet }}
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_xs }}px; padding-bottom: {{ section.settings.pb_xs }}px; }
+    {{ mobile }}
+  }
+{%- endstyle -%}

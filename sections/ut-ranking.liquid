@@ -1,0 +1,531 @@
+<script>
+  function searchForText() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("rankingTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  function filterDataOld() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filter_input");
+    filter = input.value;
+    table = document.getElementById("rankingTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+<div class="page-width pt-lg-0 pb-lg-5 pb-sm-3 pt-sm-3 mt-lg-3 mb-lg-3">
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop d-flex align-items-center">
+    <div class="grid__item d-sm-none" id="cat">
+      <div class="pro-tennis-radio text-center owl-carousel ranking-carousel">
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="U14">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-1.png?v=1679733689"
+            >
+            <p>U14</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="U16">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-2.png?v=1679734006"
+            >
+            <p>U16</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="U18">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-3.png?v=1679734006"
+            >
+            <p>U18</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="HighSchool">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-4.png?v=1679734006"
+            >
+            <p>High school</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="College">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-5.png?v=1679734006"
+            >
+            <p>College</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="Pro">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-6.png?v=1679734006"
+            >
+            <p>Pro</p>
+          </div>
+        </label>
+        <label class="radio-img">
+          <input type="radio" name="ut-rank-filter-radio" value="Ptt">
+          <div class="image2">
+            <img
+              class="d-flex"
+              src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/imga-radio-7.png?v=1679734006"
+            >
+            <p>PTT</p>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="grid__item ">
+      <div class="d-flex justify-content-lg-end justify-content-md-center align-items-lg-center gap-2 text-center justify-content-sm-center">
+        <form class="select-control gap-sm-2 mt-sm-1 mt-md-2">
+          <select class="text-uppercase font-sm-12 min-w-lg-180 min-w-sm-150" id="filter_input">
+            <option value="m" selected>Male</option>
+            <option value="f">Female</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="d-lg-none d-sm-block">
+    <div class="rotatehide">
+      <div class="pt-lg-3 pb-lg-2 pt-sm-2 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center ">
+        <a
+          href="#"
+          class="text-uppercase pointer-events-none lightbluebtn button-theme-teal d-flex gap-1 gotham-medium font-sm-14"
+          id="ut-rank-rotate-device"
+          ><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/rotate-mobile.svg?v=1672208434">rotate your
+          device</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-width">
+  <div class="pb-lg-2 pt-lg-2 pt-sm-2 pb-sm-2 border-radius-lg-3 border-radius-sm-3 bg_white shadow-xxl">
+    <div class="table-responsive table-scroll-black">
+      <table class="table2" id="rankingTable">
+        <thead class="thead-b-bottom">
+          <tr>
+            <th class="text-center font-lg-24 font-sm-18 font-md-18">{{ section.settings.tableheadingranking }}</th>
+            <th class="text-left font-lg-24 font-sm-18 font-md-18">{{ section.settings.tableheadingname }}</th>
+            <th class="text-left font-lg-24 font-sm-18 font-md-18 hidden-desktop">
+              {{ section.settings.tableheadingender }}
+            </th>
+            <th class="text-center font-lg-24 font-sm-18 font-md-18 hidden-desktop">
+              {{ section.settings.tableheadinlocation }}
+            </th>
+            <th class="text-center font-lg-24 font-sm-18 font-md-18 white-space-nowrap hidden-desktop">
+              {{ section.settings.tableheadintrend }}
+            </th>
+            <th class="text-center font-lg-24 font-sm-18 font-md-18">{{ section.settings.tableheadinutr }}</th>
+          </tr>
+        </thead>
+        <tbody id="rtable"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media(max-width:675px){
+    .section-medium-title.section-title-large {
+    font-size: 45px;
+}
+.page-width.text-center.pt-lg-5.pb-lg-5.pb-sm-3.pt-sm-3 {
+    padding: 3rem 78px;
+}
+    
+  }
+ #cat button.owl-dot {
+    background: grey;
+}
+   #cat .owl-nav {
+    display: none;
+}
+</style>
+<script>
+$(document).ready(function(){
+  $(".ranking-carousel").owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 6
+      },
+      600: {
+        items:5
+      },
+      1000: {
+        items: 7
+        
+      }
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "UT Rankings",
+  "presets": [
+      {
+        "name": "UT Rankings"
+      }
+  ],
+  "settings": [
+     {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title",
+       "default": "Tennis Player Rankings"
+		},
+    {
+     "type": "text",
+     "id": "sub-heading",
+     "label": "Sub Title",
+      "default": "Rankings"
+    },
+    {
+	"type":"text",
+	"id":"tableheadingranking",
+	"label": "Table Heading Ranking",
+      "default": "Rankings"
+},
+    {
+	"type":"text",
+	"id":"tableheadingname",
+	"label": "Table Heading Player Name",
+      "default": "Name"
+},
+     {
+	"type":"text",
+	"id":"tableheadingender",
+	"label": "Table Heading Gender",
+       "default": "Gender"
+},
+     {
+	"type":"text",
+	"id":"tableheadinlocation",
+	"label": "Table Heading Location",
+       "default": "Country"
+},
+     {
+	"type":"text",
+	"id":"tableheadintrend",
+	"label": "Table Heading Trend",
+       "default": "3 Mo. Trend"
+},
+     {
+	"type":"text",
+	"id":"tableheadinutr",
+	"label": "Table Heading UTR",
+       "default": "UTR"
+}
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+    var currentUrl = window.location.href;
+    var filterURL = "https://api.universaltennis.com/v3/player/top?";
+
+    var filterParam = "&count=100";
+    var genderParam = "gender=m";
+  
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    };
+
+    var input = document.getElementById("filter_input");
+  var inputValue =  $("#filter_input").val();
+  var urlParam;
+  var urlGender;   
+    
+    $('input[type=radio][name="ut-rank-filter-radio"]').change(function() {
+        //Default URL
+        filterURL = "https://api.universaltennis.com/v3/player/top?";
+        if($(this).val()=="U14") {
+          filterParam = "&tags=U14&count=25";
+          urlParam = "u14";
+        } else if($(this).val()=="U16") {
+          filterParam = "&tags=U16&count=25";
+          urlParam = "u16";
+        } else if($(this).val()=="U18") {
+          filterParam = "&tags=U18&count=25";
+          urlParam="u18";
+        } else if($(this).val()=="HighSchool") {
+          filterParam = "&tags=HighSchool&count=25";
+          urlParam = "high-school";
+        } else if($(this).val()=="College") {
+          filterParam = "&tags=College&count=25";
+          urlParam = "college";
+        } else if($(this).val()=="Pro") {
+          filterParam = "&tags=Pro&count=100";
+          urlParam = "pro";
+        }
+          
+          
+        else  {
+          //PTT by default
+          //URL for PTT
+          filterURL = "https://api.universaltennis.com/pts/player/top?";
+          filterParam = "&top=100&skip=0";
+          urlParam = "ptt";
+        }
+
+      console.log("inputValue", inputValue);
+      
+ if (genderParam === 'gender=f') {
+    urlGender = urlParam === "u14" || urlParam === "u16" || urlParam === "u18" ? "girls" : "women";
+} else {
+    urlGender = urlParam === "u14" || urlParam === "u16" || urlParam === "u18" ? "boys" : "men";
+}      
+      fetchRankings();
+      generateAndUpdateUrl();
+      
+    });
+
+   $("#filter_input").change(function () {
+      if (this.value == "f") {
+        genderParam = "gender=f";
+        urlGender = urlParam === "u14" || urlParam === "u16" || urlParam === "u18" ? "girls" : "women";
+      } else {
+        genderParam = "gender=m";
+        urlGender = urlParam === "u14" || urlParam === "u16" || urlParam === "u18" ? "boys" : "men";
+      }
+      fetchRankings();
+     generateAndUpdateUrl();
+    });
+
+////////
+   // Display the current URL
+  // console.log("Current URL:", currentUrl);
+
+    // Split the URL based on '/'
+  var urlParts = currentUrl.split('/');
+  // Get the last part of the URL
+  var lastPart = urlParts[urlParts.length - 1];
+
+// console.log("urlParts lastPart", lastPart);
+  // Check if the URL contains specific substrings
+  var hasU14 = lastPart.includes("u14");
+  var hasU16 = lastPart.includes("u16");
+  var hasU18 = lastPart.includes("u18");
+  var hasHighSchool = lastPart.includes("high-school");
+  var hasCollege = lastPart.includes("college");
+  var hasPro = lastPart.includes("pro");
+  var hasPtt = lastPart.includes("ptt");
+  var hasBoysOrMen = lastPart.includes("boys") || lastPart.includes("men");
+  var hasGirlsOrWomen = lastPart.includes("girls") || lastPart.includes("women");
+  var selectedGender
+
+  // Display the results
+  // console.log("has hasU14", hasU14);
+  // console.log("has hasU16", hasU16);
+  // console.log("has hasU18", hasU18);
+  // console.log("has hasHighSchool", hasHighSchool);
+  // console.log("has hasCollege", hasCollege);
+  // console.log("has hasPro", hasPro);
+  // console.log("has hasPtt", hasPtt);
+  // console.log("has hasBoysOrMen", hasBoysOrMen);
+  // console.log("has hasGirlsOrWomen", hasGirlsOrWomen);
+
+    // Determine the value based on conditions
+  if (hasU14) {    
+    // console.log("has hasU14", hasU14);
+    filterParam = "&tags=U14&count=25";
+    urlParam = "u14";
+  } else if (hasU16) {
+    // console.log("has hasU16", hasU16);
+    filterParam = "&tags=U16&count=25";
+    urlParam = "u16";
+  } else if (hasU18) {
+    // console.log("has hasU18", hasU18);
+    filterParam = "&tags=U18&count=25";
+    urlParam = "u18";
+  } else if (hasHighSchool) {
+    // console.log("has hasHighSchool", hasHighSchool);
+    filterParam = "&tags=HighSchool&count=25";
+    urlParam = "high-school";
+  } else if (hasCollege) {
+    // console.log("has hasCollege", hasCollege);
+    filterParam = "&tags=College&count=25";
+    urlParam = "college";
+  } else if (hasPro) {
+    // console.log("has hasPro", hasPro);
+    filterParam = "&tags=Pro&count=100";
+    urlParam = "pro";
+  } 
+  // else if (hasPtt) {
+  //     filterURL = "https://api.universaltennis.com/pts/player/top?";
+  //         filterParam = "&top=100&skip=0";
+  //   urlParam = "ptt";
+  // } 
+  else {    
+    console.log("condition base value from url not applied");
+  }
+  if(hasGirlsOrWomen) {
+    genderParam = "gender=f";
+    selectedGender = "f";
+  } else if (hasBoysOrMen) {
+    genderParam = "gender=m";
+    selectedGender = "m";
+  } else {
+    selectedGender = "m";
+  }
+
+   // console.log("genderParam đã cập nhật:", genderParam);
+
+if (hasPtt) {
+    filterURL = "https://api.universaltennis.com/pts/player/top?";
+
+    // console.log("genderParam set skip:", genderParam);
+
+    if (genderParam.trim() === "gender=f") {
+        filterParam = "&top=100&skip=199";
+    } else {
+        filterParam = "&top=100&skip=200";
+    }
+    
+    urlParam = "ptt";
+}
+  
+  // console.log("filterParam and genderParam", filterParam, ' and ', genderParam);  
+
+fetchRankings();
+
+
+
+
+
+  // Set the value of the radio buttons based on conditions
+$('input[type=radio][name="ut-rank-filter-radio"]').each(function () {
+  var value = $(this).val();
+  
+  if ((value === "U14" && hasU14) ||
+      (value === "U16" && hasU16) ||
+      (value === "U18" && hasU18) ||
+      (value === "HighSchool" && hasHighSchool) ||
+      (value === "College" && hasCollege) ||
+      (value === "Pro" && hasPro) ||
+      (value === "Ptt" && hasPtt)) {
+    // If the condition is met, set the 'checked' property
+    $(this).prop('checked', true);
+  }
+});
+  // Set the selected option of the <select> element based on conditions
+$('#filter_input').val(selectedGender);
+////////
+
+  function generateAndUpdateUrl (){
+    // console.log("generateAndUpdateUrl");
+    var fullUrl = `${urlParam ? urlParam + '-' : ''}utr-${urlGender}-tennis-rankings`;
+    // console.log("the made in url", fullUrl);
+
+
+// Get the current URL
+var currentUrl = window.location.href;
+
+// Find the index of '/pages'
+var pagesIndex = currentUrl.indexOf('/pages');
+
+if (pagesIndex !== -1) {
+    // Get the substring from the beginning up to '/pages' + 6 (length of '/pages')
+    var baseUrl = currentUrl.substring(0, pagesIndex + 6);
+
+    // Construct the new URL by appending fullUrl to the baseUrl
+    var newUrl = baseUrl + '/' + fullUrl;
+
+    // Redirect to the new URL
+    window.location.href = newUrl;
+}
+  }
+ 
+    function fetchRankings (){
+      var fetchURL = filterURL+genderParam+filterParam;
+      Promise.all([
+        fetch(fetchURL, requestOptions),
+      ]).then(function (responses) {
+        return Promise.all(responses.map(function (response) {
+          return response.json();
+        }));
+      }).then(function (result){
+        let data="";
+        result[0].map((values)=>{
+          let threeMonthRating;
+          let rankingsSNo;
+          if(values.threeMonthRating != null){
+            threeMonthRating = values.threeMonthRating;
+          }else{
+            threeMonthRating = '--';
+          }
+          if (filterURL.includes("pts")) {
+            for (let itr = 0; itr < values.rankings.length; itr++) {
+              if (genderParam == "gender=f") {
+                //Female PTT rank id is 51
+                if (values.rankings[itr].rankListId == '51') {
+                  rankingsSNo = values.rankings[itr].rank;
+                  break;
+                }
+              } else {
+                //Male PTT rank id is 52
+                if (values.rankings[itr].rankListId == '52') {
+                  // console.log("Male52 values.rankings = ",values.rankings[itr].rank);
+                  rankingsSNo = values.rankings[itr].rank;
+                  break;
+                }
+              }
+            }
+          } else {
+            rankingsSNo = values.utrRanking;
+          }
+          var threeMonthFloatValue = parseFloat(threeMonthRating).toFixed(2);
+          data +='<tr style=""><td>'+  rankingsSNo  +'</td><td class="fw-bold d-flex gap-1 align-items-center text-left hover-black "><a href="https://app.universaltennis.com/profiles/'+values.id+'" class="" target="_blank">'+values.firstName+' '+values.lastName+'</a></td><td class="fw-bold text-left hidden-desktop">'+values.gender+'</td><td class="text-center hidden-desktop">'+values.nationality+'</td><td class="text-center hidden-desktop">'+(isNaN(threeMonthFloatValue)?"-":threeMonthFloatValue)+'</td><td class="text-center">'+(filterURL.includes("pts") ? parseFloat(values.singlesUtrDisplay).toFixed(2) : parseFloat(values.utr).toFixed(2))+'</td></tr>';
+        });
+        document.getElementById("rtable").innerHTML=data;
+    })
+    .catch(error => console.log('error', error));
+    }
+{% endjavascript %}

@@ -1,0 +1,282 @@
+<style>
+  @media (min-width: 990px) and (max-width: 991px){.order-md-first-22 {order: 2;}} 
+</style>
+<div class="pt-lg-5 pb-lg-5 pt-sm-5 pb-sm-5 workingbg"
+  style="background:url('{{section.settings.section-image | image_url}}') no-repeat top center; width: 100%; background-size: cover;"
+>
+  <div class="">
+    <div class="page-width">
+      <div class="text-center mb-lg-4 mb-sm-3 pb-lg-5 pb-md-2">
+        <h2 class="text-uppercase section-title fs-text-white section-title-sm mb-0">{{ section.settings.heading }}</h2>
+        {%- if section.settings['heading-permission'] == 'YES' -%}
+          <div class="divider-sm-white divider-lg-white"></div>
+        {%- endif -%}
+      </div>
+      <div class="grid grid--1-col grid--1-col-tablet grid--3-col-desktop pt-lg-5">
+        {% for block in section.blocks %}
+        {%- if block.settings.ranking_permison == "2" -%}  
+        <div class="grid__item order-sm-last order-md-last" id="2nd">
+          <div class="object-mask border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 p-2-ut position-relative racepoint-top-sm">
+            <div class="racepoint racepoint2 racepoint3 d-flex align-items-center justify-content-center">
+              <div>2</div>
+              <div><span>nd</span></div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1">
+              <div>
+                <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p>
+                <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.score}}</p>
+              </div>
+              <div>
+                <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p>
+                <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.utr_rating}}</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">{{block.settings.player_name}}</h3>
+              <p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">{{block.settings.player_location}}</p>
+            </div>
+          </div>
+        </div>
+        {% elsif block.settings.ranking_permison == "1" %}
+        <div class="grid__item order-sm-first order-md-first order-md-first-22 mt-nt-5" id="1st">
+        <div class="object-mask border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 p-2-ut position-relative racepoint-top-sm">
+        <div class="racepoint racepoint2 racepoint3 d-flex align-items-center justify-content-center">
+        <div>1</div><div><span>st</span></div></div>
+        <div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1">
+        <div>
+          <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p>
+          <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.score}}</p>
+        </div>
+        <div>
+          <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p>
+          <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.utr_rating}}</p>
+        </div></div>
+        <div class="text-center">
+          <h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">{{block.settings.player_name}}</h3>
+          <p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">{{block.settings.player_location}}</p>
+        </div>
+        </div>
+        </div>
+        {% else block.settings.ranking_permison == "3" %}
+        <div class="grid__item order-sm-last order-md-last" id="3rd">
+        <div class="object-mask border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 p-2-ut position-relative racepoint-top-sm">
+        <div class="racepoint racepoint2 racepoint3 d-flex align-items-center justify-content-center">
+        <div>3</div><div><span>rd</span></div></div>
+        <div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1">
+        <div>
+          <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p>
+          <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.score}}</p>
+        </div>
+        <div>
+          <p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p>
+          <p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">{{block.settings.utr_rating}}</p>
+        </div></div>
+        <div class="text-center">
+          <h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">{{block.settings.player_name}}</h3>
+          <p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">{{block.settings.player_location}}</p>
+        </div>
+        </div>
+        </div>
+      {% endif %} 
+      {% endfor %} 
+      </div>
+      <div class="">
+        <div class="pt-lg-3 pb-lg-2 pt-sm-1 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center">
+          <a href="{{section.settings.section-button-url}}"
+            class="text-uppercase lightbluebtn button-theme-teal d-flex gap-1 gotham-medium font-sm-14">
+            {{- section.settings['section-button'] -}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Leaderboard Section",
+  "presets": [
+    {
+      "name": "Leaderboard Section",
+      "category": "Leaderboard Section"
+    }
+  ],
+  "settings": [
+    {
+	"type":"text",
+	"id":"heading",
+	"label": "Heading Title"
+},
+     {
+		"type": "image_picker",
+		"id": "section-image",
+		"label": "Section Image"
+	},
+
+    {
+          "type": "radio",
+          "id": "heading-permission",
+          "label": "Do You Want Underline Below Heading?",
+        "default": "NO",
+          "options": [
+      {
+          "value": "NO",
+          "label": "NO"
+      },
+      {
+          "value": "YES",
+          "label": "YES"
+      }
+          ]
+      },
+      {
+		"type": "text",
+		"id": "section-button",
+		"label": "Section Button Title"
+	},
+    {
+	"type": "url",
+		"id": "section-button-url",
+		"label": "Button Link"
+  	}
+  ],
+  "max_blocks": 3,
+  "blocks":[
+	  {
+		"type":"home-card",
+		"name":"Leaderboard Block",
+		"settings":[
+          {
+            "type": "radio",
+            "id": "ranking_permison",
+            "label": "Select Ranking",
+            "default": "2",
+            "options": [
+                {
+                    "value": "1",
+                    "label": "1"
+                },
+                {
+                    "value": "2",
+                    "label": "2"
+                },
+                {
+                    "value": "3",
+                    "label": "3"
+                }
+            ]
+        },
+        {
+		"type": "text",
+		"id": "score",
+		"label": "Score"
+    	},
+        {
+    		"type": "text",
+    		"id": "utr_rating",
+    		"label": "UTR Rating"
+    	},
+        {
+    		"type": "text",
+    		"id": "player_name",
+    		"label": "Player Name"
+    	},
+        {
+    		"type": "text",
+    		"id": "player_location",
+    		"label": "Player Location"
+    	}
+		]
+	  }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+   var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+    //2nd
+
+    // fetch("https://api.universaltennis.com/v2/search?type=clubs&startDate=05/16/2021&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified", requestOptions)
+    // .then(response => response.json())
+    // .then((result) => {
+    //   let data="";
+    //   let i=1;
+
+    //     result.players.hits.map((values)=>{
+    //     if(values.source.clubMemberships[0].clubId == 750347 && values.source.thirdPartyRankings[0].rank == 2){
+    //     if(i < 2){
+    //     var score = values.score.toString().substr(0, 3);
+    //     var rating = values.source.singlesUtrDisplay;
+    //     var name = values.source.displayName;
+    //     var location = values.source.location.display;
+
+    //     data +='<div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 position-relative racepoint-top-sm"><div class="racepoint racepoint2 d-flex align-items-center justify-content-center"><div>2</div><div><span>nd</span></div></div><div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1"><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+score+'</p></div><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+rating+'</p></div></div><div class="text-center"><h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">'+name+'</h3><p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">'+location+'</p></div>   </div>';
+    //       }
+    //     }
+    //     });
+
+    //   document.getElementById("2nd").innerHTML=data;
+
+    // })
+    // .catch(error => console.log('error', error));
+
+    //1st
+
+    // fetch("https://api.universaltennis.com/v2/search?type=clubs&startDate=05/16/2021&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified", requestOptions)
+    // .then(response => response.json())
+    // .then((result) => {
+    //   let data="";
+    //   let i=1;
+
+    //     result.players.hits.map((values)=>{
+
+    //     if(values.source.clubMemberships[0].clubId == 750347 && values.source.thirdPartyRankings[0].rank == 1){
+    //     if(i < 2){
+    //     var score = values.score.toString().substr(0, 3);
+    //     var rating = values.source.singlesUtrDisplay;
+    //     var name = values.source.displayName;
+    //     var location = values.source.location.display;
+
+    //     data +='<div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 position-relative racepoint-top-sm"><div class="racepoint racepoint2 d-flex align-items-center justify-content-center"><div>1</div><div><span>st</span></div></div><div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1"><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+score+'</p></div><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+rating+'</p></div></div><div class="text-center"><h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">'+name+'</h3><p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">'+location+'</p></div>   </div>';
+    //       }
+    //     }
+    //     });
+
+    //   document.getElementById("1st").innerHTML=data;
+
+    // })
+    // .catch(error => console.log('error', error));
+
+    // //3rd
+
+    // fetch("https://api.universaltennis.com/v2/search?type=clubs&startDate=05/16/2021&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified", requestOptions)
+    // .then(response => response.json())
+    // .then((result) => {
+    //   let data="";
+    //   let i=1;
+
+    //     result.players.hits.map((values)=>{
+    //     if(values.source.clubMemberships[0].clubId == 750347 && values.source.thirdPartyRankings[0].rank == 3){
+    //     if(i < 2){
+    //     var score = values.score.toString().substr(0, 3);
+    //     var rating = values.source.singlesUtrDisplay;
+    //     var name = values.source.displayName;
+    //     var location = values.source.location.display;
+
+    //     data +='<div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3 shadow-xl p-2 position-relative racepoint-top-sm"><div class="racepoint racepoint2 d-flex align-items-center justify-content-center"><div>3</div><div><span>rd</span></div></div><div class="d-flex justify-content-between align-items-center pb-lg-1 mb-sm-1"><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">Score</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+score+'</p></div><div><p class="font-lg-14 font-sm-12 mb-0 mt-0 fw-bold text-black">UTR Rating</p><p class="font-lg-28 font-sm-28 mb-0 mt-0 text-black font-tungsten text-center">'+rating+'</p></div></div><div class="text-center"><h3 class="mt-1 mb-0 font-lg-20 font-md-16 fw-bold">'+name+'</h3><p class="mt-0 mb-0 font-lg-14 font-sm-12 fw-bold">'+location+'</p></div>   </div>';
+    //       }
+    //     }
+    //     });
+
+    //   document.getElementById("3rd").innerHTML=data;
+
+    // })
+    // .catch(error => console.log('error', error));
+{% endjavascript %}

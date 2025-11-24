@@ -1,0 +1,112 @@
+<div class="page-width text-center pb-lg-2 pb-sm-3">
+  <div class="mb-lg-4 mb-sm-0">
+    <h2 class="text-uppercase section-title section-title-sm mb-0">{{section.settings.heading}}</h2>
+    {%- if section.settings.heading-permission == "YES" -%}
+    <div class="divider-sm-teal divider-lg-teal mb-lg-3 mb-sm-0"></div>
+    {%- endif -%}
+  </div>  
+</div>
+<div class="page-width text-center pb-lg-5 pb-sm-3">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+   
+   <div class="grid__item"  id="federation1">   
+   </div>
+
+   <div class="grid__item"  id="federation2">   
+   </div>
+    
+   <div class="grid__item"  id="federation3">   
+   </div> 
+
+   <div class="grid__item"  id="federation4">   
+   </div> 
+    
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Featured Federations",
+    "presets": [
+      {
+        "name": "Featured Federations",
+        "category": "Featured Federations"
+      }
+    ],
+    "settings": [
+       {
+  			"type":"text",
+  			"id":"heading",
+  			"label": "Heading Title"
+  		},
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+          ]
+       }    
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+  const requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  
+  //federations
+
+  const federationId = [913, 917, 937, 1075];
+  const federationParams = federationId.map(id => `clubIds=${id}`).join('&');
+  const url = `https://api.utrsports.net/v1/club/get-info?${federationParams}`;
+
+fetch(url, requestOptions)
+  .then(response => response.json())
+  .then(results => {
+    results.forEach((result, index) => {
+      const id = result.id;
+      const name = result.name;
+      const location = result.location.display;
+      const memberCount = result.memberCount;
+      const profilePhotoUrl = result.profilePhotoUrl;
+
+      const data = `<div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3">
+        <div class="feature-card-box feature-card-box-small text-black d-flex justify-content-center align-items-center">
+          <div>
+            <div class="featureimg-medium">
+              <img src="https://prod-cdn.utrsports.net/v1/club/${profilePhotoUrl}" />
+            </div>
+          </div>
+          <div class="feature-content">
+            <h4 class="fs-sm-14">${name}</h4>
+            <p class="gotham-medium font-sm-9 lh-sm-normal">${location}</p>
+            <div class="d-flex flex-md-col-start justify-content-between align-items-center mt-lg-2 mt-sm-0">
+              <div class="number-title lh-sm-normal lh-normal">${memberCount} <span class="fs-sm-inline-flex fst-sm-12">Players</span></div>
+              <a href="https://app.utrsports.net/clubs/${id}" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">VIEW FEDERATION</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      const targetElementId = `federation${index + 1}`;
+      document.getElementById(targetElementId).innerHTML = data;
+    });
+  })
+  .catch(error => console.log('error', error));
+  
+{% endjavascript %}

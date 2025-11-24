@@ -1,0 +1,274 @@
+<div class="pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-0">
+  <div class="page-width position-relative">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+      <div class="grid__item">
+        
+        <!-- <h2 class="text-center d-inline-lg-block">
+          <span class="text-uppercase section-title font-sm-55 mb-0 lh-xl-78 ">{{ section.settings.heading }}</span><br>
+          <span class="lh-normal font-best-friend section-title-lg-65 text-teal font-sm-55 d-block mt-nt-lg-1 lh-xl-78">
+            {{- section.settings['sub-heading'] -}}
+          </span>
+        </h2> -->
+
+          {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <!-- <h1 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-large d-inline-lg-block">
+          {{ section.settings.heading }}
+        </h1> -->
+        <h1 class="text-center section-title section-title-large mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h1>
+      {% when 'h2' %}
+        <!-- <h2 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-medium d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span>
+        </h2> -->
+            <h2 class="text-left section-title section-title-medium mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h2>
+      {% when 'h3' %}
+        <!-- <h3 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-small d-inline-lg-block">
+          {{ section.settings.heading }}
+        </h3> -->
+          <h3 class="text-center section-title section-title-small mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block lh-xl-78 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h3>
+    {% endcase %}
+        
+        <div class="min-h-180">
+          <p class="fw-bold findtext lh-lg-22 width-lg-95 font-sm-14 text-sm-center">
+            {{ section.settings.description }}
+          </p>
+        </div>
+        <div class="text-sm-center d-lg-none d-md-block d-sm-block">
+          <a
+            href="{{section.settings.section-button-url}}"
+            class="btn-black justify-content-center text-uppercase font-sm-14 font-md-14 mt-sm-3 mb-3"
+          >
+            {{- section.settings['section-button'] -}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blue-teal-gradient-bg text-sm-center position-relative">
+    <div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4 text-black">
+      <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+        <div class="grid__item">
+          <p class="text-uppercase fw-bold mb-0 mt-0 font-sm-14 font-lg-20 font-md-16 gotham-medium">
+            {{ section.settings['sub-title'] }}
+          </p>
+          <h2 class="text-uppercase section-title font-sm-30 section-title-md mb-0 mt-0 lh-sm-normal lh-xl-90">
+            {{ section.settings['section-heading'] }}
+          </h2>
+          <p class="findtext fw-bold width-lg-85 font-sm-14">{{ section.settings['paragrap-title'] }}</p>
+          <div class="d-flex justify-content-sm-center mt-3 gap-2">
+            <a href="{{section.settings.app-button-url}}" target="_blank" class="app-radius-btnblack"
+              ><img src="{{section.settings.app-store-image | image_url}}" alt="App Store"
+            ></a>
+             {% comment %}
+              <a href="{{section.settings.google-pay-button-url}}" target="_blank" class="app-radius-btnblack">
+                <img src="{{section.settings.google-pay-image | image_url}}" alt="Google Pay">
+              </a>
+            ,
+       {
+ 			"type": "image_picker",
+ 			"id": "google-pay-image",
+ 			"label": "Google Pay Button"
+ 		},
+        {
+			"type": "url",
+ 			"id": "google-pay-button-url",
+ 			"label": "Google Pay Button Link"
+		}
+            {% endcomment %}
+          </div>
+        </div>
+        <div class="fix-right-img p-sm-1 d-lg-block d-sm-none d-md-none1">
+          <img class="object-cover-img" src="{{section.settings.section-image | image_url}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+     .section-title.section-title-large {
+      font-size: 75px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-small {
+      font-size: 35px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+    .section-sub-title.section-sub-title-medium {
+ font-size: 55px;   
+}
+  .section-sub-title.section-sub-title-small {
+      font-size: 35px;
+  }
+
+
+    @media screen and (max-width: 749px){
+      .section-title.section-title-large {
+      font-size: 60px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+    .section-sub-title.section-sub-title-medium {
+    font-size:40px
+    }
+
+  .section-title.section-title-small {
+      font-size: 26px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-medium {
+      font-size: 40px;
+  }
+
+      .section-sub-title.section-sub-title-small {
+      font-size: 35px;
+  }
+    }
+</style>
+{% schema %}
+  {
+    "name": "App downnload",
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Title"
+		},
+                 {
+  "type": "select",
+  "id": "heading-size",
+  "label": "Heading Size",
+  "options": [
+    {
+      "value": "h1",
+      "label": "Large"
+    },
+    {
+      "value": "h2",
+      "label": "Medium"
+    },
+    {
+      "value": "h3",
+      "label": "Small"
+    }
+  ],
+  "default": "h2"
+},
+
+      {
+       "type": "text",
+       "id": "sub-heading",
+       "label": "Sub Title"
+      },
+                        {
+        "type": "select",
+        "id": "sub-heading-size",
+        "label": "Sub Header Size",
+        "options": [
+
+            { "value": "h2", "label": "Medium" },
+            { "value": "h3", "label": "Small" }
+        ],
+             "default": "h2"
+    },
+         {
+			"type":"text",
+			"id":"description",
+			"label": "Description"
+		},
+      {
+       "type": "text",
+       "id": "sub-title",
+       "label": "Page Title"
+      },
+      {
+			"type":"text",
+			"id":"section-heading",
+			"label": "Section Heading"
+	  },
+      {
+       "type": "text",
+       "id": "paragrap-title",
+       "label": "Paragrap Title"
+      },
+       {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 		},
+        {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Section Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		},
+       {
+ 			"type": "image_picker",
+ 			"id": "app-store-image",
+ 			"label": "App Store Button"
+ 		},
+        {
+			"type": "url",
+ 			"id": "app-button-url",
+ 			"label": "App Store Button Link"
+		}
+
+    ],
+     "presets": [
+      {
+        "name": "App downnload",
+        "category": "App downnload"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

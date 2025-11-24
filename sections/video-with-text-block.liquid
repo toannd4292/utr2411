@@ -1,0 +1,198 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{{ 'image-with-text-new.css' | asset_url | stylesheet_tag }}
+{% render 'partial-style', section: section %}
+<div {% if section.settings.id != blank %} id="{{ section.settings.id }}" {% endif %} class="section-{{ section.id }} section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {{ section.settings.class }} {% if section.settings.image_below %} image_below-text {% endif %} {% if custom_width %} antr--custom-width {% endif %} {% if section.settings.container %} antr--container-content {% endif %}">
+
+<div class="page-width image-text-new-inner trans-video">
+  
+  <div class="full-video-highlight-img-section-wrapper border-radius-lg-3 border-radius-sm-3 d-flex align-items-center justify-content-end flex-column" style="background:url('{{ section.settings.section-image-first | image_url }}') no-repeat; background-size:cover; background-position:center;">
+    <div class="d-flex justify-content-center align-items-center h-100 video-v3">
+      <a href="{{ section.settings.section-button-url }}" class="video-btn__new popup-youtube text-center text-uppercase gap-2 font-tungsten-medium position-relative">
+        <img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Frame_2147222754.png?v=1755150582" alt="Play" loading="lazy">
+      </a>
+      <h3 class="size-36 button-video-v small-hide">{{ section.settings.section-video-button }}</h3>
+    </div>
+  </div>
+  </div>
+<div class="page-width">
+  <div class="image-with-text__grid grid grid--gapless custom--width-content flex-wrap justify-between img-video-v2">
+      <div class="image-with-text__text-item grid__item w-full w-40 w-md-49 w-xs-100">
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ltbh-heading text--custom mg--0 text_custom_r9aYPW inter-semibold mt--0 mb--0 size-64 line-64 size-md-36 line-md-40">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      
+    </div>
+
+    <div class="w-full image-with-text__media-item image-with-text__media-item--medium image-with-text__media-item--top grid__item w-full w-58 w-md-50 w-xs-100">
+
+      {% if section.settings.text != blank %}
+        <div class="ltbh-text">{{ section.settings.text }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <div class="banner__buttons">
+          <div class="antr--button">
+            <a href="{{ section.settings.button_link }}" class="btn-black">{{ section.settings.button_label }}</a>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+
+  
+  </div>
+
+
+</div>
+
+</div>
+<style>
+.trans-video,
+.trans-video .full-video-highlight-img-section-wrapper {
+  transition: max-width 2.5s ease, border-radius 2.5s ease, padding 2.5s ease;
+}
+
+.image-with-text__grid.grid.grid--gapless.custom--width-content.flex-wrap.justify-between.img-video-v2 {
+    max-width: 1628px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    {% comment %} padding: 0 2.6rem !important; {% endcomment %}
+}
+.video-v3{flex-direction:column}
+.img-video-v2{margin:60px 0!important}
+.button-video-v{color:#fff}
+.ltbh-heading{max-width:380px;letter-spacing:-.03em}
+
+.pse-2{padding-left:2rem;padding-right:2rem}
+.full-video-highlight-img-section-wrapper{
+  height:842px;width:100%;max-width:1632px;margin:0 auto
+}
+  @media(min-width:1200px){
+  .video-v3 {
+    flex-direction: column;
+    position: relative;
+    top: 3.6em;
+    left: -30px;}
+.button-video-v {
+    color: #fff;
+    line-height: 1;
+    position: relative;
+    left: 42px;
+    top: -10px;
+}
+  }
+@media screen and (max-width:525px){
+  a.video-btn__new img{max-width:44px;max-height:44px}
+}
+@media screen and (max-width:425px){
+  a.video-btn__new img{max-width:44px;max-height:44px}
+  .full-video-highlight-img-section-wrapper{height:200px}
+}
+@media screen and (min-width:426px) and (max-width:600px){
+  .full-video-highlight-img-section-wrapper{height:200px}
+}
+@media screen and (min-width:601px) and (max-width:768px){
+  .full-video-highlight-img-section-wrapper{height:380px}
+}
+@media screen and (min-width:769px) and (max-width:992px){
+  .full-video-highlight-img-section-wrapper{height:400px}
+}
+@media screen and (min-width:992px) and (max-width:1199px){
+  .full-video-highlight-img-section-wrapper{height:580px}
+}
+</style>
+{%- style -%}
+  .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_md }}px; padding-bottom: {{ section.settings.pb_md }}px; }
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_xs }}px; padding-bottom: {{ section.settings.pb_xs }}px; }
+  }
+{%- endstyle -%}
+<script>
+window.addEventListener("scroll", function () {
+  
+  const video = document.querySelector(".trans-video");
+  const wrapper = document.querySelector(".trans-video .full-video-highlight-img-section-wrapper");
+  if (!video || !wrapper) return;
+
+  const sectionTop = video.offsetTop;
+  const triggerPoint = sectionTop - 500;
+
+  if (window.scrollY > triggerPoint) {
+    video.style.maxWidth = "100%";
+    video.style.setProperty("padding", "0", "important");
+    wrapper.style.maxWidth = "100%";
+    wrapper.style.borderRadius = "0";
+    wrapper.style.setProperty("padding", "0", "important");
+  } else {
+      video.style.maxWidth = "168rem";
+    video.style.removeProperty("padding"); 
+    wrapper.style.maxWidth = "168rem";
+    wrapper.style.borderRadius = "";
+    wrapper.style.removeProperty("padding");
+  }
+});
+
+
+</script>
+{% schema %}
+{
+  "name": "Full Width Video w text",
+  "class": "shopify-cs-za",
+  "settings": [
+    { "type": "image_picker", "id": "section-image-first", "label": "Section Image First" },
+    { "type": "text", "id": "section-video-button", "label": "Video Play Button" },
+    { "type": "url", "id": "section-button-url", "label": "Button Link" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Section Heading" },
+    { "type": "richtext", "id": "text", "label": "Content (right side)", "default": "<p>Short description for this section.</p>" },
+    { "type": "header", "content": "Button" },
+    { "type": "text", "id": "button_label", "label": "Button text", "default": "Click here" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+     {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "presets": [
+    { 
+      "name": "Full Width Video w text", 
+      "category": "Full Width Video w text",
+      "settings": {
+        "section-image-first": "shopify://shop_images/B07I5646_1.png",
+        "section-video-button": "The Power Subscription",
+        "section-button-url": "https://www.youtube.com/watch?v=1av9dLj1t3c",
+        "heading": "Become a Power Player",
+        "text": "<p>Serious about your game? Track your progress, scout your opponents, find better local matches, and gain access to unbeatable savings on gear and events with the UTR Sports Power Subscription.</p>",
+        "button_label": "Upgrade to Power",
+        "button_link": "https://app.utrsports.net/power-perks",
+        "padding_top": 150,
+        "padding_bottom": 100,
+        "pt_md": 60,
+        "pb_md": 60,
+        "pt_xs": 30,
+        "pb_xs": 30
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}
+<script src="{{ 'jquery.magnific-popup.min.js' | asset_url }}"></script>

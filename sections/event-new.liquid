@@ -1,0 +1,347 @@
+<style>
+.event-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+  .player-count {
+    flex: 1;
+}
+  .player-count:empty {
+  visibility: hidden;
+  min-width: 100px; 
+    display:block
+}
+.status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.event-status {
+  text-align: right;
+}
+@media (max-width: 1200px) {
+  .event-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .event-section {
+    grid-template-columns: 1fr;
+  }
+}
+.event-card {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px 0px;
+  background: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 1;
+}
+.event-card:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.event-image-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--blue-teal-gradient);
+}
+.event-image {
+  width: 100%;
+  height: 100%;
+  max-height: 13rem;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.event-card:hover .event-image {
+  transform: scale(1.05);
+}
+.event-image-container.loaded .event-image {
+  opacity: 1;
+}
+.image-placeholder {
+  background-color: var(--blue-teal-gradient);
+  width: 100%;
+  padding-bottom: 75%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.event-image-container.loaded .image-placeholder {
+  display: none;
+}
+.event-details {
+  padding: 8px;
+  text-align: left;
+}
+.event-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: rgb(52 64 84 / var(--tw-text-opa));
+  min-height: 37px;
+}
+.event-location,
+.event-date,
+.event-cost,
+.event-description,
+.event-register {
+  font-size: 12px;
+  margin: 1px 0;
+}
+.event-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+p.event-cost {
+  display: none;
+}
+@media (max-width: 768px) {
+  .event-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wraper-date.status-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .location-ctn {
+    align-items: flex-start !important;
+    flex-direction: column;
+    min-height: 52px;
+  }
+  .event-title {
+    min-height: 50px;
+  }
+}
+.wraper-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+p.event-state {
+  background: #C2EDE1;
+  border-radius: 22px;
+  width: fit-content;
+  font-size: 8px;
+  padding: 1px 20px;
+  color: #5D636B;
+  text-transform: initial;
+  font-family: 'Gotham';
+}
+p.event-state.event-state-event-completed {
+  background: #DDE3EB;
+}
+p.event-state.event-state-registration-closed {
+  background: #00C0f7;
+}
+p.event-state.event-state-event-in-progress {
+  background: #C2EDE1;
+  color: black;
+}
+p.event-state.event-state-open-registration {
+  background: linear-gradient(44.76deg, #00C0F7 10.72%, #01DFCB 85.04%);
+  color: #000000;
+  font-weight: bold;
+  font-family: 'Gotham-Medium';
+}
+</style>
+
+
+<div class="event-section page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4">
+  {% for block in section.blocks %}
+    <div class="event-card skeleton" id="event-card-{{ block.id }}" data-event-url="{{ block.settings.event_url }}">
+      <div class="event-image-container">
+        <div class="image-placeholder"></div>
+        <img 
+          id="event-image-{{ block.id }}" 
+          src="" 
+          alt="" 
+          class="event-image"
+          loading="lazy"
+          onload="this.parentElement.classList.add('loaded')">
+      </div>
+      <div class="event-details" id="event-details-{{ block.id }}"></div>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const eventCards = document.querySelectorAll(".event-card");
+
+  const stateDisplayMap = {
+    2: { text: "Register", class: "open-registration" },
+    1: { text: "Pre-register", class: "pre-registration" }, // Will be overridden for display
+    3: { text: "Reg. Closed", class: "registration-closed" },
+    4: { text: "Now Playing", class: "event-in-progress" },
+    5: { text: "Complete", class: "event-completed" }
+  };
+  
+  const monthAbbreviations = {
+    Jan: "Jan.",
+    Feb: "Feb.",
+    Mar: "March",
+    Apr: "April",
+    May: "May",
+    Jun: "June",
+    Jul: "July",
+    Aug: "Aug.",
+    Sep: "Sept.",
+    Oct: "Oct.",
+    Nov: "Nov.",
+    Dec: "Dec."
+  };
+
+  eventCards.forEach(card => {
+    const eventUrl = card.dataset.eventUrl;
+    const eventIdMatch = eventUrl.match(/\/events\/(\d+)/);
+    if (!eventIdMatch) return;
+
+    const eventId = eventIdMatch[1];
+    const cardId = card.id.split("-").pop();
+    const eventDetails = card.querySelector(`#event-details-${cardId}`);
+    const eventImage = card.querySelector(`#event-image-${cardId}`);
+
+    fetch(`https://api.utrsports.net/v2/tms/events/${eventId}`)
+      .then(r => r.json())
+      .then(event => {
+        if (!event) return;
+
+        const photoUrl = event.photoUrl
+          ? `https://prod-cdn.utrsports.net/v1/tms/events/${eventId}/images/banner/${event.photoUrl.split('/').pop()}?size=1x&type=banner`
+          : "";
+        if (photoUrl) {
+          eventImage.src = photoUrl;
+          eventImage.alt = event.name;
+        }
+
+        const cityName = event.eventLocations[0]?.cityName || "";
+        const stateAbbr = event.eventLocations[0]?.stateAbbr || "";
+        const locationText = [cityName, stateAbbr].filter(Boolean).join(", ");
+        const locationHTML = locationText ? `<p class="event-location">${locationText}</p>` : '';
+
+        const registeredCount = event.registeredCount || 0;
+        const registeredPlayersHTML = registeredCount > 0
+          ? `<p class="event-register">${registeredCount} ${registeredCount === 1 ? "player" : "players"}</p>`
+          : '';
+
+        let stateInfo = stateDisplayMap[event.eventStateId] || { text: "", class: "" };
+        let eventStateHTML = '';
+        
+        if (event.eventStateId === 1 && event.eventSchedule && event.eventSchedule.keyDates) {
+          const regBeginsDate = event.eventSchedule.keyDates.find(date => 
+            date.title === "Registration Begins"
+          );
+          
+          if (regBeginsDate && regBeginsDate.date) {
+            const dateParts = regBeginsDate.date.split(" ");
+            if (dateParts.length === 2) {
+              const monthAbbr = dateParts[0];
+              const day = dateParts[1];
+              const formattedMonth = monthAbbreviations[monthAbbr] || monthAbbr;
+              const formattedDate = `${formattedMonth} ${day}`;
+              eventStateHTML = `<p class="event-state event-state-${stateInfo.class}">REG OPENS ${formattedDate}</p>`;
+            } else {
+              eventStateHTML = `<p class="event-state event-state-${stateInfo.class}">REG OPENS ${regBeginsDate.date}</p>`;
+            }
+          } else {
+            eventStateHTML = `<p class="event-state event-state-${stateInfo.class}">${stateInfo.text}</p>`;
+          }
+        } else {
+          eventStateHTML = stateInfo.text
+            ? `<p class="event-state event-state-${stateInfo.class}">${stateInfo.text}</p>`
+            : '';
+        }
+
+        eventDetails.innerHTML = `
+          <h3 class="event-title">${event.name}</h3>
+          <div class="wraper-date location-ctn">
+            <p class="event-date">${formatEventDate(event.eventSchedule)}</p>
+            ${locationHTML}
+          </div>
+          <div class="wraper-date status-container events-${stateInfo.class}">
+            <div class="player-count">${registeredPlayersHTML}</div>
+            <div class="event-status">${eventStateHTML}</div>
+          </div>
+        `;
+
+        if (stateInfo.class) {
+          card.classList.add(`event-${stateInfo.class}`);
+        }
+
+        card.classList.remove("skeleton");
+
+        if (!card.hasEventListener) {
+          card.addEventListener("click", () => {
+            window.location.href = eventUrl;
+          });
+          card.hasEventListener = true;
+        }
+      })
+      .catch(err => {
+        console.error(`Error loading event ${eventId}`, err);
+      });
+  });
+
+  function formatEventDate(eventSchedule) {
+    if (!eventSchedule) return "";
+    if (eventSchedule.eventDatesShort) return eventSchedule.eventDatesShort;
+
+    const startDate = eventSchedule.eventStartUtc ? new Date(eventSchedule.eventStartUtc) : null;
+    const endDate = eventSchedule.eventEndUtc ? new Date(eventSchedule.eventEndUtc) : null;
+    if (!startDate) return "";
+
+    const options = { month: "short", day: "numeric" };
+    if (!endDate || startDate.toDateString() === endDate.toDateString()) {
+      return startDate.toLocaleDateString("en-US", options);
+    }
+
+    return `${startDate.toLocaleDateString("en-US", options)} - ${endDate.toLocaleDateString("en-US", options)}`;
+  }
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "UTR Events",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "url",
+          "id": "event_url",
+          "label": "Event URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UTR Events",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

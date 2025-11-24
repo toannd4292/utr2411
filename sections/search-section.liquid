@@ -1,0 +1,310 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+@media(min-width:1200px){
+ .searchdropdown{display: flex;}
+}  
+@media(min-width:750px){
+  .ut-gs-searchdropdown-bg{top: 100px;max-width:60%;}
+}  
+@media(max-width:749px){
+  .ut-gs-searchdropdown-bg{top: 80px; max-width:100%;}
+}  
+.ut-gs-searchdropdown-bg{
+  background: var(--color-black);
+  box-shadow: 0px 11px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  margin: 0 auto;
+  right: 0;
+  position: absolute;
+  z-index: 6;
+  left: 0px;
+  display:none;
+  overflow-x: hidden;
+}
+.ut-gs-searchdropdown-bg.active {display: block;}
+.gs-searchdropdown-menu{list-style:none; padding:0; margin:0;}
+.gs-searchdropdown-menu li{display:block;}
+.gs-searchdropdown-menu li a{
+  color:var(--color-white);
+  font-size:14px;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  position:relative;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+.gs-searchdropdown-menu li a svg{
+    position: absolute;
+    right: 1.5rem;
+    top: 18px;
+    display:none
+}
+.gs-searchdropdown-menu li a:hover svg{display:block}
+.gs-searchdropdown-menu li a:hover{background:#262626;}
+.gs-search-inner{padding: 1rem 1.5rem;}
+.searchinput{
+    width: 100px;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    background:transparent;
+    padding-top: 0.75rem
+}
+.gs-globalSearch{text-transform: initial;font-size: 20px; font-family: var(--font-Tungsten);color:var(--color-white)}
+.gs-globalSearch a{font-size: 14px;margin-left: 5px; color:var(--color-main-teal); text-decoration: none;}
+.gs-globalSearch a svg {margin-left: 0.5rem;}
+</style>
+
+  <div class="page-width z-index-2 section-{{ section.id }}-padding isolate">
+    <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop">
+      <div class="grid__item">
+      <form class="position-relative">      
+        <div class="mr-auto bg_black flex-search-bg fs-pb-1-5">
+            <div class="d-flex gap-2 align-items-center justify-content-center">
+              <div class="flex-column d-flex w-xl-100">
+                <div class="position-relative ut-gs-serachbutton pointer">        
+                  <input type="text" class="gotham-bold text-black ut-gs-searchinput text-uppercase" id="ut-gs-myInput" placeholder="Search your name to activate your profile" autocomplete="off"/>
+                </div>      
+              </div>
+            <div class="flex-column d-flex">
+                <button class="blue-teal-gradient-bg search-icon">
+                  <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+                  <span class="text-white">
+                    <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                      <use href="#icon-search"></use>
+                    </svg>
+                  </span>
+                </summary>
+                </button>
+              </div>
+            </div>   
+          </div>
+          <div id="gs-presearch" class="ut-gs-searchdropdown-bg">
+            <div class="position-relative">
+              <div class="search-scroll">
+              <div class="search-inner smenu1">
+                <h4 class="text-white font-lg-20 font-tungsten text-uppercase mb-0 mt-0">What are you looking for?</h4>
+                <div class="divider-blue"></div>
+              </div>
+              <ul class="searchdropdown-menu gs-searchdropdown-menu smenu1">
+                  <li><a href="https://app.universaltennis.com/search?type=players&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified">View All Players <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    </a></li>
+              </ul>
+              </div>
+            </div>
+          </div>
+          <div id="gs-postsearch" class="ut-gs-searchdropdown-bg" style="display:none">
+            <div class="position-relative">
+              <div class="search-scroll">
+                <div id="gs-searchresult">
+                </div>
+              </div>
+            </div>
+          </div><!--./searchmenu2-->
+      </form>
+    </div>
+  </div>
+</div>  
+{% schema %}
+  {
+    "name": "Search Section",
+    	"presets": [
+      {
+        "name": "Search Section",
+        "category": "Search Section"
+      }
+    ],
+    "settings": [
+       {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script>
+
+  $(document).ready(function(){
+    $('.ut-gs-searchdropdown-bg').hide()
+    jQuery('.ut-gs-serachbutton').on('click',function(){
+      jQuery('.ut-gs-searchdropdown-bg').toggle();
+    });
+  });
+
+  var $elgs = $(".ut-gs-serachbutton");
+  var $eegs = $(".ut-gs-searchdropdown-bg");
+  $elgs.click(function(e){
+    e.stopPropagation();
+    $(".ut-gs-searchdropdown-bg").toggleClass('active');
+  });
+
+  $(document).on('click',function(e){
+    if(($(e.target) != $elgs) && ($eegs.hasClass('active'))){
+      $eegs.removeClass('active');
+      // console.log("yes");
+    }
+
+    $("#ut-gs-myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable2 ul li").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+
+    $(document).ajaxSend(function() {
+      $("#overlay").fadeIn(300);　
+    });
+
+    $('.ut-gs-serachbutton').click(function(){
+      $.ajax({
+        type: 'GET',
+        success: function(data){
+          //console.log(data);
+        }
+      }).done(function() {
+        setTimeout(function(){
+          $("#overlay").fadeOut(300);
+        },500);
+      });
+    });
+  });
+
+  var gs_searchText = "";
+
+  //Search Functionality
+  let ut_gs_searchinputElement = document.querySelector('.ut-gs-searchinput');
+
+  const gs_inputHandler = function(e) {
+    gs_searchText = e.target.value;
+    console.log('Search Text =',gs_searchText);
+    if (gs_searchText == "") {
+      showPreSearchBox();
+    } else {
+      showPostSearchBox();
+    }
+
+    //Fetch search results
+    fetchSearchQuery('https://api.universaltennis.com/v2/search?query='+gs_searchText+'&top=10&skip=0&schoolClubSearch=true');
+  }
+
+  ut_gs_searchinputElement.addEventListener('input', gs_inputHandler);
+  ut_gs_searchinputElement.addEventListener('propertychange', gs_inputHandler); // for IE8
+  // Firefox/Edge18-/IE9+ don’t fire on <select><option>
+  // source.addEventListener('change', inputHandler);
+
+  function fetchSearchQuery(fetchURL) {
+    console.log("fetchSearchQuery");
+
+    //Fetch league for everyone data
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    let resultData="";
+
+    fetch(fetchURL, requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+
+        //Players
+        let playersData="";
+        var playersCount=0;
+        var totalPlayersCount = result.players.hits.length;
+        console.log("TOTAL Players COUNT = "+totalPlayersCount);
+
+        result.players.hits.filter((item, idx) => idx < 4).map((values, index)=>{
+
+          playersCount+=1;
+
+          var id = values.source.id;
+          var pdname = values.source.displayName;
+
+          if(playersCount==1) {
+            playersData +='<div class="gs-search-inner"><div class="gs-globalSearch">Players <a href="https://app.universaltennis.com/search?query='+gs_searchText+'&utrMin=1&utrMax=16&utrType=verified&utrTeamType=singles&utrFitPosition=6&type=players">SEE ALL <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div><div class="divider-blue"></div></div><ul class="gs-searchdropdown-menu">';
+          }
+
+          playersData += '<li><a href="https://app.universaltennis.com/profiles/'+id+'">'+pdname+' <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>';
+                                                               
+          if (playersCount == 1 && playersCount == totalPlayersCount) {
+            console.log(playersCount);
+            playersData += '</ul>';
+          }
+
+        });
+        resultData+=playersData;
+
+        var searchresultElement = document.getElementById("gs-searchresult");
+        console.log("resultData = "+resultData);
+        searchresultElement.innerHTML=resultData;
+
+        if (resultData == "" && gs_searchText != "") {
+          searchresultElement.innerHTML = "No Matches Found"
+        }
+
+      }).catch(error => console.log('error', error));
+
+  }
+
+  function showPostSearchBox (){
+    console.log('showPostSearchBox');
+    let preSearchBoxElement = document.getElementById('gs-presearch');
+    let postSearchBoxElement = document.getElementById('gs-postsearch');
+
+    postSearchBoxElement.style.display = '';
+    preSearchBoxElement.style.display = 'none';
+
+    console.log(preSearchBoxElement);
+  }
+
+  function showPreSearchBox (){
+    console.log('showPreSearchBox');
+    let preSearchBoxElement = document.getElementById('gs-presearch');
+    let postSearchBoxElement = document.getElementById('gs-postsearch');
+
+    preSearchBoxElement.style.display = '';
+    postSearchBoxElement.style.display = 'none';
+  }
+      
+  
+</script>

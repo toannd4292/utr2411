@@ -1,0 +1,98 @@
+<div class="page-width pt-lg-5 pb-lg-5 pb-sm-5 pt-sm-5">
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop">
+     {% for block in section.blocks %} 
+     <div class="grid__item">
+      
+        <div class="card-features border-radius-lg-3 border-radius-sm-3 ">
+          <div class="media--landscape media--square-sm-2 position-relative" style="background:url('{{block.settings.block-image |  img_url:'large'}}') no-repeat top center; background-size: cover;"> 
+            <div class="additional-img-overlay border-radius-lg-3 border-radius-sm-3"></div>
+          </div>  
+          <div class="z-index-1 position-relative text-center card-bottom p-lg-3 p-sm-1">
+             <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                  <div class="pb-lg-2 pb-sm-2">
+                    <h2 class="text-uppercase section-title-lg-65 font-sm-44 font-tungsten mb-0 mt-0 lh-xl-78">{{block.settings.heading}}</h2>
+                     <div class="card-caption">
+                      <p class="font-sm-14 fw-lg-bold lh-sm-18">{{block.settings.description}}</p>
+                   </div>
+                  </div> 
+             {%- if block.settings.button-permission-hover == "NO" -%}    
+                <div class="d-flex justify-content-center align-items-center pb-sm-2">
+                  <a href="{{block.settings.section-button-url}}" class="btn-white-outline d-inline-block font-sm-12 min-w-lg-225 min-w-sm-130 text-uppercase">{{block.settings.section-button}}</a>
+                </div>
+              {%- endif -%}   
+            </div> 
+
+          </div>
+        </div>
+     
+    </div>
+   {% endfor %} 
+  </div>
+</div>  
+{% schema %}
+  {
+    "name": "Ut Card With Two Col Img",
+    "presets": [
+      {
+        "name": "Ut Card With Two Col Img",
+        "category": "Ut Card With Two Col Img"
+      }
+    ],
+    "settings": [],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"section-column",
+		"settings":[
+           {
+  		      "type": "image_picker",
+         	  "id": "block-image",
+         	  "label": "Card Image"
+  		   },
+           {
+  			"type":"text",
+  			"id":"heading",
+  			"label": "Heading Title"
+  		  },
+  		  {
+           "type": "text",
+           "id": "description",
+           "label": "Description"
+          },
+          {
+   			"type": "text",
+   			"id": "section-button",
+   			"label": "Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-button-url",
+     			"label": "Button Link"
+    		},
+           {
+            "type": "radio",
+            "id": "button-permission-hover",
+            "label": "Show cta button on hover?",
+            "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

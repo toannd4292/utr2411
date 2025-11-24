@@ -1,0 +1,99 @@
+<div class="page-width text-center">
+   <h2 class="text-uppercase section-title section-title-sm mb-0 lh-sm-90 mb-2 lh-xl-78">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="mb-4"><div class="divider-sm-teal divider-lg-teal"></div></div>
+    {%- endif -%}
+</div>
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-1 pb-sm-1 px-sm-0">
+  <div class="additional-carousel owl-carousel">
+    {% for block in section.blocks %} 
+      <div class="additional-features border-radius-lg-3 border-radius-sm-3">
+          <div class="additional-items-img border-radius-lg-3 border-radius-sm-3 position-relative" style="background:url('{{block.settings.block-image |  img_url:'large'}}') no-repeat top center; background-size: cover;"> 
+            <div class="additional-img-overlay border-radius-lg-3 border-radius-sm-3"></div>
+          </div>  
+          <div class="z-index-1 position-relative additional-position p-lg-3 p-sm-1">
+            <div class="d-flex flex-column justify-content-center align-items-center text-center">   
+                <div class="additional-heading text-uppercase font-tungsten lh-xl-78 text-teal-light pb-sm-1">{{block.settings.heading}}</div>
+                <div class="add-caption">
+                  <p class="font-sm-14 font-lg-14 text-white mt-0 lh-sm-15 lh-lg-20">{{block.settings.description}}</p>
+                </div>  
+               <a href="{{block.settings.section-button-url}}" class="btn-white-outline d-inline-block min-w-lg-225 min-w-sm-130 text-uppercase mt-2">{{block.settings.section-button}}</a>
+            </div>
+          </div>
+      </div>
+     {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Additional Features",
+    "presets": [
+      {
+        "name": "Additional Features",
+        "category": "Additional Features"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Title"
+		},
+       {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+    ],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"section-column",
+		"settings":[
+           {
+  		      "type": "image_picker",
+         	  "id": "block-image",
+         	  "label": "Card Image"
+  		   },
+           {
+  			"type":"text",
+  			"id":"heading",
+  			"label": "Heading Title"
+  		  },
+  		  {
+           "type": "text",
+           "id": "description",
+           "label": "Description"
+          },
+          {
+   			"type": "text",
+   			"id": "section-button",
+   			"label": "Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-button-url",
+     			"label": "Button Link"
+    		}
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

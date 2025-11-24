@@ -1,0 +1,384 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246441214a6c4e04": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_Mjqdym": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_Mjqdym"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "inner_image_banner_full_content_3V6tHL": {
+      "type": "inner-image-banner-full-content",
+      "settings": {
+        "section-image": "shopify://shop_images/women-tennis-phones-chatting-2560x1280-top-fold-match-tennis_198fab19-033b-46b4-bd30-b0a867c08c3d.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE-women-tennis-phones-chatting-820x1100-top-fold-match-tennis_2d9a517c-0aff-4b4c-991f-55c978394eaa.jpg",
+        "image_height": "small",
+        "tagline": "UTR Sports and Match Tennis",
+        "small-title-size": "p",
+        "heading": "Transform Your Tennis Experience",
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "We’re excited to unveil a transformative partnership between UTR Sports and Match Tennis App, created with a singular vision—to enhance and redefine the player experience for tennis enthusiasts at every level.",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-2": "",
+        "section-button-url-2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_6kN4x8": {
+      "type": "Ads",
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 8,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "0cdad24c-6813-4724-9c42-2b34400c0dcb": {
+      "type": "inner-page-image-banner",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/Universal_Tennis_UT_School_hero_image.jpg",
+        "image_height": "medium",
+        "tagline": "",
+        "small-title-size": "p",
+        "heading": "Claim your UTR profile",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "We have your Number",
+        "sub-heading-size": "medium",
+        "description": "See how you compare to the world’s best as well as to your friends and neighbors. As a player, your UTR profile is ready to claim. Start your journey and step into the Universal Tennis global community.",
+        "section-button": "Join Now",
+        "section-button-url": "https://www.universaltennis.com/join",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "8c9c657e-1f6e-41bd-8166-aa43f240f070": {
+      "type": "featured-players",
+      "disabled": true,
+      "settings": {
+        "heading": "Where do you fit?",
+        "heading-permission": "YES",
+        "subtitle": "The UTR Rating is the world’s most accurate tennis rating system. All players regardless of age, gender, geography or skill level, are rated on the same scale from 1 and 16.50 based on daily match results. Claim your UTR Profile today.",
+        "notetitle": "",
+        "menntrp": "3.0",
+        "womenntrp": "3.0",
+        "womenntrp2": "3.5",
+        "girls": "U12",
+        "girls2": "u14",
+        "boys": "u12"
+      }
+    },
+    "e32ce707-90a5-44c3-ba6a-8a1f44b82547": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "howto_benefits_section_yLpyQL": {
+      "type": "howto-benefits-section",
+      "blocks": {
+        "home_card_cm6Tn7": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/TRACK_YOUR_PROGRESS.svg",
+            "h4": "Seamless Integration",
+            "description": "Connect your UTR Sports account to the Match Tennis App and access your UTR Rating right on their platform—effortlessly keep track of your performance."
+          }
+        },
+        "home_card_7GQLtn": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/get-rated.svg",
+            "h4": "Effortless Registration",
+            "description": "Browse UTR Sports events and player acceptance lists directly within the Match Tennis App for a streamlined registration process."
+          }
+        },
+        "home_card_B3WgFc": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/make-scores-count.svg",
+            "h4": "UNPARALLELED VALUE",
+            "description": "This partnership underscores the commitment of both Match Tennis App and UTR Sports to provide unparalleled value to their users"
+          }
+        },
+        "home_card_KTpqQ6": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/get-_recruited.svg",
+            "h4": "ENHANCED MATCH PREPARATION",
+            "description": "Enjoy the benefits of better quality rating information on your opponents and see past match activity."
+          }
+        }
+      },
+      "block_order": [
+        "home_card_cm6Tn7",
+        "home_card_7GQLtn",
+        "home_card_B3WgFc",
+        "home_card_KTpqQ6"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Discover New Features to Elevate Your Game",
+        "section-button": "LEARN MORE",
+        "section-button-url": "shopify://blogs/press/match-tennis-app-utr-sports-announce-partnership",
+        "heading-permission": "YES"
+      }
+    },
+    "72ba45e5-489d-4811-aa74-2545fd099d96": {
+      "type": "content-right-image-left",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/two-men-phones-tennis-1280x990-match-tennis.jpg",
+        "smalltitle": "Deeper Insights and Competitive Edge",
+        "small-title-size": "p",
+        "heading": "Tap into Precision with Power and MTA Premium",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "description": "Competitive players know the difference is in the details—elevate your game with UTR Sports' Power Subscription and Match Tennis' MTA Premium. With Power Subscription, you'll unlock full decimal UTR Ratings, giving you precise data on your opponents. Plus, you'll access advanced player search tools and more personalized match insights for smarter competition. With MTA Premium, get exclusive access to the Tournament Scheduler, Ranking Forecaster, and enhanced search features that keep you ahead of the competition. Upgrade today and unlock the ultimate toolkit to dominate your path to success!",
+        "section-button": "UPGRADE NOW",
+        "section-button-url": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "content_with_list_image_right_JLnk93": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/match-tennis-utr-image-photo-women-phones-1280x990.jpg",
+        "heading": "3 KEY FEATURES OF PARTNERSHIP",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "User Integration and Exposure: MTA users will connect their UTR accounts, display UTR ratings based on subscription types, and access events and player lists to streamline calendar planning.",
+        "list2": "Tournament Recommendations: Recommended UTR events will be included in automated tournament recommendation emails, tailored to player type and UTR level personalization.",
+        "list3": "Prominent Ratings Visibility: UTR ratings will be prominently displayed on MTA's applicant and competitor lists, player profiles, ranking pages, AI Tournament Comparison Tool, and AI Placement Check Feature.",
+        "list4": "",
+        "section-button": "Read more",
+        "section-button-url": "shopify://blogs/press/match-tennis-app-utr-sports-announce-partnership",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_CWzE36": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "ut_two_col_image_with_bullet_wCjQnn": {
+      "type": "ut-two-col-image-with-bullet",
+      "blocks": {
+        "text_MUwxq4": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Competitive players know the difference is in the details—elevate your game with UTR Sports' Power Subscription and Match Tennis' MTA Premium. </p>"
+          }
+        },
+        "text_PhXfHe": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>With Power Subscription, you'll unlock full decimal UTR Ratings, giving you precise data on your opponents. Plus, you'll access advanced player search tools and more personalized match insights for smarter competition. </p>"
+          }
+        },
+        "text_dL7BJd": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>With MTA Premium, get exclusive access to the Tournament Scheduler, Ranking Forecaster, and enhanced search features that keep you ahead of the competition. </p>"
+          }
+        },
+        "text_rnUX3q": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Upgrade today and unlock the ultimate toolkit to dominate your path to success!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_MUwxq4",
+        "text_PhXfHe",
+        "text_dL7BJd",
+        "text_rnUX3q"
+      ],
+      "settings": {
+        "section-image": "shopify://shop_images/two-men-phones-tennis-1280x990-match-tennis.jpg",
+        "description": "Deeper Insights and Competitive Edge",
+        "heading": "Winning combo: Power and MTA Premium",
+        "subheading": "",
+        "section-button": "Upgrade now",
+        "section-button-url": "shopify://pages/power-players",
+        "list_alignment": "left"
+      }
+    },
+    "9b0d4007-e32e-4324-abd2-24e1e0297d34": {
+      "type": "testimonials",
+      "blocks": {
+        "368e5d05-e74e-4537-911c-ea35eb8dbb7d": {
+          "type": "home-card",
+          "settings": {
+            "description": "The UTR Rating is the best way to measure yourself against all other players regardless of their age or level.",
+            "image": "shopify://shop_images/Novak_Djokovic_Claim_Your_Profile_testimonial.png",
+            "author": "Novak Djokovic",
+            "author-designation": ""
+          }
+        },
+        "9b067eb7-d9a3-465e-b8d8-58487e871ddd": {
+          "type": "home-card",
+          "settings": {
+            "description": "Universal Tennis provides a standard for all players... the bigger the network gets, the more beneficial.",
+            "image": "shopify://shop_images/jim-courier_UTR_testimonial.png",
+            "author": "Jim Courier",
+            "author-designation": ""
+          }
+        },
+        "ae6d7a5d-1ed5-44b5-af7b-c5f478eca1c7": {
+          "type": "home-card",
+          "settings": {
+            "description": "We talk about it in the house all the time. My 16-year-old is using his UTR Rating as a motivator for improvement.",
+            "image": "shopify://shop_images/Tracey_Austin_testimonial.png",
+            "author": "Tracy Austin",
+            "author-designation": ""
+          }
+        }
+      },
+      "block_order": [
+        "368e5d05-e74e-4537-911c-ea35eb8dbb7d",
+        "9b067eb7-d9a3-465e-b8d8-58487e871ddd",
+        "ae6d7a5d-1ed5-44b5-af7b-c5f478eca1c7"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "sub-heading": "Why partner together..."
+      }
+    },
+    "are_you_an_australian_player_NRjwyU": {
+      "type": "are-you-an-australian-player",
+      "settings": {
+        "heading": "Learn more about Engage API",
+        "section-image": "shopify://shop_images/generic-tennis-court-back-1440x160_c27ffe9a-c627-493f-b2e8-7996d3e56784.jpg",
+        "image_overlay_opacity": 0,
+        "paragrap-title": "UTR Sports' seamless connection to bringing more level-based play to players.",
+        "section-button": "Learn more",
+        "section-button-url": "shopify://pages/engage-api"
+      }
+    },
+    "3_steps_new_TgzWNr": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_Fta9b8": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_MbHaLe": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_yVHkjj": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_Fta9b8",
+        "text_MbHaLe",
+        "text_yVHkjj"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    }
+  },
+  "order": [
+    "17246441214a6c4e04",
+    "main",
+    "inner_image_banner_full_content_3V6tHL",
+    "ads_6kN4x8",
+    "0cdad24c-6813-4724-9c42-2b34400c0dcb",
+    "8c9c657e-1f6e-41bd-8166-aa43f240f070",
+    "e32ce707-90a5-44c3-ba6a-8a1f44b82547",
+    "howto_benefits_section_yLpyQL",
+    "72ba45e5-489d-4811-aa74-2545fd099d96",
+    "content_with_list_image_right_JLnk93",
+    "section_spacing_CWzE36",
+    "ut_two_col_image_with_bullet_wCjQnn",
+    "9b0d4007-e32e-4324-abd2-24e1e0297d34",
+    "are_you_an_australian_player_NRjwyU",
+    "3_steps_new_TgzWNr"
+  ]
+}

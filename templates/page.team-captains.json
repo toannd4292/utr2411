@@ -1,0 +1,550 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b019a020-e6b3-41e7-bae6-b72c641a2510": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/junior-team-tennis-finalists-photo-2560x1400-captains-top-fold-marketing-site.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE-junior-team-tennis-finalists-photo-1600x1100-captains-top-fold-marketing-site.jpg",
+        "image_height": "medium",
+        "tagline": "utr sports team tennis",
+        "small-title-size": "p",
+        "heading": "Team Tennis Captains",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "Ready to lead?",
+        "sub-heading-size": "medium",
+        "description": "Become a captain today! Captains are crucial to the success and enjoyment of UTR Sports Leagues. Join UTR Sports in revolutionizing team competition and provide an enjoyable experience for players of all levels. Gather your friends and lead your team to victory!",
+        "section-button": "Submit your team",
+        "section-button-url": "https://utr.typeform.com/captainateam#mid=xxxxx",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "4273517d-50e8-4841-97a5-d3779fc2a306": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_ldb\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768": {
+      "type": "ut-card-with-two-column-img",
+      "blocks": {
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/doubles-pickleball-two-players-naborforce-community-event-1140x880.jpg",
+            "heading": "HAVE A TENNIS UTR RATING?",
+            "description": "Get UTR-P Rated within minutes!",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/login?next=%2Fpickleball-survey%3Freturn%3D%2Fhome",
+            "button-permission-hover": "NO"
+          }
+        },
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-singles-player-1140x880-hoodie.jpg",
+            "heading": "NEW TO UTR sports?",
+            "description": "If you don't already have an account with UTR Sports, click below to get your UTR-P Rating.",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/join/pickleball",
+            "button-permission-hover": "NO"
+          }
+        }
+      },
+      "block_order": [
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9",
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "f8480aa7-9539-425e-abe1-4f417044800c": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/high-five-on-court-doubles-men-playing-boca-team-tennis-114x880.jpg",
+        "heading": "Being a team tennis captain",
+        "heading-size": "h2",
+        "subheading": "How captaining works",
+        "sub-heading-size": "h2",
+        "list": "Click the below button and add your team info",
+        "list2": "UTR Sports will create your team page and email it to you",
+        "list3": "Pass your team link along to your players, and your players will click \"Join This Team\" to pay and be added to your roster",
+        "list4": "",
+        "section-button": "SUBMIT YOUR TEAM",
+        "section-button-url": "https://utr.typeform.com/captainateam#mid=xxxxx",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "bb619d90-522b-489a-947c-9a558670c712": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "d29aa01c-0302-4904-964a-0a6386867d3d": {
+      "type": "content-right-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/ptt-player-celebrating-left-handed-racquet-hand-1140x880.jpg",
+        "smalltitle": "life as a team captain",
+        "small-title-size": "p",
+        "heading": "WHY BE A CAPTAIN",
+        "heading-size": "h2",
+        "subheading": "Are you ready?",
+        "sub-heading-size": "h2",
+        "description": "As a team captain, you're in charge. You have the ability to update your home match day and time, with all your players automatically notified of any changes. You can easily gather your players’ availability in our app or through our website. And with the click of a few buttons, you can set and lock your lineups, post scores, and get some help by adding a co-captain. NEW: The Team Power Index offers an accurate measure of team strength. Establish yours today by playing in one of our upcoming seasons!",
+        "section-button": "LEARN MORE",
+        "section-button-url": "https://support.universaltennis.com/support/solutions/articles/9000234065-team-power-index-tpi-",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex2\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "530ae4da-99db-4be4-91aa-8dec214fe297": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/junior-team-tennis-team-captain-background-1140x880.jpg",
+        "heading": "Captaining 101",
+        "heading-size": "h2",
+        "subheading": "What you need to know...",
+        "sub-heading-size": "h2",
+        "list": "Familiarity with the rules of the league and tennis. Ability to recruit the minimum number of players for a team who are within correct UTR Rating and registered.",
+        "list2": "Verify home matches with your facility, and ensure access to the necessary number of courts, balls, and resources for matches.",
+        "list3": "Communicate with your team and the opposing team on match details and changes, and gather your players’ availability ahead of time to ensure you have a full lineup for match day. ",
+        "list4": "Home team captain to post match scores within 48 hours of match completion.",
+        "section-button": "submit your team",
+        "section-button-url": "https://utr.typeform.com/captainateam#mid=xxxxx",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickle1.png",
+        "heading": "Pickleball Flex Leagues",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "description": "Familiar with the rules of the league and general rules of tennisRecruit the minimum number of players for a team Ensure all players register and are within the correct UTR Rating range for the division Verify home matches with your facilityAccess to the necessary number of courts, balls, and resources for matchesCommunicate with your team and the opposing team on match details and changes Gather your players’ availability ahead of time to ensure you have a full lineup for match dayPost scores from your home match within 48 hours of match completion",
+        "id_section-button": "",
+        "section-button": "FIND A LEAGUE NEAR YOU",
+        "section-button-url": "shopify://pages/pickleball-flex-leagues",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "2f2c747e-9225-4105-86f3-c11fd058495d": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1": {
+      "type": "content-with-list-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-flex-league-570x440.jpg",
+        "heading": "PICKLEBALL FLEX LEAGUES",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "list": "4 matches over 5 weeks",
+        "list2": "Compete for prizes",
+        "list3": "Qualify for the playoffsMatches at your level on your time",
+        "list4": "",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7": {
+      "type": "resources-for-players",
+      "blocks": {
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/YouTube-video-thumbnail-app-nyc-us-open.jpg",
+            "description": "Pickleball Takes Over US Open",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=mpnv5A_CZW8"
+          }
+        },
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/UT-Web-thumbnail-sam-querrey-pickleball-interview-youtube-video.jpg",
+            "description": "Nadal, Federer? Sam Querrey's Dream Doubles Partner",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=vXKEkYOgU40"
+          }
+        }
+      },
+      "block_order": [
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd",
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "IS EVERYONE PLAYING PICKLEBALL tournaments?",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "cf47488f-4071-444b-aaa2-795b967e3793": {
+      "type": "ul-video-button-banner",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/UT-Pickleball-Web_Thumb_V2.jpg",
+        "heading": "PICKLEBALL IS EVERYWHERE",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/Pickleball_player_cut_out-new.png",
+        "section-video-button": "WATCH THE VIDEO",
+        "section-button-url": "https://www.youtube.com/watch?v=21AlbfyORS8"
+      }
+    },
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "bf77d76c-8a13-4351-afd7-5dac2017e844": {
+      "type": "two-column-image-with-hover",
+      "blocks": {
+        "9cdb3e08-04d2-4015-a0c3-23b58e41d247": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/coach-player-discussion-team-captain-1140x840.jpg",
+            "heading": "WINTER 2024 SEASON",
+            "sub-heading": "Juniors",
+            "block-list-items": "<ul><li>January 20 - March 3</li><li>Divisions of coed UTR 1-2.99, coed UTR 3-4.99, coed UTR 5-6.99</li><li>Team format: 4 singles lines, 2 doubles lines.</li><li>Scoring: Fast4, 2 out of 3 sets, 10-point tie-break in lieu of 3rd set.</li></ul>"
+          }
+        },
+        "394eeb25-b5a4-4c52-be10-e5cbf82d3874": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/coach-adult-captain-1140x840.jpg",
+            "heading": "WINTER 2024 SEASON",
+            "sub-heading": "Adults",
+            "block-list-items": "<ul><li>January 20 - March 3</li><li>Divisions: Men's and Women's separate; UTR 1-2.99, 3-4.99, 5-6.99, 7-8.99</li><li>Team format: 2 doubles lines, 2 singles lines</li><li>Team players: 6-10 per team</li><li>Scoring: 2 out of 3 sets, No Ad, 10-point tie-break in lieu of 3rd set</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "9cdb3e08-04d2-4015-a0c3-23b58e41d247",
+        "394eeb25-b5a4-4c52-be10-e5cbf82d3874"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "f36481c4-e038-4a85-bf69-da966e882999": {
+      "type": "ut-card-text-list-detail",
+      "blocks": {
+        "1d7b3544-5925-45a7-b080-2fe27dafcf8e": {
+          "type": "home-card",
+          "settings": {
+            "heading": "WINTER 2024 SEASON",
+            "sub-heading": "Juniors",
+            "description": "",
+            "button-title": "CAPTAIN A TEAM",
+            "button-url": "https://utr.typeform.com/captainateam#mid=xxxxx",
+            "bulletlist": "<ul><li>January 20 - March 3</li><li>Divisions of coed UTR 1-2.99, coed UTR 3-4.99, coed UTR 5-6.99</li><li>Team format: 4 singles lines, 2 doubles lines.</li><li>Scoring: Fast4, 2 out of 3 sets, 10-point tie-break in lieu of 3rd set.</li></ul>",
+            "button-permission-hover": "NO",
+            "button-more-title": "CAPTAIN A TEAM",
+            "button-more-url": "https://utr.typeform.com/captainateam#mid=xxxxx"
+          }
+        },
+        "38e42097-3eba-4673-8b7d-f6e103e23a16": {
+          "type": "home-card",
+          "settings": {
+            "heading": "WINTER 2024 SEASON",
+            "sub-heading": "Adults",
+            "description": "",
+            "button-title": "CAPTAIN A TEAM",
+            "button-url": "https://utr.typeform.com/captainateam#mid=xxxxx",
+            "bulletlist": "<ul><li>January 20 - March 3</li><li>Divisions: Men's and Women's separate; UTR 1-2.99, 3-4.99, 5-6.99, 7-8.99</li><li>Team format: 2 doubles lines, 2 singles lines</li><li>Team players: 6-10 per team</li><li>Scoring: 2 out of 3 sets, No Ad, 10-point tie-break in lieu of 3rd set</li></ul>",
+            "button-permission-hover": "NO",
+            "button-more-title": "CAPTAIN A TEAM",
+            "button-more-url": "https://utr.typeform.com/captainateam#mid=xxxxx"
+          }
+        }
+      },
+      "block_order": [
+        "1d7b3544-5925-45a7-b080-2fe27dafcf8e",
+        "38e42097-3eba-4673-8b7d-f6e103e23a16"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>EVERYTHING YOU NEED TO KNOW ABOUT BEING A CAPTAIN</p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-heading-1",
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-text-1",
+        "template--21608031027520__cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4-button-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "5d1e50e0-e653-44e2-9311-688303a7f8bf": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Answers to your team tennis questions",
+            "icon": "none",
+            "row_content": "<ul><li><h2><a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000237328-captain-features-on-the-utr-sports-mobile-app\" title=\"https://support.universaltennis.com/en/support/solutions/articles/9000237328-captain-features-on-the-utr-sports-mobile-app\">What team tennis captain features are on the UTR Sports app?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000237327-how-team-captains-invite-players\" title=\"How can I invite players to my team?\">As a team tennis captain, how can I invite players to my team?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000237326-how-do-i-manage-my-team-as-team-captain-\" title=\"How do I manage my team as team captain?\">How do I manage my tennis team as team captain?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000237325-how-do-i-find-my-teams-\" title=\"How do I find my teams?\">How do I find my tennis teams?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000237324-team-schedule-and-team-standings\" title=\"Where's the team schedule & standings?\">Where's the team schedule & standings?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/support/solutions/articles/9000232948-player-availability-and-lineup-management\">What's the new Player Availability and Lineup Management tool?</a></h2></li><li><h2><a href=\"https://support.universaltennis.com/support/solutions/articles/9000237323-faq-team-captains\" title=\"FAQ about being a team captain\">FAQ about being a team tennis captain</a></h2></li></ul>",
+            "page": ""
+          }
+        },
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-2": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-3": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-4": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-1",
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-2",
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-3",
+        "template--21608031027520__5d1e50e0-e653-44e2-9311-688303a7f8bf-collapsible_row-4"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Everything to know about being a team captain",
+        "heading-size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "bg-light-blue",
+        "container_color_scheme": "accent-2",
+        "open_first_collapsible_row": true,
+        "image": "shopify://shop_images/girls-laughing-jnp-1140x880-tennis-clubs-page-570x440.jpg",
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "3_steps_new_VgiyMj": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_xJjLrb": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_JRGMfJ": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_n8emVi": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_xJjLrb",
+        "text_JRGMfJ",
+        "text_n8emVi"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "e4c5e721-a290-4509-be92-55acff9c63fe": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "a4c3bd96-c7ae-4a99-b1e4-405e1bf74d72": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>DOWNLOAD APP</p>"
+          }
+        },
+        "89e5a3a0-1818-479a-adbd-5ee011121510": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>CREATE PROFILE</p>"
+          }
+        },
+        "eee76819-03ed-4a8e-a789-e034a97daf8a": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>FIND PLAY</p>"
+          }
+        }
+      },
+      "block_order": [
+        "a4c3bd96-c7ae-4a99-b1e4-405e1bf74d72",
+        "89e5a3a0-1818-479a-adbd-5ee011121510",
+        "eee76819-03ed-4a8e-a789-e034a97daf8a"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "JOIN UTR SPORTS",
+        "heading-size": "h2",
+        "sub-heading": "In Three Easy Steps",
+        "sub-heading-size": "h2",
+        "sub-title": "NOW AVAILABLE GLOBALLY!",
+        "section-heading": "DOWNLOAD THE APP TODAY",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you with the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-two-screenshots-564x773.png",
+        "section-button": "GET STARTED",
+        "section-button-url": "shopify://pages/mobile-app",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    },
+    "05ad4e08-2cd1-46cc-bc33-59f66c6aa569": {
+      "type": "become-more-image-with-text",
+      "disabled": true,
+      "settings": {
+        "tag-line": "asdfasdfasdf",
+        "heading": "asdfasdf",
+        "sub-heading": "asdfasdfasdf",
+        "paragrap-title": "asdfasdfasdfasdfasdf",
+        "section-image": "shopify://shop_images/Pickle_Marketing-Shopify-Website-1140x800_570x400_0bcbb048-1b7c-47cd-9704-afc6b5dd861b.png",
+        "image_height": "medium",
+        "section-button-first": "",
+        "section-button-url-first": "",
+        "section-button-second": "",
+        "section-button-url-second": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b019a020-e6b3-41e7-bae6-b72c641a2510",
+    "4273517d-50e8-4841-97a5-d3779fc2a306",
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768",
+    "f8480aa7-9539-425e-abe1-4f417044800c",
+    "bb619d90-522b-489a-947c-9a558670c712",
+    "d29aa01c-0302-4904-964a-0a6386867d3d",
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588",
+    "530ae4da-99db-4be4-91aa-8dec214fe297",
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637",
+    "2f2c747e-9225-4105-86f3-c11fd058495d",
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1",
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7",
+    "cf47488f-4071-444b-aaa2-795b967e3793",
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f",
+    "bf77d76c-8a13-4351-afd7-5dac2017e844",
+    "f36481c4-e038-4a85-bf69-da966e882999",
+    "cf47ae7f-7f49-4ec7-b0d2-81a8a8f8fdf4",
+    "5d1e50e0-e653-44e2-9311-688303a7f8bf",
+    "3_steps_new_VgiyMj",
+    "e4c5e721-a290-4509-be92-55acff9c63fe",
+    "05ad4e08-2cd1-46cc-bc33-59f66c6aa569"
+  ]
+}

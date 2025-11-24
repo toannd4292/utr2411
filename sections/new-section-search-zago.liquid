@@ -1,0 +1,502 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<div class="page-width search-wraper">
+  <div class="search-container">
+    <div class="group-title">
+      <p class="heading" style="font-size: {{ section.settings.size_heading }}px; line-height: {{ section.settings.size_heading }}px;">{{ section.settings.heading }}</p>
+      <p class="description" style="font-size: {{ section.settings.size_sub_heading }}px">{{ section.settings.sub_heading }}</p>
+    </div>
+    <div class="gourp-search">
+      <div class="search-item search-pickleball" style="background-color: {{ section.settings.bg_color_pickleball}};">
+        {% if section.settings.image_tennis_desktop != blank and section.settings.image_pickleball_desktop != blank %}
+          <div class="image-container img-desktop">
+            <img class="img" src="{{ section.settings.image_pickleball_desktop | img_url: 'master' }}" />
+          </div>
+        {% endif %}
+        {% if section.settings.image_tennis_mobile != blank and section.settings.image_pickleball_mobile != blank %}
+          <div class="image-container img-mobile">
+            <img class="img" src="{{ section.settings.image_pickleball_mobile | img_url: 'master' }}" />
+          </div>
+        {% endif %}
+        <div class="column-content" style="background-color: {{ section.settings.bg_btn_pickleball }}; color: {{ section.settings.color_text_pickleball }};">
+          <div class="row-heading">
+            <img class="img-heading" src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Pickleball.png?v=1720500988" /> 
+            <p>{{ section.settings.title_pickleball }}</p>
+          </div>
+          <div class="row-description">
+            <p>{{ section.settings.sub_title_pickleball }}</p>
+          </div>
+          {% render 'custom_search_picklebal' %}
+        </div>
+      </div>
+      <div class="search-item search-tennis" style="background-color: {{ section.settings.bg_color_tennis }};">
+        {% if section.settings.image_tennis_desktop != blank and section.settings.image_pickleball_desktop != blank %}
+          <div class="image-container img-desktop">
+           <img class="img" src="{{ section.settings.image_tennis_desktop | img_url: 'master' }}" />
+          </div>
+        {% endif %}
+        {% if section.settings.image_tennis_mobile != blank and section.settings.image_pickleball_mobile != blank %}
+          <div class="image-container img-mobile">
+           <img class="img" src="{{ section.settings.image_tennis_mobile | img_url: 'master' }}" />
+          </div>
+        {% endif %}
+        <div class="column-content" style="background-color: {{ section.settings.bg_btn_tennis }}; color: {{ section.settings.color_text_tennis }};">
+          <div class="row-heading">
+            <img class="img-heading" src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Tennis_ball.png?v=1720500984" /> 
+            <p>{{ section.settings.title_tennis }}</p>
+          </div>
+          <div class="row-description">
+            <p>{{ section.settings.sub_title_tennis }}</p>
+          </div>
+          {% render 'custom_search_tennis' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .new-section-search {
+    {% if section.settings.image_tennis_desktop != blank and section.settings.image_pickleball_desktop != blank %}
+      .page-width {
+        max-width: 1400px;
+      }
+    {% else %}
+      .page-width {
+        max-width: 800px;
+      }
+    {% endif %}
+    .search-wraper {
+      text-align: center;
+      padding: 40px 49px;
+    }
+    .gourp-search {
+      display: flex;
+      justify-content: center;
+    }
+    .heading {
+      font-family: 'Gotham-Medium';
+      margin: 0 0 20px 0;
+    }
+    .search-item {
+      width: 50%;
+      display: flex;
+      height: auto;
+      margin: 0 10px;
+      border-radius: 30px;
+    }
+    .img-mobile {
+        display: none;
+      }
+    .image-container {
+      margin-right: 3px;
+    }
+    .img {
+      width: 250px;
+      height: 100%;
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+      object-fit: cover;
+    }
+    .column-content {
+      padding: 20px;
+      text-align: left;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+    .row-heading {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 25px;
+        margin: unset;
+      }
+    }
+    .img-heading {
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+    }
+    .row-description {
+      font-size: 15px;
+    }
+    .row-btn {
+      margin-top: 30px;
+      width: fit-content;
+    }
+    .link {
+      padding: 8px 18px;
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: initial;
+    }
+    .input-content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+    }
+    .search-input {
+      display: flex;
+      justify-content: unset;
+      width: unset;
+      margin: unset;
+      border-radius: unset;
+      padding: unset;
+    }
+    .input-button {
+      width: 97%;
+      height: 40px;
+      background: #fff;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+      border-radius: unset;
+      padding: 10px 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    .input-button::placeholder {
+      color: #000000;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 400;
+    }
+    .btn-icon-search {
+      background-color: #c7ef8c;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .link-btn-search {
+      width: 45px;
+      height: 45px;
+    }
+    .text-white {
+      color: #000000;
+    }
+    .btn-search {
+      width: 45px;
+      height: 40px;
+      border: unset;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .text-white {
+        display: flex;
+        justify-content: center;
+      }
+      .icon-search {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .search-container {
+      position: relative;
+    }
+    .menu-drop {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #000000;
+      padding: 10px;
+      border-radius: 10px;
+      top: 50px;
+      z-index: 999;
+      .header-event {
+        display: flex;
+        align-items: center;
+      }
+      .text-menu-inner {
+        margin: unset;
+        color: #ffffff;
+        margin-right: 10px;
+        font-size: 24px;
+      }
+      .see-all {
+        text-transform: initial;
+        color: #00c0f7;
+        text-decoration: none;
+      }
+      .divider-blue {
+        margin: unset;
+      }
+      .menu-content {
+        list-style-type: none;
+        padding: unset;
+        margin: unset;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-right: 10px;
+          .link-menu {
+            color: #ffffff;
+            font-size: 14px;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            text-overflow: ellipsis;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  @media(max-width:768px){
+    .new-section-search {
+      .search-wraper {
+        padding: 30px 45px;
+        .group-title {
+          .heading {
+            font-size: 20px !important;
+          }
+        }
+      }
+      .gourp-search {
+        display: block;
+      }
+      .search-item {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  @media(max-width:450px){
+    .new-section-search {
+      .search-wraper {
+        padding: 30px 15px;
+      }
+      .search-item {
+        display: block;
+        margin: 0 0 20px 0;
+      }
+      .img-desktop {
+        display: none;
+      }
+      .img-mobile {
+        display: block;
+        border-radius: 8px;
+      }
+      .image-container {
+        margin: unset;
+      }
+      .column-content {
+        padding: 15px;
+        border-top-right-radius: unset;
+        {% if section.settings.image_tennis_mobile != blank and section.settings.image_pickleball_mobile != blank %}
+          border-radius: 16px;
+          border-top-left-radius: unset;
+          border-top-right-radius: unset;
+        {% else %}
+          border-radius: 8px;
+        {% endif %}}
+        .row-heading {
+          .img-heading {
+            width: 18px;
+            height: 18px;
+          }
+          p {
+            font-size: 20px;
+            line-height: 26px;
+          }
+        }
+        .row-description {
+          p {
+            font-size: 12px;
+            line-height: 16px;
+          }
+        }
+      }
+      .img {
+        width: 100%;
+        height: 200px;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 16px;
+      }
+      .row-btn {
+         margin-top: 20px !important;
+        .link {
+          padding: 8px 18px !important;
+          font-size: 12px !important;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+</style>
+{% schema %}
+  {
+    "name": "New Section Search",
+    "class": "new-section-search",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+      },
+      {
+        "type": "range",
+        "id": "size_heading",
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size Heading",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "size_sub_heading",
+        "min": 10,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size Sub Heading",
+        "default": 30
+      },
+      {
+        "type": "header",
+        "content": "Search Tennis"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_tennis_desktop",
+        "label": "Image Tennis Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_tennis_mobile",
+        "label": "Image Tennis Mobile"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title_tennis",
+        "label": "Title Tennis"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "sub_title_tennis",
+        "label": "Sub Title Tennis"
+      },
+      {
+        "type": "text",
+        "id": "placeholder_tennis",
+        "label": "Placeholder input Tennis"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "button_tennis",
+        "label": "Text Button Tennis"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_tennis",
+        "label": "Background Color",
+        "default": "#62E6FC"
+      },
+      {
+        "type": "color",
+        "id": "color_text_tennis",
+        "label": "Color text",
+        "default": "#FFFFFF"
+      },
+      {
+         "type": "color",
+        "id": "bg_btn_tennis",
+        "label": "Background Color Content Tennis",
+        "default": "#000000"
+      },
+      {
+         "type": "color",
+        "id": "bg_search_tennis",
+        "label": "Background Color Button Search",
+        "default": "#62E6FC"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_tennis",
+        "label": "Color text button",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Search Pickleball"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_pickleball_desktop",
+        "label": "Image Pickleball Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_pickleball_mobile",
+        "label": "Image Pickleball Mobile"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "title_pickleball",
+        "label": "Title Pickleball"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "sub_title_pickleball",
+        "label": "Sub Title Pickleball"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "placeholder_pickleball",
+        "label": "Placeholder input Pickleball"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "button_pickleball",
+        "label": "Text Button Pickleball"
+      },
+      {
+        "type": "color",
+        "id": "bg_color_pickleball",
+        "label": "Background Color",
+        "default": "#C7EF8C"
+      },
+      {
+        "type": "color",
+        "id": "color_text_pickleball",
+        "label": "Color text",
+        "default": "#ffffff"
+      },
+      {
+         "type": "color",
+        "id": "bg_btn_pickleball",
+        "label": "Background Color Content Pickleball",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "bg_search_pickleball",
+        "label": "Background Color Button Search",
+        "default": "#C7EF8C"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_pickleball",
+        "label": "Color text button",
+        "default": "#FFFFFF"
+      },
+    ],
+     "presets": [
+      {
+        "name": "New Section Search"
+      }
+    ]
+  }
+{% endschema %}

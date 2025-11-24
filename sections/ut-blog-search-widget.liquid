@@ -1,0 +1,66 @@
+<style>
+  .relative{position: relative;}
+  .inputhide{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    opacity:0;
+    z-index:1;
+    width: 66px;
+    height: 66px;
+    border-radius:100%;
+  }
+  .cursor-pointer{cursor: pointer;}
+  .gotham-sm-bold{font-family:var(--font-gotham-bold);}
+</style>
+<!-- Blog search widget -->
+<div class="page-width pt-3 pb-3">
+  <form action="{{ routes.search_url }}" class="mr-auto bg_black flex-search-bg">
+    <div class="d-flex gap-2 align-items-center justify-content-center">
+       <div class="flex-column d-flex w-xl-100">
+        <input type="text"
+          class="font-sm-14 font-lg-14 gotham-sm-bold"
+          placeholder="Search"
+          name="q"
+          value="{{ search.terms | escape }}"
+        />
+       </div>   
+      <div class="flex-column d-flex">
+        <button type="button" class="blue-teal-gradient-bg search-icon club-search-btn relative"> 
+         <div class="inputhide"> 
+          <input type="hidden" name="type" value="article" />
+          <input type="hidden" name="options[prefix]" value="last" />
+          <input type="hidden" name="blog" value="News" /> <!-- Specify the blog name here -->
+           <input type="submit" value="Search" class="cursor-pointer" />
+         </div> 
+            <summary style="pointer-events: none;" class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="Search">
+            <span class="text-white">
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-search"></use>
+              </svg>
+            </span>
+          </summary>
+          </button>
+      </div>   
+    </div>  
+  </form>
+</div> 
+
+
+{% schema %}
+  {
+    "name": "Blog Search Widget",
+     "presets": [
+      {
+        "name": "Blog Search Widget",
+        "category": "Search Widget"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,599 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246468201d18a6ff": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_nKjhJx": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": false,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "qikify"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_nKjhJx"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "4f5d96a7-aeea-4ad0-8b91-7aa4aa3da0a4": {
+      "type": "inner-image-banner-full-content",
+      "settings": {
+        "section-image": "shopify://shop_images/NEW-2560x1280-lpa-boy-background-black-les-petits-as-v2.jpg",
+        "image_mobile": "shopify://shop_images/NEW-MOBILE-820x1100-lpa-boy-background-black-les-petits-as-v2.jpg",
+        "image_height": "small",
+        "tagline": "Supporting Junior Tennis Globally",
+        "small-title-size": "p",
+        "heading": "Les Petits As USA Playoffs",
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "UTR Sports hosts as series of regionals across the country for players annually. There are 16 boys and 16 girls that advance from those events to the USA Playoffs.",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-2": "",
+        "section-button-url-2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_bHYiCc": {
+      "type": "Ads",
+      "disabled": true,
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 28,
+        "padding_bottom": 68,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "2a3caa1e-8b16-4f52-8eb9-afb314d9f6f6": {
+      "type": "content-right-image-left",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/lpa-junior-boy-hitting-ball-forehand-1280x990.jpg",
+        "smalltitle": "Les Petits As USA Playoffs",
+        "small-title-size": "h2",
+        "heading": "View the 2024 Junior Tennis Regionals Calendar",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "description": "<p>The 2024 calendar for UTR Sports Les Petits As USA Playoffs has been released! Click below to view the entire schedule and register today.</p>",
+        "section-button": "REGISTER NOW",
+        "section-button-url": "https://app.utrsports.net/clubs/1004756?t=4",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "60e7c4aa-e508-498d-96c9-17ab7f65d940": {
+      "type": "testimonials",
+      "blocks": {
+        "f76c0183-0a97-4c3e-b764-2af40a212c62": {
+          "type": "home-card",
+          "settings": {
+            "description": "Being 9 years old and competing against some high-level girls, I had fun and can’t wait to do it next year!",
+            "image": "shopify://shop_images/William_National_Pathway_testimonia.png",
+            "author": "Mya Anyan",
+            "author-designation": ""
+          }
+        },
+        "f35afbf2-c21c-4961-933f-0a9955e2aa9a": {
+          "type": "home-card",
+          "settings": {
+            "description": "Unbelievably well-organized tournament. Very professional staff. Couldn't ask for better organized tournament. Thank you!",
+            "image": "shopify://shop_images/JDW_national_pathway_testimonial.png",
+            "author": "Colin Pental",
+            "author-designation": ""
+          }
+        },
+        "346ef18e-f116-440f-af0c-6598bdacb8ca": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "JNP was a great experience for my daughter! Great venue, friendly tournament directors, and tough competition that will for sure help my daughter as she continues her path of competing in junior tennis.",
+            "image": "shopify://shop_images/Carrie_W_national_pathway_testimonial.png",
+            "author": "Carrie W.",
+            "author-designation": ""
+          }
+        },
+        "143d7798-08ee-4ed1-93e2-f236b9b92746": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "This is the future of American junior tennis. Time to get on the Universal Tennis tournaments to reach your future potential.",
+            "image": "shopify://shop_images/Mike_T_national_pathway_testimonial.png",
+            "author": "Mike T.",
+            "author-designation": ""
+          }
+        }
+      },
+      "block_order": [
+        "f76c0183-0a97-4c3e-b764-2af40a212c62",
+        "f35afbf2-c21c-4961-933f-0a9955e2aa9a",
+        "346ef18e-f116-440f-af0c-6598bdacb8ca",
+        "143d7798-08ee-4ed1-93e2-f236b9b92746"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "TESTIMONIALS",
+        "sub-heading": "Why they play Les Petits As..."
+      }
+    },
+    "4fe5f294-71cf-42eb-9527-9e9f6d2fdc1d": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/College_570x440_App_Cue_BETTER_IMAGE_QUALITY.png",
+        "heading": "Want to play college tennis?",
+        "heading-size": "h2",
+        "subheading": "Get recruited now",
+        "sub-heading-size": "h3",
+        "list": "UTR Sports has partnered with NCSA College Recruiting to help student-athletes all over the world achieve their dream of playing collegiate tennis. Sign up for a free NCSA profile and receive the following benefits:",
+        "list2": "Get noticed by 3,500 college tennis coaches",
+        "list3": "Meet with an NCSA expert for a free recruiting assessment",
+        "list4": "Receive a free personalized recruiting game plan",
+        "section-button": "Get recruited",
+        "section-button-url": "https://app.utrsports.net/ncsa/register?utm_source=banner&utm_medium=web&utm_campaign=signup&utm_content=NCSA-mktg-web-fold",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "04a368fa-f134-4bb0-91d4-d7d6d3891557": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "d881a3f9-95e5-4f42-8dab-5c2c3bad3dc4": {
+      "type": "section-title-header",
+      "disabled": true,
+      "settings": {
+        "sub-heading": "UPCOMING OPPORTUNITIES",
+        "sub-title-size": "h2",
+        "heading-permission": "YES",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "728ccabe-4c0a-4cdf-9fd1-205c4c75ae27": {
+      "type": "ut-card-with-two-column-img",
+      "blocks": {
+        "89ca25db-3424-4fe3-be53-b997c3b1f6e2": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Les_Petits_As_Small_Photo.png",
+            "heading": "Les Petits As",
+            "description": "USA Playoffs Lacoste Regionals for 13U will be held in September-October with player selection, seeding, and draw based on UTR Rating.",
+            "section-button": "REGISTER",
+            "section-button-url": "https://app.universaltennis.com/clubs/1004756?t=1",
+            "button-permission-hover": "NO"
+          }
+        },
+        "49d7eb7a-5e2d-4c4a-a8d0-53d4db659a1a": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/JNP_2_Website_Shopify_Image_570x440_4ffe30a9-f431-40c4-a59a-fd269964c102.png",
+            "heading": "JUNIOR NATIONAL PATHWAY",
+            "description": "Universal Tennis is offering $50K of funds back to American junior players (ages 14-18) during one super regional weekend. See schedule below.",
+            "section-button": "see SCHEDULE BELOW",
+            "section-button-url": "",
+            "button-permission-hover": "NO"
+          }
+        }
+      },
+      "block_order": [
+        "89ca25db-3424-4fe3-be53-b997c3b1f6e2",
+        "49d7eb7a-5e2d-4c4a-a8d0-53d4db659a1a"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "64fec5bd-c87b-4641-9e49-ecbf7b683437": {
+      "type": "ut-junior-national-search-filter",
+      "disabled": true,
+      "settings": {
+        "heading": "2023 National Schedule",
+        "heading-permission": "YES"
+      }
+    },
+    "82f836cf-bb01-4fa4-b027-a5a5878ffd7d": {
+      "type": "ut-junior-regional-search-filter",
+      "disabled": true,
+      "settings": {
+        "heading": "Fall 2023 $50K Super Regional Weekend",
+        "heading-permission": "YES",
+        "addlinkdata": "junior-regional"
+      }
+    },
+    "6faec1ad-f45b-4a4d-8694-cd2566f71ee7": {
+      "type": "section-title-header",
+      "disabled": true,
+      "settings": {
+        "sub-heading": "junior national pathway",
+        "sub-title-size": "h2",
+        "heading-permission": "YES",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "d6981503-dfe2-48ed-9bd2-abdfb8092fd5": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/JNP_2_Website_Shopify_Image_570x440_4ffe30a9-f431-40c4-a59a-fd269964c102.png",
+        "heading": "$50K Super Regional Weekend",
+        "heading-size": "h2",
+        "subheading": "Junior National Pathway",
+        "sub-heading-size": "h2",
+        "description": "Created by Universal Tennis in 2021, the Junior National Pathway (JNP) is a college-exposure-focused series that allows juniors to compete in front of college coaches and learn about the college experience. The round-robin format ensures players compete in at least three matches (all matches are live-streamed).",
+        "id_section-button": "",
+        "section-button": "REGISTER",
+        "section-button-url": "https://app.universaltennis.com/clubs/17029",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "309305b6-160d-43ea-8ed6-f8500b4a2961": {
+      "type": "resources-for-players",
+      "blocks": {
+        "cd8a8470-c526-4eee-939d-ff548352f309": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/lpa-winners-insta-pull-1140x743-jnp-page-boys.png",
+            "description": "Register for 2024 UTR Sports, Les Petits Tournaments",
+            "permission": "Artical",
+            "section-button": "REGISTER NOW",
+            "section-button-url": "https://app.utrsports.net/clubs/1004756"
+          }
+        },
+        "78fbcc2f-853c-47e2-b80a-10a34936d2fb": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/diadem-stock-photo-woman-hitting-backhand-1140x743.png",
+            "description": "UTR Sports Partners With Diadem",
+            "permission": "Artical",
+            "section-button": "READ MORE",
+            "section-button-url": "shopify://blogs/press/universal-tennis-partners-with-diadem-to-offer-equipment-solutions-and-junior-player-support"
+          }
+        },
+        "24cd8e30-8aa2-48f0-b750-e3e184f15a9b": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/lpa-boy-background-black-les-petits-as-1140x743.png",
+            "description": "UTR Sports Partners With Les Petits As - USA Playoffs Lacoste for Regionals",
+            "permission": "Artical",
+            "section-button": "READ MORE",
+            "section-button-url": "https://web.track.tennis/events/feed?account=junior-national-pathway#/"
+          }
+        }
+      },
+      "block_order": [
+        "cd8a8470-c526-4eee-939d-ff548352f309",
+        "78fbcc2f-853c-47e2-b80a-10a34936d2fb",
+        "24cd8e30-8aa2-48f0-b750-e3e184f15a9b"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Learn More About UTR Sports: Les Petits As",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "0410c717-36c0-4ee1-ae35-8264e0152e8a": {
+      "type": "how-the-utr-rating-works",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/WEB-JNP-THUMB-2023-junior-national-pathway-youtube-highlights.jpg",
+        "heading": "WATCH 2023 CHAMPIONSHIP Highlights",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/JTT-player-backhand-run-cutout-image-550x634.png",
+        "section-video-button": "play video",
+        "section-button-url": "https://www.youtube.com/watch?v=UPloIyqsIhU&ab_channel=UniversalTennis",
+        "section-learn-more-button": "",
+        "section-learn-button-url": "",
+        "section-signup-button": "",
+        "section-signup-button-url": ""
+      }
+    },
+    "6795aa17-be70-4707-9369-40a4bc992b28": {
+      "type": "partners-section",
+      "blocks": {
+        "a923f900-5ddc-4999-a82c-4a9ac748a39d": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/Penn_logo.png",
+            "featured-in-url": "http://www.pennracquet.com/"
+          }
+        },
+        "210cc7fb-f729-4fc7-b35c-66480b2f56c2": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/diadem-pathway-partner-image-540x241.png",
+            "featured-in-url": "https://diademsports.com/pages/junior-national-pathway"
+          }
+        }
+      },
+      "block_order": [
+        "a923f900-5ddc-4999-a82c-4a9ac748a39d",
+        "210cc7fb-f729-4fc7-b35c-66480b2f56c2"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Partners",
+        "heading-permission": "YES",
+        "sub-heading": ""
+      }
+    },
+    "489af41e-6750-433e-a9d6-6666597e455a": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is my designated region in Junior Regionals? How can I set it up?",
+            "icon": "none",
+            "row_content": "<p>Regions are designated by player residence and players are required to play in their assigned region based on the residence info on their UTR player profile.</p><p>If a player's profile location falls under multiple regions, the system will show a drop-down option of regional choices. This player will need to select which region they would like to designate themselves as a part of.</p><p>For all information on the regional designation and the assignments of each state, you can also <a href=\"https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/National%20Pathway/Junior%20Pathway/Junior%20Regionals%20-%20Eligibility%20and%20Prizes.pdf\" target=\"_blank\" title=\"PDF of Junior regionals info\">visit this page</a>.</p>",
+            "page": ""
+          }
+        },
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the age and citizenship requirements for competing?",
+            "icon": "none",
+            "row_content": "<ul><li>You must be between the ages of 8-17 years old and be a U.S. citizen or green card holder, with the exception of those that qualify under the 18-Year-Old Junior Rule.</li><li>Three age divisions will be offered (17U, 15U, and 13U) and all players are required to play within their age group based on their age at their designated event start date. Players may not play up in an age division.</li><li>(Example 1: A 15-year-old player must play in the 15U division and is not allowed to play in the 17U division regardless of UTR Rating)</li><li>(Example 2: A 17-year-old player WOULD STILL BE ELIGIBLE in U17 if their birthday is 08/15 and the tournament dates are 08/14-08/16).</li></ul><p><strong>What is the 18-Year-Old Junior Rule? </strong></p><ul><li>An 18-year-old player who is still in high school may request wildcard entry if they have not yet signed a letter of intent to play for a college tennis program.</li><li>This player must request a wildcard entry by emailing <a href=\"mailto:JuniorPath@universaltennis.com\">JuniorPath@universaltennis.com</a>.<br/></li></ul><p><strong>What if I am 18 and have verbally committed to a college but not signed a letter of intent, can I still be eligible to play?</strong></p><ul><li>Yes. An 18-year-old player who has verbally committed to a college but not signed a letter of intent may request a wildcard entry by emailing <a href=\"mailto:JuniorPath@universaltennis.com\">JuniorPath@universaltennis.com</a>.</li></ul>",
+            "page": ""
+          }
+        },
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the dates and locations of Junior Regionals and Nationals?",
+            "icon": "none",
+            "row_content": "<p><strong>Dates and locations of Junior Regionals and Nationals:</strong></p><p>Eight regional events will take place throughout September, October, and November all over the United States in girl’s and boy’s 13U, 15U, and 17U divisions.</p><p><strong>Dates and location of Junior Nationals:</strong></p><p>Junior Nationals will be held December 3-8 at Darling Tennis Center in Las Vegas, the same time as the Intercollegiate Tennis Association (ITA) Coaches Convention. December 3-4 will be a two-day College Showcase followed by the December 5-8 four-day National Championships tournament.</p>",
+            "page": ""
+          }
+        },
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need a specific UTR Rating to qualify for regionals?",
+            "icon": "none",
+            "row_content": "<p><strong>No, all players regardless of their UTR Rating may register. However the top 14 players by their Verified Singles UTR Rating (fully reliable) in each age division will be selected to compete once registration closes. Those who register but are not selected to compete will be given a full refund.</strong></p><p><em>Please note: A player with a projected UTR Rating may be accepted over a fully reliable player at the discretion of Universal Tennis in order to field the most competitive event.</em></p><p><strong>Will any wildcard spots be given out?</strong> </p><p>Up to 2 wildcard spots may be given by Universal Tennis.</p><p><strong>Will there be alternates on the player list? What about on-site for Junior Regionals and Nationals?</strong></p><p>Yes, each event will have an alternate player list for those players who have registered but are not in the top 14 UTR rated players. Prior to the tournament starting, players listed on the alternate list will have the first priority to fill a vacant place due to a withdrawal. Once the tournament begins, on-site alternates are encouraged to sign in. On-site alternates do not have to be registered on the event page. On-site alternates will be taken based on the highest rated player to sign in within the age division.</p><p>Yes, on-site alternates may be accepted. These can be non-entered players who attend the Tournament site to sign-in for the tournament to replace players in the occurrence of last second withdrawals. In order to be eligible as an On-Site Alternate, a player must have a valid account, be above the minimum level required by tournament director closer to the tournament date, sign-in with the Referee at the Tournament site 30 minutes prior to the first match on Day 1 of the tournament, and have paid the entry fee.</p><p>Lucky losers in case of the occurrence of a player dropping out before the playoff round begins may also be accepted.</p>",
+            "page": ""
+          }
+        },
+        "b3d996db-d714-432a-9269-c6a2291b9fee": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the event specific details?",
+            "icon": "none",
+            "row_content": "<ul><li>Round-robin group play followed by the top 2 finishers in each group advancing to a knock-out playoff round. For complete event formats, please visit a specific event page which can be found by visiting <a href=\"/pages/national-pathway\" title=\"National Pathway\">https://www.universaltennis.com/national-pathway</a>.</li></ul><p><strong>What sizes will the draws be?</strong></p><ul><li>Junior Regionals will consist of three 16-player draws (48 total players) per gender events (i.e. Boys/Girls 13U, 15U and 17U). </li><li>Junior Nationals will consist of two 16-player draws (32 total players) per gender events (i.e. Boys/Girls 15U and 17U). With both genders at Junior Nationals, we will have a total of 64 players.</li></ul><p><strong>What are the costs of registration?</strong></p><ul><li>Regionals: $95 plus $12 Verified Fee (without Power Subscription)</li><li>Nationals Tournament: $95 plus $12 Verified Fee (without Power Subscription)</li><li>Nationals Showcase: $395 plus $12 Verified Fee (without Power Subscription) however 17U and 15U Regional winners will receive free entry to the showcase.</li></ul><p><strong>What surface will regionals and nationals be on?</strong></p><ul><li>Regionals: Outdoor and Indoor Hard Court</li><li>Nationals: Outdoor Hard Court</li></ul><p><strong>Will the events be live streamed? </strong></p><ul><li>Yes, all matches for 17U and 15U divisions will be live streamed. Some sites will have streaming for the 13U playoff rounds.</li></ul><p><strong>Is the live stream available to everyone or just college coaches?</strong></p><ul><li>This will be available to everyone with a strong emphasis on assuring ALL college coaches will have access including the ability to watch matches after the event is over.</li></ul><p><strong>Will there be roving or chair umpires on site?</strong></p><ul><li>Regionals: One head referee and one roving referee per gender event of 48 players.</li><li>Nationals: One head referee and one roving referee per gender event of 32 players. Playoff championship finals will have chair umpires.</li></ul>",
+            "page": ""
+          }
+        },
+        "74437a85-bcf6-4de4-829a-384fd5570c31": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the prizes for Junior Regionals and Junior Nationals?",
+            "icon": "none",
+            "row_content": "<p><strong>Junior Regional Prizes:</strong></p><ul><li>Winner of each Junior Regional tournament will qualify and be invited to participate in the Universal Tennis Junior National Championship event at the Darling Tennis Facility in Las Vegas, Nevada. (17U & 15U Only).</li><li>Winners of each Junior Regional tournament will receive free entry (Valued at $300) and acceptance to the College Showcase two days prior to the Universal Tennis Junior National Championship. (17U & 15U Only).</li><li>FILA prize packages for 1st and 2nd place finishers. (17U, 15U & 13U).</li></ul><p><strong>Junior National Championship Prizes:</strong></p><ul><li>UTR Pro Tennis Tour Wild Cards will be awarded to the following players within the Universal Tennis Junior National Championship tournament(s) (17U and 15U Only):</li><li>17U Wild Cards:</li></ul><p>- Winner: 3 Main Draw Wild Cards</p><p>- Finalist: 2 Main Draw Wild Cards</p><p>- Semifinalists: 1 Main Draw Wild Card</p><ul><li>15U Wild Cards:</li></ul><p>- Winner: 1 Main Draw Wild Cards</p><p>- Finalist: 1 Main Draw Wild Cards</p><ul><li>Wild Cards awarded as prizes from the Universal Tennis Junior National Championship must be used within the 2022 calendar year for a specific event(s) offered on a use it or lose it basis by the PTT Team. A Wild Card can be used ONLY if the player has an eligible UTR Rating at the time of registration close for the PTT Event. </li><li>In the event of a dispute regarding prizes, winners, and/or rank on the standing list, the determination of resolution regarding winners, prizes, rank on the standings list, and/or point system will be at the full discretion of Universal Tennis.</li></ul>",
+            "page": ""
+          }
+        },
+        "87112b61-e4b6-40b5-be8d-3e443b307f6e": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What else should I know?",
+            "icon": "none",
+            "row_content": "<p>Read some more Junior Pathway FAQs <a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000207315-faq-junior-national-pathway\" target=\"_blank\" title=\"https://support.universaltennis.com/en/support/solutions/articles/9000207315-faq-junior-national-pathway\">here</a>.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-0",
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-1",
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-2",
+        "template--17453615677760__489af41e-6750-433e-a9d6-6666597e455a-1672837660dfb5d1fa-3",
+        "b3d996db-d714-432a-9269-c6a2291b9fee",
+        "74437a85-bcf6-4de4-829a-384fd5570c31",
+        "87112b61-e4b6-40b5-be8d-3e443b307f6e"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading-size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "3_steps_new_YPRVM8": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_JVLw8A": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_wW4EHr": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_9fTkmV": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_JVLw8A",
+        "text_wW4EHr",
+        "text_9fTkmV"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "want_to_play_tennis_PDQ9w4": {
+      "type": "want-to-play-tennis",
+      "blocks": {
+        "home_card_FbYcPz": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/7_-_junior-circuits-B07I9510_-_WS_bdabbc5b-aad4-4281-86e5-ee2ccd60fa80.png",
+            "section-button": "Junior Circuits",
+            "section-button-url": "shopify://pages/junior-circuits"
+          }
+        },
+        "home_card_WaHNCH": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/college-match-experience-blue-ball-background-cutout-image-pepperdine-player-fist.png",
+            "section-button": "Junior Tennis Journey",
+            "section-button-url": "shopify://pages/college-pathways"
+          }
+        },
+        "home_card_mdAKbV": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Color-ball-cutout-image-orange-ball-child-orange-shirt-ball-background-v2_a9e038cb-3eca-43b2-8cee-dceb2f64b1a8.png",
+            "section-button": "Color Ball Rating",
+            "section-button-url": "shopify://pages/color-ball"
+          }
+        },
+        "home_card_kXDeWT": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/cutout-9_-_national-pathway-Marley_Lambert_-_WS.png",
+            "section-button": "Junior Team Tennis",
+            "section-button-url": "shopify://pages/junior-team-tennis"
+          }
+        },
+        "home_card_eKWnjh": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/College-fan-zone-or-college-female-player-cutout-image-forehand-running-tulsa-blue-shirt-ball-background.png",
+            "section-button": "Explore UTR Rating",
+            "section-button-url": "shopify://pages/how-utr-works"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_FbYcPz",
+        "home_card_WaHNCH",
+        "home_card_mdAKbV",
+        "home_card_kXDeWT",
+        "home_card_eKWnjh"
+      ],
+      "name": "Col sl-4 Image Button",
+      "settings": {
+        "heading": "Explore more",
+        "sub-heading": "Ready for more tennis?"
+      }
+    },
+    "ads_LzKHAF": {
+      "type": "Ads",
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-3",
+        "color_scheme": "new",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "17246468201d18a6ff",
+    "main",
+    "4f5d96a7-aeea-4ad0-8b91-7aa4aa3da0a4",
+    "ads_bHYiCc",
+    "2a3caa1e-8b16-4f52-8eb9-afb314d9f6f6",
+    "60e7c4aa-e508-498d-96c9-17ab7f65d940",
+    "4fe5f294-71cf-42eb-9527-9e9f6d2fdc1d",
+    "04a368fa-f134-4bb0-91d4-d7d6d3891557",
+    "d881a3f9-95e5-4f42-8dab-5c2c3bad3dc4",
+    "728ccabe-4c0a-4cdf-9fd1-205c4c75ae27",
+    "64fec5bd-c87b-4641-9e49-ecbf7b683437",
+    "82f836cf-bb01-4fa4-b027-a5a5878ffd7d",
+    "6faec1ad-f45b-4a4d-8694-cd2566f71ee7",
+    "d6981503-dfe2-48ed-9bd2-abdfb8092fd5",
+    "309305b6-160d-43ea-8ed6-f8500b4a2961",
+    "0410c717-36c0-4ee1-ae35-8264e0152e8a",
+    "6795aa17-be70-4707-9369-40a4bc992b28",
+    "489af41e-6750-433e-a9d6-6666597e455a",
+    "3_steps_new_YPRVM8",
+    "want_to_play_tennis_PDQ9w4",
+    "ads_LzKHAF"
+  ]
+}

@@ -1,0 +1,1352 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{{ 'image-with-text-new.css' | asset_url | stylesheet_tag }}
+{% render 'partial-style', section: section %}
+{% style %}
+  .section-{{ section.id }} .details--collapsibles.custom-colab {
+    align-items: baseline;
+  }
+  .section-{{ section.id }} .bottom-part {
+    max-width: 537px;
+  }
+  .section-{{ section.id }} .wrap-acc {
+      width: 100%;
+      max-width: 400px;
+  }
+  .section-{{ section.id }} .wrap-acc .accordion__title {
+    padding: 18px 0;
+    padding-bottom: 0px;
+    font-weight: 500;
+  }
+  .section-{{ section.id }} .accordion-mobile-img {
+    padding-top: 60px !important;
+  }
+  .section-{{ section.id }} .accordion__contents {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 320ms ease, opacity 260ms ease;
+    will-change: height, opacity;
+    padding-top: 0px;
+  }
+   .section-{{ section.id }} .accordion__contents p {
+    padding-top: 18px;
+  }
+  .section-{{ section.id }} .accordion__contents.is-open {
+    opacity: 1;
+  }
+  {% if section.settings.bg %}
+    .section-{{ section.id }} {
+      background-size: cover;
+      background-position: center;
+      background-attachment: unset;    
+      background-image: url({{section.settings.bg | img_url: 'master'}});
+    }
+  {% endif %}
+  @media screen and (min-width: 750px) {
+     .section-{{ section.id }} .bottom-part {
+    padding-top:150px;
+  }
+    {% if section.settings.height == 'medium' %}
+      .section-{{ section.id }}-padding .image-with-text__media--medium {
+          height: 50rem;
+      }
+    {% endif %}
+    {% if section.settings.height == '60' %}
+      .section-{{ section.id }}-padding .image-with-text__media {
+          height: 60rem;
+      }
+    {% endif %}
+  }
+  .section-{{ section.id }} .image-with-text { 
+  overflow: visible;
+}
+
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }} .image-with-text__media-item {
+    position: sticky;
+    top: 24px;
+    align-self: flex-start;
+    height: max-content;
+  }
+}
+{% endstyle %}
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+  if section.settings.color_scheme == section.settings.section_color_scheme and section.settings.content_layout == 'no-overlap'
+    assign remove_color_classes = true
+  endif
+  if section.settings.custom_width
+    assign custom_width = true
+  endif
+-%}
+
+<div {% if section.settings.id != blank %} id="{{ section.settings.id }}" {% endif %} class="section-{{ section.id }} section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }} {{ section.settings.class }} {% if section.settings.image_below %} image_below-text {% endif %} {% if custom_width %} antr--custom-width {% endif %} {% if section.settings.container %} antr--container-content {% endif %}">
+  <div class="page-width image-text-new-inner layout-{{ section.settings.layout }} {% if section.settings.image_full %} image_full-mobile {% endif %} {% if section.settings.full_width %} content--full-width {% endif %}">
+    <div class="image-with-text image-with-text--{{ section.settings.content_layout }} overflow-hidden isolate {% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %} {% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div
+        class="
+          image-with-text__grid grid grid--gapless {% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}
+          {% if custom_width %} custom--width-content flex-wrap justify-between {% else %} grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} {% endif %}
+        "
+      >
+        {% capture media %}
+        <div class="small-hide w-full image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item {% if custom_width %} w-full w-{{ section.settings.img_w_d }} w-md-{{ section.settings.img_w_t }} w-xs-{{ section.settings.img_w_m }}{% endif %} {% if section.settings.hide_mobile %} small-hide {% endif %}">
+          <div class="bg-layer-blur"></div>
+          <div
+            class="image-with-text__media {% if section.settings.image_second %} image-text-second {% endif %} image-with-text__media--{{ section.settings.height }} global-media-settings background-transparent {% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+            {% if  section.settings.image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+
+            {% if section.settings.video != blank %}
+              
+              {% assign poster = section.settings.video.preview_image | file_url | replace: 'files/files', 'files' %}
+              {{ section.settings.video  | video_tag: loop: true, autoplay: true, muted: true, poster: poster  }}
+
+            {% else %}
+            
+              {% if section.settings.image_second %}
+                  {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                    {%- assign widths = '900, 1284, 1800' -%}
+                    {%- capture sizes -%}
+                  (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                  (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+                {%- endcapture -%}
+                  {%- else -%}
+                    {%- assign widths = '1500' -%}
+                    {%- capture sizes -%}
+                  (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                  (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                {%- endcapture -%}
+                  {%- endif -%}
+                  {{
+                    section.settings.image_second
+                    | image_url: width: 1500
+                    | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                  }}
+              {% endif %}
+              
+              {%- if section.settings.image != blank -%}
+                {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                  {%- assign widths = '900, 1284, 1800' -%}
+                  {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+              {%- endcapture -%}
+                {%- else -%}
+                  {%- assign widths = '1500' -%}
+                  {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+              {%- endcapture -%}
+                {%- endif -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 1500
+                  | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                }}
+              {%- else -%}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+
+            {% endif %}
+
+          </div>
+          
+        </div>
+        {% endcapture %}
+
+        {{ media }}
+
+        <div class="image-with-text__text-item grid__item {% if custom_width %} w-full w-{{ section.settings.txt_w_d }} w-md-{{ section.settings.txt_w_t }} w-xs-{{ section.settings.txt_w_m }}{% endif %}">
+          <div class="bgtext-layer-blur"></div>
+          <div
+            id="ImageWithText--{{ section.id }}"
+            class="image-with-text__content image-with-text__content-accordion image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container  background-transparent"
+          >
+            <div class="top-part">
+            {%- for block in section.blocks -%}
+              {% case block.type %}
+                {%- when 'heading' -%}
+                  <h2
+                    class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.heading }}
+                  </h2>
+                {%- when 'caption' -%}
+                  <p
+                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.caption | escape }}
+                  </p>
+                {%- when 'text' -%}
+                  <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.text }}
+                  </div>
+                {%- when 'html' -%}
+                  <div class="image-with-text__html w-full  line--0 mg--0" {{ block.shopify_attributes }}>
+                    {{ block.settings.html }}
+                  </div>                
+                {%- when 'image' -%}
+                  <div class="antr--block-image accordion-mobile-img mg-0 w-full {% if block.settings.display == "hide_d" %} medium-hide large-up-hide {% endif %} {% if block.settings.display == "hide_m" %} small-hide {% endif %}">
+                    <div class="antr--block-image-inner w-full" style="max-width: {{ block.settings.width_image }}px;">
+                      {% if block.settings.use_main_image %}
+                        {{ media }}
+                      {% else %}
+                        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} antr--image-contain-{{ section.settings.img_contain }} image-with-text__media-item--{{ section.settings.desktop_content_position }}">
+                          <div
+                            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+                            {% if block.settings.image != blank %}
+                              style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+                            {% endif %}
+                          >
+                            {%- if block.settings.image != blank -%}
+                              {%- if section.settings.image_behavior == 'ambient'
+                                or section.settings.image_behavior == 'zoom-in'
+                              -%}
+                                {%- assign widths = '900, 1284, 1800' -%}
+                                {%- capture sizes -%}
+                              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+                            {%- endcapture -%}
+                              {%- else -%}
+                                {%- assign widths = '750, 1070, 1500' -%}
+                                {%- capture sizes -%}
+                              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                            {%- endcapture -%}
+                              {%- endif -%}
+                              {{
+                                block.settings.image
+                                | image_url: width: 1500
+                                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                              }}
+                            {%- else -%}
+                              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
+                          </div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+              {%- when 'buttons' -%}
+                <div
+                  class="banner__buttons {% if block.settings.no_spacing %} mt--0 {% endif %} {% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.button_label_1 != blank -%}
+                    <div class="antr--button">
+                    <a
+                      {% if block.settings.button_link_1 == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link_1 }}"
+                      {% endif %}
+                      class="{% if block.settings.button_style_secondary_1 %} out-line-btn-black {% else %} btn-black{% endif %}"
+                    >
+                      {{- block.settings.button_label_1 | escape -}}
+                      {% if block.settings.arrow %}
+                        <div class="button-arrow">
+                          <svg width="26" height="12" viewBox="0 0 26 12" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M25.1746 6.68502C25.1743 6.68531 25.1741 6.68565 25.1737 6.68594L20.071 11.7182C19.6887 12.0952 19.0704 12.0938 18.6899 11.7149C18.3094 11.3361 18.3109 10.7234 18.6932 10.3463L22.1192 6.96774H1.43762C0.898266 6.96774 0.46106 6.53448 0.46106 6C0.46106 5.46552 0.898266 5.03226 1.43762 5.03226H22.1191L18.6932 1.65368C18.311 1.27664 18.3095 0.663916 18.69 0.285093C19.0705 -0.0938263 19.6888 -0.0951328 20.0711 0.281803L25.1738 5.31406C25.1741 5.31435 25.1743 5.31469 25.1747 5.31498C25.5571 5.69327 25.5559 6.30798 25.1746 6.68502Z" fill="#DADADA"/> </svg>
+                        </div>
+                      {% endif %}
+                    </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- when 'space' -%}
+                <div class="space-content line--0 mg--0 padding-bottom-{{ block.settings.space }} padding-bottom-md-{{ block.settings.space_tablet }} padding-bottom-xs-{{ block.settings.space_mobile }}">&nbsp;</div>   
+              {%- when 'text_custom' -%}
+                {% assign size = block.settings.size | split: ',' %}
+                {% assign height = block.settings.height | split: ',' %}
+                <div
+                  class="mg--0 w-full {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  <{{ block.settings.tag }}
+                    class="text--custom mg--0 {{ block.settings.class }} {{ block.id }} {{ block.settings.font }} {% if block.settings.align == "center" %} text-center m-auto  {% endif %} {% if block.settings.align == "right" %} text-right m-auto mr--0 {% endif %} mt--0 mb--0 {% if size[0] != blank %}size-{{ size[0] }}{% endif %} {% if height[0] != blank %}line-{{ height[0] }}{% endif %} {% if size[1] != blank %}size-md-{{ size[1] }}{% endif %} {% if height[1] != blank %}line-md-{{ height[1] }}{% endif %} {% if size[2] != blank %}size-xs-{{ size[2] }}{% endif %} {% if height[2] != blank %}line-xs-{{ height[2] }}{% endif %}"
+                    style="{% if block.settings.color != blank %} color: {{ block.settings.color }}; {% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if block.settings.html != blank %}
+                      {{ block.settings.html }}
+                    {% else %}
+                      {{ block.settings.heading }}
+                    {% endif %}
+                  </{{ block.settings.tag }}>
+                </div>
+                {% if block.settings.space != 0 or block.settings.space_mobile != 0 %}
+                  <div class="space-content line--0 mg--0 padding-bottom-{{ block.settings.space }} padding-bottom-md-{{ block.settings.space_tablet }} padding-bottom-xs-{{ block.settings.space_mobile }}">
+                    &nbsp;
+                  </div>
+                {% endif %}
+
+
+                {% when 'collapsible_tab_new' %}
+                  <div class="collapsible_tab_new w-full">
+                    <div class="collapsibles_tab w-full  {% if block.settings.open %} active {% endif %}">
+                      <div class="details--collapsibles">
+                        <div class="product__accordion-heading cursor-pointer flex items-center justify-between">
+                          <div class="summary__title flex w-full items-center gap-64 gap-xs-10">
+                            <div class="collapsible_tab_number gotham-bold">{{ block.settings.number }}</div>
+                            <h3 class="h4 accordion__title gotham-bold inline-richtext size-28 line-28 size-md-23 line-md-23 spacing--0-8">
+                              {{ block.settings.heading | default: block.settings.page.title | escape }}
+                            </h3>
+                          </div>
+                          <div class="antr-icon-mp">{{- 'icon-faq-new.svg' | inline_asset_content -}}</div>
+                        </div>
+                        <div
+                          class="accordion__contents satoshi-regular size-17 line-25 spacing--0-25"
+                          style="{% unless block.settings.open %} display: none; {% endunless %}"
+                        >
+                          <div class="accordion__contents-description">{{ block.settings.description }}</div>
+                          <div class="accordion__contents-description_new">{{ block.settings.description_new }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                          
+              {%- endcase -%}
+            {%- endfor -%}
+            </div>
+              <div class="bottom-part section-{{ section.id }}">
+                {%- for block in section.blocks -%}
+                  {% case block.type %}
+                    {%- when 'collapsible_tab' -%}
+                    <div class="collapsibles_tab w-full {% if block.settings.open %}active{% endif %}">
+                      <div class="details--collapsibles custom-colab justify-between">
+                        {% if block.settings.icon contains '0' %}
+                          <span class="collapsible_number inter-semibold size-24 line-24 size-md-24 line-md-24 spacing--0-5">{{ block.settings.icon }}</span>
+                        {% else %}
+                          {% render 'icon-accordion', icon: block.settings.icon %}
+                        {% endif %}
+                        <div class="wrap-acc">
+                          <div class="product__accordion-heading cursor-pointer flex items-center justify-between" role="button" tabindex="0">
+                            <div class="summary__title flex w-full items-center gap-20 gap-xs-10">
+                              <h2 class="h4 accordion__title inline-richtext size-28 line-28 size-md-24 line-md-24 spacing--0-8 inter-medium">
+                                {{ block.settings.heading | default: block.settings.page.title | escape }}
+                              </h2>
+                            </div>
+                            <div class="antr-icon-mp">{{- 'icon-faq.svg' | inline_asset_content -}}</div>
+                          </div>
+                          <div
+                            class="accordion__contents satoshi-regular size-17 line-27 size-md-17 line-md-27 spacing--0-4"
+                            style="{% unless block.settings.open %}display:none;{% endunless %}"
+                          >
+                            {{ block.settings.content }}
+                            {{ block.settings.page.content }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endcase %}
+                {%- endfor -%}
+</div>
+
+<script>
+(function(){
+  const root='.section-{{ section.id }}';
+  const wrap=document.querySelector(root);
+  if(!wrap) return;
+  const items=[...wrap.querySelectorAll('.details--collapsibles.custom-colab')];
+  if(!items.length) return;
+
+  let cur=-1;
+  let bottomPartFullyVisible=false;
+  const isMobile=()=>window.innerWidth<=768;
+
+  const C=s=>s.querySelector('.accordion__contents');
+  const T=s=>s.closest('.collapsibles_tab');
+  const onEnd=(el,h)=>{ if(el._h) el.removeEventListener('transitionend',el._h); el._h=h; el.addEventListener('transitionend',h); };
+
+  function scaleDesktop(i){
+    const img=wrap.querySelector('.image-with-text__media img'); if(!img) return;
+    const s=(i<0)?1.4:Math.max(1.0,1.3-0.1*i);
+    img.style.transition='transform 1.0s cubic-bezier(0.25,0.46,0.45,0.94)';
+    img.style.transform=`scale(${s})`;
+  }
+  function scaleMobile(i){
+    const img=wrap.querySelector('.image-with-text__media img'); if(!img) return;
+    const s=(i<0)?1.4:Math.max(1.0,1.3-0.1*i);
+    img.style.transition='transform 1.2s cubic-bezier(0.25,0.46,0.45,0.94)';
+    img.style.transform=`scale(${s})`;
+  }
+  const scale=i=>isMobile()?scaleMobile(i):scaleDesktop(i);
+
+  function animateOpen(sec,fromScroll){
+    const c=C(sec),tab=T(sec); if(!c) return;
+    const h=parseFloat(c.style.height||'0');
+    const mid=c.style.display==='block'&&!c.classList.contains('is-open')&&h>0;
+    if(c.classList.contains('is-open')&&!mid) return;
+    if(tab) tab.classList.add('active');
+    c.style.display='block';
+    c.style.height=(mid?h:0)+'px';
+    c.style.opacity=mid?'0.6':'0';
+    c.classList.add('is-open');
+    const dur=isMobile()?(fromScroll?'1.2s':'1.4s'):(fromScroll?'1.0s':'1.2s');
+    const ease='cubic-bezier(0.25,0.46,0.45,0.94)';
+    if(isMobile()) c.style.transform='none';
+    const target=c.scrollHeight;
+    c.style.transition=`height ${dur} ${ease}, opacity ${dur} ${ease}`;
+    requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ c.style.height=target+'px'; c.style.opacity='1'; }); });
+    onEnd(c,e=>{ if(e.propertyName!=='height') return; c.style.height='auto'; c.style.transition=''; });
+    sec.setAttribute('aria-expanded','true');
+  }
+  function animateClose(sec,fromScroll){
+    const c=C(sec),tab=T(sec); if(!c) return;
+    const closed=c.style.display==='none'||(!c.classList.contains('is-open')&&parseFloat(c.style.height||'0')===0);
+    if(closed) return;
+    c.classList.remove('is-open'); if(tab) tab.classList.remove('active');
+    const ch=c.offsetHeight;
+    c.style.transition='none';
+    c.style.height=ch+'px';
+    c.style.opacity='1';
+    if(isMobile()) c.style.transform='none';
+    c.offsetHeight;
+    const dur=isMobile()?(fromScroll?'1.2s':'1.4s'):(fromScroll?'1.0s':'1.2s');
+    const ease='cubic-bezier(0.25,0.46,0.45,0.94)';
+    c.style.transition=`height ${dur} ${ease}, opacity ${dur} ${ease}`;
+    setTimeout(()=>{ c.style.height='0px'; c.style.opacity='0'; },10);
+    onEnd(c,e=>{ if(e.propertyName!=='height') return; c.style.display='none'; c.style.transition=''; c.style.height='0px'; c.style.opacity='0'; });
+    sec.setAttribute('aria-expanded','false');
+  }
+  function openOnly(sec,fromScroll){
+    items.forEach(x=>{ if(x!==sec) animateClose(x,fromScroll); });
+    animateOpen(sec,fromScroll);
+    cur=items.indexOf(sec);
+    scale(cur);
+  }
+
+  function checkBottomPartVisibility(){
+    const bottomPart=wrap.querySelector('.bottom-part')||wrap;
+    const rect=bottomPart.getBoundingClientRect();
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    return rect.top>=0&&rect.bottom<=vh;
+  }
+
+  items.forEach((s,i)=>{
+    const c=C(s),tab=T(s); if(!c) return;
+    c.style.willChange='height,opacity'; c.style.overflow='hidden';
+    if(tab&&tab.classList.contains('active')){ c.style.display='block'; c.style.height='auto'; c.style.opacity='1'; c.classList.add('is-open'); s.setAttribute('aria-expanded','true'); cur=i; }
+    else{ c.style.display='none'; c.style.height='0px'; c.style.opacity='0'; c.classList.remove('is-open'); s.setAttribute('aria-expanded','false'); }
+  });
+  scale(cur);
+
+  let lastUserActionAt=0,lastSwitchAnchorY=-1e9,lastSwitchAt=0,lastScrollY=pageYOffset;
+  const AR=0.58,BUF=0.12,HYS=80,MIN_DELTA=140,SW_CD_M=120;
+
+  let exitIndex=-1;
+
+  items.forEach((s)=>{
+    const h=s.querySelector('.product__accordion-heading'); if(!h) return;
+    const toggle=()=>{
+      lastUserActionAt=Date.now();
+      const isOpen=T(s)?.classList.contains('active');
+      if(isOpen){ animateClose(s,false); cur=-1; scale(cur); }
+      else{
+        openOnly(s,false);
+        if(isMobile()){
+          lastSwitchAnchorY=pageYOffset+(innerHeight||document.documentElement.clientHeight)*AR;
+          lastSwitchAt=Date.now();
+        }
+      }
+    };
+    h.addEventListener('click',e=>{ e.preventDefault(); toggle(); });
+    h.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+  });
+
+  if(!isMobile()){
+    let armed=false,accum=0,passUntil=0,lastSw=0;
+    const SWITCH_COOLDOWN_MS=380,MIN_SCROLL_DELTA_PX=140;
+    
+    function onWheel(e){
+      if(!armed||!bottomPartFullyVisible) return;
+      const now=Date.now();
+      if(now<passUntil) return;
+      
+      const down=e.deltaY>0;
+      let target=-1;
+      
+      if(cur === items.length - 1 && down) {
+        const wrapRect = wrap.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        if(wrapRect.bottom - viewportHeight < 50) {
+          accum = 0;
+          armed = false; 
+          setTimeout(() => {
+            armed = true; 
+          }, 100);
+          return;
+        }
+        
+        e.preventDefault();
+        accum += Math.abs(e.deltaY);
+        
+        if(accum < MIN_SCROLL_DELTA_PX) return;
+        
+        accum = 0;
+        passUntil = now + 300;
+        return;
+      }
+      
+      if(cur===-1){ 
+        if(down) target=0; 
+        else { passUntil=now+300; return; } 
+      }
+      else if(down&&cur<items.length-1) target=cur+1;
+      else if(!down&&cur>0) target=cur-1;
+      else { 
+        if(cur === 0 && !down) {
+          accum = 0;
+          armed = false; 
+          setTimeout(() => {
+            armed = true; 
+          }, 100);
+        }
+        passUntil=now+300; 
+        return; 
+      }
+      
+      accum+=Math.abs(e.deltaY);
+      if(now-lastSw<SWITCH_COOLDOWN_MS){ e.preventDefault(); return; }
+      if(accum<MIN_SCROLL_DELTA_PX){ e.preventDefault(); return; }
+      
+      e.preventDefault();
+      lastSw=now; 
+      accum=0;
+      openOnly(items[target],true);
+    }
+    
+    function arm(){ 
+      if(armed) return; 
+      armed=true; 
+      accum=0; 
+      window.addEventListener('wheel',onWheel,{passive:false}); 
+    }
+    
+    function disarm(){ 
+      if(!armed) return; 
+      armed=false; 
+      accum=0; 
+      window.removeEventListener('wheel',onWheel,{passive:false}); 
+    }
+    
+    const sentinel=wrap.querySelector('.bottom-part')||wrap;
+    const io=new IntersectionObserver((es)=>{ 
+      for(let i=0;i<es.length;i++){ 
+        es[i].isIntersecting ? arm() : disarm(); 
+      } 
+    },{threshold:0.15,rootMargin:'0px 0px -35% 0px'});
+    
+    io.observe(sentinel);
+    
+    function checkVisibility() {
+      bottomPartFullyVisible = checkBottomPartVisibility();
+      if (bottomPartFullyVisible && cur === -1) {
+        openOnly(items[0], true);
+        lastSwitchAnchorY = pageYOffset + (innerHeight || document.documentElement.clientHeight) * AR;
+        lastSwitchAt = Date.now();
+      }
+    }
+    
+    addEventListener('scroll', checkVisibility);
+    addEventListener('resize', checkVisibility);
+    checkVisibility();
+
+  } 
+  else {
+    let ticking=false,isInZone=false,wAcc=0,lastWheelT=0;
+    const WTH=60,IDLE=180,LOC_CD=120;
+
+    function handleScroll(){
+      const dir=(pageYOffset>lastScrollY)?'down':'up';
+      const wasVisible=bottomPartFullyVisible;
+      bottomPartFullyVisible=checkBottomPartVisibility();
+
+      if(wasVisible&&!bottomPartFullyVisible){ exitIndex=cur; lastScrollY=pageYOffset; return; }
+
+      if(!wasVisible&&bottomPartFullyVisible){
+        if(dir==='up'){
+          const lastIdx=items.length-1;
+          if((exitIndex===lastIdx||cur===lastIdx)&&lastIdx>0){
+            openOnly(items[lastIdx-1],true);
+            lastSwitchAnchorY=pageYOffset+(innerHeight||document.documentElement.clientHeight)*AR;
+            lastSwitchAt=Date.now();
+          }
+        }
+      }
+
+      if(!bottomPartFullyVisible){ lastScrollY=pageYOffset; return; }
+      if(Date.now()-lastUserActionAt<SW_CD_M){ lastScrollY=pageYOffset; return; }
+
+      const vh=innerHeight||document.documentElement.clientHeight;
+      const st=pageYOffset;
+      const anchor=st+vh*AR;
+      const r=wrap.getBoundingClientRect(),top=st+r.top,ht=r.height,buf=vh*BUF;
+      const inRange=anchor>=top-buf&&anchor<=top+ht+buf;
+
+      if(!inRange){
+        if(dir==='down'&&cur===items.length-1){ lastScrollY=pageYOffset; return; }
+        if(cur!==-1){ items.forEach((x,i)=>{ if(i!==cur) animateClose(x,true); }); cur=-1; scale(cur); }
+        lastScrollY=pageYOffset; return;
+      }
+
+      const centers=items.map(s=>{ const R=s.getBoundingClientRect(); const t=st+R.top; return t+R.height/2; });
+      let idx=-1,best=1e9; for(let i=0;i<centers.length;i++){ const d=Math.abs(centers[i]-anchor); if(d<best){ best=d; idx=i; } }
+      if(idx===-1){ lastScrollY=pageYOffset; return; }
+
+      if(cur>0&&dir==='up'){
+        const currTop=st+items[cur].getBoundingClientRect().top;
+        if(anchor<currTop+8){
+          openOnly(items[cur-1],true);
+          lastSwitchAnchorY=anchor; lastSwitchAt=Date.now(); lastScrollY=pageYOffset;
+          return;
+        }
+      }
+
+      if(cur===-1){
+        cur=idx;
+        openOnly(items[cur],true);
+        lastSwitchAnchorY=anchor; lastSwitchAt=Date.now(); lastScrollY=pageYOffset;
+        return;
+      }
+
+      const now=Date.now(); if(now-lastSwitchAt<SW_CD_M){ lastScrollY=pageYOffset; return; }
+      if(Math.abs(anchor-lastSwitchAnchorY)<MIN_DELTA){ lastScrollY=pageYOffset; return; }
+      const currD=Math.abs(centers[cur]-anchor),nextD=Math.abs(centers[idx]-anchor);
+      if((currD-nextD)<HYS){ lastScrollY=pageYOffset; return; }
+
+      openOnly(items[idx],true);
+      lastSwitchAnchorY=anchor; lastSwitchAt=now; lastScrollY=pageYOffset;
+    }
+
+    function onScroll(){ if(ticking) return; ticking=true; requestAnimationFrame(()=>{ handleScroll(); ticking=false; }); }
+    addEventListener('scroll',onScroll,{passive:true});
+    addEventListener('resize',onScroll);
+    onScroll();
+
+    const zone=wrap.querySelector('.bottom-part')||wrap;
+    function norm(e){ let dy=e.deltaY; if(e.deltaMode===1) dy*=33; else if(e.deltaMode===2) dy*=(innerHeight||800); return dy; }
+    zone.addEventListener('pointerenter',()=>{ isInZone=true; });
+    zone.addEventListener('pointerleave',()=>{ isInZone=false; wAcc=0; });
+    zone.addEventListener('wheel',function(e){
+      if(!bottomPartFullyVisible) return;
+      const now=Date.now(); if(now-lastSwitchAt<LOC_CD) return;
+      const dy=norm(e);
+      if(now-lastWheelT>IDLE) wAcc=0;
+      wAcc+=dy;
+      let target=-1;
+      if(wAcc>=WTH){ if(cur===-1) target=0; else if(cur<items.length-1) target=cur+1; }
+      else if(wAcc<=-WTH){ if(cur>0) target=cur-1; }
+      if(target!==-1){
+        e.preventDefault(); e.stopPropagation();
+        lastUserActionAt=now;
+        openOnly(items[target],true);
+        lastSwitchAnchorY=pageYOffset+(innerHeight||document.documentElement.clientHeight)*AR;
+        lastSwitchAt=now; wAcc=0;
+      } else {
+        if((dy>0&&cur===items.length-1)||(dy<0&&cur===0)||(cur===-1&&dy<0)){}
+        else{ e.preventDefault(); e.stopPropagation(); }
+      }
+      lastWheelT=now;
+    },{passive:false});
+  }
+})();
+</script>
+
+
+
+{% comment %} 
+<style>
+  @media(min-width:1109px){
+    .text-accordion-new{
+position:relative;
+z-index:99999;
+}
+
+  }
+
+</style> {% endcomment %}
+
+{% style %}
+  .section-{{ section.id }} .page-width,
+  .section-{{ section.id }} .image-with-text,
+  .section-{{ section.id }} .image-with-text__grid,
+  .section-{{ section.id }} .image-with-text__text-item,
+  .section-{{ section.id }} .image-with-text__media-item {
+    overflow: visible !important;
+  }
+
+  @media (min-width: 750px) {
+    .section-{{ section.id }} .image-with-text.scroll-trigger {
+      transform: none !important;
+      will-change: auto !important;
+      contain: none !important;
+    }
+  }
+
+  @media (min-width: 750px) {
+    .section-{{ section.id }} .image-with-text__media-item {
+      position: sticky !important;
+      top: clamp(16px, 4vh, 40px);
+      height: max-content;
+    }
+  }
+
+  .section-{{ section.id }} .collapse-borders,
+  .section-{{ section.id }} .collapse-corners {
+    overflow: visible !important;
+  }
+
+  .section-{{ section.id }} .image-with-text__content { overflow: visible !important; }
+.section-{{ section.id }} .image-with-text__content-accordion,
+.section-{{ section.id }} .bottom-part,
+.section-{{ section.id }} .image-with-text__grid {
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 750px){
+  .section-{{ section.id }} .image-with-text__text-item{
+    display:flex;
+    min-height: 100%;
+  }
+  .image-with-text__content-accordion {
+    margin-left: 0!important;
+}
+}
+
+
+html.body-locked, body.body-locked {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;     
+  overscroll-behavior: none;
+}
+
+
+{% endstyle %}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Image with text accordion",
+  "class": "section antr-image-with-text-new text-accordion-new shopify-cs-za",
+  "settings": [
+    {
+      "type": "text",
+      "id": "id",
+      "label": "Id"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-with-text.settings.image.label"
+    },
+ 
+    
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "t:sections.image-with-text.settings.layout.options__1.label"
+        },
+        {
+          "value": "text_first",
+          "label": "t:sections.image-with-text.settings.layout.options__2.label"
+        }
+      ],
+      "default": "image_first",
+      "label": "t:sections.image-with-text.settings.layout.label"
+    },
+   
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.image-with-text.settings.mobile_content_alignment.label"
+    },
+    
+    {
+      "type": "header",
+      "content": "Custom width"
+    },
+    {
+      "type": "checkbox", "id": "custom_width", "label": "Custom width", "default": false
+    },
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    {
+      "type": "range", "id": "txt_w_d", "min": 0, "max": 150, "step": 2, "unit": "%", "label": "Content width", "default": 50
+    },
+    {
+      "type": "range", "id": "img_w_d", "min": 0, "max": 150, "step": 2, "unit": "%", "label": "Image width", "default": 50
+    },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    {
+      "type": "range", "id": "txt_w_t", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Content width", "default": 49
+    },
+    {
+      "type": "range", "id": "img_w_t", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Image width", "default": 50
+    },
+    {
+      "type": "paragraph",  "content": "=========== Mobile ==========="
+    },
+    {
+      "type": "range", "id": "txt_w_m", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Content width", "default": 100
+    },
+    {
+      "type": "range", "id": "img_w_m", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Image width", "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    { "type": "html", "id": "class", "label": "Custom class" }
+  ],
+  "blocks": [
+    {
+      "type": "buttons",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Button link"
+        }
+      ]
+    },
+    
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image"},
+        { "type": "text", "id": "width_image", "label": "Image width (px)"},
+        {
+          "type": "checkbox", "id": "use_main_image", "default": false, "label": "Use main image", "info": "If the 'Use main image' option is selected, the 'Image' option above will be ignored."
+        },
+        {
+          "type": "select",
+          "id": "display",
+          "options": [
+            { "value": "show_all", "label": "Show all" },
+            { "value": "hide_d", "label": "Hide on desktop" },
+            { "value": "hide_m", "label": "Hide on mobile" }
+          ],
+          "default": "show_all", "label": "Show image on"
+        }
+      ]
+    },
+    {
+      "type": "space",
+      "name": "Space",
+      "settings": [
+        { "type": "range", "id": "space", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space desktop", "default": 0 },
+        { "type": "range", "id": "space_table", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space desktop", "default": 0 },
+        { "type": "range", "id": "space_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space mobile", "default": 0 }
+      ]
+    },
+    
+    {
+      "type": "collapsible_tab",
+      "name": "t:sections.main-product.blocks.collapsible_tab.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "t:sections.main-product.blocks.collapsible_tab.settings.heading.default",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+            },
+            {
+              "value": "01",
+              "label": "01"
+            },
+            {
+              "value": "02",
+              "label": "02"
+            },
+            {
+              "value": "03",
+              "label": "03"
+            },
+            {
+              "value": "04",
+              "label": "04"
+            },
+            {
+              "value": "05",
+              "label": "05"
+            },
+            {
+              "value": "apple",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+            },
+            {
+              "value": "banana",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+            },
+            {
+              "value": "bottle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+            },
+            {
+              "value": "box",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+            },
+            {
+              "value": "carrot",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+            },
+            {
+              "value": "check_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+            },
+            {
+              "value": "clipboard",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+            },
+            {
+              "value": "dairy",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+            },
+            {
+              "value": "dairy_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+            },
+            {
+              "value": "dryer",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+            },
+            {
+              "value": "eye",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+            },
+            {
+              "value": "fire",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+            },
+            {
+              "value": "gluten_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+            },
+            {
+              "value": "heart",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+            },
+            {
+              "value": "iron",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+            },
+            {
+              "value": "leaf",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+            },
+            {
+              "value": "leather",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+            },
+            {
+              "value": "lipstick",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+            },
+            {
+              "value": "lock",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+            },
+            {
+              "value": "map_pin",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+            },
+            {
+              "value": "nut_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+              "value": "pants",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+            },
+            {
+              "value": "paw_print",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+            },
+            {
+              "value": "pepper",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+            },
+            {
+              "value": "perfume",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+            },
+            {
+              "value": "plane",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+            },
+            {
+              "value": "plant",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+            },
+            {
+              "value": "price_tag",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+            },
+            {
+              "value": "question_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+            },
+            {
+              "value": "recycle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+            },
+            {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+            },
+            {
+              "value": "serving_dish",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+            },
+            {
+              "value": "snowflake",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+            },
+            {
+              "value": "stopwatch",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            }
+          ],
+          "default": "check_mark",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Defaul open"
+        }
+      ]
+    },
+    
+    {
+      "type": "text_custom",
+      "name": "Text customization",
+      "settings": [
+        {
+          "type": "color", "id": "color", "label": "Color"
+        },
+        {
+          "type": "color_background", "id": "color_custom", "label": "Custom color ", "info": "This section applies color to text with the italic property."
+        },
+        {
+          "type": "select",
+          "id": "font_custom",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "inter-regular", "label": "Inter-Regular" },
+            { "value": "inter-medium", "label": "Inter-Medium" },
+            { "value": "inter-semibold", "label": "Inter-SemiBold" },
+            { "value": "arial", "label": "Arial" }
+          ],
+          "default": "none", "label": "Font",
+          "info": "This section applies font to text with the italic property."
+        },
+        {
+          "type": "select",
+          "id": "align",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left", "label": "Align"
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "options": [
+            { "value": "h1", "label": "h1" },
+            { "value": "h2", "label": "h2" },
+            { "value": "h3", "label": "h3" },
+            { "value": "p", "label": "p" },
+            { "value": "div", "label": "div" }
+          ],
+          "default": "h1", "label": "Tag"
+        },
+        {
+          "type": "inline_richtext", "id": "heading", "label": "Text"
+        },
+        {
+          "type": "html", "id": "html", "label": "Html"
+        },
+        {
+          "type": "select",
+          "id": "font",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "inter-regular", "label": "Inter-Regular" },
+            { "value": "inter-medium", "label": "Inter-Medium" },
+            { "value": "inter-semibold", "label": "Inter-SemiBold" },
+            { "value": "arial", "label": "Arial" }
+          ],
+          "default": "none", "label": "Font"
+        },
+        { "type": "text", "id": "size", "label": "Size", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "height", "label": "Line height", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "spacing", "label": "Spacing", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "width", "label": "Width text", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        {
+          "type": "header", "content": "Other settings"
+        },
+        { "type": "range", "id": "space", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space desktop", "default": 0 },
+        { "type": "range", "id": "space_tablet", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space table", "default": 0 },
+        { "type": "range", "id": "space_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space mobile", "default": 0 },
+        {
+          "type": "html", "id": "class", "label": "Custom class", "info": "ex: text-center size-18 line-20 size-xs-16 line-xs-18"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text accordion",
+      "blocks": [
+        {
+          "type": "text_custom",
+          "settings": {
+            "color": "",
+            "color_custom": "",
+            "font_custom": "none",
+            "align": "left",
+            "tag": "h1",
+            "heading": "A new way to play",
+            "html": "",
+            "font": "inter-semibold",
+            "size": "64,36",
+            "height": "64,40",
+            "spacing": "-1.5,-1.2",
+            "width": "",
+            "space": 25,
+            "space_tablet": 25,
+            "space_mobile": 25,
+            "class": ""
+          }
+        },
+        {
+          "type": "text_custom",
+          "settings": {
+            "color": "",
+            "color_custom": "",
+            "font_custom": "none",
+            "align": "left",
+            "tag": "p",
+            "heading": "With UTR Sports, you can access hundreds of events, play analyses, and other players to help you level up your game for free.",
+            "html": "",
+            "font": "inter-regular",
+            "size": "17",
+            "height": "27",
+            "spacing": "-0.2",
+            "width": "530",
+            "space": 24,
+            "space_tablet": 24,
+            "space_mobile": 24,
+            "class": ""
+          }
+        },
+        {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Get started for free",
+            "button_link_1": "https://app.utrsports.net/join"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_anewway.png",
+            "width_image": "",
+            "use_main_image": false,
+            "display": "hide_d"
+          }
+        },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Play your way",
+            "icon": "01",
+            "content": "<p>Whether you're aiming for pro tours or signing your kids up for Color Ball tennis, UTR Sports gives you access to all varieties of level-based play.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Level up your game",
+            "icon": "02",
+            "content": "<p>Gain insights, track your progress to improve your play, and get rated by the world's most trusted rating system. See how you compare to other players.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Find your community",
+            "icon": "03",
+            "content": "<p>Whether you're a beginner or a Grand Slam champion, connect with more than millions other passionate players.</p>",
+            "page": "",
+            "open": false
+          }
+        }
+      ],
+      "settings": {
+        "id": "",
+        "image": "shopify://shop_images/image.jpg",
+        "layout": "text_first",
+        "mobile_content_alignment": "left",
+        "custom_width": true,
+        "txt_w_d": 40,
+        "img_w_d": 58,
+        "txt_w_t": 49,
+        "img_w_t": 50,
+        "txt_w_m": 100,
+        "img_w_m": 100,
+        "padding_top": 150,
+        "padding_bottom": 150,
+        "pt_md": 60,
+        "pb_md": 60,
+        "pt_xs": 60,
+        "pb_xs": 20,
+        "class": "button-custom-img cls-blur-layer cls-blur-layer-right"
+      }
+    }
+  ]
+}
+{% endschema %}
+ 

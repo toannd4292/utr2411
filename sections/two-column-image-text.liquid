@@ -1,0 +1,75 @@
+<style>
+@media(min-width:992px){.grid-card {display: flex;flex: 1 0 0;}}  
+.grid-card {flex-direction: column;}
+.card-content {flex: 1;}
+.card-footer {display: flex;justify-content: center;}
+</style>
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4 text-center two_column_image_text-hd">
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop">
+    {% for block in section.blocks %} 
+    <div class="grid__item mb-3 grid-card">
+       <div class="media--landscape border-radius-lg-3 border-radius-sm-3" style="background:url('{{block.settings.block-image |  img_url:'large'}}') no-repeat top center; background-size: cover;"> 
+       </div>
+       <div class="p-lg-1 p-sm-1 content-sm-hide card-content">
+         <h2 class="font-lg-40 font-sm-34 text-uppercase font-tungsten lh-sm-90 mb-2 lh-xl-78">{{block.settings.heading}}</h2>
+         <p class="font-sm-15 font-md-16 font-lg-16 fw-bold lh-sm-normal line-limit-3">{{block.settings.description}}</p>
+       </div>
+      <div class="card-footer">
+         <a href="{{block.settings.section-button-url}}" class="btn-black min-w-sm-auto btn-sm ps-1 justify-content-center text-uppercase mt-lg-3 mt-sm-1">{{block.settings.section-button}}</a>
+      </div> 
+    </div>
+   {% endfor %} 
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Two Column Images Text",
+    "presets": [
+      {
+        "name": "Two Column Images Text",
+        "category": "Two Column Images Text"
+      }
+    ],
+    "settings": [],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"image-block",
+		"settings":[
+		 {
+		  "type": "image_picker",
+       	  "id": "block-image",
+       	  "label": "Card Image"
+		 },
+         {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+		{
+         "type": "text",
+         "id": "description",
+         "label": "Description"
+        },
+          {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		}
+		
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,213 @@
+{% if section.settings.enable_section %}
+  {% assign show_raw = section.settings.show_on_pages | remove: ' ' %}
+  {% if show_raw == '' %}
+    {% assign show_all = true %}
+  {% else %}
+    {% assign show_pages = show_raw | split: ',' %}
+  {% endif %}
+
+  {% assign page_type = request.page_type %}
+  {% if page_type == 'page' %}
+    {% assign current_page = page.handle %}
+  {% elsif page_type == 'home' %}
+    {% assign current_page = 'index' %}
+  {% elsif page_type == 'blog' %}
+    {% assign current_page = blog.handle %}
+  {% elsif page_type == 'article' %}
+    {% assign current_page = article.handle %}
+  {% else %}
+    {% assign current_page = page_type %}
+  {% endif %}
+
+  {% if show_all or show_pages contains current_page %}
+    <div id="WatchLive-mobile-{{ section.id }}" class="watch-live-mobile-section">
+      <div class="accordion-toggle" id="toggle-{{ section.id }}">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | img_url: 'master' }}" 
+               alt="Accordion logo" class="accordion-logo" />
+        {% endif %}
+
+        {% if section.settings.link_url != blank %}
+          <a href="{{ section.settings.link_url }}"
+             class="accordion-text-link"
+             onclick="event.stopPropagation();">
+            <span class="accordion-text announcement-bar__message gotham-medium h5" id="{{ section.settings.view_match_id }}">
+              {{ section.settings.text | escape }}
+            </span>
+          </a>
+        {% else %}
+          <span class="accordion-text announcement-bar__message gotham-medium h5" id="{{ section.settings.view_match_id }}">
+            {{ section.settings.text | escape }}
+          </span>
+        {% endif %}
+
+        {% render 'icon-arrow-white' %}
+      </div>
+
+      <div id="watch-live-content-{{ section.id }}" class="accordion-content">
+        {% if section.settings.iframe-url != blank %}
+          <div class="iframe-wrapper">
+            <iframe 
+              src="{{ section.settings.iframe-url }}" 
+              class="watch-iframe" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+<style>
+  a.accordion-text-link {
+    text-decoration: none;
+}
+  @media only screen and (min-width: 750px) {
+    #WatchLive-mobile-{{ section.id }} {
+      display: none !important;
+    }
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: {{ section.settings.background-color }};
+    padding: {{ section.settings.padding-mobile }};
+    cursor: pointer;
+    color: {{ section.settings.text-color }};
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-logo {
+    width: 30px;
+    height: auto;
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-text,
+  #WatchLive-mobile-{{ section.id }} .accordion-text-link {
+    text-decoration: none;
+    text-transform: initial;
+    color: {{ section.settings.text-color }};
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-arrow.rotate {
+    transform: rotate(180deg);
+  }
+
+  #WatchLive-mobile-{{ section.id }} .accordion-content {
+    display: none;
+  }
+
+  #WatchLive-mobile-{{ section.id }} .iframe-wrapper iframe {
+    width: 100%;
+    height: {{ section.settings.iframe-height }};
+    border: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggle  = document.getElementById("toggle-{{ section.id }}");
+    var content = document.getElementById("watch-live-content-{{ section.id }}");
+    var arrow   = toggle.querySelector(".accordion-arrow");
+
+    if (toggle && content) {
+      toggle.addEventListener("click", function () {
+        var isOpen = content.style.display === "block";
+        content.style.display = isOpen ? "none" : "block";
+        if (arrow) {
+          arrow.classList.toggle("rotate", !isOpen);
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Watch Live Mobile",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "show_on_pages",
+      "label": "Show on Pages"
+    },
+    {
+      "type": "text",
+      "id": "view_match_id",
+      "label": "View Match ID",
+      "default": "ptt_match_center_mobile_click"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Accordion Title Text",
+      "default": "View Live Match Center"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Text Link"
+    },
+    {
+      "type": "url",
+      "id": "iframe-url",
+      "label": "Iframe URL"
+    },
+    {
+      "type": "text",
+      "id": "iframe-height",
+      "label": "Iframe Height",
+      "default": "12vh"
+    },
+    {
+      "type": "text",
+      "id": "padding-mobile",
+      "label": "Padding (Mobile)",
+      "default": "10px 10px"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Accordion Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Watch Live Mobile",
+      "category": "Custom",
+      "settings": {
+        "image": "shopify://shop_images/utr-ball-teal-310x240-score-logo.png",
+        "link_url": "shopify://pages/watch-tennis-live",
+        "iframe-url": "https://tnnslive.com/widgets/utr?mode=banner"
+      }
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,579 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17297167370fd51d27": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_7eiTLW": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 8,
+            "breadcrumb_font": "sans_serif_n4",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": false,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "test"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_7eiTLW"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "banner_with_text_HVWykc": {
+      "type": "banner-with-text",
+      "blocks": {
+        "text_custom_7XNTdU": {
+          "type": "text_custom",
+          "settings": {
+            "color": "#ffffff",
+            "color_custom": "",
+            "font_custom": "inter-semibold",
+            "align": "center",
+            "tag": "h1",
+            "heading": "",
+            "html": "<h1 style=\"color:#fff; font-size:48px; font-weight:700; margin-bottom:10px; text-align:center; line-height:1.2;\">Play. Track. Connect.\n</h1>\n<p style=\"color:#fff; font-size:20px; line-height:1.6; max-width:700px; margin:0 auto;\">\n  Join a vibrant community of tennis and pickleball enthusiasts. Discover events, follow players you know, and track your growth—all in one place.\n</p>",
+            "font": "inter-semibold",
+            "size": "",
+            "height": "",
+            "spacing": "",
+            "width": "",
+            "space": 17,
+            "space_tablet": 45,
+            "space_mobile": 10,
+            "class": ""
+          }
+        },
+        "buttons_J6M8qW": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Get Started Free",
+            "button_link_1": "https://app.utrsports.net/join",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "text_custom_7XNTdU",
+        "buttons_J6M8qW"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "/* Shorten this banner only */.banner {min-height: 35vh !important; /* Try 30vh or 40vh as needed */ padding-top: 2rem !important; padding-bottom: 2rem !important;}",
+        " /* Optional: tighten text spacing inside */.banner__content {padding-top: 0.5rem !important; padding-bottom: 0.5rem !important;}"
+      ],
+      "name": "Banner with text",
+      "settings": {
+        "video": "shopify://files/videos/new (1).mp4",
+        "video_mobile": "shopify://files/videos/new (1).mp4",
+        "image": "shopify://shop_images/Hero_02420ae8-fae9-459c-859d-07c6154c4a09.png",
+        "image_mobile": "shopify://shop_images/Frame_3441921.png",
+        "image_overlay_opacity": 80,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "mobile_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "show_text_above": false,
+        "image_mobile_height": 100,
+        "class": "/* Shorten this banner only */\n.banner {\n  min-height: 35vh !important; /* Try 30vh or 40vh as needed */\n  padding-top: 2rem !important;\n  padding-bottom: 2rem !important;\n} /* Optional: tighten text spacing inside */\n.banner__content {\n  padding-top: 1rem !important;\n  padding-bottom: 1rem !important;\n}"
+      }
+    },
+    "inner_image_banner_full_content_VnxLLQ": {
+      "type": "inner-image-banner-full-content",
+      "name": "Image Banner full content",
+      "settings": {
+        "section-image": "shopify://shop_images/Free_Profile_Header_2560x1440_24a338b9-3f9b-4e68-9da2-2e1e3c368ac4.png",
+        "image_mobile": "shopify://shop_images/Free_Profile_Header_2560x1440_15cac6a3-6c79-4ee9-80b2-83591a272bcc.png",
+        "image_height": "medium",
+        "tagline": "UTR Sports",
+        "small-title-size": "h3",
+        "heading": "Find play. Track progress. Connect with players.",
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "Join a vibrant community of tennis and pickleball enthusiasts. Discover local events, follow players you know, and track your growth—all in one place.",
+        "section-button": "Create free profile",
+        "section-button-url": "https://app.utrsports.net/join",
+        "section-button-2": "Download iOS app",
+        "section-button-url-2": "https://apps.apple.com/us/app/utr-sports/id1519232627",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "text_customization_pnGkWp": {
+      "type": "text-customization",
+      "blocks": {
+        "space_D6DmzT": {
+          "type": "space",
+          "settings": {
+            "space": 47,
+            "space_tablet": 0,
+            "space_mobile": 0
+          }
+        },
+        "text_custom_PhA86K": {
+          "type": "text_custom",
+          "settings": {
+            "color": "",
+            "color_custom": "",
+            "font_custom": "none",
+            "align": "center",
+            "tag": "h1",
+            "heading": "A new way to play",
+            "html": "",
+            "font": "none",
+            "size": "64,36",
+            "height": "64,40",
+            "spacing": "-1.5,-1.2",
+            "width": "",
+            "space": 25,
+            "space_tablet": 25,
+            "space_mobile": 25,
+            "class": ""
+          }
+        },
+        "text_custom_KrQ78P": {
+          "type": "text_custom",
+          "settings": {
+            "color": "",
+            "color_custom": "",
+            "font_custom": "none",
+            "align": "center",
+            "tag": "p",
+            "heading": "With UTR Sports. you get access to hundreds of events, play analyses, and other players to help you level up your game for free.",
+            "html": "",
+            "font": "inter-regular",
+            "size": "17",
+            "height": "27",
+            "spacing": "-0.3",
+            "width": "",
+            "space": 24,
+            "space_tablet": 24,
+            "space_mobile": 24,
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "space_D6DmzT",
+        "text_custom_PhA86K",
+        "text_custom_KrQ78P"
+      ],
+      "disabled": true,
+      "name": "Text customization",
+      "settings": {
+        "no_padding": false,
+        "padding_top": 76,
+        "padding_bottom": 76,
+        "pt_md": 36,
+        "pb_md": 77,
+        "pt_xs": 36,
+        "pb_xs": 77,
+        "class": ""
+      }
+    },
+    "section_spacing_6F7TNF": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "5090a2e1-1ab1-4ff0-a8e6-955f0c667f66": {
+      "type": "content-with-list-image-right",
+      "custom_css": [],
+      "settings": {
+        "section-image": "shopify://shop_images/free-profile--iphone-feature-page-1280x990_8000f2a0-5594-467a-b59a-9f97ff2fdc0e.png",
+        "heading": "Find  play",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "Discover matches, leagues, events, and local players tailored to your skill level. Whether you’re a beginner or a pro, connect with others, find the perfect game close to home, and start playing today.",
+        "list2": "",
+        "list3": "",
+        "list4": "",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/join",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_9JqdXd": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "content_with_list_image_left_LMBprc": {
+      "type": "content-with-list-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/free-profile--iphone-feature-page-1280x990_2_e2a8fce7-524e-478b-8024-29e655085782.png",
+        "heading": "Track your level",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "Measure your progress and see where you stand on a global scale. Compare your skill level with players around the world. Ratings update every 24 hours.",
+        "list2": "",
+        "list3": "",
+        "list4": "",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/join",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "content_with_list_image_right_YTxYPL": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/free-profile--iphone-feature-page-1280x990_2_31107056-868c-44a8-810d-7d05fa7cc05e.png",
+        "heading": "Find players",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "Search and discover any player with ease. Whether you’re tracking rivals, friends, or pros, explore player profiles, stats, and rankings in just a few clicks. Find who you’re looking for today!",
+        "list2": "",
+        "list3": "",
+        "list4": "",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/join",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_yikfMw": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "content_with_list_image_left_EcEXRR": {
+      "type": "content-with-list-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/free-profile--iphone-feature-page-1280x990_4_9cd64e81-b695-4fba-a95a-bcae3702ad23.png",
+        "heading": "The ultimate rating",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "The gold standard rating for college coaches and match predictions, updated every 24 hours based on your results to track progress in real time.",
+        "list2": "",
+        "list3": "",
+        "list4": "",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/join",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_DhWLdn": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "about_section_YQhF7V": {
+      "type": "about-section",
+      "blocks": {
+        "home_card_kTKP3p": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/novak-djokovic-about-pro-tennis-666x960-new-test.jpg",
+            "heading": "For",
+            "subheading": "Tennis Players",
+            "description": "We connect tennis players with level-based play, leagues, teams, and analytics to track and improve their game.",
+            "section-button": "Explore",
+            "section-button-url": "https://www.utrsports.net/pages/play-tennis"
+          }
+        },
+        "home_card_B6qVAy": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-player-vertical-666-960-naborforce-event-homepage-more.jpg",
+            "heading": "For",
+            "subheading": "Pickleball Players",
+            "description": "We offer everything you need to play pickleball and connect you to the growing community.",
+            "section-button": "Explore",
+            "section-button-url": "https://www.utrsports.net/pages/pickleball"
+          }
+        },
+        "home_card_AXj6Yj": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/UTR-dingles-providers-doubles-photo-boca-marketing-website-570x440.jpg",
+            "heading": "For",
+            "subheading": "Providers",
+            "description": "We aspire to innovate tennis and pickleball with solutions for all providers, including clubs, high schools, federations, and everything in between.",
+            "section-button": "Explore",
+            "section-button-url": "https://www.utrsports.net/pages/providers"
+          }
+        },
+        "home_card_wJWLR3": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Paid_Tennis_Page_-_College_Circuits_960_x_674.png",
+            "heading": "For",
+            "subheading": "Colleges",
+            "description": "UTR and college tennis go hand in hand. Players find the best college for their needs, and coaches elevate their programs with our platform.",
+            "section-button": "Explore",
+            "section-button-url": "https://www.utrsports.net/pages/college-pathways"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_kTKP3p",
+        "home_card_B6qVAy",
+        "home_card_AXj6Yj",
+        "home_card_wJWLR3"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "heading-permission": "NO",
+        "subheading": "",
+        "description": ""
+      }
+    },
+    "bd29d5fa-c040-4994-bff0-52fe0786eabb": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "f6975cc5-76b7-489a-bf47-77d6f52dc306": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download app</p>"
+          }
+        },
+        "ebd1118e-b33a-47d6-9b85-97486ba5b393": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>create profile</p>"
+          }
+        },
+        "ea2c06e7-6c19-468e-aea5-43174dd88e3f": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f6975cc5-76b7-489a-bf47-77d6f52dc306",
+        "ebd1118e-b33a-47d6-9b85-97486ba5b393",
+        "ea2c06e7-6c19-468e-aea5-43174dd88e3f"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Join UTR Sports",
+        "heading-size": "h2",
+        "sub-heading": "in 3 Easy Steps",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy tennis and pickleball and connect with players near you with the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-two-screenshots-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "https://www.universaltennis.com/join",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    },
+    "f6e0f006-4dc5-47e7-b8b6-c7dbc1fd7fca": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "56edf0a2-d7a8-48b3-80c8-14846db48809": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "bdbdf328-90b0-4c5c-ac05-0467fb18a47c": {
+      "type": "resources-for-players",
+      "blocks": {
+        "6a9c5787-3f7b-495f-82a5-750e80423826": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/What_is_the_UTR_Rating_and_how_does_it_work_6d41b904-131a-4447-b4ca-f661da474948.jpg",
+            "description": "What is the UTR Rating?",
+            "permission": "Video",
+            "section-button": "play video",
+            "section-button-url": "https://www.youtube.com/watch?v=pQFSBwdKfPo"
+          }
+        },
+        "ce81cc01-0538-4a78-bd91-04a21f501179": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Level-Based_Thumbnail_1.png",
+            "description": "What is level-based play?",
+            "permission": "Video",
+            "section-button": "play video",
+            "section-button-url": "https://www.youtube.com/watch?v=Q-YmGMEBspY"
+          }
+        },
+        "d2895f63-27d3-46d3-ac5a-0fc574270b38": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/1140_x_720_App-different-benefits-UTR-rating.png",
+            "description": "What’s the Difference Between UTR Rating & Verified UTR Rating?",
+            "permission": "Artical",
+            "section-button": "read more",
+            "section-button-url": "https://support.universaltennis.com/en/support/solutions/articles/9000154588-what-s-the-difference-between-utr-rating-and-verified-utr-rating-"
+          }
+        }
+      },
+      "block_order": [
+        "6a9c5787-3f7b-495f-82a5-750e80423826",
+        "ce81cc01-0538-4a78-bd91-04a21f501179",
+        "d2895f63-27d3-46d3-ac5a-0fc574270b38"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "learn more",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "featured_players_NtV9aC": {
+      "type": "featured-players",
+      "settings": {
+        "heading": "Explore player ratings",
+        "heading-permission": "NO",
+        "subtitle": "",
+        "notetitle": "",
+        "menntrp": "~3.0",
+        "womenntrp": "~3.0",
+        "womenntrp2": "~3.5",
+        "girls": "U12",
+        "girls2": "U14",
+        "boys": "U12"
+      }
+    },
+    "join_community_fKwYzp": {
+      "type": "join-community",
+      "settings": {
+        "heading": "Join the UTR Sports player community",
+        "heading-permission": "NO",
+        "show_social": false
+      }
+    },
+    "custom_liquid_PUKcTU": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"bg-light-blue mb-4\">\n<div class=\"page-width\"><div class=\"elfsight-sapp-4aad0462-c920-4498-9e76-6a66105dd2f5\"></div></div></div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "9b0d4007-e32e-4324-abd2-24e1e0297d34": {
+      "type": "testimonials",
+      "blocks": {
+        "ae6d7a5d-1ed5-44b5-af7b-c5f478eca1c7": {
+          "type": "home-card",
+          "settings": {
+            "description": "You've got 40-year-olds out here and young kids. It's cool seeing everyone able to play together and have a great time!",
+            "image": "shopify://shop_images/Ryan_players_testimonial.png",
+            "author": "Ryan F",
+            "author-designation": ""
+          }
+        },
+        "368e5d05-e74e-4537-911c-ea35eb8dbb7d": {
+          "type": "home-card",
+          "settings": {
+            "description": "UTR Sports is a great way to get back into competitive play!",
+            "image": "shopify://shop_images/Elmer_players_testimonials.png",
+            "author": "Elmer C",
+            "author-designation": ""
+          }
+        },
+        "9b067eb7-d9a3-465e-b8d8-58487e871ddd": {
+          "type": "home-card",
+          "settings": {
+            "description": "Every week I can play and work to increase my UTR Rating. I don't have the opportunity to do this at home.",
+            "image": "shopify://shop_images/Kim_players_testimonial.png",
+            "author": "Kim M",
+            "author-designation": ""
+          }
+        },
+        "e063e3e3-7e60-4ae6-bf8e-c0f8adf8745a": {
+          "type": "home-card",
+          "settings": {
+            "description": "We're all able to play in the same tournament and cheer each other on. UTR Sports has opened doors to being able to do something as a family.",
+            "image": "shopify://shop_images/Adam_players_testimonial.png",
+            "author": "Adam A",
+            "author-designation": ""
+          }
+        }
+      },
+      "block_order": [
+        "ae6d7a5d-1ed5-44b5-af7b-c5f478eca1c7",
+        "368e5d05-e74e-4537-911c-ea35eb8dbb7d",
+        "9b067eb7-d9a3-465e-b8d8-58487e871ddd",
+        "e063e3e3-7e60-4ae6-bf8e-c0f8adf8745a"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "Player testimonials",
+        "sub-heading": ""
+      }
+    },
+    "section_spacing_JYqxMy": {
+      "type": "section-spacing",
+      "settings": {}
+    }
+  },
+  "order": [
+    "17297167370fd51d27",
+    "main",
+    "banner_with_text_HVWykc",
+    "inner_image_banner_full_content_VnxLLQ",
+    "text_customization_pnGkWp",
+    "section_spacing_6F7TNF",
+    "5090a2e1-1ab1-4ff0-a8e6-955f0c667f66",
+    "section_spacing_9JqdXd",
+    "content_with_list_image_left_LMBprc",
+    "content_with_list_image_right_YTxYPL",
+    "section_spacing_yikfMw",
+    "content_with_list_image_left_EcEXRR",
+    "section_spacing_DhWLdn",
+    "about_section_YQhF7V",
+    "bd29d5fa-c040-4994-bff0-52fe0786eabb",
+    "f6e0f006-4dc5-47e7-b8b6-c7dbc1fd7fca",
+    "56edf0a2-d7a8-48b3-80c8-14846db48809",
+    "bdbdf328-90b0-4c5c-ac05-0467fb18a47c",
+    "featured_players_NtV9aC",
+    "join_community_fKwYzp",
+    "custom_liquid_PUKcTU",
+    "9b0d4007-e32e-4324-abd2-24e1e0297d34",
+    "section_spacing_JYqxMy"
+  ]
+}

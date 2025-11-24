@@ -1,0 +1,364 @@
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+.faq-custom .accordion__content{
+  font-weight:400;
+  margin-bottom: 0;
+}
+.faq-custom .accordion details[open]>summary .accordion__title, .faq-custom .collapsible-content summary:hover .accordion__title 
+{
+    color: black;
+}
+.faq-custom .rte ol{
+  counter-reset: item;
+  list-style: none;   
+  margin: 0;
+  padding: 0;
+}
+.faq-custom .rte li {
+    list-style: inherit;
+    font-size: 17px;
+    line-height: 36px;
+    letter-spacing: -0.03em;
+     counter-increment: item;
+  position: relative;
+  padding-left: 28px; 
+  margin-bottom: 16px;
+}
+
+.faq-custom .rte li::before {
+    content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 17px;
+  background: linear-gradient(226.51deg, #05A1DC -3.79%, #64C5BC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;
+  color: transparent;
+}
+.faq-custom .accordion {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+.section-{{ section.id }}-padding .accordion details[open]>summary .icon-caret {
+    transform: unset;
+}
+.section-{{ section.id }}-padding details.active  summary .icon-caret {
+      transform: rotate(180deg) !important;
+}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .collapsible-content__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+.faq-custom  .accordion summary {
+    padding: 3.2rem 0;
+    padding-bottom: 17px;
+}
+.faq-custom .accordion details{
+  margin-bottom:15px;
+}
+
+@media (min-width: 750px) {
+   .faq-custom .collapsible-content__grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        grid-template-columns: 37% 56%;
+        align-items: start;
+        gap: 5%;
+    }
+}
+  .section-title.section-title-large {
+    font-size: 80px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-medium {
+    font-size: 40px;
+  }
+
+  .section-title.section-title-small {
+    font-size: 35px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+  }
+
+  @media screen and (max-width: 749px){
+    .faq-custom .rte li {
+
+    line-height: 27px;
+    }
+    .section-title.section-title-large { font-size: 60px; }
+    .section-title.section-title-small { font-size: 26px; }
+  }
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
+
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_md }}px; padding-bottom: {{ section.settings.pb_md }}px; }
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding { padding-top: {{ section.settings.pt_xs }}px; padding-bottom: {{ section.settings.pb_xs }}px; }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="collapsible-content">
+      <div class="collapsible-content__wrapper">
+        <div class="collapsible-content__grid">
+          <div>
+            <div class="collapsible-content__header" style="text-align: {{ section.settings.heading_alignment }};">
+            
+              {%- if section.settings.heading != blank -%}
+                {%- case section.settings['heading-size'] -%}
+                  {%- when 'h1' -%}
+                    <h1 class="collapsible-content__heading text-uppercase section-title section-title-large mb-1">
+                      {{ section.settings.heading | escape }}
+                    </h1>
+                  {%- when 'h2' -%}
+                    <h2 class="collapsible-content__heading text-uppercase section-title section-title-medium mb-1 inter-semibold   mt--0 mb--0 size-64 line-64 size-md-36 line-md-40">
+                      {{ section.settings.heading | escape }}
+                    </h2>
+                  {%- when 'h3' -%}
+                    <h3 class="collapsible-content__heading text-uppercase section-title section-title-small mb-1">
+                      {{ section.settings.heading | escape }}
+                    </h3>
+                {%- endcase -%}
+            
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div>
+            {%- for block in section.blocks -%}
+              <div class="accordion" {{ block.shopify_attributes }}>
+                <details id="Details-{{ block.id }}-{{ section.id }}" {% if section.settings.open_first_collapsible_row and forloop.first %} class="active" open="open" {% endif %}>
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                    <h4 class="accordion__title h4 inter-semibold size-17">
+                      {{ block.settings.heading | default: block.settings.page.title }}
+                    </h4>
+                      {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte size-17" id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}" role="region" aria-labelledby="Summary-{{ block.id }}-{{ section.id }}" {% if section.settings.open_first_collapsible_row and forloop.first %} {% else %} style="display: none;" {% endif %}>
+                    {{ block.settings.row_content }}
+                    {{ block.settings.page.content }}
+                  </div>
+                </details>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    const MIN_DUR = 600, MAX_DUR = 2000, MS_PER_PX = 2;
+
+    function calcDur(px){ return Math.max(MIN_DUR, Math.min(MAX_DUR, Math.round(px * MS_PER_PX))); }
+
+    function openEl($el){
+      $el.stop(true, true).css({ display: 'block', height: 0, opacity: 0 });
+      const full = $el.prop('scrollHeight');
+      $el.animate({ height: full, opacity: 1 }, {
+        duration: calcDur(full),
+        easing: 'swing',
+        queue: false,
+        complete: function(){ $el.css({ height: 'auto' }); }
+      });
+    }
+
+    function closeEl($el){
+      $el.stop(true, true);
+      const cur = $el.outerHeight();
+      $el.css('height', cur);
+      $el.animate({ height: 0, opacity: 0 }, {
+        duration: calcDur(cur),
+        easing: 'swing',
+        queue: false,
+        complete: function(){ $el.css({ display: 'none' }); }
+      });
+    }
+
+    $(".section-{{ section.id }}-padding summary").on('click', function (event) {
+      event.preventDefault();
+      const $parent = $(this).closest("details");
+      const $content = $parent.find(".accordion__content");
+
+      $(".accordion details").not($parent).removeClass("active").each(function () {
+        closeEl($(this).find(".accordion__content"));
+      });
+
+      if ($parent.hasClass("active")) {
+        $parent.removeClass("active");
+        closeEl($content);
+      } else {
+        $parent.addClass("active").attr("open", true);
+        openEl($content);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ with Heading",
+  "tag": "section",
+  "class": "section faq-custom shopify-cs-za",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    {
+      "type": "select",
+      "id": "heading-size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "h1", "label": "Large" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h3", "label": "Small" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    { "type": "checkbox", "id": "open_first_collapsible_row", "default": false, "label": "Open first FAQ by default" },
+    {
+      "type": "header", "content": "Section padding"
+    }, {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "collapsible_row",
+      "name": "FAQ Row",
+      "settings": [
+        { "type": "text", "id": "heading", "default": "Collapsible row", "label": "Question" },
+        { "type": "richtext", "id": "row_content", "label": "Answer" },
+        { "type": "page", "id": "page", "label": "Page content (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ with Heading",
+      "blocks": [
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who can sign up for a UTR Sports profile?",
+            "row_content": "<p>Everyone is encouraged to create a FREE profile and play tennis and pickleball with UTR Sports.</p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the benefits of UTR Sports to tennis players?",
+            "row_content": "<p>UTR Sports offers tennis players several key benefits:</p><ol><li>Find Matches Easily: Quickly discover local matches, events, and players at your skill level.</li><li>Accurate Skill Tracking: Track your rating accurately with the industry-leading UTR Rating.</li><li>Personalized Play: Get tailored recommendations for matches and tournaments.</li><li>Progress Insights: View analytics on your performance to identify areas to improve.</li><li>Join Competitive Events: Easily find and register for tournaments, leagues, and flex play.</li><li>Community Connection: Connect with other players, join clubs, and grow your network.</li></ol><p>Overall, UTR helps players of all levels improve, find suitable opponents, and enjoy tennis more than ever.</p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who's the app for?",
+            "row_content": "<p>Everyone! It's easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app. <a href=\"https://www.utrsports.net/pages/mobile-app\" title=\"https://www.utrsports.net/pages/mobile-app\">Download the UTR Sports iOS app here</a>.</p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I register for and play a tennis event?",
+            "row_content": "<p>It's easier than ever to register and play in a UTR Sports tennis event. <a href=\"https://support.universaltennis.com/en/support/solutions/articles/9000234067-how-to-register-for-a-utr-sports-event\" title=\"https://support.universaltennis.com/en/support/solutions/articles/9000234067-how-to-register-for-a-utr-sports-event\">Here is a simple and helpful how-to article</a> on doing just that.</p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is a UTR Rating? Why should I have one?",
+            "row_content": "<p>A UTR Rating is a number that provides a real and accurate measurement of skill level. A player's UTR Rating is a number between 1.00 and 16.50.</p><p>One match result is all it takes to receive a projected UTR Rating. After approximately five matches, the rating becomes fully reliable. As matches are played and entered into the system, a player's UTR Rating will increase or decrease over time to reflect their current skill level.<br/><br/>Watch the explainer video <a href=\"https://youtu.be/1tuy1lmRN5o\" title=\"https://youtu.be/1tuy1lmRN5o\">here.</a></p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How is the UTR Rating calculated?",
+            "row_content": "<p>For each match, the algorithm calculates a match rating and a match weight for each player. A player's UTR Rating is the weighted average of up to 30 of their most recent match ratings. Only matches within the last 12 months count toward a player's UTR Rating. Read detailed explanation <a href=\"https://support.universaltennis.com/support/solutions/articles/9000151894-how-is-the-utr-rating-calculated-\" title=\"https://support.universaltennis.com/support/solutions/articles/9000151894-how-is-the-utr-rating-calculated-\">here.</a></p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What's the best way to improve my UTR Rating?",
+            "row_content": "<p><strong>Play Well.<br/></strong>Performing well in matches is the easiest way to improve your UTR Rating. If the match is out of hand, don't give up! It does not matter whether you play higher- or lower-rated opponents; you can improve your UTR Rating either way by winning more games than expected.</p><p><strong>Play Often.<br/></strong>The more matches you play, the quicker your UTR Rating will reflect your current form. The algorithm is especially accurate for those who play often against a variety of opponents rated above and below you.</p><p><strong>Be Patient.</strong><br/>Since your UTR Rating is a rolling weighted average, the effect of new results is slightly lagged. Your UTR Rating may not fully reflect a recent outcome right away, but it will over time.</p>",
+            "page": ""
+          }
+        },
+        {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What events does UTR Sports offer?",
+            "row_content": "<p>UTR Sports has an incredible range of level-based tennis and pickleball events. So every time you take the court with UTR Sports, you know you'll be playing with others at or near your level. Our mission is to connect tennis and pickleball players globally through level-based play, ratings, and innovative tournaments and events.</p>",
+            "page": ""
+          }
+        }
+      ],
+      "settings": {
+        "heading": "FAQs",
+        "heading-size": "h2",
+        "heading_alignment": "left",
+        "open_first_collapsible_row": true,
+        "padding_top": 150,
+        "padding_bottom": 60,
+        "pt_md": 60,
+        "pb_md": 60,
+        "pt_xs": 60,
+        "pb_xs": 60
+      }
+    }
+  ]
+}
+{% endschema %}

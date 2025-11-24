@@ -1,0 +1,148 @@
+
+<div id="WatchLive-{{ section.id }}">
+  {% if section.settings.title != blank %}
+  <div class="page-width text-center aa">
+    <div class="mb-4 mb-sm-0">
+       <h2 class="text-uppercase text-black font-tungsten font-lg-55 font-sm-38 mb-0 lh-sm-37 mb-sm-1">
+         {{ section.settings.title }}
+       </h2>
+       {%- if section.settings.heading-permission == "YES" -%}
+       <div class="divider-sm-teal divider-lg-teal"></div>
+       {%- endif -%}
+    </div>  
+  </div>
+  {% endif %}
+  <div class="page-width custom-pa ">
+    {%- if section.settings.iframe-url != blank -%}
+      <div class="iframe-wrapper ">
+        <iframe 
+          id="frm-{{ section.id }}"
+          src="{{ section.settings.iframe-url }}" 
+          class="watch-iframe watch-iframe-{{ section.id }}" 
+          allowfullscreen
+        ></iframe>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+<style>
+  #WatchLive-{{ section.id }} {
+    background-color: {{ section.settings.background-color }};
+    color: {{ section.settings.text-color }};
+  }
+  #WatchLive-{{ section.id }} h2 {
+    color: {{ section.settings.text-color }};
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-block-start: 0.83em;
+    padding-block-end: 0.83em;
+  }
+  #WatchLive-{{ section.id }} .hide-img {
+    opacity: 0;
+  }
+  #WatchLive-{{ section.id }} .iframe-wrapper{
+    margin: 0 auto;
+    text-align: center;
+  }
+  #WatchLive-{{ section.id }} .custom-pa {
+    padding: {{ section.settings.padding-desktop }};
+  }
+  .watch-iframe-{{ section.id }} {
+    width: {{ section.settings.iframe-width }}!important;
+    height: {{ section.settings.iframe-height }};
+    max-width: 100%;
+    border: none;
+  }
+  @media only screen and (max-width: 749px) {
+    #WatchLive-{{ section.id }} .custom-pa {
+      padding: {{ section.settings.padding-mobile }};
+      margin-top: 30px;
+    }
+    .watch-iframe-{{ section.id }} {
+      width: {{ section.settings.iframe-width-mobile }}!important;
+      height: {{ section.settings.iframe-height-mobile }}!important;
+      max-width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Live Widgets full height",
+  "presets": [
+    {
+      "name": "Live Widgets full height",
+      "category": "Widgets"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading Title"
+    },
+    {
+      "type": "radio",
+      "id": "heading-permission",
+      "label": "Do You Want Underline Below Heading?",
+      "default": "NO",
+      "options": [
+        { "value": "NO", "label": "NO" },
+        { "value": "YES", "label": "YES" }
+      ]
+    },
+    {
+      "type": "url",
+      "id": "iframe-url",
+      "label": "Iframe URL"
+    },
+    {
+      "type": "text",
+      "id": "iframe-width",
+      "label": "Iframe Width (e.g. 100%, 800px)",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "iframe-width-mobile",
+      "label": "Iframe Width (Mobile)",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "padding-desktop",
+      "label": "Padding (Desktop) (e.g. 0 10px 20px 0)",
+      "default": "0px"
+    },
+    {
+      "type": "text",
+      "id": "padding-mobile",
+      "label": "Padding (Mobile) (e.g. 0 5px 10px 5px)",
+      "default": "0px"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+window.addEventListener("message", iframemsg, true);
+
+function iframemsg(dt) {
+  if (dt.data && dt.data.target && dt.data.target === "tnnsWidgetHeight") {
+    var iframeht = dt.data.value;
+    document.getElementById("frm-{{ section.id }}").style.height = iframeht + "px";
+  }
+}
+</script>

@@ -1,0 +1,174 @@
+<div class="page-width pb-lg-2 pt-lg-5 pt-sm-0 pb-sm-2">
+  <div class="d-none d-sm-block text-sm-center pb-sm-2">
+    <p class="text-uppercase mb-lg-1 mb-sm-0 mt-0 gotham-medium font-sm-12 text-black">
+      {{ section.settings['tagline-text'] }}
+    </p>
+    <h2 class="text-center d-inline-lg-block lh-xl-78 mt-0">
+      <span class="text-uppercase text-uppercase section-title font-sm-55 mb-0 lh-xl-78">{{ section.settings.heading }}</span><br>
+      <span class="lh-normal font-best-friend section-title-lg-65 text-teal font-sm-55 d-block mt-nt-lg-1 lh-xl-78">
+        {{- section.settings['sub-heading'] -}}
+      </span>
+    </h2>
+  </div>
+  
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop">
+    <div class="grid__item">
+      {% for block in section.blocks %}
+        {% if block.settings.layout == 'left' %}
+          <div class="d-lg-flex justify-content-start">
+            <div class="blue-teal-gradient-bg help-wrapper mb-6 mb-sm-3 d-flex border-radius-lg-14 border-radius-sm-14 shadow-xl position-relative">
+              <img class="help-img-left" src="{{block.settings.image | image_url}}">
+              <div class="helpplayer help-left text-black d-flex flex-column">
+                <h3 class="mb-0 mt-0 text-black white-space-sm-nowrap">
+                  {{ block.settings.name }}
+                  <span class="ps-1">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="7.04883" cy="7.58838" r="7" fill="black"/>
+                      <path d="M10.5018 5.35535L5.80085 10.0563L3.66406 7.91949" fill="black"/>
+                      <path d="M10.5018 5.35535L5.80085 10.0563L3.66406 7.91949" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </h3>
+                <p class="mt-0 mb-1 font-lg-14 font-sm-12 fw-bold">{{ block.settings.location }}</p>
+                <p class="mb-0 mt-0 font-lg-14 font-sm-11 gotham-medium lh-sm-15">{{ block.settings.designation }}</p>
+              </div>
+            </div>
+          </div>
+        {%- elsif block.settings.layout == 'right' -%}
+          <div class="d-lg-flex justify-content-lg-end">
+            <div class="blue-teal-gradient-bg mb-6 mb-sm-3 help-wrapper d-flex border-radius-lg-14 border-radius-sm-14 shadow-xl position-relative">
+              <img class="help-img-right" src="{{block.settings.image | image_url}}">
+              <div class="helpplayer help-right text-black d-flex flex-column">
+                <h3 class="mb-0 mt-0 text-black white-space-sm-nowrap">
+                  {{ block.settings.name }}
+                  <span class="ps-2">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="7.04883" cy="7.58838" r="7" fill="black"/>
+                      <path d="M10.5018 5.35535L5.80085 10.0563L3.66406 7.91949" fill="black"/>
+                      <path d="M10.5018 5.35535L5.80085 10.0563L3.66406 7.91949" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </h3>
+                <p class="mt-0 mb-1 font-lg-14 font-sm-12 fw-bold">{{ block.settings.location }}</p>
+                <p class="mb-0 mt-0 font-lg-14 font-sm-11 gotham-medium lh-sm-15">{{ block.settings.designation }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="grid__item mt-sm-1">
+      <div class="d-block d-sm-none">
+        <p class="text-uppercase mb-1 mt-0 gotham-medium font-lg-16 text-black">{{ section.settings['tagline-text'] }}</p>
+        <h2 class="section-medium-title section-title-sm mt-0 mb-0 lh-xl-78 text-center d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          <span class="section-sub-title font-best-friend text-teal d-block mt-n1 lh-xl-78">
+            {{- section.settings['sub-heading'] -}}
+          </span>
+        </h2>
+      </div>
+      <p class="findtext fw-bold font-sm-14 pt-lg-1 mt-sm-nt-40">{{ section.settings['paragrap-title'] }}</p>
+      <div class="d-flex justify-content-sm-center">
+        <a href="{{section.settings.section-button-url}}" class="btn-black text-uppercase font-sm-14 mt-lg-3 mt-sm-1">
+          {{- section.settings['section-button'] -}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Well Help You",
+  "presets": [
+    {
+      "name": "Well Help You",
+      "category": "Well Help You"
+    }
+  ],
+  "settings": [
+    {
+     "type": "text",
+     "id": "tagline-text",
+     "label": "Tag Line"
+    },
+     {
+	"type":"text",
+	"id":"heading",
+	"label": "Heading Title"
+    },
+    {
+     "type": "text",
+     "id": "sub-heading",
+     "label": "Sub Title"
+    },
+    {
+     "type": "text",
+     "id": "paragrap-title",
+     "label": "Description Title"
+    },
+    {
+	"type": "text",
+	"id": "section-button",
+	"label": "Section Button Title"
+	},
+    {
+	"type": "url",
+	"id": "section-button-url",
+	"label": "Button Link"
+    }
+  ],
+
+  "blocks":[
+      {
+          "type":"home-card",
+          "name":"Well Help You Block",
+          "settings":[
+
+      {
+		  "type": "image_picker",
+       	  "id": "image",
+       	  "label": "Image"
+	  },
+      {
+          "type": "select",
+          "id": "layout",
+          "label": "Image alignment",
+          "default": "left",
+          "options": [
+      {
+          "value": "left",
+          "label": "Left"
+      },
+      {
+          "value": "right",
+          "label": "Right"
+      }
+          ]
+      },
+
+      {
+      	"type":"text",
+      	"id":"name",
+      	"label": "Name"
+      },
+            {
+      	"type":"text",
+      	"id":"location",
+      	"label": "Location"
+      },
+      {
+    	"type":"text",
+    	"id":"designation",
+    	"label": "Designation"
+      }
+          ]
+     }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

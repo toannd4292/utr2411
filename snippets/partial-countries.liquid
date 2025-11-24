@@ -1,0 +1,14 @@
+<div class="row">
+{%- for block in section.blocks -%}
+  {% case block.type %}
+    {%- when 'countries' -%}
+        {% for i in (1..80) %}
+          {% capture txt %}txt_{{i}}{% endcapture %}
+          {% capture url %}url_{{i}}{% endcapture %}
+          {% if block.settings[txt] != blank and block.settings[url] != blank %}
+              <div class="citiesTab__navLink col-md-4 col-6"><a href="{% if section.settings.domain != blank %}{{ section.settings.domain }}{% endif %}{{ block.settings[url] }}">{{ block.settings[txt] }}</a></div>
+          {% endif %}
+        {% endfor %}      
+  {% endcase %}
+{% endfor %}
+</div>

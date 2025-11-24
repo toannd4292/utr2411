@@ -1,0 +1,137 @@
+<div class="pb-lg-2 pt-lg-2 pt-sm-2 pb-sm-2 bg bg_white shadow-xxl">
+  <div class="page-width">
+    <div class="table-responsive table-scroll-black">
+      <table class="table2" id="rankingTable">
+        <thead class="thead-b-bottom">
+          <tr>
+            <th class="text-left font-lg-24 font-sm-18">{{ section.settings.tableheadfield1 }}</th>
+            <th class="text-left font-lg-24 font-sm-18">{{ section.settings.tableheadfield2 }}</th>
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield3 }}
+            </th>
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield4 }}
+            </th>
+               <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield5 }}
+            </th>
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield6 }}
+            </th>
+             <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield7 }}
+            </th>
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">
+              {{ section.settings.tableheadfield8 }}
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table">
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "UTR Tennis flex leagueCSV",
+  "presets": [
+    {
+      "name": "UTR Tennis flex leagueCSV",
+      "category": "UTR Tennis flex leagueCSV"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "tableheadfield1",
+      "label": "Table Heading Field 1"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield2",
+      "label": "Table Heading Field 2"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield3",
+      "label": "Table Heading Field 3"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield4",
+      "label": "Table Heading Field 4"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield5",
+      "label": "Table Heading Field 5"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield6",
+      "label": "Table Heading Field 6"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield7",
+      "label": "Table Heading Field 7"
+    },
+    {
+      "type": "text",
+      "id": "tableheadfield8",
+      "label": "Table Heading Field 8"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+<script> 
+  $.ajax({
+        url: 'https://cdn.shopify.com/s/files/1/0690/8071/1488/files/utr-flex-national-leaderboard-CSV.csv',
+        dataType: 'text',
+  }).done(successFunction);
+
+
+  function successFunction(data) {
+    console.log(data)
+        var allRows = data.split(/\r?\n|\r/);
+        for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+          if (singleRow === 0) {
+            table += '<tr>';
+          } else { 
+            table += '<tr>';
+          }
+          var rowCells = allRows[singleRow].split(',');
+          for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
+            if (singleRow === 0) {
+              table += '<th>';
+              table += rowCells[rowCell];
+              table += '</th>';
+            } else {
+              if (rowCell == 3 || rowCell == 4) {
+                table += '<td class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">';
+              } else {
+                table += '<td>';
+              }
+
+              table += rowCells[rowCell];
+              table += '</td>';
+            }
+          }
+          if (singleRow === 0) {
+            table += '</tr>';
+            table += '</thead>';
+            table += '<tbody>';
+          } else {
+            table += '</tr>';
+          }
+        } 
+        $("#table").html(table);
+  }    
+  
+</script>

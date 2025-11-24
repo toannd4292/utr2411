@@ -1,0 +1,229 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  /* Padding for the section */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media (max-width: 749px) {
+    .bnn-blog .blog-items-img img {
+      display: none !important;
+    }
+    .d-lg-flex.mb-4.page-width.bnn-blog {
+      padding: 0;
+    }
+  }
+  
+  @media (min-width: 750px) {
+    .bnn-blog .blog-col-right {
+    background: #e7f9ff;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    .bnn-blog .blog-content {
+      padding: 7px 1.5rem !important;
+      background: #e7f9ff;
+    }
+    .bnn-blog .blog-bg-space {
+      min-height: auto !important;
+    }
+
+    .bnn-blog .blog-items-img img {
+      display: block !important;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .bnn-blog .blog-items-img {
+      background: none !important;
+    }
+    .bnn-blog .blog-items-img::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #0000, #0000008c);
+      top: 0;
+    }
+  }
+   .bnn-blog .blog-col-right {
+  
+        background: #e7f9ff;
+    }
+  @media (max-width: 1390px) {
+    .bnn-blog .font-lg-34 {
+        font-size: 2.5vw;
+      margin-bottom: 3px;
+    }
+    .bnn-blog .blogdate {
+      font-size: 12px;
+    }
+  }
+ @media (max-width: 1006px) {
+     .bnn-blog .font-lg-34 {
+        font-size: 2.3vw;
+     }
+ }
+  @media (max-width: 906px) {
+    .wrap-bnn.page-width {
+      align-items: center;
+      display: block;
+    }
+    .bnn-blog .blog-col-right, 
+    .bnn-blog .blog-col-left {
+      width: 100%;
+    }
+    .bnn-blog {
+      padding: 0;
+            align-items: center;
+      display: block;
+    }
+  }
+{%- endstyle -%}
+<div class="wrap-bnn page-width">
+<div class="d-lg-flex mb-4  bnn-blog">
+  <div class="blog-col-left">
+    <div class="position-relative">
+      <a href="{{section.settings.section-button-url}}" class="blog-items-img blog-bg-space" style="background:url('{{section.settings.section-image | image_url}}') no-repeat center center; background-size:cover; display:block;">
+         <img src="{{ section.settings.section-image | image_url }}" 
+             alt="{{ section.settings.section-heading | escape }}" 
+             style="width: 100%; height: auto; display: block;">
+        {%- if section.settings.button-permission-content == "NO" -%} 
+             <div class="blog-content-bottom text-sm-center d-none">
+                <h3 class="font-lg-55 font-sm-40 text-uppercase font-tungsten-medium lh-normal mb-0 mt-0 text-white">{{section.settings.section-heading}}</h3>
+                <p class="text-white font-lg-18 font-sm-14 mt-1">{{ section.settings.paragrap-title }}</p>
+                <a href="{{section.settings.section-button-url}}" class="btn-white-outline btn-hover-black btn-xs-small min-xs-width min-w-lg-180 mt-2 d-inline-block min-w-sm-180 font-sm-12 text-uppercase button--secondary">{{section.settings.section-button-title}}</a>
+              </div>
+          {%- endif -%} 
+         </a>
+          {%- if section.settings.button-permission-content == "YES" -%} 
+              <div class="blog-content-bottom text-sm-center d-block">
+                <h3 class="font-lg-55 font-sm-40 text-uppercase font-tungsten-medium lh-normal mb-0 mt-0 text-white">{{section.settings.section-heading}}</h3>
+                <p class="text-white font-lg-18 font-sm-14 mt-1">{{ section.settings.paragrap-title }}</p>
+                <a href="{{section.settings.section-button-url}}" class="btn-white-outline btn-hover-black btn-xs-small min-xs-width min-w-lg-180 mt-2 d-inline-block min-w-sm-180 font-sm-12 text-uppercase button--secondary">{{section.settings.section-button-title}}</a>
+              </div> 
+          {%- endif -%}
+    </div>
+  </div>
+  <div class="blog-col-right d-lg-block d-sm-none">
+{% for block in section.blocks %}
+    <div class="blog-content">
+      <a href="{{block.settings.button-url}}">
+      <h3 class="font-lg-34 font-sm-34 text-uppercase font-tungsten lh-normal mb-1 mt-0 text-black blog-text-clamp">{{block.settings.h3}}</h3>
+       <div class="d-flex align-items-center justify-content-between"> 
+        <div class="blogdate gotham-medium">{{block.settings.date}} {{block.settings.month}} {{block.settings.year}}</div>
+         <div class="blg-arrow">
+            <svg width="50" height="9" viewBox="0 0 50 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 4.54736L42.5 0.217236V8.87749L50 4.54736ZM0 5.29736H43.25V3.79736H0V5.29736Z" fill="black"></path>
+            </svg>
+         </div>
+       </div>
+       </a>
+    </div>
+ {% endfor %}
+  </div>
+</div> 
+</div>
+{% schema %}
+  {
+    "name": "Main Blog Top Banner",
+    "presets": [
+      {
+        "name": "Main Blog Top Banner",
+        "category": "Main Blog Top Banner"
+      }
+    ],
+     "settings": [
+     {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 		},
+       {
+ 			"type": "text",
+ 			"id": "section-heading",
+ 			"label": "Section Heading"
+ 		},
+        {
+ 			"type": "text",
+ 			"id": "paragrap-title",
+ 			"label": "Paragrap Title"
+ 		},
+       {
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Section Button Link"
+		},
+       {
+			"type": "text",
+ 			"id": "section-button-title",
+ 			"label": "Section Button Title"
+		},
+        {
+            "type": "radio",
+            "id": "button-permission-content",
+            "label": "Show cta content?",
+            "default": "NO",
+            "options": [
+          {
+            "value": "NO",
+            "label": "NO"
+        },    
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+       
+            ]
+        }
+       
+  ],
+     "blocks":[
+	  {
+		"type":"blog-card",
+		"name":"Benefits block",
+        "limit":4,
+		"settings":[
+         {
+			"type": "url",
+ 			"id": "button-url",
+ 			"label": "Button Link"
+		},
+        {
+			"type":"text",
+			"id":"h3",
+			"label": "Heading"
+		},
+        {
+			"type":"text",
+			"id":"date",
+			"label": "Date"
+		},
+        {
+			"type":"text",
+			"id":"month",
+			"label": "Month"
+		},
+        {
+			"type":"text",
+			"id":"year",
+			"label": "Year"
+		}
+		]
+	  }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,202 @@
+{% comment %} {{ 'flex-league-qualifier-data.js' | asset_url | script_tag }} {% endcomment %}
+
+<div class="page-width text-center">
+  <h2 class="text-uppercase section-title section-title-sm mb-1 mb-sm-1 lh-xl-78">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="mb-4"><div class="divider-sm-teal divider-lg-teal"></div></div>
+    {%- endif -%}
+</div>  
+
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+    <div class="grid grid--1-col grid--2-col-tablet grid--2-col-desktop">
+        <div class="grid__item order-sm-last aria-scroll-black d-sm-none">
+          <div class="grid grid--2-col grid--2-col-tablet grid--2-col-desktop ps-xl-2" id="place"> 
+          </div> 
+        </div>
+      <div class="grid__item d-lg-none d-sm-block">
+          <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop">
+            <form class="select-control mb-1">
+              <select id="ut-qualifiers-select" class="fst-w-100 h-42">
+              </select>
+            </form>
+          </div>
+      </div>   
+        <div class="grid__item order-sm-first aria-scroll-black aria-scroll-black-sm">
+          <div class="grid grid--2-col grid--2-col-tablet grid--2-col-desktop row-gap-1" id="winner">
+          </div>
+        </div>
+    </div>
+</div>  
+{% schema %}
+  {
+    "name": "Summer Playoff Qualifiers",
+    "presets": [
+      {
+        "name": "Summer Playoff Qualifiers",
+        "category": "Summer Playoff Qualifiers"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+	  },
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+<script>
+var qualifier_data = {
+  "hits": []
+};
+$.ajax({
+  url: 'https://cdn.shopify.com/s/files/1/0690/8071/1488/files/Flex-Leagues-winners.csv',
+  dataType: 'text',
+}).done(successFunction);
+function successFunction(data) {
+  // console.log("the data", data);
+  var lines = data.split('\n');
+  var header = lines[0].split(',');
+  lines.pop();
+
+  for (var i = 1; i < lines.length; i++) {
+    var values = lines[i].split(',');
+
+    var entry = {};
+
+    for (var j = 0; j < header.length; j++) {
+      entry[header[j].trim()] = values[j].trim();
+    }
+
+    var cityEntry = qualifier_data.hits.find(function (city) {
+      return city.cityName === entry['City name'];
+    });
+
+    if (!cityEntry) {
+      cityEntry = {
+        cityName: entry['City name'],
+        players: [],
+      };
+      qualifier_data.hits.push(cityEntry);
+    }
+
+    cityEntry.players.push({
+      playerName: entry['Name'],
+      points: entry['UTR'],
+      qualified: entry['Qualified or Not'],
+    });
+  }
+  displayDataForCity(qualifier_data);
+}
+
+
+const qualifiersCitySelect = document.getElementById('ut-qualifiers-select');
+qualifiersCitySelect.onchange = function () {
+  displayDataForCity(qualifiersCitySelect.options[qualifiersCitySelect.selectedIndex].value);
+};
+displayDataForCity("Acadiana");
+displayDataForCity();
+displayDataForCity("Acadiana");
+
+function displayDataForCity(cityName) { 
+
+  if (typeof cityName === 'string' || cityName instanceof String) {
+    cityName = cityName.replace(/_/g, ' ');
+    
+    //List Selected City wise winners
+    let dataWinner = "";
+
+    for (var i = 0; i < qualifier_data.hits.length; i++) {
+
+      if (cityName == qualifier_data.hits[i].cityName.toLowerCase()) {
+        for (var j = 0; j < qualifier_data.hits[i].players.length; j++) {
+           if (qualifier_data.hits[i].players[j].playerName && qualifier_data.hits[i].players[j].points !== '#N/A') {
+        dataWinner += '<div class="grid__item"><a href="#" class="playoff text-center font-lg-18 fst-font-md-14 font-sm-10 lh-sm-normal">' + qualifier_data.hits[i].players[j].playerName + ' ' + qualifier_data.hits[i].players[j].points + ' ' + qualifier_data.hits[i].players[j].qualified + '</a></div>';
+      }
+        }
+      }
+    }
+
+    document.getElementById("winner").innerHTML = dataWinner;
+
+    setActiveCity(cityName);
+
+  } else {
+
+    //List All Cities & 1 Winners
+    let dataCity = "";
+    let dataWinner = "";
+
+    for (var i = 0; i < qualifier_data.hits.length; i++) {
+      cityNameFull = qualifier_data.hits[i].cityName;
+      cityNameWithHyphen = qualifier_data.hits[i].cityName.replace(/\s+/g, '_');
+      cityNameWithHyphenLower = qualifier_data.hits[i].cityName.replace(/\s+/g, '_').toLowerCase();
+
+      dataCity += '<div class="grid__item" id="' + cityNameWithHyphenLower + '"><div class="img_hvr_box border-radius-lg-3 border-radius-sm-3 ' + cityNameWithHyphenLower + '" style="background-image: url(https://cdn.shopify.com/s/files/1/0690/8071/1488/files/acadiana1.png?v=1672119915);" onclick="displayDataForCity(\'' + cityNameWithHyphenLower + '\');" ><div class="position-relative z-index-1"><h2 class="text-uppercase section-title-lg  font-md-24 font-tungsten text-white mb-0 mt-0 lh-xl-78">' + cityNameFull + '</h2></div></div></div>';
+
+      //Add city to drop down
+      var opt = document.createElement('option');
+      opt.value = cityNameWithHyphenLower;
+      opt.innerHTML = cityNameFull;
+      qualifiersCitySelect.appendChild(opt);
+
+      if (i === 0) { // Only for the first city
+        for (var j = 0; j < qualifier_data.hits[i].players.length; j++) {
+           if (qualifier_data.hits[i].players[j].playerName && qualifier_data.hits[i].players[j].points !== '#N/A') {
+        dataWinner += '<div class="grid__item"><a href="#" class="playoff text-center font-lg-18 fst-font-md-14 font-sm-10 lh-sm-normal">' + qualifier_data.hits[i].players[j].playerName + ' ' + qualifier_data.hits[i].players[j].points + ' ' + qualifier_data.hits[i].players[j].qualified + '</a></div>';
+      }
+        }
+      }
+    }
+
+    document.getElementById("place").innerHTML = dataCity;
+    document.getElementById("winner").innerHTML = dataWinner;
+    setActiveCity(qualifier_data.hits[0].cityName);
+  }
+}
+
+function setActiveCity(cityName) {
+  const cityDiv = document.querySelectorAll('.img_hvr_box');
+  const count = cityDiv.length;
+  // console.log("ACTIVE for city 1 = "+cityName);
+  // console.log("CITY ID = "+count);
+  for (let i = 0; i < count; i++) {
+    if (cityDiv[i].classList.contains(cityName.replace(/\s+/g, '_').toLowerCase())) {
+      cityDiv[i].classList.add('active');
+      // console.log("ACTIVE for city 2 = "+cityDiv[i].classList);
+    } else {
+      cityDiv[i].classList.remove('active');
+      // console.log("REMOVE for city = "+cityName);
+    }
+  }
+  // Show winners for the active city
+  const winnersDiv = document.querySelectorAll('.' + cityName.replace(/\s+/g, '_').toLowerCase() + '-winners');
+  for (let i = 0; i < winnersDiv.length; i++) {
+    winnersDiv[i].style.display = 'block';
+  }
+}
+</script>
+
+
+
+

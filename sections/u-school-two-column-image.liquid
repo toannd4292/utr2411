@@ -1,0 +1,128 @@
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+
+    {% for block in section.blocks %}
+      <div class="grid__item">
+       <div class="card-box-d">
+         <div class="position-relative img-bottom-shadow">
+        	<div class="card-img-d media--square media--square-md media--square-sm-1-8 border-radius-lg-3 border-radius-sm-3 " style="background:url('{{block.settings.image | image_url}}') no-repeat top center; background-size: cover;"> 
+    		<div class="card-overlay-hover card-overlay-hover-start z-index-1">
+              <div class="want-content-b"> 
+                <div class="d-lg-block d-sm-none">
+                 <h2 class="font-lg-44 font-sm-34 font-tungsten mb-0 lh-lg-44 lh-sm-34 text-white w-xl-75 mr-lg-auto">{{block.settings.heading}}</h2>
+                 <a href="{{block.settings.button-url}}" class="btn-white-outline d-inline-block min-w-lg-225 min-w-sm-130 text-uppercase mt-5 mb-1">{{block.settings.button-title}}</a>
+                </div>
+              </div>
+              <div class="card-overlay-full-visible">
+                <div class="d-flex align-items-baseline pb-lg-2 pt-sm-2">
+                  <h2 class="text-uppercase font-lg-44 font-sm-34 font-tungsten mb-0 lh-lg-44 lh-sm-34 text-sm-left text-center">{{block.settings.heading}}</h2>
+                </div>  
+                <p class="pb-lg-2 font-sm-13 font-md-14 font-lg-16 fw-lg-bold lh-sm-normal">{{block.settings.description}}</p>
+                <ul class="fw-lg-bold lh-sm-normal font-sm-14 font-lg-16">
+                  {%- if block.settings.list != blank -%}
+                  <li class="mb-1">{{block.settings.list}}</li>
+                  {%- endif -%}
+                  {%- if block.settings.list2 != blank -%}
+                  <li class="mb-1">{{block.settings.list2}}</li>
+                  {%- endif -%}
+                  {%- if block.settings.list3 != blank -%}
+                  <li class="mb-1">{{block.settings.list3}}</li>
+                  {%- endif -%}
+                  {%- if block.settings.list4 != blank -%}
+                  <li class="mb-1">{{block.settings.list4}}</li>
+                  {%- endif -%}
+                  {%- if block.settings.list5 != blank -%}
+                  <li class="mb-1">{{block.settings.list5}}</li>
+                  {%- endif -%}
+                </ul>
+                 <div class="want-item-second">
+                  <div class="pt-lg-3 pb-lg-2 pt-sm-1 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center">
+                    <a href="{{block.settings.button-url}}" class="btn-black btn-outline-lg-black btn-teal-sm d-flex justify-content-center align-items-center min-w-lg-225  text-uppercase text-center">{{block.settings.button-title}}</a>
+                  </div> 
+                </div>   
+              </div>  
+            </div>
+          </div> 
+         </div>  
+        </div>
+      </div>
+     {% endfor %}
+     
+  </div> 
+</div>  
+{% schema %}
+  {
+    "name": "UT School two image",
+    "presets": [
+      {
+        "name": "UT School two image",
+        "category": "UT School two image"
+      }
+    ],
+    "settings": [],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"UT School two image block",
+		"settings":[
+        {
+  		      "type": "image_picker",
+         	  "id": "image",
+         	  "label": "Image"
+  		},
+        {
+			"type":"text",
+			"id":"heading",
+			"label": "Title"
+		},
+        {
+			"type":"text",
+			"id":"description",
+			"label": "Description"
+		},
+        {
+ 			"type": "text",
+ 			"id": "button-title",
+ 			"label": "Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "button-url",
+ 			"label": "Button Link"
+		},
+        {
+			"type":"text",
+			"id":"list",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list2",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list3",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list4",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list5",
+			"label": "List"
+		}
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

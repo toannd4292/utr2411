@@ -1,0 +1,306 @@
+<div class="pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-0">
+  <div class="page-width position-relative">
+    <!-- <h2 class="section-title section-title-sm mb-0 lh-xl-78 text-center d-inline-lg-block">
+      <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+      <span class="lh-normal font-best-friend text-teal d-block mt-n1">{{ section.settings['sub-heading'] }}</span>
+    </h2> -->
+
+    {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <!-- <h1 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-large d-inline-lg-block">
+          {{ section.settings.heading }}
+        </h1> -->
+        <h1 class="text-center section-title section-title-large mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h1>
+      {% when 'h2' %}
+        <!-- <h2 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-medium d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span>
+        </h2> -->
+            <h2 class="text-center section-title section-title-medium mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h2>
+      {% when 'h3' %}
+        <!-- <h3 class="text-center section-title mt-0 mb-0 lh-xl-78 section-title-small d-inline-lg-block">
+          {{ section.settings.heading }}
+        </h3> -->
+          <h3 class="text-center section-title section-title-small mb-0 lh-xl-78 d-inline-lg-block">
+          <span class="text-uppercase">{{ section.settings.heading }}</span><br>
+          {% case section.settings['sub-heading-size'] %}
+            {% when 'h2' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-medium">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+            {% when 'h3' %}
+              <span class="lh-normal font-best-friend text-teal d-block mt-n1 section-sub-title section-sub-title-small">
+                {{- section.settings['sub-heading'] -}}
+              </span>
+          {% endcase %}
+        </h3>
+    {% endcase %}
+
+    <div class="min-h-180">
+      <ul class="list-with-circle pt-3 pb-4 auto-w-auto">
+       {% if section.settings.enable_feature %}
+        <li><p>Download the app</p></li> 
+        <li><p>Create profile, get rated for free</p></li>
+        <li><p>Create groups, find play</p></li>
+      {% else %}
+      {% for block in section.blocks %}
+        <li>{{ block.settings.block-list-items }}</li>
+      {% endfor %}
+      {% endif %}
+      </ul>
+    </div>
+    <div class="text-sm-center">
+      <a href="{% if section.settings.section-button-url ==blank  %} https://app.utrsports.net/login {% else %}{{section.settings.section-button-url}}{% endif %}" class="btn-black justify-content-center  mb-3">
+        {{- section.settings['section-button'] -}}
+      </a>
+    </div>
+  </div>
+  <div class="blue-teal-gradient-bg text-sm-center position-relative">
+    <div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4 text-black">
+      <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+        <div class="grid__item">
+          <p class="fw-bold mb-0 mt-0 font-sm-14 font-lg-20 font-md-16 gotham-medium">
+            {{ section.settings['sub-title'] }}
+          </p>
+          <h2 class="section-title font-sm-30 section-title-md mb-0 mt-0 lh-sm-normal lh-xl-90">
+            {{ section.settings['section-heading'] }}
+          </h2>
+          <p class="findtext fw-bold font-sm-14">{{ section.settings['paragrap-title'] }}</p>
+          <div class="d-flex justify-content-sm-center mt-3 gap-2">
+            <a href="{% if section.settings.app-button-url ==blank %} https://apps.apple.com/us/app/universal-tennis/id1519232627 {% else %} {{section.settings.app-button-url}}{% endif %}" target="_blank" class="app-radius-btnblack"
+              ><img src="{% if section.settings.app-store-image ==blank %} https://cdn.shopify.com/s/files/1/0690/8071/1488/files/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png?v=1672297397 {% else %} {{section.settings.app-store-image | image_url}} {% endif %}" alt="App Store"
+            ></a>
+            {% comment %}
+              <a href="{% if section.settings.google-pay-button-url ==blank %}https://play.google.com/store/apps/details?id=com.ut.utr&utm_source=google-play&utm_campaign=web-footer-google-playstore-badge&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1{% else %}{{section.settings.google-pay-button-url}}{% endif %}" target="_blank" class="app-radius-btnblack"
+              ><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/google-pay-white_269d9262-1813-4014-a01e-91514a8562ae.png?v=1672297413" alt="Google Pay"
+            ></a>
+            ,
+            {
+            "type": "image_picker",
+            "id": "google-pay-image",
+            "label": "Google Pay Button"
+            },
+            {
+            "type": "url",
+            "id": "google-pay-button-url",
+            "label": "Google Pay Button Link" }
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fix-right-img p-sm-1 d-lg-block d-sm-none d-md-none1">
+      {% if section.settings.section-image == blank %}
+         <img class="object-cover-img" src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/utr-sports-mobile-app-ios-two-screenshots-564x773.png?v=1698071212">
+        {% else %}
+      <img class="object-cover-img" src="{{section.settings.section-image | image_url}}">
+        {% endif %}
+    </div>
+  </div>
+</div>
+<style>
+     .section-title.section-title-large {
+      font-size: 75px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-small {
+      font-size: 35px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+    .section-sub-title.section-sub-title-medium {
+ font-size: 55px;   
+}
+  .section-sub-title.section-sub-title-small {
+      font-size: 35px;
+  }
+
+
+    @media screen and (max-width: 749px){
+      .section-title.section-title-large {
+      font-size: 60px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+    .section-sub-title.section-sub-title-medium {
+    font-size:40px
+    }
+
+  .section-title.section-title-small {
+      font-size: 26px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-medium {
+      font-size: 40px;
+  }
+
+      .section-sub-title.section-sub-title-small {
+      font-size: 35px;
+  }
+    }
+</style>
+{% schema %}
+{
+  "name": "Join 3 Easy Steps New",
+  "settings": [
+    {
+  "type": "checkbox",
+  "id": "enable_feature",
+  "label": "Enable Default",
+  "default": true
+},
+    {
+    "type":"text",
+    "id":"heading",
+    "label": "Heading Title",
+    "default": "Join UTR Sports "
+    },
+    {
+    "type": "select",
+    "id": "heading-size",
+    "label": "Heading Size",
+    "options": [
+    {
+    "value": "h1",
+    "label": "Large"
+    },
+    {
+    "value": "h2",
+    "label": "Medium"
+    },
+    {
+    "value": "h3",
+    "label": "Small"
+    }
+    ],
+    "default": "h2"
+    },
+    {
+    "type": "text",
+    "id": "sub-heading",
+    "label": "Sub Title",
+    "default": "in 3 Easy Steps"
+    },
+         {
+    "type": "select",
+    "id": "sub-heading-size",
+    "label": "Sub Header Size",
+    "options": [
+    
+    { "value": "h2", "label": "Medium" },
+    { "value": "h3", "label": "Small" }
+    ],
+    "default": "h2"
+    },
+    {
+    "type": "text",
+    "id": "sub-title",
+    "label": "Page Title",
+    "default": "Now available globally!"
+    },
+    {
+    "type":"text",
+    "id":"section-heading",
+    "label": "Section Heading",
+    "default": "Download the app today!!"
+    },
+    {
+    "type": "text",
+    "id": "paragrap-title",
+    "label": "Paragrap Title",
+    "default": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app."
+    },
+    {
+    "type": "image_picker",
+    "id": "section-image",
+    "label": "Section Image"
+    },
+    {
+    "type": "text",
+    "id": "section-button",
+    "label": "Section Button Title",
+    "default": "Get started"
+    },
+    {
+    "type": "url",
+    "id": "section-button-url",
+    "label": "Button Link"
+    },
+    {
+    "type": "image_picker",
+    "id": "app-store-image",
+    "label": "App Store Button"
+    },
+    {
+    "type": "url",
+    "id": "app-button-url",
+    "label": "App Store Button Link"
+    }
+    
+    ],
+    "blocks":[
+    {
+    "type":"text",
+    "name":"list-items",
+    "settings":[
+    {
+    "type": "richtext",
+    "id": "block-list-items",
+    "label": "Bulet Points"
+    }
+   ]
+ }
+  ],
+   "presets": [
+    {
+      "name": "Join 3 Easy Steps New",
+      
+       "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ],
+      "category": "Join Steps"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

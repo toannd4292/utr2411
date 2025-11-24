@@ -1,0 +1,968 @@
+<style>
+  .box-container {
+    display: inline-block;
+  }
+  .min-h-260{min-height:260px}
+
+  option selected:checked { font-family: "Gotham-Bold";  }
+    .inner-header-sm-space {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  @media (min-width: 750px) {
+    .shape-box .inner-header-lg-space {
+        padding: 5rem 0;
+    }
+    .gradient-header-custom  .section-medium-title.section-title-large {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+   .gradient-header-custom  .section-medium-title.section-title-large {
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+    font-size: 40px;
+    line-height: 45px;
+}
+    .gradient-header-custom  .section-medium-title.section-title-medium {
+    font-size: 36px;
+    line-height: 36px;
+        margin: 0 !important;
+}
+
+.gradient-header-custom  .section-medium-title.section-title-small {
+    font-size: 32px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+        margin: 0 !important;
+}
+}
+
+@media (max-width: 749px) {
+     .shape-box .inner-header-sm-space {
+        padding-left: 6.5rem !important;
+        padding-right: 6.5rem !important;
+        padding-bottom: 3rem;
+        padding-top: 30px;
+    }
+   .gradient-header-custom  .section-medium-title.section-title-large {
+      margin-bottom:0px!important;
+    line-height: 42px;
+}
+    .gradient-header-custom  .section-medium-title.section-title-large {
+    font-size: 36px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.gradient-header-custom  .section-medium-title.section-title-small {
+    font-size: 30px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.gradient-header-custom  .section-medium-title.section-title-medium {
+    font-size: 34px;
+        margin: 0 !important;
+}
+}
+.out-box {
+    width: 100%;
+    overflow: hidden;
+    background: var(--blue-teal-gradient);
+}
+</style>
+
+<div class="bg_black mb-lg-5 mb-sm-3">
+  <div class="out-box gradient-header-custom">
+    <div class="shape-box">
+      <div class="image-box blue-teal-gradient-bg">
+        <div class="page-width inner-header-lg-space inner-header-sm-space">
+          <!-- <h2 class="section-medium-title section-title-sm text-uppercase mb-0 lh-xl-78 text-center mt-0 mb-0">
+            {{ section.settings.heading }}
+          </h2> -->
+                                       {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <h1 class="text-uppercase section-medium-title mt-0 mb-0 lh-xl-78 section-title-large text-center">
+          {{ section.settings.heading }}
+        </h1>
+      {% when 'h2' %}
+        <h2 class="text-uppercase section-medium-title mt-0 mb-0 lh-xl-78 section-title-medium text-center">
+          {{ section.settings.heading }}
+        </h2>
+      {% when 'h3' %}
+        <h3 class="text-uppercase section-medium-title mt-0 mb-0 lh-xl-78 section-title-small text-center">
+          {{ section.settings.heading }}
+        </h3>
+    {% endcase %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="pb-lg-5 pt-lg-3 pt-sm-3 pb-sm-5">
+    <div class="page-width">
+      <div class="mr-auto bg-dark-gray flex-search-bg mb-md-3 mb-md-3-9">
+        <div class="d-flex gap-2 align-items-center justify-content-center">
+          <div class="flex-column d-flex w-xl-100">
+            <div class="position-relative">
+              <svg
+                class="mapicon"
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M6.23438 15.3125C6.65513 15.3125 8.29988 14.111 9.6105 12.6204C11.3576 10.6348 12.4219 8.4185 12.4219 6.3125C12.4219 2.97913 9.6825 0.6875 6.23438 0.6875C2.78625 0.6875 0.046875 2.97913 0.046875 6.3125C0.046875 8.4275 1.11113 10.6437 2.85825 12.6271C4.16775 14.1144 5.8125 15.3125 6.23438 15.3125ZM6.23438 10.1375C5.2796 10.1375 4.36392 9.75821 3.68879 9.08308C3.01366 8.40795 2.63438 7.49228 2.63438 6.5375C2.63438 5.58272 3.01366 4.66705 3.68879 3.99192C4.36392 3.31678 5.2796 2.9375 6.23438 2.9375C7.18915 2.9375 8.10483 3.31678 8.77996 3.99192C9.45509 4.66705 9.83437 5.58272 9.83437 6.5375C9.83437 7.49228 9.45509 8.40795 8.77996 9.08308C8.10483 9.75821 7.18915 10.1375 6.23438 10.1375Z" fill="#00C0F7"></path>
+              </svg>
+              <input
+                id="search_input-ptt-tour"
+                type="text"
+                class="gotham-medium font-lg-14 font-sm-14 font-md-14 text-black px-4 search_input-ptt-tour"
+                placeholder="Search"
+                autocomplete="off"
+              >
+            </div>
+          </div>
+
+          <div class="flex-column d-flex">
+            <button type="button" class="blue-teal-gradient-bg search-icon search-button-ptt-tour">
+              <summary
+                class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+                aria-haspopup="dialog"
+                aria-label="{{ 'general.search.search' | t }}"
+              >
+                <span class="text-white">
+                  <svg
+                    class="modal__toggle-open icon icon-search"
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                  >
+                    <use href="#icon-search"></use>
+                  </svg>
+                </span>
+              </summary>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="select-gap-lg-3 select-gap-md-3 pt-lg-5 pb-lg-5 pt-sm-4 pb-sm-0">
+        <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-md-left-9">
+          <div class="select-control-white">
+            <select
+              class="text-uppercase font-sm-12 min-md-100per min-w-lg-180 min-w-sm-100 min-w-md-100"
+              id="genderSelect"
+            >
+              <option value="" selected="">Gender</option>
+              <option value="m">Men's</option>
+              <option value="f">Women's</option>
+            </select>
+          </div>
+        </div>
+        <!--
+          <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-right select-col-md-right-9 select-col-md-right order-sm-3">
+            <div class="select-control-white">
+              <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100">
+                <option value="upcoming">Upcoming</option>
+                <option value="month">By Date</option>
+              </select>
+            </div>
+          </div>
+        -->
+        <div class="pb-sm-2 pb-md-3 pb-md-3-9">
+          <div class="select-control-white ">
+            <select
+              class="text-uppercase font-sm-12 min-md-100per min-w1-lg-180 min-w-lg-180 min-w-sm-100 min-w-md-100"
+              id="eventStateSelect"
+            >
+              <option value="">All</option>
+              <option value="open_registration" selected="">Open registration</option>
+              <option value="registration_closed">Registration closed</option>
+              <option value="in_progress">Event in progress</option>
+              <option value="completed">Event completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="pb-sm-2 pb-md-3 pb-md-3-9">
+          <div class="select-control-white">
+            <select
+              class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100"
+              id="regionSelect"
+            >
+              <option value="" selected="">All Regions</option>
+              <option value="Americas">Americas</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia & Pacific">Asia & Pacific</option>
+            </select>
+          </div>
+        </div>
+        <!--
+          Comment | No API available for singles & doubles selection
+           <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-right  select-col-md-right select-col-md-right-9 order-sm-last">
+              <div class="select-control-white">
+                <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100" id="teamTypeSelect">
+                  <option value="" selected="">All</option>
+                  <option value="singles">Singles</option>
+                  <option value="doubles">Doubles</option>
+                </select>
+              </div>
+          </div>
+           End Comment | No API available for singles & doubles selection
+        -->
+      </div>
+    </div>
+    <div class="page-width clear-both">
+      <div class="d-flex align-items-center justify-content-center custom-in_progress">
+        <div class="select-control d-lg-block " id="rangeTypeSelectDiv" style="margin-bottom: 10px;">
+          <select
+            class="text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160"
+            id="rangeDateTypeSelect"
+          >
+            <option value="0" selected="">UPCOMING</option>
+            <option value="1" >BY DATES</option>
+          </select>
+        </div>
+        <div class="select-control d-lg-block " id="rangeDateMonthYearSelect"></div>
+        <div class="select-control d-lg-block " id="rangeSelectDiv"></div>
+      </div>
+      {% if customer %}
+        <div
+         
+          id="login_user"
+        ></div>
+      {% else %}
+        <div
+          
+          id="not_login_user"
+        ></div>
+      {% endif %}
+
+      <!-- <div class="mt-4">
+        <div class="d-flex justify-content-center text-center">
+          <a
+            href="javascript:void(0)"
+            class="btn-white ut-ptt-load-more-btn min-w-lg-225 font-sm-14 min-w-sm-160 text-uppercase"
+            >Load More</a
+          >
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+<style>
+
+
+   .gradient-header-custom  .section-medium-title.section-title-large {
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+    font-size: 40px!important;
+    line-height: 45px;
+}
+    .gradient-header-custom  .section-medium-title.section-title-medium {
+    font-size: 36px;
+    line-height: 36px;
+        margin: 0 !important;
+}
+
+.gradient-header-custom  .section-medium-title.section-title-small {
+    font-size: 32px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+        margin: 0 !important;
+}
+  
+  @media screen and (max-width: 749px){
+    .gradient-header-custom  .section-medium-title.section-title-large {
+    font-size: 36px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.gradient-header-custom  .section-medium-title.section-title-small {
+    font-size: 30px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.gradient-header-custom  .section-medium-title.section-title-medium {
+    font-size: 34px;
+}
+.gradient-header-custom  .section-medium-title.section-title-medium {
+    font-size: 40px;
+}
+    .custom-position {
+      position: relative;
+    }
+    .custom-d-flex {
+      position: absolute;
+      right: 20px;
+      margin-top: unset !important;
+      bottom: 20px;
+    }
+    .custom-m-height-mobile {
+      min-height: unset;
+    }
+    .custom-margin-bottom {
+      margin-bottom: 12px;
+    }
+  }
+
+@media screen and (max-width: 449px){
+  .custom-in_progress {
+    display: unset;
+  }
+  .custom-min-w-sm-145 {
+    min-width: 125px;
+  }
+  .select-control-white select {
+     border-left: 16px solid transparent;
+    height: 46px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Ut Gradient Text Header",
+   "presets": [
+    {
+      "name": "Ut Gradient Text Header",
+      "category": "Ut Gradient Text Header"
+    }
+  ],
+  "settings": [
+     {
+		  "type":"text",
+		  "id":"heading",
+		  "label": "Heading Title"
+	  },
+    {
+    "type": "select",
+    "id": "heading-size",
+    "label": "Heading Size",
+    "options": [
+      {
+        "value": "h1",
+        "label": "Large"
+      },
+      {
+        "value": "h2",
+        "label": "Medium"
+      },
+      {
+        "value": "h3",
+        "label": "Small"
+      }
+    ],
+    "default": "h2"
+  }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+  let tour = 'UTR Pro Tennis Tour';
+  let eventState = 'open_registration';
+  let teamType = '';
+  let gender = '';
+  let region = '';
+
+  const date = new Date();
+  let dayToday = date.getDate();
+  let monthToday = date.getMonth() + 1;
+  let currentYear = date.getFullYear(); 
+
+  let range = '';
+  let range1 = 'eventSchedule.eventStartUtc<='+dayToday+'/'+monthToday+'/'+currentYear;
+  let range2 = 'eventSchedule.eventStartUtc>='+dayToday+'/'+monthToday+'/'+currentYear; 
+
+  let upcomingDateRange = [];
+  let searchQuery = '';
+  // let currentItem = 6;
+  let pttLoadMoreBtn = document.querySelector('.ut-ptt-load-more-btn');
+  let shareLink = document.querySelector('.share-link');  
+  let searchBtn = document.querySelector('.search-button-ptt-tour');  
+  let searchInputElement = document.querySelector('.search_input-ptt-tour');
+
+  //Set Drop Down for Upcoming Range
+  setUpcomingRangeOptions();
+  
+  //Fetch all events 
+  fetchEvents();
+
+  //Search Functionality
+  $('#search_input-ptt-tour').keypress(function (e) {                                       
+       if (e.which == 13) {
+         e.preventDefault();
+         
+         //do something    
+         searchQuery = document.getElementById('search_input-ptt-tour').value;
+         fetchEvents();
+
+       }
+  });  
+  
+  const inputHandler = function(e) {
+    searchQuery = e.target.value;
+    console.log(searchQuery);
+  }
+  searchInputElement.addEventListener('input', inputHandler);
+  
+  //Search Functionality
+  searchBtn.onclick = () => {
+    searchQuery = document.getElementById('search_input-ptt-tour').value;
+    fetchEvents();
+  }
+
+
+  //Share Functionality
+  function shareClicked() {
+  
+    console.log('shareClicked');
+    if (navigator.share) {
+      navigator.share({
+        title: 'WebShare API Demo',
+        url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      })
+      .catch(console.error);    
+    } else {
+      console.log('Browser not supporting Web Share!');
+    }
+
+  }
+  
+  // //Load More Functionality
+  // pttLoadMoreBtn.onclick = () => {
+  //   console.log("loadmore clicked");
+    
+  //   let boxes = [...document.querySelectorAll('.container-wrap .box-container')];
+            
+  //   for (var i = 0; i < boxes.length; i++) {
+  //     boxes[i].style.display = "inline-block";
+  //   }
+  
+  // }
+
+  // function displayLoadMore(isDisplay) {
+  //   if(isDisplay) {
+  //     pttLoadMoreBtn.style.display = "inline-block";
+  //   } else {
+  //     pttLoadMoreBtn.style.display = "none";
+  //   }
+  // }
+
+  //Filter by gender
+  document.getElementById("genderSelect").onchange = function() {selectGender()};
+
+  function selectGender() {
+    gender = document.getElementById("genderSelect").value;
+    fetchEvents();
+  }
+ 
+  //Filter by event state
+  document.getElementById("eventStateSelect").onchange = function() {selectEventState()};
+
+  function selectEventState() {
+    eventState = document.getElementById("eventStateSelect").value;
+    fetchEvents();
+  }
+
+  /* Comment | No Api available for team type select singles & doubles
+  //Filter by team type
+  document.getElementById("teamTypeSelect").onchange = function() {selectTeamType()};
+  function selectTeamType() {
+    teamType = document.getElementById("teamTypeSelect").value;
+    fetchEvents();
+  }
+  */
+  
+  //Filter by team type
+  document.getElementById("regionSelect").onchange = function() {selectRegion()};
+
+  function selectRegion() {
+    region = document.getElementById("regionSelect").value;
+    fetchEvents();
+  }
+
+  function selectRange() {
+    range = document.getElementById("rangeSelect").value;
+    const dateRange = range.split(' - ');
+const startDate = dateRange[0];
+const endDate = dateRange[1];
+    if (range) {
+      range1 = 'eventSchedule.eventStartUtc>='+ startDate;
+      range2 = 'eventSchedule.eventStartUtc<='+ endDate; 
+    }    
+
+    fetchEvents(); 
+  }
+
+  //Fetch Events 
+ function fetchEvents() {
+  document.getElementById("not_login_user").innerHTML = "Fetching....";
+
+   range = document.getElementById("rangeSelect").value;
+    const dateRange = range.split(' - ');
+const startDate = dateRange[0];
+const endDate = dateRange[1];
+      
+  let i = 0;
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  const maleApiUrl = 'https://api.utrsports.net/v2/search/events?tours=' + tour + '&eventState=' + eventState + '&top=250&skip=0' + (searchQuery != "" ? '&query=' + searchQuery : "") + '&gender=M' + (teamType != "" ? '&teamType=' + teamType : "") + (range != "" ? '&range=' + 'eventSchedule.eventStartUtc>='+ startDate + '&range=' + 'eventSchedule.eventStartUtc<='+ endDate : "");
+  const femaleApiUrl = 'https://api.utrsports.net/v2/search/events?tours=' + tour + '&eventState=' + eventState + '&top=250&skip=0' + (searchQuery != "" ? '&query=' + searchQuery : "") + '&gender=F' + (teamType != "" ? '&teamType=' + teamType : "") + (range != "" ? '&range=' + 'eventSchedule.eventStartUtc>='+ startDate + '&range=' + 'eventSchedule.eventStartUtc<='+ endDate : ""); 
+
+  // Function to fetch data from an API
+  const fetchData = (url, params) => {
+    return fetch(url, { method: "GET", body: JSON.stringify(params), redirect: "follow" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => data.hits)
+      .catch((error) => {
+        console.error("Error:", error);
+        return null;
+      });
+  };
+  // Fetch data from the male and female APIs
+  const malePromise = fetchData(maleApiUrl);
+  const femalePromise = fetchData(femaleApiUrl);
+
+  // Use Promise.all to combine responses when both are available
+  Promise.all([malePromise, femalePromise])
+    .then(([maleData, femaleData]) => {
+      if (maleData && femaleData) {
+        // Merge the data arrays into a single array
+        let combinedData = []
+        if(gender === 'm') {
+           combinedData = [...maleData];
+        } else if (gender === "f"){
+           combinedData = [ ...femaleData];
+        } else {
+         
+         combinedData = [...maleData, ...femaleData];
+        }
+                const sortedData = combinedData.sort((maleData, femaleData) => {
+  const dateA = new Date(maleData.source.eventSchedule.eventStartUtc);
+  const dateB = new Date(femaleData.source.eventSchedule.eventStartUtc);                  
+ 
+  return dateA - dateB;
+});
+
+        let data = "";
+        const eventsByMonth = {};
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+
+        console.log("the sortedData", sortedData)
+
+sortedData.forEach((values) => {
+  const eventStartDate = new Date(values.source.eventSchedule.eventStartUtc);
+  const eventStartMonth = monthNames[eventStartDate.getMonth()]; 
+  const eventStartYear = values.source.eventSchedule.eventStartYear;
+  const eventmonthandyear = `${eventStartMonth}  ${eventStartYear}`; // Use backticks here
+
+  if (!eventsByMonth[eventmonthandyear]) {
+    eventsByMonth[eventmonthandyear] = [];
+  }
+
+    eventsByMonth[eventmonthandyear].push(values);
+
+});
+
+  for (const month in eventsByMonth) {
+  // Create an HTML element to represent the month
+  data += `<h3 class="month-title text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160 mb-0 custom-margin-bottom" style="color: #fff;">${month}</h3>`;
+
+  data += '<div class="grid container-wrap grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-2 pb-lg-2 clear-both">';
+
+       
+  // Iterate over the events in this month
+  eventsByMonth[month].forEach((values) => {
+      
+  var id = values.source.id;
+  var name = values.source.name;
+  var club = values.source.club.name;
+    // Kiểm tra xem eventLocations có phần tử hay không
+  var location = (values.source.eventLocations && values.source.eventLocations.length > 0)
+    ? values.source.eventLocations[0].display
+    : 'undefined';  // Gán 'undefined' nếu eventLocations rỗng
+
+  var eventStartDate = values.source.eventSchedule.eventStartDate;
+  var eventEndDate = values.source.eventSchedule.eventEndDate;
+  var eventStartMonth = values.source.eventSchedule.eventStartMonth;
+  var eventEndMonth = values.source.eventSchedule.eventEndMonth;
+  var eventRegStateValue = values.source.eventState.value;
+  var eventIsInProgress = false;
+  var eventRegButtonTitle = 'View';
+  var gender = values.source.gender;
+  var outdoor = values.source.eventDivisions && values.source.eventDivisions[0].environments.length > 0 ? values.source.eventDivisions[0].environments[0].label : '';
+  var hard = values.source.eventDivisions && values.source.eventDivisions[0].surfaces.length > 0 ? values.source.eventDivisions[0].surfaces[0].label : '';
+
+  if (eventRegStateValue == 'open_registration') {
+    eventRegButtonTitle = 'Register';
+  }
+
+  if (eventRegStateValue == 'in_progress') {
+    eventIsInProgress = true;
+  }
+  if (region) {
+    if (club.includes(region)) {
+      data += '<div class="grid__item box-container"><div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3 custom-m-height-mobile"><div class="custom-position feature-card-box fs-p-2"><div class="d-flex justify-content-between mb-1"><div><h4 class="fs-sm-14">' + name + '</h4><p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0">' + club + '</p></div>';
+      if (eventIsInProgress) {
+        data += '<a href="https://www.amazon.com/gp/video/storefront/ref=atv_me_pvs_c_hvqwaq_11_smr?contentType=tournament&contentId=amzn1.dv.icid.a7897353-fd02-4669-b996-4866f0c19710" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/prime-video.png?v=1673424280" width="36" height="36"></a>';
+      }
+      data += '</div> <div class="d-flex align-items-center contact-icon"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.00039 13.5812C6.37907 13.5812 7.85934 12.4999 9.0389 11.1583C10.6113 9.37123 11.5691 7.3766 11.5691 5.4812C11.5691 2.48116 9.1037 0.418701 6.00039 0.418701C2.89708 0.418701 0.431641 2.48116 0.431641 5.4812C0.431641 7.3847 1.38947 9.37933 2.96188 11.1644C4.14043 12.5029 5.6207 13.5812 6.00039 13.5812ZM6.00039 8.9237C5.14109 8.9237 4.31698 8.58235 3.70936 7.97473C3.10175 7.36711 2.76039 6.543 2.76039 5.6837C2.76039 4.8244 3.10175 4.00029 3.70936 3.39268C4.31698 2.78506 5.14109 2.4437 6.00039 2.4437C6.85969 2.4437 7.6838 2.78506 8.29142 3.39268C8.89903 4.00029 9.24039 4.8244 9.24039 5.6837C9.24039 6.543 8.89903 7.36711 8.29142 7.97473C7.6838 8.58235 6.85969 8.9237 6.00039 8.9237Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + location + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.35007 15.6425C3.98471 15.6425 3.67183 15.5125 3.41142 15.2526C3.15146 14.9922 3.02148 14.6793 3.02148 14.3139V5.01385C3.02148 4.64849 3.15146 4.33583 3.41142 4.07587C3.67183 3.81547 3.98471 3.68527 4.35007 3.68527H5.01436V2.35669H6.34294V3.68527H11.6573V2.35669H12.9859V3.68527H13.6501C14.0155 3.68527 14.3284 3.81547 14.5888 4.07587C14.8487 4.33583 14.9787 4.64849 14.9787 5.01385V14.3139C14.9787 14.6793 14.8487 14.9922 14.5888 15.2526C14.3284 15.5125 14.0155 15.6425 13.6501 15.6425H4.35007ZM4.35007 14.3139H13.6501V7.67102H4.35007V14.3139ZM6.34203 13.0078C6.15381 13.0078 5.99593 12.944 5.86839 12.8165C5.74129 12.6894 5.67773 12.5317 5.67773 12.3435C5.67773 12.1553 5.74129 11.9974 5.86839 11.8699C5.99593 11.7427 6.15381 11.6792 6.34203 11.6792C6.53024 11.6792 6.68812 11.7427 6.81567 11.8699C6.94277 11.9974 7.00632 12.1553 7.00632 12.3435C7.00632 12.5317 6.94277 12.6894 6.81567 12.8165C6.68812 12.944 6.53024 13.0078 6.34203 13.0078ZM8.99919 13.0078C8.81097 13.0078 8.65332 12.944 8.52621 12.8165C8.39867 12.6894 8.3349 12.5317 8.3349 12.3435C8.3349 12.1553 8.39867 11.9974 8.52621 11.8699C8.65332 11.7427 8.81097 11.6792 8.99919 11.6792C9.18741 11.6792 9.34529 11.7427 9.47283 11.8699C9.59993 11.9974 9.66348 12.1553 9.66348 12.3435C9.66348 12.5317 9.59993 12.6894 9.47283 12.8165C9.34529 12.944 9.18741 13.0078 8.99919 13.0078ZM11.6564 13.0078C11.4681 13.0078 11.3105 12.944 11.1834 12.8165C11.0558 12.6894 10.9921 12.5317 10.9921 12.3435C10.9921 12.1553 11.0558 11.9974 11.1834 11.8699C11.3105 11.7427 11.4681 11.6792 11.6564 11.6792C11.8446 11.6792 12.0022 11.7427 12.1293 11.8699C12.2569 11.9974 12.3206 12.1553 12.3206 12.3435C12.3206 12.5317 12.2569 12.6894 12.1293 12.8165C12.0022 12.944 11.8446 13.0078 11.6564 13.0078ZM5.86839 10.137C5.99593 10.2646 6.15381 10.3283 6.34203 10.3283C6.53024 10.3283 6.68812 10.2646 6.81567 10.137C6.94277 10.0099 7.00632 9.85226 7.00632 9.66405C7.00632 9.47583 6.94277 9.31795 6.81567 9.19041C6.68812 9.06331 6.53024 8.99976 6.34203 8.99976C6.15381 8.99976 5.99593 9.06331 5.86839 9.19041C5.74129 9.31795 5.67773 9.47583 5.67773 9.66405C5.67773 9.85226 5.74129 10.0099 5.86839 10.137ZM8.52621 10.137C8.65332 10.2646 8.81097 10.3283 8.99919 10.3283C9.18741 10.3283 9.34529 10.2646 9.47283 10.137C9.59993 10.0099 9.66348 9.85226 9.66348 9.66405C9.66348 9.47583 9.59993 9.31795 9.47283 9.19041C9.34529 9.06331 9.18741 8.99976 8.99919 8.99976C8.81097 8.99976 8.65332 9.06331 8.52621 9.19041C8.39867 9.31795 8.3349 9.47583 8.3349 9.66405C8.3349 9.85226 8.39867 10.0099 8.52621 10.137ZM11.1834 10.137C11.3105 10.2646 11.4681 10.3283 11.6564 10.3283C11.8446 10.3283 12.0022 10.2646 12.1293 10.137C12.2569 10.0099 12.3206 9.85226 12.3206 9.66405C12.3206 9.47583 12.2569 9.31795 12.1293 9.19041C12.0022 9.06331 11.8446 8.99976 11.6564 8.99976C11.4681 8.99976 11.3105 9.06331 11.1834 9.19041C11.0558 9.31795 10.9921 9.47583 10.9921 9.66405C10.9921 9.85226 11.0558 10.0099 11.1834 10.137Z" fill="black"></path></svg><span class=" font-lg-13 font-sm-13 gotham-medium">' + eventStartMonth + ' ' + eventStartDate + ' - ' + eventEndMonth + ' ' + eventEndDate + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.68068 10.0835C7.26379 10.8023 7.80656 11.4698 8.364 12.1519C8.64272 11.6825 8.64638 11.6128 8.47768 10.5309H9.42386V12.0895C9.48988 12.1152 9.55589 12.1372 9.6219 12.1629C10.1097 11.5578 10.6194 10.9673 11.0705 10.3365C11.2282 10.1202 11.3492 10.0505 11.5949 10.1055C11.7783 10.1458 11.9727 10.1422 12.1634 10.1458C13.3039 10.1788 14.0924 10.729 14.5912 11.7448C15.376 13.3474 15.0679 14.0809 13.3443 14.5687C11.7453 15.0198 10.0987 15.1078 8.45935 15.0234C7.1611 14.9537 5.85186 14.8181 4.59029 14.532C2.95464 14.1616 2.65392 13.3731 3.35439 11.8475C3.85681 10.7546 4.6783 10.1642 5.89587 10.1385C6.17458 10.1312 6.44964 10.0982 6.68435 10.0835H6.68068Z" fill="black"></path><path d="M8.99523 2.25C10.8802 2.25 12.0318 3.39055 12.0685 5.27924C12.0721 5.47361 12.1418 5.66798 12.1932 5.85868C12.3399 6.37944 12.2628 6.87454 11.9951 7.33662C11.8448 7.60067 11.6981 7.86839 11.5184 8.11044C11.1663 8.59086 10.8546 9.12263 10.4218 9.5187C9.53433 10.3402 8.4928 10.3219 7.56862 9.53337C7.31558 9.317 7.0772 9.06395 6.89383 8.7889C6.54543 8.2718 6.20437 7.7437 5.92565 7.18626C5.69827 6.72418 5.60292 6.22908 5.8743 5.71199C5.97332 5.52128 5.92565 5.25723 5.94398 5.02619C6.11268 3.24385 7.20556 2.25 8.99523 2.25ZM8.99523 9.65439C9.36196 9.49303 9.76537 9.42335 9.99641 9.18864C10.4365 8.73756 10.7776 8.18745 11.159 7.67769C11.2433 7.56767 11.2947 7.42464 11.401 7.34029C11.8154 6.99923 11.8521 6.46379 11.4744 6.05672C11.4267 6.00537 11.412 5.92836 11.3863 5.86235C11.137 5.23156 10.4622 4.91984 9.76537 4.99685C9.20793 5.05553 8.62482 5.04453 8.07105 4.95284C7.34125 4.83182 6.97818 4.96384 6.68112 5.64964C6.62245 5.78167 6.59677 5.94303 6.50876 6.04571C6.20437 6.39778 6.17869 6.90754 6.45008 7.23761C6.63711 7.46498 6.78381 7.7217 6.96351 7.95641C7.28257 8.37082 7.57229 8.81824 7.95736 9.16297C8.22141 9.40135 8.62116 9.4857 8.99523 9.65439Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + outdoor + ' | ' + hard + '</span></div><div class="custom-d-flex d-flex justify-content-center align-items-center mt-4"><a href="https://app.utrsports.net/events/' + '' + id + '" target="_blank" class="custom-min-w-sm-145 btn-black-sm btn-outline-black justify-content-center text-center min-w-160 btn-xs-1 min-w-sm-145 font-lg-16 font-sm-14 text-uppercase">' + eventRegButtonTitle + '</a> </div></div></div></div>';
+      
+      
+    }
+  } else {
+    data += '<div class="grid__item box-container"><div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3 custom-m-height-mobile"><div class="custom-position feature-card-box fs-p-2"><div class="d-flex justify-content-between mb-1"><div><h4 class="fs-sm-14">' + name + '</h4><p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0">' + club + '</p></div>';
+    if (eventIsInProgress) {
+      data += '<a href="https://www.amazon.com/gp/video/storefront/ref=atv_me_pvs_c_hvqwaq_11_smr?contentType=tournament&contentId=amzn1.dv.icid.a7897353-fd02-4669-b996-4866f0c19710" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/prime-video.png?v=1673424280" width="36" height="36"></a>';
+    }
+    data += '</div> <div class="d-flex align-items-center contact-icon"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.00039 13.5812C6.37907 13.5812 7.85934 12.4999 9.0389 11.1583C10.6113 9.37123 11.5691 7.3766 11.5691 5.4812C11.5691 2.48116 9.1037 0.418701 6.00039 0.418701C2.89708 0.418701 0.431641 2.48116 0.431641 5.4812C0.431641 7.3847 1.38947 9.37933 2.96188 11.1644C4.14043 12.5029 5.6207 13.5812 6.00039 13.5812ZM6.00039 8.9237C5.14109 8.9237 4.31698 8.58235 3.70936 7.97473C3.10175 7.36711 2.76039 6.543 2.76039 5.6837C2.76039 4.8244 3.10175 4.00029 3.70936 3.39268C4.31698 2.78506 5.14109 2.4437 6.00039 2.4437C6.85969 2.4437 7.6838 2.78506 8.29142 3.39268C8.89903 4.00029 9.24039 4.8244 9.24039 5.6837C9.24039 6.543 8.89903 7.36711 8.29142 7.97473C7.6838 8.58235 6.85969 8.9237 6.00039 8.9237Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + location + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.35007 15.6425C3.98471 15.6425 3.67183 15.5125 3.41142 15.2526C3.15146 14.9922 3.02148 14.6793 3.02148 14.3139V5.01385C3.02148 4.64849 3.15146 4.33583 3.41142 4.07587C3.67183 3.81547 3.98471 3.68527 4.35007 3.68527H5.01436V2.35669H6.34294V3.68527H11.6573V2.35669H12.9859V3.68527H13.6501C14.0155 3.68527 14.3284 3.81547 14.5888 4.07587C14.8487 4.33583 14.9787 4.64849 14.9787 5.01385V14.3139C14.9787 14.6793 14.8487 14.9922 14.5888 15.2526C14.3284 15.5125 14.0155 15.6425 13.6501 15.6425H4.35007ZM4.35007 14.3139H13.6501V7.67102H4.35007V14.3139ZM6.34203 13.0078C6.15381 13.0078 5.99593 12.944 5.86839 12.8165C5.74129 12.6894 5.67773 12.5317 5.67773 12.3435C5.67773 12.1553 5.74129 11.9974 5.86839 11.8699C5.99593 11.7427 6.15381 11.6792 6.34203 11.6792C6.53024 11.6792 6.68812 11.7427 6.81567 11.8699C6.94277 11.9974 7.00632 12.1553 7.00632 12.3435C7.00632 12.5317 6.94277 12.6894 6.81567 12.8165C6.68812 12.944 6.53024 13.0078 6.34203 13.0078ZM8.99919 13.0078C8.81097 13.0078 8.65332 12.944 8.52621 12.8165C8.39867 12.6894 8.3349 12.5317 8.3349 12.3435C8.3349 12.1553 8.39867 11.9974 8.52621 11.8699C8.65332 11.7427 8.81097 11.6792 8.99919 11.6792C9.18741 11.6792 9.34529 11.7427 9.47283 11.8699C9.59993 11.9974 9.66348 12.1553 9.66348 12.3435C9.66348 12.5317 9.59993 12.6894 9.47283 12.8165C9.34529 12.944 9.18741 13.0078 8.99919 13.0078ZM11.6564 13.0078C11.4681 13.0078 11.3105 12.944 11.1834 12.8165C11.0558 12.6894 10.9921 12.5317 10.9921 12.3435C10.9921 12.1553 11.0558 11.9974 11.1834 11.8699C11.3105 11.7427 11.4681 11.6792 11.6564 11.6792C11.8446 11.6792 12.0022 11.7427 12.1293 11.8699C12.2569 11.9974 12.3206 12.1553 12.3206 12.3435C12.3206 12.5317 12.2569 12.6894 12.1293 12.8165C12.0022 12.944 11.8446 13.0078 11.6564 13.0078ZM5.86839 10.137C5.99593 10.2646 6.15381 10.3283 6.34203 10.3283C6.53024 10.3283 6.68812 10.2646 6.81567 10.137C6.94277 10.0099 7.00632 9.85226 7.00632 9.66405C7.00632 9.47583 6.94277 9.31795 6.81567 9.19041C6.68812 9.06331 6.53024 8.99976 6.34203 8.99976C6.15381 8.99976 5.99593 9.06331 5.86839 9.19041C5.74129 9.31795 5.67773 9.47583 5.67773 9.66405C5.67773 9.85226 5.74129 10.0099 5.86839 10.137ZM8.52621 10.137C8.65332 10.2646 8.81097 10.3283 8.99919 10.3283C9.18741 10.3283 9.34529 10.2646 9.47283 10.137C9.59993 10.0099 9.66348 9.85226 9.66348 9.66405C9.66348 9.47583 9.59993 9.31795 9.47283 9.19041C9.34529 9.06331 9.18741 8.99976 8.99919 8.99976C8.81097 8.99976 8.65332 9.06331 8.52621 9.19041C8.39867 9.31795 8.3349 9.47583 8.3349 9.66405C8.3349 9.85226 8.39867 10.0099 8.52621 10.137ZM11.1834 10.137C11.3105 10.2646 11.4681 10.3283 11.6564 10.3283C11.8446 10.3283 12.0022 10.2646 12.1293 10.137C12.2569 10.0099 12.3206 9.85226 12.3206 9.66405C12.3206 9.47583 12.2569 9.31795 12.1293 9.19041C12.0022 9.06331 11.8446 8.99976 11.6564 8.99976C11.4681 8.99976 11.3105 9.06331 11.1834 9.19041C11.0558 9.31795 10.9921 9.47583 10.9921 9.66405C10.9921 9.85226 11.0558 10.0099 11.1834 10.137Z" fill="black"></path></svg><span class=" font-lg-13 font-sm-13 gotham-medium">' + eventStartMonth + ' ' + eventStartDate + ' - ' + eventEndMonth + ' ' + eventEndDate + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.68068 10.0835C7.26379 10.8023 7.80656 11.4698 8.364 12.1519C8.64272 11.6825 8.64638 11.6128 8.47768 10.5309H9.42386V12.0895C9.48988 12.1152 9.55589 12.1372 9.6219 12.1629C10.1097 11.5578 10.6194 10.9673 11.0705 10.3365C11.2282 10.1202 11.3492 10.0505 11.5949 10.1055C11.7783 10.1458 11.9727 10.1422 12.1634 10.1458C13.3039 10.1788 14.0924 10.729 14.5912 11.7448C15.376 13.3474 15.0679 14.0809 13.3443 14.5687C11.7453 15.0198 10.0987 15.1078 8.45935 15.0234C7.1611 14.9537 5.85186 14.8181 4.59029 14.532C2.95464 14.1616 2.65392 13.3731 3.35439 11.8475C3.85681 10.7546 4.6783 10.1642 5.89587 10.1385C6.17458 10.1312 6.44964 10.0982 6.68435 10.0835H6.68068Z" fill="black"></path><path d="M8.99523 2.25C10.8802 2.25 12.0318 3.39055 12.0685 5.27924C12.0721 5.47361 12.1418 5.66798 12.1932 5.85868C12.3399 6.37944 12.2628 6.87454 11.9951 7.33662C11.8448 7.60067 11.6981 7.86839 11.5184 8.11044C11.1663 8.59086 10.8546 9.12263 10.4218 9.5187C9.53433 10.3402 8.4928 10.3219 7.56862 9.53337C7.31558 9.317 7.0772 9.06395 6.89383 8.7889C6.54543 8.2718 6.20437 7.7437 5.92565 7.18626C5.69827 6.72418 5.60292 6.22908 5.8743 5.71199C5.97332 5.52128 5.92565 5.25723 5.94398 5.02619C6.11268 3.24385 7.20556 2.25 8.99523 2.25ZM8.99523 9.65439C9.36196 9.49303 9.76537 9.42335 9.99641 9.18864C10.4365 8.73756 10.7776 8.18745 11.159 7.67769C11.2433 7.56767 11.2947 7.42464 11.401 7.34029C11.8154 6.99923 11.8521 6.46379 11.4744 6.05672C11.4267 6.00537 11.412 5.92836 11.3863 5.86235C11.137 5.23156 10.4622 4.91984 9.76537 4.99685C9.20793 5.05553 8.62482 5.04453 8.07105 4.95284C7.34125 4.83182 6.97818 4.96384 6.68112 5.64964C6.62245 5.78167 6.59677 5.94303 6.50876 6.04571C6.20437 6.39778 6.17869 6.90754 6.45008 7.23761C6.63711 7.46498 6.78381 7.7217 6.96351 7.95641C7.28257 8.37082 7.57229 8.81824 7.95736 9.16297C8.22141 9.40135 8.62116 9.4857 8.99523 9.65439Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + outdoor + ' | ' + hard + '</span></div><div class="custom-d-flex d-flex justify-content-center align-items-center mt-4"><a href="https://app.utrsports.net/events/' + '' + id + '" target="_blank" class="custom-min-w-sm-145 btn-black-sm btn-outline-black justify-content-center text-center min-w-160 btn-xs-1 min-w-sm-145 font-lg-16 font-sm-14 text-uppercase">' + eventRegButtonTitle + '</a> </div></div></div></div>';
+    
+  }
+        });
+  data += '</div>';
+    
+}
+          document.getElementById("not_login_user").innerHTML = data;
+ 
+      } else {
+        console.log("One of the API requests failed.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+  
+  //Helper functions
+ 
+  function getMonthNumberFromName(monthName) {
+    var currentYear = new Date().getFullYear();
+    return new Date(`${monthName} 1, ${currentYear}`).getMonth() + 1;
+  }
+
+
+  document.getElementById("rangeDateTypeSelect").onchange = function() { 
+  let theDateType = document.getElementById("rangeDateTypeSelect");
+  let rangeSelectDiv = document.getElementById("rangeDateMonthYearSelect");
+   let theInput = document.getElementById("rangeSelect");
+
+    let selectedMonthValue = {
+  start: null,
+  end: null,
+};
+    
+    let selectedYearValue = ''
+
+  if (theDateType.value === "1") {
+    
+    // Clear the existing content in the #rangeSelectDiv
+    rangeSelectDiv.innerHTML = "";
+    
+// Create a dropdown for months with current month selected
+let currentMonth = new Date().getMonth();
+let monthDropdown = document.createElement("select");
+monthDropdown.classList.add("text-uppercase", "gotham-medium", "fst-italic", "font-sm-12", "min-w-lg-180", "min-w-sm-160");
+for (let i = 1; i <= 12; i++) { // Start from 1 for month
+  let option = document.createElement("option");
+  option.value = i;
+  option.text = new Date(0, i - 1).toLocaleString('default', { month: 'long' });
+  if (i === currentMonth + 1) {
+    option.selected = true;
+    selectedMonthValue = i;
+  }
+  monthDropdown.appendChild(option);
+}
+
+// Add an onchange event to the month dropdown
+monthDropdown.addEventListener("change", function () {
+  selectedMonthValue = parseInt(monthDropdown.value);
+  updateTheInputValue();
+});
+    
+
+// Create a dropdown for years with current year and the next 2 years
+let currentYear = new Date().getFullYear();
+let yearDropdown = document.createElement("select");
+yearDropdown.classList.add("text-uppercase", "gotham-medium", "fst-italic", "font-sm-12", "min-w-lg-180", "min-w-sm-160");
+yearDropdown.id = "yearSelect";
+for (let i = currentYear - 2; i <= currentYear + 1; i++) {
+  let option = document.createElement("option");
+  option.value = i;
+  option.text = i;
+  if (i === currentYear) {
+    option.selected = true;
+    selectedYearValue = i;
+  }
+  yearDropdown.appendChild(option);
+}
+
+// Add an onchange event to the year dropdown
+yearDropdown.addEventListener("change", function () {
+  selectedYearValue = parseInt(yearDropdown.value);
+  updateTheInputValue();
+});
+
+// Append the month and year dropdowns to #rangeSelectDiv
+rangeSelectDiv.appendChild(monthDropdown);
+rangeSelectDiv.appendChild(yearDropdown);
+
+// Call a function to update the input value initially
+updateTheInputValue();
+    
+
+  function updateTheInputValue() {
+  const firstDate = new Date(selectedYearValue, selectedMonthValue - 1, 1);
+  const lastDate = new Date(selectedYearValue, selectedMonthValue, 0);
+
+  const formattedFirstDate = `${(firstDate.getMonth() + 1).toString().padStart(2, '0')}/${firstDate.getDate().toString().padStart(2, '0')}/${firstDate.getFullYear()}`;
+  const formattedLastDate = `${(lastDate.getMonth() + 1).toString().padStart(2, '0')}/${lastDate.getDate().toString().padStart(2, '0')}/${lastDate.getFullYear()}`;
+
+  theInput.value = `${formattedFirstDate} - ${formattedLastDate}`;
+  selectRange();
+}
+  
+  } else {
+    // Clear the content if "theDateType" is not 1
+    document.getElementById("rangeSelect").value = ""
+    rangeSelectDiv.innerHTML = "";
+    fetchEvents();
+  }
+};
+  
+
+  function setUpcomingRangeOptions(){
+    
+    let no_of_months = 12;
+    let rangeElementHTML = '<input type="hidden" class="text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160" value="" id="rangeSelect" />';
+    
+    document.getElementById("rangeSelectDiv").innerHTML = rangeElementHTML;
+
+    //Filter by team type
+    document.getElementById("rangeSelect").onchange = function() {selectRange()};
+
+  }
+   
+  // var getDaysInMonth = function(month,year) {
+  //   // Here January is 1 based
+  //   //Day 0 is the last day in the previous month
+  //  return new Date(year, month, 0).getDate();
+  // // Here January is 0 based
+  // // return new Date(year, month+1, 0).getDate();
+  // };
+
+   // Custom button Event in progress 
+  
+  const eventStateSelect = document.getElementById('eventStateSelect');
+const buttonGender = document.getElementById("genderSelect");
+const buttonRegion = document.getElementById("regionSelect");
+
+function checkInProgress() {
+    const eventStateValue = eventStateSelect.value;
+    const selectedGender = buttonGender.value;
+    const selectedRegion = buttonRegion.value;
+    let genderFilter;
+
+    if (selectedGender === 'm') {
+        genderFilter = 'Men';
+    } else if (selectedGender === 'f') {
+        genderFilter = 'Women'; 
+    } else {
+        genderFilter = '';
+    }
+
+    if (eventStateValue === 'in_progress') {
+        const urlUpComing = 'https://api.utrsports.net/v2/search/proTennisTour?top=40&skip=0&utrType=verified&utrTeamType=doubles&searchOrigin=searchPage'; 
+        const urlInProgress = 'https://api.utrsports.net/v2/search/proTennisTour?top=40&skip=0&utrType=verified&utrTeamType=doubles&sort=eventSchedule.eventStartUtc%3Adesc&showInProgressEvents=true&searchOrigin=searchPage';
+
+        Promise.all([
+            fetch(urlUpComing).then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+                return response.json();
+            }),
+            fetch(urlInProgress).then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+                return response.json();
+            })
+        ])
+        .then(results => {
+            const [dataUpComing, dataInProgress] = results;
+            const filteredDataInProgress = dataInProgress.hits.filter(hit => {
+                const clubName = hit.source.club.name;
+                const clubRegion = clubName.split(' - ')[1];
+                const isGenderMatch = !genderFilter || hit.source.gender === genderFilter;
+                const isRegionMatch = !selectedRegion || clubRegion === selectedRegion;
+                return isGenderMatch && isRegionMatch;
+            });
+
+            const filteredDataUpComing = dataUpComing.hits.filter(hit => {
+                const clubName = hit.source.club.name;
+                const clubRegion = clubName.split(' - ')[1];
+                const isGenderMatch = !genderFilter || hit.source.gender === genderFilter;
+                const isRegionMatch = !selectedRegion || clubRegion === selectedRegion;
+                return isGenderMatch && isRegionMatch;
+            });
+
+            const combinedData = { upComing: filteredDataUpComing, inProgress: filteredDataInProgress };
+            const customHtml = updateHtml(combinedData);
+            document.getElementById("not_login_user").innerHTML = customHtml;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        window.location.hash = 'inprogress';
+        $('.custom-in_progress').hide();
+
+    } else if (eventStateValue === "") {
+        const urlInProgress = 'https://api.utrsports.net/v2/search/proTennisTour?top=40&skip=0&utrType=verified&utrTeamType=doubles&sort=eventSchedule.eventStartUtc%3Adesc&showInProgressEvents=true&searchOrigin=searchPage';
+        setTimeout(function() {
+            fetch(urlInProgress)
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error(response.status);
+                  }
+                  return response.json();
+              })
+              .then(dataInProgress => {
+                  const filteredDataInProgress = dataInProgress.hits.filter(hit => {
+                      const clubName = hit.source.club.name;
+                      const clubRegion = clubName.split(' - ')[1];
+                      const isGenderMatch = !genderFilter || hit.source.gender === genderFilter;
+                      const isRegionMatch = !selectedRegion || clubRegion === selectedRegion;
+                      return isGenderMatch && isRegionMatch;
+                  });
+                  
+                  const customHtml = updateHtml({ inProgress: filteredDataInProgress, upComing: [] });
+                  const existingContent = document.getElementById("not_login_user").innerHTML;
+                  document.getElementById("not_login_user").innerHTML = customHtml + existingContent;
+              })
+              .catch(error => {
+                  console.error(error);
+              });
+        }, 2000);
+
+        window.location.hash = 'all';
+        $('.custom-in_progress').show();
+        $('#rangeDateTypeSelect').show();
+    } else if (eventStateValue === 'open_registration') {
+        window.location.hash = 'openregistration';
+        $('.custom-in_progress').show();
+        $('#rangeDateTypeSelect').show();
+    } else if (eventStateValue === 'registration_closed') {
+        window.location.hash = 'registrationclosed';
+        $('.custom-in_progress').show();
+        $('#rangeDateTypeSelect').hide();
+    } else if (eventStateValue === 'completed') {
+        window.location.hash = 'completed';
+        $('.custom-in_progress').show();
+        $('#rangeDateTypeSelect').show();
+    }
+}
+  
+window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    eventStateSelect.value = 'open_registration';
+    if (hash === '#completed') {
+        $('#rangeDateTypeSelect').val('1').change();
+        $('#eventStateSelect').val('completed').change();
+    } else if (hash === '#registrationclosed') {
+        $('#eventStateSelect').val('registration_closed').change();
+    } else if (hash === '#inprogress') {
+        $('#eventStateSelect').val('in_progress').change();
+    } else if (hash === '#openregistration') {
+        $('#eventStateSelect').val('open_registration').change();
+    } else if (hash === '') {
+        $('#eventStateSelect').val('open_registration').change();
+    } else if (hash === '#all') {
+        $('#eventStateSelect').val('').change();
+    }
+
+    checkInProgress();
+});
+
+eventStateSelect.addEventListener('change', checkInProgress);
+buttonGender.addEventListener('change', checkInProgress);
+buttonRegion.addEventListener('change', checkInProgress);
+
+
+
+  
+  function updateHtml(data) {
+    let customHtml = '';
+    let dataUpComing = data.upComing || [];
+    let dataInProgress = data.inProgress || [];
+    if (dataInProgress.length > 0) {
+        customHtml += '<h3 class="month-title text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160 mb-0 custom-margin-bottom" style="color: #fff;">In Progress</h3>';
+        customHtml += '<div class="grid container-wrap grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-2 pb-lg-2 clear-both">';
+        
+        dataInProgress.forEach(dataHits => {
+            let customName = dataHits.source.name;
+            let customId = dataHits.source.id;
+            let customClub = dataHits.source.club.name;
+            let customLocation = dataHits.source.eventLocations[0].display;
+            let customEventStartDate = dataHits.source.eventSchedule.eventStartDate;
+            let customEventEndDate = dataHits.source.eventSchedule.eventEndDate;
+            let customEventStartMonth = dataHits.source.eventSchedule.eventStartMonth;
+            let customEventEndMonth = dataHits.source.eventSchedule.eventEndMonth;
+            let customOutdoor = dataHits.source.eventDivisions && dataHits.source.eventDivisions[0].environments.length > 0 ? dataHits.source.eventDivisions[0].environments[0].label : '';
+            let customHard = dataHits.source.eventDivisions && dataHits.source.eventDivisions[0].surfaces.length > 0 ? dataHits.source.eventDivisions[0].surfaces[0].label : '';
+            let customEventRegButtonTitle = 'View';
+
+            customHtml += '<div class="grid__item box-container"><div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3 custom-m-height-mobile"><div class="custom-position feature-card-box fs-p-2"><div class="d-flex justify-content-between mb-1"><div><h4 class="fs-sm-14">' + customName + '</h4><p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0">' + customClub + '</p></div>';
+            customHtml += '<a href="https://www.amazon.com/gp/video/storefront/ref=atv_me_pvs_c_hvqwaq_11_smr?contentType=tournament&contentId=amzn1.dv.icid.a7897353-fd02-4669-b996-4866f0c19710" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/prime-video.png?v=1673424280" width="36" height="36"></a>';
+            customHtml += '</div> <div class="d-flex align-items-center contact-icon"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.00039 13.5812C6.37907 13.5812 7.85934 12.4999 9.0389 11.1583C10.6113 9.37123 11.5691 7.3766 11.5691 5.4812C11.5691 2.48116 9.1037 0.418701 6.00039 0.418701C2.89708 0.418701 0.431641 2.48116 0.431641 5.4812C0.431641 7.3847 1.38947 9.37933 2.96188 11.1644C4.14043 12.5029 5.6207 13.5812 6.00039 13.5812ZM6.00039 8.9237C5.14109 8.9237 4.31698 8.58235 3.70936 7.97473C3.10175 7.36711 2.76039 6.543 2.76039 5.6837C2.76039 4.8244 3.10175 4.00029 3.70936 3.39268C4.31698 2.78506 5.14109 2.4437 6.00039 2.4437C6.85969 2.4437 7.6838 2.78506 8.29142 3.39268C8.89903 4.00029 9.24039 4.8244 9.24039 5.6837C9.24039 6.543 8.89903 7.36711 8.29142 7.97473C7.6838 8.58235 6.85969 8.9237 6.00039 8.9237Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + customLocation + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.35007 15.6425C3.98471 15.6425 3.67183 15.5125 3.41142 15.2526C3.15146 14.9922 3.02148 14.6793 3.02148 14.3139V5.01385C3.02148 4.64849 3.15146 4.33583 3.41142 4.07587C3.67183 3.81547 3.98471 3.68527 4.35007 3.68527H5.01436V2.35669H6.34294V3.68527H11.6573V2.35669H12.9859V3.68527H13.6501C14.0155 3.68527 14.3284 3.81547 14.5888 4.07587C14.8487 4.33583 14.9787 4.64849 14.9787 5.01385V14.3139C14.9787 14.6793 14.8487 14.9922 14.5888 15.2526C14.3284 15.5125 14.0155 15.6425 13.6501 15.6425H4.35007ZM4.35007 14.3139H13.6501V7.67102H4.35007V14.3139ZM6.34203 13.0078C6.15381 13.0078 5.99593 12.944 5.86839 12.8165C5.74129 12.6894 5.67773 12.5317 5.67773 12.3435C5.67773 12.1553 5.74129 11.9974 5.86839 11.8699C5.99593 11.7427 6.15381 11.6792 6.34203 11.6792C6.53024 11.6792 6.68812 11.7427 6.81567 11.8699C6.94277 11.9974 7.00632 12.1553 7.00632 12.3435C7.00632 12.5317 6.94277 12.6894 6.81567 12.8165C6.68812 12.944 6.53024 13.0078 6.34203 13.0078ZM8.99919 13.0078C8.81097 13.0078 8.65332 12.944 8.52621 12.8165C8.39867 12.6894 8.3349 12.5317 8.3349 12.3435C8.3349 12.1553 8.39867 11.9974 8.52621 11.8699C8.65332 11.7427 8.81097 11.6792 8.99919 11.6792C9.18741 11.6792 9.34529 11.7427 9.47283 11.8699C9.59993 11.9974 9.66348 12.1553 9.66348 12.3435C9.66348 12.5317 9.59993 12.6894 9.47283 12.8165C9.34529 12.944 9.18741 13.0078 8.99919 13.0078ZM11.6564 13.0078C11.4681 13.0078 11.3105 12.944 11.1834 12.8165C11.0558 12.6894 10.9921 12.5317 10.9921 12.3435C10.9921 12.1553 11.0558 11.9974 11.1834 11.8699C11.3105 11.7427 11.4681 11.6792 11.6564 11.6792C11.8446 11.6792 12.0022 11.7427 12.1293 11.8699C12.2569 11.9974 12.3206 12.1553 12.3206 12.3435C12.3206 12.5317 12.2569 12.6894 12.1293 12.8165C12.0022 12.944 11.8446 13.0078 11.6564 13.0078ZM5.86839 10.137C5.99593 10.2646 6.15381 10.3283 6.34203 10.3283C6.53024 10.3283 6.68812 10.2646 6.81567 10.137C6.94277 10.0099 7.00632 9.85226 7.00632 9.66405C7.00632 9.47583 6.94277 9.31795 6.81567 9.19041C6.68812 9.06331 6.53024 8.99976 6.34203 8.99976C6.15381 8.99976 5.99593 9.06331 5.86839 9.19041C5.74129 9.31795 5.67773 9.47583 5.67773 9.66405C5.67773 9.85226 5.74129 10.0099 5.86839 10.137ZM8.52621 10.137C8.65332 10.2646 8.81097 10.3283 8.99919 10.3283C9.18741 10.3283 9.34529 10.2646 9.47283 10.137C9.59993 10.0099 9.66348 9.85226 9.66348 9.66405C9.66348 9.47583 9.59993 9.31795 9.47283 9.19041C9.34529 9.06331 9.18741 8.99976 8.99919 8.99976C8.81097 8.99976 8.65332 9.06331 8.52621 9.19041C8.39867 9.31795 8.3349 9.47583 8.3349 9.66405C8.3349 9.85226 8.39867 10.0099 8.52621 10.137ZM11.1834 10.137C11.3105 10.2646 11.4681 10.3283 11.6564 10.3283C11.8446 10.3283 12.0022 10.2646 12.1293 10.137C12.2569 10.0099 12.3206 9.85226 12.3206 9.66405C12.3206 9.47583 12.2569 9.31795 12.1293 9.19041C12.0022 9.06331 11.8446 8.99976 11.6564 8.99976C11.4681 8.99976 11.3105 9.06331 11.1834 9.19041C11.0558 9.31795 10.9921 9.47583 10.9921 9.66405C10.9921 9.85226 11.0558 10.0099 11.1834 10.137Z" fill="black"></path></svg><span class=" font-lg-13 font-sm-13 gotham-medium">' + customEventStartMonth + ' ' + customEventStartDate + ' - ' + customEventEndMonth + ' ' + customEventEndDate + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.68068 10.0835C7.26379 10.8023 7.80656 11.4698 8.364 12.1519C8.64272 11.6825 8.64638 11.6128 8.47768 10.5309H9.42386V12.0895C9.48988 12.1152 9.55589 12.1372 9.6219 12.1629C10.1097 11.5578 10.6194 10.9673 11.0705 10.3365C11.2282 10.1202 11.3492 10.0505 11.5949 10.1055C11.7783 10.1458 11.9727 10.1422 12.1634 10.1458C13.3039 10.1788 14.0924 10.729 14.5912 11.7448C15.376 13.3474 15.0679 14.0809 13.3443 14.5687C11.7453 15.0198 10.0987 15.1078 8.45935 15.0234C7.1611 14.9537 5.85186 14.8181 4.59029 14.532C2.95464 14.1616 2.65392 13.3731 3.35439 11.8475C3.85681 10.7546 4.6783 10.1642 5.89587 10.1385C6.17458 10.1312 6.44964 10.0982 6.68435 10.0835H6.68068Z" fill="black"></path><path d="M8.99523 2.25C10.8802 2.25 12.0318 3.39055 12.0685 5.27924C12.0721 5.47361 12.1418 5.66798 12.1932 5.85868C12.3399 6.37944 12.2628 6.87454 11.9951 7.33662C11.8448 7.60067 11.6981 7.86839 11.5184 8.11044C11.1663 8.59086 10.8546 9.12263 10.4218 9.5187C9.53433 10.3402 8.4928 10.3219 7.56862 9.53337C7.31558 9.317 7.0772 9.06395 6.89383 8.7889C6.54543 8.2718 6.20437 7.7437 5.92565 7.18626C5.69827 6.72418 5.60292 6.22908 5.8743 5.71199C5.97332 5.52128 5.92565 5.25723 5.94398 5.02619C6.11268 3.24385 7.20556 2.25 8.99523 2.25ZM8.99523 9.65439C9.36196 9.49303 9.76537 9.42335 9.99641 9.18864C10.4365 8.73756 10.7776 8.18745 11.159 7.67769C11.2433 7.56767 11.2947 7.42464 11.401 7.34029C11.8154 6.99923 11.8521 6.46379 11.4744 6.05672C11.4267 6.00537 11.412 5.92836 11.3863 5.86235C11.137 5.23156 10.4622 4.91984 9.76537 4.99685C9.20793 5.05553 8.62482 5.04453 8.07105 4.95284C7.34125 4.83182 6.97818 4.96384 6.68112 5.64964C6.62245 5.78167 6.59677 5.94303 6.50876 6.04571C6.20437 6.39778 6.17869 6.90754 6.45008 7.23761C6.63711 7.46498 6.78381 7.7217 6.96351 7.95641C7.28257 8.37082 7.57229 8.81824 7.95736 9.16297C8.22141 9.40135 8.62116 9.4857 8.99523 9.65439Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + customOutdoor + ' | ' + customHard + '</span></div><div class="custom-d-flex d-flex justify-content-center align-items-center mt-4"><a href="https://app.utrsports.net/events/' + '' + customId + '" target="_blank" class="custom-min-w-sm-145 btn-black-sm btn-outline-black justify-content-center text-center min-w-160 btn-xs-1 min-w-sm-145 font-lg-16 font-sm-14 text-uppercase">' + customEventRegButtonTitle + '</a> </div></div></div></div>';
+        });
+        customHtml += '</div>';
+    }
+    
+    if (dataUpComing.length > 0) {
+        customHtml += '<h3 class="month-title text-uppercase gotham-medium fst-italic font-sm-12 min-w-lg-180 min-w-sm-160 mb-0 custom-margin-bottom" style="color: #fff;">UpComing</h3>';
+        customHtml += '<div class="grid container-wrap grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-2 pb-lg-2 clear-both">';
+        dataUpComing.forEach(dataHits => {
+            let customName = dataHits.source.name;
+            let customId = dataHits.source.id;
+            let customClub = dataHits.source.club.name;
+            let customLocation = dataHits.source.eventLocations[0].display;
+            let customEventStartDate = dataHits.source.eventSchedule.eventStartDate;
+            let customEventEndDate = dataHits.source.eventSchedule.eventEndDate;
+            let customEventStartMonth = dataHits.source.eventSchedule.eventStartMonth;
+            let customEventEndMonth = dataHits.source.eventSchedule.eventEndMonth;
+            let customOutdoor = dataHits.source.eventDivisions && dataHits.source.eventDivisions[0].environments.length > 0 ? dataHits.source.eventDivisions[0].environments[0].label : '';
+            let customHard = dataHits.source.eventDivisions && dataHits.source.eventDivisions[0].surfaces.length > 0 ? dataHits.source.eventDivisions[0].surfaces[0].label : '';
+            let customEventRegButtonTitle = 'View';
+
+            customHtml += '<div class="grid__item box-container"><div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3 custom-m-height-mobile"><div class="custom-position  feature-card-box fs-p-2"><div class="d-flex justify-content-between mb-1"><div><h4 class="fs-sm-14">' + customName + '</h4><p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0">' + customClub + '</p></div>';
+            customHtml += '<a href="https://www.amazon.com/gp/video/storefront/ref=atv_me_pvs_c_hvqwaq_11_smr?contentType=tournament&contentId=amzn1.dv.icid.a7897353-fd02-4669-b996-4866f0c19710" target="_blank"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/prime-video.png?v=1673424280" width="36" height="36"></a>';
+            customHtml += '</div> <div class="d-flex align-items-center contact-icon"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.00039 13.5812C6.37907 13.5812 7.85934 12.4999 9.0389 11.1583C10.6113 9.37123 11.5691 7.3766 11.5691 5.4812C11.5691 2.48116 9.1037 0.418701 6.00039 0.418701C2.89708 0.418701 0.431641 2.48116 0.431641 5.4812C0.431641 7.3847 1.38947 9.37933 2.96188 11.1644C4.14043 12.5029 5.6207 13.5812 6.00039 13.5812ZM6.00039 8.9237C5.14109 8.9237 4.31698 8.58235 3.70936 7.97473C3.10175 7.36711 2.76039 6.543 2.76039 5.6837C2.76039 4.8244 3.10175 4.00029 3.70936 3.39268C4.31698 2.78506 5.14109 2.4437 6.00039 2.4437C6.85969 2.4437 7.6838 2.78506 8.29142 3.39268C8.89903 4.00029 9.24039 4.8244 9.24039 5.6837C9.24039 6.543 8.89903 7.36711 8.29142 7.97473C7.6838 8.58235 6.85969 8.9237 6.00039 8.9237Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + customLocation + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.35007 15.6425C3.98471 15.6425 3.67183 15.5125 3.41142 15.2526C3.15146 14.9922 3.02148 14.6793 3.02148 14.3139V5.01385C3.02148 4.64849 3.15146 4.33583 3.41142 4.07587C3.67183 3.81547 3.98471 3.68527 4.35007 3.68527H5.01436V2.35669H6.34294V3.68527H11.6573V2.35669H12.9859V3.68527H13.6501C14.0155 3.68527 14.3284 3.81547 14.5888 4.07587C14.8487 4.33583 14.9787 4.64849 14.9787 5.01385V14.3139C14.9787 14.6793 14.8487 14.9922 14.5888 15.2526C14.3284 15.5125 14.0155 15.6425 13.6501 15.6425H4.35007ZM4.35007 14.3139H13.6501V7.67102H4.35007V14.3139ZM6.34203 13.0078C6.15381 13.0078 5.99593 12.944 5.86839 12.8165C5.74129 12.6894 5.67773 12.5317 5.67773 12.3435C5.67773 12.1553 5.74129 11.9974 5.86839 11.8699C5.99593 11.7427 6.15381 11.6792 6.34203 11.6792C6.53024 11.6792 6.68812 11.7427 6.81567 11.8699C6.94277 11.9974 7.00632 12.1553 7.00632 12.3435C7.00632 12.5317 6.94277 12.6894 6.81567 12.8165C6.68812 12.944 6.53024 13.0078 6.34203 13.0078ZM8.99919 13.0078C8.81097 13.0078 8.65332 12.944 8.52621 12.8165C8.39867 12.6894 8.3349 12.5317 8.3349 12.3435C8.3349 12.1553 8.39867 11.9974 8.52621 11.8699C8.65332 11.7427 8.81097 11.6792 8.99919 11.6792C9.18741 11.6792 9.34529 11.7427 9.47283 11.8699C9.59993 11.9974 9.66348 12.1553 9.66348 12.3435C9.66348 12.5317 9.59993 12.6894 9.47283 12.8165C9.34529 12.944 9.18741 13.0078 8.99919 13.0078ZM11.6564 13.0078C11.4681 13.0078 11.3105 12.944 11.1834 12.8165C11.0558 12.6894 10.9921 12.5317 10.9921 12.3435C10.9921 12.1553 11.0558 11.9974 11.1834 11.8699C11.3105 11.7427 11.4681 11.6792 11.6564 11.6792C11.8446 11.6792 12.0022 11.7427 12.1293 11.8699C12.2569 11.9974 12.3206 12.1553 12.3206 12.3435C12.3206 12.5317 12.2569 12.6894 12.1293 12.8165C12.0022 12.944 11.8446 13.0078 11.6564 13.0078ZM5.86839 10.137C5.99593 10.2646 6.15381 10.3283 6.34203 10.3283C6.53024 10.3283 6.68812 10.2646 6.81567 10.137C6.94277 10.0099 7.00632 9.85226 7.00632 9.66405C7.00632 9.47583 6.94277 9.31795 6.81567 9.19041C6.68812 9.06331 6.53024 8.99976 6.34203 8.99976C6.15381 8.99976 5.99593 9.06331 5.86839 9.19041C5.74129 9.31795 5.67773 9.47583 5.67773 9.66405C5.67773 9.85226 5.74129 10.0099 5.86839 10.137ZM8.52621 10.137C8.65332 10.2646 8.81097 10.3283 8.99919 10.3283C9.18741 10.3283 9.34529 10.2646 9.47283 10.137C9.59993 10.0099 9.66348 9.85226 9.66348 9.66405C9.66348 9.47583 9.59993 9.31795 9.47283 9.19041C9.34529 9.06331 9.18741 8.99976 8.99919 8.99976C8.81097 8.99976 8.65332 9.06331 8.52621 9.19041C8.39867 9.31795 8.3349 9.47583 8.3349 9.66405C8.3349 9.85226 8.39867 10.0099 8.52621 10.137ZM11.1834 10.137C11.3105 10.2646 11.4681 10.3283 11.6564 10.3283C11.8446 10.3283 12.0022 10.2646 12.1293 10.137C12.2569 10.0099 12.3206 9.85226 12.3206 9.66405C12.3206 9.47583 12.2569 9.31795 12.1293 9.19041C12.0022 9.06331 11.8446 8.99976 11.6564 8.99976C11.4681 8.99976 11.3105 9.06331 11.1834 9.19041C11.0558 9.31795 10.9921 9.47583 10.9921 9.66405C10.9921 9.85226 11.0558 10.0099 11.1834 10.137Z" fill="black"></path></svg><span class=" font-lg-13 font-sm-13 gotham-medium">' + customEventStartMonth + ' ' + customEventStartDate + ' - ' + customEventEndMonth + ' ' + customEventEndDate + '</span></div><div class="d-flex align-items-center contact-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.68068 10.0835C7.26379 10.8023 7.80656 11.4698 8.364 12.1519C8.64272 11.6825 8.64638 11.6128 8.47768 10.5309H9.42386V12.0895C9.48988 12.1152 9.55589 12.1372 9.6219 12.1629C10.1097 11.5578 10.6194 10.9673 11.0705 10.3365C11.2282 10.1202 11.3492 10.0505 11.5949 10.1055C11.7783 10.1458 11.9727 10.1422 12.1634 10.1458C13.3039 10.1788 14.0924 10.729 14.5912 11.7448C15.376 13.3474 15.0679 14.0809 13.3443 14.5687C11.7453 15.0198 10.0987 15.1078 8.45935 15.0234C7.1611 14.9537 5.85186 14.8181 4.59029 14.532C2.95464 14.1616 2.65392 13.3731 3.35439 11.8475C3.85681 10.7546 4.6783 10.1642 5.89587 10.1385C6.17458 10.1312 6.44964 10.0982 6.68435 10.0835H6.68068Z" fill="black"></path><path d="M8.99523 2.25C10.8802 2.25 12.0318 3.39055 12.0685 5.27924C12.0721 5.47361 12.1418 5.66798 12.1932 5.85868C12.3399 6.37944 12.2628 6.87454 11.9951 7.33662C11.8448 7.60067 11.6981 7.86839 11.5184 8.11044C11.1663 8.59086 10.8546 9.12263 10.4218 9.5187C9.53433 10.3402 8.4928 10.3219 7.56862 9.53337C7.31558 9.317 7.0772 9.06395 6.89383 8.7889C6.54543 8.2718 6.20437 7.7437 5.92565 7.18626C5.69827 6.72418 5.60292 6.22908 5.8743 5.71199C5.97332 5.52128 5.92565 5.25723 5.94398 5.02619C6.11268 3.24385 7.20556 2.25 8.99523 2.25ZM8.99523 9.65439C9.36196 9.49303 9.76537 9.42335 9.99641 9.18864C10.4365 8.73756 10.7776 8.18745 11.159 7.67769C11.2433 7.56767 11.2947 7.42464 11.401 7.34029C11.8154 6.99923 11.8521 6.46379 11.4744 6.05672C11.4267 6.00537 11.412 5.92836 11.3863 5.86235C11.137 5.23156 10.4622 4.91984 9.76537 4.99685C9.20793 5.05553 8.62482 5.04453 8.07105 4.95284C7.34125 4.83182 6.97818 4.96384 6.68112 5.64964C6.62245 5.78167 6.59677 5.94303 6.50876 6.04571C6.20437 6.39778 6.17869 6.90754 6.45008 7.23761C6.63711 7.46498 6.78381 7.7217 6.96351 7.95641C7.28257 8.37082 7.57229 8.81824 7.95736 9.16297C8.22141 9.40135 8.62116 9.4857 8.99523 9.65439Z" fill="black"></path></svg><span class="font-lg-13 font-sm-13 gotham-medium">' + customOutdoor + ' | ' + customHard + '</span></div><div class="custom-d-flex d-flex justify-content-center align-items-center mt-4"><a href="https://app.utrsports.net/events/' + '' + customId + '" target="_blank" class="custom-min-w-sm-145 btn-black-sm btn-outline-black justify-content-center text-center min-w-160 btn-xs-1 min-w-sm-145 font-lg-16 font-sm-14 text-uppercase">' + customEventRegButtonTitle + '</a> </div></div></div></div>';
+        });
+        customHtml += '</div>';
+    }
+    return customHtml;
+}
+
+{% endjavascript %}

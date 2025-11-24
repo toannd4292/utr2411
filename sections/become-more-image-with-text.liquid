@@ -1,0 +1,142 @@
+<div class="pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-0 text-sm-center text-md-center">
+  <div class="page-width position-relative">
+     <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+       <div class="grid__item mb-1">
+        <div class="text-uppercase text-black text-sm-center text-center font-lg-16 font-sm-12 fw-bold">{{section.settings.tag-line}}</div>
+        <h2 class="section-medium-title section-title-sm mb-0 mt-0 lh-xl-78 text-center d-inline-lg-block"><span class="text-uppercase lh-xl-78">{{section.settings.heading}}</span>
+        <span class="lh-normal font-best-friend text-teal d-block mt-0 font-sm-55 ps-lg-2 lh-xl-78 mt-nt-lg-1 pt-sm-0-5">{{section.settings.sub-heading}}</span></h2> 
+       </div>
+     </div>   
+  </div> 
+  {% comment %}
+<!--   {% if section.settings.background_color != "#00C0F7" %}
+    <div class="blue-teal-gradient-bg border-radius-sm-3 text-sm-center mt-sm-p-40 min-h-lg-310">
+  {% endif %} -->
+  {% endcomment %}
+    <div class="blue-teal-gradient-bg border-radius-sm-3 text-sm-center mt-sm-p-40 min-h-lg-310 custom-banner--{{ section.settings.image_height }}">
+    <div class="page-width pb-lg-3 pt-lg-3 pt-sm-5 pb-sm-2 text-black">
+    <div class="grid grid--1-col product-grid grid--2-col-tablet grid--2-col-desktop position-relative justify-content-sm-center justify-content-md-center">
+        <div class="become-img-right-position">
+          <div class="">
+            <img class="max-img-fluid border-radius-sm-3 mt-nt-md-10" src="{{section.settings.section-image | image_url}}" />
+          </div>  
+        </div> 
+        <div class="grid__item">
+          <p class="findtext fw-bold font-sm-14 col-md-100 pb-3 text-lg-justify">{{ section.settings.paragrap-title }}</p>
+          <a href="{{section.settings.section-button-url-first}}" class="btn-black btn-outline-lg-black justify-content-center text-uppercase font-sm-12 font-md-16 font-lg-18">{{section.settings.section-button-first}}</a>
+          <a href="{{section.settings.section-button-url-second}}" class="btn-second btn-black btn-outline-lg-black justify-content-center text-uppercase font-sm-12 font-md-16 font-lg-18">{{section.settings.section-button-second}}</a>
+         </div>
+    </div>
+    </div>
+    </div>
+    </div> 
+
+<!-- {
+           "type": "color",
+           "id": "background_color",
+           "label": "Background color",
+           "default": "#00C0F7"
+        } -->
+<style>
+  @media(min-width:768px) {
+    .custom-banner--small {
+      min-height: 310px !important;
+    }
+    .custom-banner--medium {
+      min-height: 460px !important;
+    }
+    .custom-banner--large {
+      min-height: 610px !important;
+    } 
+  }
+  
+  @media(max-width:768px){
+    .btn-second {
+      margin-top: 10px;
+    }
+  }
+</style>   
+{% schema %}
+  {
+    "name": "Ut Gradient BgColor Image",
+    "presets": [
+      {
+        "name": "Ut Gradient BgColor Image Text",
+        "category": "Ut Gradient BgColor Image Text"
+      }
+    ],
+   "settings": [
+       {
+			"type":"text",
+			"id":"tag-line",
+			"label": "Tag Line"
+	   },
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+         "type": "text",
+         "id": "sub-heading",
+         "label": "Subtitle"
+        },
+        {
+         "type": "text",
+         "id": "paragrap-title",
+         "label": "Paragrap Title"
+        },
+        {
+ 	 		"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 		},
+       {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "medium",
+          "label": "Banner height",
+        },
+        {
+ 			"type": "text",
+ 			"id": "section-button-first",
+ 			"label": "First Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url-first",
+ 			"label": "Button Link"
+		},
+        {
+ 			"type": "text",
+ 			"id": "section-button-second",
+ 			"label": "Second Button Title "
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url-second",
+ 			"label": "Button Link"
+		}
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

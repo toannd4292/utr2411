@@ -1,0 +1,104 @@
+<div class="pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-0 text-sm-center text-md-center">
+  <div class="page-width pb-lg-2 pt-lg-5 pt-sm-0 pb-sm-0 text-sm-center">
+     <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+       <div class="grid__item mb-1">
+        <div class="text-uppercase text-black text-sm-center font-lg-16 font-sm-12 gotham-medium">{{section.settings.tag-line}}</div>
+        <h2 class="text-uppercase section-medium-title section-title-sm mt-0 mb-0 mt-sm-0 lh-xl-78">{{section.settings.heading}}</h2>
+        <h2 class="font-best-friend font-lg-85 text-teal mt-0 mb-0 lh-xl-78 font-sm-55 mt-sm-n1-0-5 mt-nt-lg-0-5 ps-lg-8-5">{{section.settings.sub-heading}}</h2>
+       </div>
+     </div>   
+  </div> 
+{% if section.settings.background_color != "#00C0F7" %}
+    <div class="light-teal border-radius-sm-3 text-sm-center mt-sm-p-40 min-h-lg-340">
+  {% endif %}   
+ <div class="min-h-lg-400 mt-sm-p-40 border-radius-sm-3" style="background:{{ section.settings.background_color }}">
+  <div class="page-width pb-lg-3 pt-lg-3 pt-sm-5 pb-sm-4 text-black">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop justify-content-center align-items-start position-relative">
+       <div class="grid__item order-sm-last order-md-last">
+         <p class="findtext fw-bold font-sm-14 pt-md-4 pb-3 lh-sm-19 text-lg-justify">{{ section.settings.paragrap-title }}</p>
+         <div class="gap-2 d-flex justify-content-sm-center justify-content-md-center">
+          <a href="{{section.settings.section-button-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 btn-small-sm w-sm-130">{{section.settings.section-button}}</a>
+          <a href="{{section.settings.section-button-url-2}}" class="btn-black justify-content-center text-uppercase font-sm-12 btn-small-sm w-sm-130">{{section.settings.section-button-2}}</a>
+         </div>
+       </div>
+        <div class="grid__item justify-content-lg-end justify-content-sm-center justify-content-md-center d-flex order-sm-first order-md-first">
+           <div class="become-img-right-position">
+             <img class="max-img-fluid max-img-sm-fluid border-radius-sm-3 mt-nt-md-10" src="{{section.settings.section-image | image_url}}" />
+           </div>  
+       </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>  
+{% schema %}
+  {
+    "name": "Two column mask image",
+    "presets": [
+      {
+        "name": "Two column mask imager",
+        "category": "Two column mask image"
+      }
+    ],
+   "settings": [
+        {
+			"type":"text",
+			"id":"tag-line",
+			"label": "Tag Line"
+		},
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+      {
+       "type": "text",
+       "id": "sub-heading",
+       "label": "Sub Title"
+      },
+      {
+       "type": "text",
+       "id": "paragrap-title",
+       "label": "Paragraph Title"
+      },
+      {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 		},
+      {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Button 1"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link 1"
+		},
+     {
+ 			"type": "text",
+ 			"id": "section-button-2",
+ 			"label": "Button 2"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url-2",
+ 			"label": "Button Link 2"
+		},
+      {
+           "type": "color",
+           "id": "background_color",
+           "label": "Background color",
+           "default": "#e2f8fe"
+        }
+      
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

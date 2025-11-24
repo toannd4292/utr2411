@@ -1,0 +1,343 @@
+{% render 'partial-style', section: section %}
+{% style %}
+.section-{{ section.id }} .banner__buttons {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.section-{{ section.id }}  .button {
+    border-radius: 12px !important;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Inter-Regular';
+    padding: 18px 0px;
+    letter-spacing: -0.2px;
+}
+.section-{{ section.id }} .button:after {
+  border-radius: 12px !important;
+}
+{% endstyle %}
+{% if section.settings.no_padding %}{% style %}.section-{{ section.id }} .page-width { padding-left: 0px !important; padding-right: 0px !important; }{% endstyle %}{% endif %}
+<div class="section-{{ section.id }} section-{{ section.id }}-padding text-customization {{ section.settings.class }} gradient color-{{ section.settings.section_color_scheme }} {% if section.settings.content_left %} antr--content-left-mobile {% endif %}">
+  <div class="page-width">
+    <div class="antr--s-text-customization {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+              {%- when 'buttons' -%}
+                <div
+                  class="banner__buttons {% if block.settings.no_spacing %} mt--0 {% endif %} {% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {%- if block.settings.button_label_1 != blank -%}
+                    <div class="antr--button">
+                      <a
+                        {% if block.settings.button_link_1 == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ block.settings.button_link_1 }}"
+                        {% endif %}
+                        class="button flex gap-6 {% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                      >
+                        {{- block.settings.button_label_1 | escape -}}
+                        {% if block.settings.arrow %}
+                          <span class="flex">
+                            <svg
+                              width="42"
+                              height="9"
+                              viewBox="0 0 42 9"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M0.755859 3.89085C0.419432 3.89085 0.146704 4.16357 0.146704 4.5C0.146704 4.83643 0.419432 5.10915 0.755859 5.10915V3.89085ZM41.7969 4.93074C42.0348 4.69285 42.0348 4.30715 41.7969 4.06926L37.9203 0.192624C37.6824 -0.0452657 37.2967 -0.0452657 37.0588 0.192624C36.8209 0.430514 36.8209 0.81621 37.0588 1.0541L40.5047 4.5L37.0588 7.9459C36.8209 8.18379 36.8209 8.56949 37.0588 8.80738C37.2967 9.04527 37.6824 9.04527 37.9203 8.80738L41.7969 4.93074ZM0.755859 5.10915H41.3662V3.89085H0.755859V5.10915Z" fill="currentColor"/>
+                            </svg>
+                          </span>
+                        {% endif %}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.button_label_2 != blank -%}
+                    <div class="antr--button">
+                      <a
+                        {% if block.settings.button_link_2 == blank %}
+                          role="link" aria-disabled="true"
+                        {% else %}
+                          href="{{ block.settings.button_link_2 }}"
+                        {% endif %}
+                        class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                      >
+                        {{- block.settings.button_label_2 | escape -}}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+                {%- when 'image' -%}
+                  <div class="{{ block.id }} antr--block-image mg-0 w-full {% if block.settings.display == "hide_d" %} medium-hide large-up-hide {% endif %} {% if block.settings.display == "hide_m" %} small-hide {% endif %}">
+                    <div class="antr--block-image-inner w-full" style="{% if block.settings.width_image != blank %}max-width: {{ block.settings.width_image }}px;margin: 0 auto;{% endif %}">
+                        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} antr--image-contain-{{ section.settings.img_contain }} image-with-text__media-item--{{ section.settings.desktop_content_position }}">
+                          {% if block.settings.url != blank %}<a href="{{ block.settings.url }}">{% endif %}
+                          <div
+                            class="image-with-text__media image-with-text__media--adapt background-transparent {% if block.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+                              style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
+                          >
+                            {%- if block.settings.image != blank -%}
+                              {%- if section.settings.image_behavior == 'ambient'
+                                or section.settings.image_behavior == 'zoom-in'
+                              -%}
+                                {%- assign widths = '1284, 1800' -%}
+                                {%- capture sizes -%}
+                              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
+                              (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
+                            {%- endcapture -%}
+                              {%- else -%}
+                                {%- assign widths = '1070, 1500' -%}
+                                {%- capture sizes -%}
+                              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                            {%- endcapture -%}
+                              {%- endif -%}
+                              {{
+                                block.settings.image
+                                | image_url: width: 1500
+                                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                              }}
+                            {%- else -%}
+                              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
+                          </div>
+                          {% if block.settings.url != blank %}</a>{% endif %}
+                        </div>
+                    </div>
+                    {% if block.settings.width_mobile != blank %}
+                      {% style %}@media screen and (max-width: 749px) { .{{ block.id }} .antr--block-image-inner { max-width: {{block.settings.width_mobile}}px !important; } }{% endstyle %}
+                    {% endif %}
+                  </div>     
+                {%- when 'space' -%}
+                  <div class="space-content line--0 mg--0 padding-bottom-{{ block.settings.space }} padding-bottom-md-{{ block.settings.space_tablet }} padding-bottom-xs-{{ block.settings.space_mobile }}">&nbsp;</div>   
+                {%- when 'text_custom' -%}
+                  {% assign size = block.settings.size | split: ',' %}
+                  {% assign height = block.settings.height | split: ',' %}
+                  <div
+                    class="mg--0 w-full {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                    {% endif %}
+                    {% if settings.animations_reveal_on_scroll %}
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    <{{ block.settings.tag }}
+                      class="text--custom mg--0 {{ block.settings.class }} {{ block.id }} {{ block.settings.font }} {% if block.settings.align == "center" %} text-center m-auto  {% endif %} {% if block.settings.align == "right" %} text-right m-auto mr--0 {% endif %} mt--0 mb--0 {% if size[0] != blank %}size-{{ size[0] }}{% endif %} {% if height[0] != blank %}line-{{ height[0] }}{% endif %} {% if size[1] != blank %}size-md-{{ size[1] }}{% endif %} {% if height[1] != blank %}line-md-{{ height[1] }}{% endif %} {% if size[2] != blank %}size-xs-{{ size[2] }}{% endif %} {% if height[2] != blank %}line-xs-{{ height[2] }}{% endif %}"
+                      style="{% if block.settings.color != blank %} color: {{ block.settings.color }}; {% endif %}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {% if block.settings.html != blank %}
+                        {{ block.settings.html }}
+                      {% else %}
+                        {{ block.settings.heading }}
+                      {% endif %}
+                    </{{ block.settings.tag }}>
+                  </div>
+                  {% if block.settings.space != 0 or block.settings.space_mobile != 0 %}
+                    <div class="space-content line--0 mg--0 padding-bottom-{{ block.settings.space }} padding-bottom-md-{{ block.settings.space_tablet }} padding-bottom-xs-{{ block.settings.space_mobile }}">&nbsp;</div>   
+                  {% endif %}    
+                {%- when 'text_animation' -%}
+                  <div class="cls-text-list-wrapper flex inline-box gap-5rem">
+                    {% for i in (1..12) %}
+                      {% for i in (1..9) %}
+                        {% capture item %}item_{{ i }}{% endcapture %}
+                        {% if block.settings[item] != blank %}
+                          <div class="logo-list  items-center  flex items-center justify-center">
+                              <div class="text-animation-inner w-full">
+                                {{ block.settings[item] }}
+                              </div>
+                          </div>
+                          {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </div>
+                      
+          {%- endcase -%}
+        {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text customization",
+  "class": "section section-antr--text-customization",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox", "id": "no_padding", "default": false, "label": "No padding"
+    },   
+    {
+      "type": "header",
+      "content": "Section padding"
+    },    
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    { "type": "html", "id": "class", "label": "Custom class" }
+  ],
+  "blocks": [
+    {
+      "type": "buttons",
+      "name": "t:sections.image-banner.blocks.buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image"},
+        { "type": "text", "id": "width_image", "label": "Image width (px)"},
+        { "type": "text", "id": "width_mobile", "label": "Image mobile width (px)"},
+        { "type": "url", "id": "url", "label": "Url"},
+        {
+          "type": "select",
+          "id": "display",
+          "options": [
+            { "value": "show_all", "label": "Show all" },
+            { "value": "hide_d", "label": "Hide on desktop" },
+            { "value": "hide_m", "label": "Hide on mobile" }
+          ],
+          "default": "show_all", "label": "Show image on"
+        }
+      ]
+    },
+    {
+      "type": "space",
+      "name": "Space",
+      "settings": [
+        { "type": "range", "id": "space", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space desktop", "default": 0 },
+        { "type": "range", "id": "space_tablet", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space table", "default": 0 },
+        { "type": "range", "id": "space_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space mobile", "default": 0 }     
+      ]
+    },
+    {
+      "type": "text_custom",
+      "name": "Text customization",
+      "settings": [
+        {
+          "type": "color", "id": "color", "label": "Color"
+        },
+        {
+          "type": "color_background", "id": "color_custom", "label": "Custom color ", "info": "This section applies color to text with the italic property."
+        },
+        {
+          "type": "select",
+          "id": "font_custom",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "inter-regular", "label": "Inter-Regular" },
+            { "value": "inter-medium", "label": "Inter-Medium" },
+            { "value": "inter-semibold", "label": "Inter-SemiBold" },
+            { "value": "arial", "label": "Arial" }
+          ],
+          "default": "none", "label": "Font",
+          "info": "This section applies font to text with the italic property."
+        },
+        {
+          "type": "select",
+          "id": "align",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left", "label": "Align"
+        },
+        {
+          "type": "select",
+          "id": "tag",
+          "options": [
+            { "value": "h1", "label": "h1" },
+            { "value": "h2", "label": "h2" },
+            { "value": "h3", "label": "h3" },
+            { "value": "p", "label": "p" },
+            { "value": "div", "label": "div" }
+          ],
+          "default": "h1", "label": "Tag"
+        },
+        {
+          "type": "inline_richtext", "id": "heading", "label": "Text"
+        },
+        {
+          "type": "html", "id": "html", "label": "Html"
+        },
+        {
+          "type": "select",
+          "id": "font",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "inter-regular", "label": "Inter-Regular" },
+            { "value": "inter-medium", "label": "Inter-Medium" },
+            { "value": "inter-semibold", "label": "Inter-SemiBold" },
+            { "value": "arial", "label": "Arial" }
+          ],
+          "default": "none", "label": "Font"
+        },
+        { "type": "text", "id": "size", "label": "Size", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "height", "label": "Line height", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "spacing", "label": "Spacing", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        { "type": "text", "id": "width", "label": "Width text", "info": "Values are separated by a ',' symbol, with each value corresponding to desktop, tablet, and mobile, e.g., 36,20,18." },
+        {
+          "type": "header", "content": "Other settings"
+        },
+        { "type": "range", "id": "space", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space desktop", "default": 0 },
+        { "type": "range", "id": "space_tablet", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space table", "default": 0 },
+        { "type": "range", "id": "space_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Space mobile", "default": 0 },
+        {
+          "type": "html", "id": "class", "label": "Custom class", "info": "ex: text-center size-18 line-20 size-xs-16 line-xs-18"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text customization",
+      "blocks": [
+
+      ]
+    }
+  ]
+}
+{% endschema %}

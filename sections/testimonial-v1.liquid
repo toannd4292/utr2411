@@ -1,0 +1,349 @@
+{% render 'partial-style', section: section %}
+<section id="section-{{ section.id }}" class="testimonial-section zg-slider section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div id="testimonial-{{ section.id }}" class="owl-carousel testimonial-carousel">
+      {% for block in section.blocks %}
+        {% assign avatar_src = block.settings.avatar | image_url: width: 120 %}
+        <div class="testimonial-slide" {{ block.shopify_attributes }}>
+          <p class="testimonial-quote">“{{ block.settings.quote }}”</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-bottom">
+            <div class="testimonial-author">
+              {% if avatar_src != blank %}
+                {{
+                  block.settings.avatar
+                  | image_url: width: 120
+                  | image_tag: class: 'testimonial-avatar', alt: block.settings.name, loading: 'lazy'
+                }}
+              {% endif %}
+              <div class="testimonial-info">
+                <span class="testimonial-name">{{ block.settings.name }}</span>
+                {% if block.settings.role != blank %}
+                  <span class="testimonial-role">{{ block.settings.role }}</span>
+                {% endif %}
+              </div>
+            </div>
+            {% if section.blocks.size > 1 %}
+              <div class="testimonial-arrows">
+                <button class="tt-prev-{{ section.id }}" aria-label="Prev"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.5312 8.67188L1.58456 8.67187" stroke="black" stroke-width="1.5"/> <path d="M9.13184 16.2187L1.58496 8.67187L9.13184 1.125" stroke="black" stroke-width="1.5"/> </svg></button>
+                <button class="tt-next-{{ section.id }}" aria-label="Next"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.46875 8.32812L17.4154 8.32813" stroke="black" stroke-width="1.5"/> <path d="M9.87012 0.78125L17.417 8.32813L9.87012 15.875" stroke="black" stroke-width="1.5"/> </svg></button>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #section-{{ section.id }} .testimonial-quote{
+    font-size:{{ section.settings.quote_size_desktop }}px;
+    line-height:1.2;
+    font-weight:500;
+    text-align:center;
+    margin:0 auto {{ section.settings.space_after_quote }}px;
+    max-width:{{ section.settings.quote_max_width }}px;
+    letter-spacing: -2px;
+    padding-bottom: 55px;
+    border-bottom: 1px solid var(--Gray-4, #D7E0EA);
+    font-family: "Inter-Medium";
+  }
+
+  #section-{{ section.id }} .testimonial-divider{
+    height:1px;
+    background:{{ section.settings.divider_color }};
+    opacity:{{ section.settings.divider_opacity | divided_by: 100.0 }};
+    margin:0 auto {{ section.settings.space_after_divider }}px;
+    max-width:{{ section.settings.quote_max_width }}px;
+  }
+  #section-{{ section.id }} .testimonial-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    max-width:{{ section.settings.quote_max_width }}px;
+    margin:0 auto;
+    padding: 24px 9px;
+  }
+  #section-{{ section.id }} .testimonial-author{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  #section-{{ section.id }} .testimonial-avatar{
+    width:56px;height:56px;border-radius:50%;object-fit:cover;
+  }
+  #section-{{ section.id }} .testimonial-name{
+    display:block;font-weight:600;font-size:15px;
+  }
+  #section-{{ section.id }} .testimonial-role{
+    display:block;font-size:13px;color:#555;margin-top:2px;
+  }
+  #section-{{ section.id }} .testimonial-arrows{display:flex;gap:8px;}
+  #section-{{ section.id }} .testimonial-arrows button{
+    width:42px;height:42px;border-radius:50%;
+    border:1px solid #cfd8dc;background:#fff;color:#000;
+    cursor:pointer;line-height:46px;font-size:16px;
+  }
+  @media(min-width:749px){
+     #testimonial-{{ section.id }} .testimonial-info {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+   #testimonial-{{ section.id }} .testimonial-role {
+    margin-top: 0;
+    font-size:15px;
+}
+  }
+  @media(max-width:749px){
+    #section-{{ section.id }} .testimonial-quote{font-size:{{ section.settings.quote_size_mobile }}px;line-height: 1.28; letter-spacing: -1.2px;padding-bottom: 34px;margin-bottom: 12px;}
+    #section-{{ section.id }} .testimonial-author, #section-{{ section.id }} .testimonial-bottom {
+      flex-direction: column;
+    }
+    #section-{{ section.id }} .testimonial-name { font-weight: 600; font-size: 17px; letter-spacing: -0.4px; }
+    #section-{{ section.id }} .testimonial-role { font-size: 17px; color: #000000; margin-top: 0px; letter-spacing: -0.6px; }
+    .testimonial-info {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var $t = $('#testimonial-{{ section.id }}');
+    if($t.length && typeof $t.owlCarousel === 'function'){
+      $t.owlCarousel({
+        items:1,
+        loop: {{ section.settings.loop | default: true }},
+        dots: {{ section.settings.dots | default: false }},
+        nav:false,
+        autoplay: {{ section.settings.autoplay | default: false }},
+        autoplayTimeout: {{ section.settings.autoplay_timeout | default: 5000 }},
+        smartSpeed: {{ section.settings.speed | default: 500 }},
+        autoHeight:true,
+        lazyLoad:false
+      });
+      {% if section.blocks.size > 1 %}
+        $('.tt-next-{{ section.id }}').on('click',function(){ $t.trigger('next.owl.carousel'); });
+        $('.tt-prev-{{ section.id }}').on('click',function(){ $t.trigger('prev.owl.carousel'); });
+      {% endif %}
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial slider",
+  "class": "testimonial-slider shopify-cs-za",
+  "settings": [
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#dfe8ee"
+    },
+    {
+      "type": "range",
+      "id": "divider_opacity",
+      "label": "Divider opacity (%)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "quote_max_width",
+      "label": "Max width (px)",
+      "min": 400,
+      "max": 1200,
+      "step": 20,
+      "default": 920
+    },
+    {
+      "type": "range",
+      "id": "quote_size_desktop",
+      "label": "Quote size desktop (px)",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "quote_size_mobile",
+      "label": "Quote size mobile (px)",
+      "min": 18,
+      "max": 42,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "space_after_quote",
+      "label": "Space after quote (px)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "space_after_divider",
+      "label": "Space after divider (px)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_timeout",
+      "label": "Autoplay timeout (ms)",
+      "min": 2000,
+      "max": 9000,
+      "step": 500,
+      "default": 5000
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Transition speed (ms)",
+      "min": 200,
+      "max": 1500,
+      "step": 100,
+      "default": 500
+    },
+    
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 2, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote text",
+          "default": "The UTR Rating enables youngsters and adults at the same level to play, which is so important for their development and enjoyment."
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Jose Higueras"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role/Title",
+          "default": "Leading Coach, Former Top Player"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial slider",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "quote": "The UTR Rating is the best way to measure yourself against all other players regardless of their age or level.",
+            "avatar": "shopify://shop_images/Novak_Djokovic_UTR_Testimonial_ffec90b5-947b-420b-860e-5b3621b397ff.jpg",
+            "name": "Novak Djokovic",
+            "role": "24-time Grand Slam champion"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "quote": "UTR Sports provides a standard for all players... the bigger the network gets, the more beneficial.",
+            "avatar": "shopify://shop_images/jim-courier_UTR_testimonial.png",
+            "name": "Jim Courier",
+            "role": "Four-time Grand Slam champion"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "quote": "The UTR Rating enables youngsters and adults at the same level to play, which is so important for their development and enjoyment.",
+            "avatar": "shopify://shop_images/Jose_Higueras_UTR_testimonial.webp",
+            "name": "Jose Higueras",
+            "role": "Leading Coach, Former Top Player"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "quote": "Their ratings are ageless, genderless, and borderless. UTR Sports truly democratized the game of tennis.",
+            "avatar": "shopify://shop_images/Martina_Navratilova_UTR_testimonial.jpg",
+            "name": "Martina Navratilova",
+            "role": "59-time Grand Slam Champion"
+          }
+        }
+      ],
+      "settings": {
+        "divider_color": "#dfe8ee",
+        "divider_opacity": 100,
+        "quote_max_width": 1100,
+        "quote_size_desktop": 64,
+        "quote_size_mobile": 28,
+        "space_after_quote": 32,
+        "space_after_divider": 24,
+        "loop": true,
+        "autoplay": false,
+        "autoplay_timeout": 5000,
+        "speed": 500,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "pt_md": 85,
+        "pb_md": 85,
+        "pt_xs": 85,
+        "pb_xs": 36
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}

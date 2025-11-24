@@ -1,0 +1,222 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<div class="custom-search">
+  <div class="search-container">
+    <form>
+       <div class="search-input bg_black">
+        <div class="input-content">
+          <input type="text" class="input-button text-uppercase " id="my_input" placeholder="{% for block in section.blocks %}{{ block.settings.placehoder_input }}{% endfor %}" autocomplete="off">
+        </div>
+        <div class="btn-icon-search">
+          <a id="link-btn-search" href="" class="btn-search blue-teal-gradient-bg">
+              <span class="text-white">
+                <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                  <use href="#icon-search"></use>
+                </svg>
+              </span>
+          </a>
+        </div>
+      </div>
+    </form>
+   
+    <div class="menu-drop">
+      <div class="menu-container">
+        <div class="menu-inner">
+          <div class="header-event">
+            <h4 class="text-menu-inner font-tungsten">Event</h4>
+            <a class="see-all" href="https://app.utrsports.net/search?query=event&utrMin=1&utrMax=16&utrType=verified&utrTeamType=singles&utrFitPosition=6&type=events">see all</a>
+          </div>
+          <div class="divider-blue"></div>
+        </div>
+        <div class="custom-menu">
+          <ul id="event-list" class="menu-content">
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.menu-drop').hide();
+    
+    let eventsListDiv = document.getElementById("event-list");
+    let typingTimer;
+    let doneTypingInterval = 500;
+    
+    $("#my_input").keyup(function() {
+      clearTimeout(typingTimer); 
+      typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    });
+
+      function doneTyping() {
+      let inputValue = $("#my_input").val();
+        
+      let dataButtonSearch = 'https://app.utrsports.net/search?query='+inputValue+'&sportTypes=tennis,pickleball&type=events&startDate=05/13/2024&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=doubles&utrType=verified&lat=14.058324&lng=108.277199'
+      $('#link-btn-search').attr('href', dataButtonSearch);
+        
+      if (inputValue === "") {
+        $('.menu-drop').hide();
+      } else {
+        $.ajax({
+        url: 'https://api.utrsports.net/v2/search?query='+inputValue+'&top=10&skip=0&schoolClubSearch=true',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data)
+          let eventsData="";
+          let event = data.events;
+          let totalEventsCount = event.hits.length;
+          let dataHits = event.hits
+          let myArray = dataHits.slice(0, 4);
+  
+          for (let i = 0; i < myArray.length; i++) {
+              let subArray = myArray[i];
+              let id = subArray.id;
+              let ename = subArray.source.name;
+              let eDateShort = subArray.source.eventSchedule.eventDatesShort;
+              eventsData += '<li><a class="link-menu" href="https://app.utrsports.net/events/'+id+'">'+ename+'</a><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></li>'
+          }
+          $('#event-list').html(eventsData);
+          
+        },
+        error: function(xhr, status, error) {
+          console.error('There was a problem with your ajax request:', error);
+        }
+      });
+      $('.menu-drop').show();
+      }
+    }
+    
+    $(document).on("click", function(event){
+        if(!$(event.target).closest(".search-input,.menu-drop").length){
+            $(".menu-drop").hide();
+        }
+    });
+    
+  });
+</script>
+<style>
+  @media only screen and (max-width: 1024px) {
+    .search-input {
+       width: 100% !important;
+    }
+    .menu-drop {
+       width: 100% !important;
+    }
+  }
+  .banner__content {
+    display: block;
+    margin-top: 5%;
+    .banner__box {
+      margin: auto;
+    }
+  }
+  .custom-search {
+    margin-bottom: 20px;
+    .search-input {
+      display: flex;
+      justify-content: space-around;
+      width: 780px;
+      margin: auto;
+      border-radius: 60px;
+      padding: 15px 20px;
+      .input-content {
+        display: flex;
+        width: 100%;
+        align-items: center;
+      }
+      .input-button {
+        width: 97%;
+        border-radius: 50px;
+        background: #fff;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        padding: 15px 20px 15px 25px;
+      }
+      .input-button::placeholder {
+        color: #888888;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: none;
+      }
+    }
+    .btn-icon-search {
+      
+    }
+    .btn-search {
+      width: 66px;
+      height: 66px;
+      border-radius: 100%;
+      border: unset;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .text-white {
+        display: flex;
+        justify-content: center;
+      }
+      .icon-search {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .header-event {
+      display: flex;
+      align-items: center;
+    }
+    .menu-drop {
+      width: 780px;
+      margin: auto;
+      .menu-container {
+        text-align: left;
+        background: #000000;
+        box-shadow: 0px 11px 12px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        overflow-x: hidden;
+        margin: 3px auto 25px auto;
+      }
+      .menu-inner {
+        padding: 10px 15px;
+      }
+      .see-all {
+        color: #00C0F7;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      .text-menu-inner {
+        margin-top: unset;
+        text-transform: initial;
+        font-size: 20px;
+        margin: unset;
+        margin-right: 10px;
+      }
+      .menu-content {
+        list-style-type: none;
+        padding: unset;
+        margin: unset;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-right: 10px;
+        }
+      }
+      .link-menu {
+        color: #ffffff;
+        font-size: 14px;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        text-overflow: ellipsis;
+        display: block;
+      }
+    }
+  }
+</style>

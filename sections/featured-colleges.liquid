@@ -1,0 +1,85 @@
+<div class="page-width text-center pb-lg-2 pb-sm-3">
+  <div class="mb-lg-4 mb-sm-0">
+    <h2 class="text-uppercase section-title section-title-sm mb-0">{{ section.settings.heading }}</h2>
+    {%- if section.settings['heading-permission'] == 'YES' -%}
+      <div class="divider-sm-teal divider-lg-teal mb-lg-3 mb-sm-0"></div>
+    {%- endif -%}
+  </div>
+</div>
+<div class="page-width text-center pb-lg-5 pb-sm-3">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop top-top-test" id="college-featured"></div>
+</div>
+{% schema %}
+{
+  "name": "Featured Colleges Search",
+  "presets": [
+    {
+      "name": "Featured Colleges Search",
+      "category": "Featured Colleges Search"
+    }
+  ],
+  "settings": [
+     {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+      {
+          "type": "radio",
+          "id": "heading-permission",
+          "label": "Do You Want Underline Below Heading?",
+        "default": "NO",
+          "options": [
+      {
+          "value": "NO",
+          "label": "NO"
+      },
+      {
+          "value": "YES",
+          "label": "YES"
+      }
+        ]
+     }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+  
+  var collegesId= [913,917,937,1075];
+  var collegesParams = collegesId.map(id => `clubIds=${id}`).join('&');
+  var url = `https://api.utrsports.net/v1/club/get-info?${collegesParams}`;
+  
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  }; 
+  
+  fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      let data = ""; 
+  
+      collegesId.forEach(id => {
+        var clubInfo = result.clubInfo[id.toString()];
+        var clubId = clubInfo.id;
+        var name = clubInfo.name;
+        var location = clubInfo.locationName;
+        var memberCount = clubInfo.memberCount;
+        var profilePhotoUrl = clubInfo.profilePhotoUrl;
+        console.log("clubId = "+clubId);
+        data += ' <div class="grid__item"><div class="blue-teal-gradient-bg min-h-100 border-radius-lg-3 border-radius-sm-3 mb-2 mb-sm-0"><div class="feature-card-box text-black d-flex justify-content-center align-items-center"><div><div class="featureimg-medium"><img src="https://prod-cdn.utrsports.net/v1/club/' + profilePhotoUrl + '" /></div></div>  <div class="feature-content"><h4>' + name + '</h4><p>' + location + '</p><div class="d-flex justify-content-between align-items-end"><div class="number-title">' + memberCount + ' <span>Players</span></div><a href="https://app.utrsports.net/clubs/' + clubId + '" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">View site</a></div></div>   </div></div></div>';
+      });
+  
+      // Display the combined data on the web page
+      document.getElementById("college-featured").innerHTML = data;
+    })
+  .catch(error => console.log('error', error));
+  
+
+
+{% endjavascript %}

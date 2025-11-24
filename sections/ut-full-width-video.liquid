@@ -1,0 +1,217 @@
+
+
+<div class="page-width text-center">
+  <div class="mb-1">
+      {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <h1 class="text-uppercase section-title section-title-large lh-sm-90 mb-2 lh-xl-78">          
+          {{ section.settings.heading }}
+        </h1>
+      {% when 'h2' %}
+        <h2 class="text-uppercase section-title section-title-medium lh-sm-90 mb-2 lh-xl-78">          
+          {{ section.settings.heading }}
+        </h2>
+      {% when 'h3' %}
+        <h3 class="text-uppercase section-title section-title-small lh-sm-90 mb-2 lh-xl-78">          
+          {{ section.settings.heading }}
+        </h3>
+    {% endcase %}
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="divider-sm-teal divider-lg-teal"></div>
+    {%- endif -%}
+  </div>  
+</div>
+<div class="pb-lg-5 pt-lg-1 pt-sm-0 pb-sm-4 pse-2 mt-3 mb-3">
+         <div class="full-video-highlight-img-section-wrapper border-radius-lg-3 border-radius-sm-3 d-flex align-items-center justify-content-end flex-column" style="background:url('{{section.settings.section-image-first | image_url}}') no-repeat; background-size:cover; background-position: center;">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <a href="{{section.settings.section-button-url}}"  class="video-btn popup-youtube text-center text-uppercase gap-2 font-tungsten-medium position-relative"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/playbtn.svg?v=1671442348" />{{section.settings.section-video-button}}</a> 
+            </div>   
+           <div class="d-flex justify-content-center align-items-center gap-2 text-center">
+             <a href="{{section.settings.section-learn-button-url}}" target="_blank" class="btn-white min-w-lg-225 min-w-sm-130 font-sm-12 text-uppercase mb-3">{{section.settings.section-learn-more-button}}</a> 
+             <a href="{{section.settings.section-signup-button-url}}" class="btn-white min-w-lg-225 min-w-sm-130 font-sm-12 text-uppercase mb-3">{{section.settings.section-signup-button}}</a>
+           </div>
+         </div>
+</div>
+<style>
+   .section-title.section-title-large {
+    font-size: 80px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.section-title.section-title-small {
+    font-size: 35px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+  @media screen and (max-width: 749px){
+    .section-title.section-title-large {
+    font-size: 60px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.section-title.section-title-small {
+    font-size: 26px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.section-title.section-title-medium {
+    font-size: 40px;
+}
+  }
+  .pse-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .full-video-highlight-img-section-wrapper {
+    border-radius:20px;
+    height: 720px;
+    width: 100%;
+        max-width: 1280px;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 1921px) {
+  .full-video-highlight-img-section-wrapper {
+    /* width: 1920px;  */
+    /* height: 1020px; */
+    margin: 0 auto; /* Center the block on the screen, if needed */
+  }
+}
+
+  
+@media screen and (max-width: 425px) {
+  .full-video-highlight-img-section-wrapper {
+    height: 180px; /* Adjust as needed for smaller screens */
+  }
+}
+  
+@media screen and (min-width: 426px) and (max-width: 600px) {
+  .full-video-highlight-img-section-wrapper {
+    height: 320px; /* Adjust as needed for smaller screens */
+  }
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .full-video-highlight-img-section-wrapper {
+    height: 380px; /* Adjust as needed for smaller screens */
+  }
+}
+
+
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+  .full-video-highlight-img-section-wrapper {
+    height: 400px; /* Adjust as needed for medium screens */
+  }
+}
+  
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .full-video-highlight-img-section-wrapper {
+    height: 580px; /* Adjust as needed for medium screens */
+  }
+}
+
+
+</style>
+
+{% schema %}
+  {
+    "name": "Ut Full Width Video",
+    "class":"extra-pd-4",
+    "presets": [
+      {
+        "name": "Ut Full Width Video",
+        "category": "Ut Full Width Video"
+      }
+    ],
+    "settings": [
+        {
+ 			"type": "image_picker",
+ 			"id": "section-image-first",
+ 			"label": "Section Image First"
+ 		},
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+    "type": "select",
+    "id": "heading-size",
+    "label": "Heading Size",
+    "options": [
+      {
+        "value": "h1",
+        "label": "Large"
+      },
+      {
+        "value": "h2",
+        "label": "Medium"
+      },
+      {
+        "value": "h3",
+        "label": "Small"
+      }
+    ],
+    "default": "h2"
+  },
+       {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+       
+       {
+ 			"type": "text",
+ 			"id": "section-video-button",
+ 			"label": "Video Play Button"
+ 		},
+      {
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		},
+        {
+ 			"type": "text",
+ 			"id": "section-learn-more-button",
+ 			"label": "Button 1"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-learn-button-url",
+ 			"label": "Button Link 1"
+		},
+       {
+ 			"type": "text",
+ 			"id": "section-signup-button",
+ 			"label": "Button 2"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-signup-button-url",
+ 			"label": "Button Link 2"
+		}
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script src="{{ 'jquery.magnific-popup.min.js' | asset_url }}"></script>

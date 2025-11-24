@@ -1,0 +1,43 @@
+ .filter-list ul:nth-child(n + 6) {
+  display: none;
+}
+.filter-list ul.showList:nth-child(n + 6) {
+  display: list-item;
+}
+.filter-list2 ul li:nth-child(n + 4) {
+  display: none;
+}
+.filter-list2 ul li.showList:nth-child(n + 4) {
+  display: flex;
+}  
+.filter-list .more {
+}
+.filter-list .more.showMe {
+  display: block;
+}
+.pricelist3{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}  
+.pricelist3 li{
+    border-bottom: 0.3px solid #C8C8C8;
+    margin-top: -1px;
+    padding: 1rem 1rem;
+    display:flex;
+} 
+@media(min-width:992px) and (max-width:1060px){
+  .paddright-7{padding-right:1.5rem}
+} 
+@media(min-width:1061px) and (max-width:1120px){
+  .paddright-7{padding-right:2.5rem}
+}   
+/* @media(min-width:1200px) and (max-width:1299px){
+  .paddright-7{padding-right:3.5rem}
+} */
+@media(min-width:1200px){  
+  .paddright-7{padding-right: 1.5rem;gap: 3rem;}
+} 
+@media(min-width:1300px){  
+  .paddright-7{padding-right:5rem;gap: 4rem;}
+} 

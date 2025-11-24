@@ -1,0 +1,237 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<div class="nav-black-bg">
+  <div class="nav-container">
+    <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop">
+      <div class="grid__item">
+        <ul class="custom-navbar">
+          {% for block in section.blocks %}
+            <li class="nav-item">
+              {% if block.settings.id_section_scroll != blank %}
+                <input id="{{ block.settings.id_add_hash }}" class="hash-url" type="hidden" value="#{{ block.settings.id_add_hash }}"/>
+              {% endif %}
+              <a data-scroll="{{ block.settings.id_add_hash }}" class="scroll-link" href="{% if block.settings.link_url %}{{ block.settings.link_url }}{% else %}#{{ block.settings.id_section_scroll }}{% endif %}">
+                {{ block.settings.title_menu }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .custom_menu_zago {
+    .nav-black-bg {      
+      background: {{ section.settings.color_background }};
+      .nav-container{
+        margin: 0 auto;
+        max-width: var(--page-width);
+        /*padding: 0 0.95rem;*/
+        
+        .custom-navbar {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+
+          .nav-item {
+            font-family: var(--font-gotham-medium);
+
+            a {
+              color: {{ section.settings.color_text }};
+              text-transform: initial;
+              font-size: 16px;
+              text-decoration: none;
+              display: flex;
+              padding: 1.5rem 2rem;  
+            }
+
+            :hover {
+              background: {{ section.settings.color_background_hover }};
+              color: {{ section.settings.color_text_hover }};
+            }
+          }
+
+          li.active {
+            a {
+              background: {{ section.settings.color_background_hover }};
+              color: {{ section.settings.color_text_hover }};
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .custom_menu_zago {
+      .custom-navbar {
+        white-space: nowrap;
+        overflow: scroll;
+        justify-content: unset !important;
+      }
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .custom_menu_zago {
+      .custom-navbar {
+        .nav-item {
+          border-right: 1px solid {{ section.settings.color_background_hover }};
+          a {
+            font-size: 14px !important;
+            padding: 1rem 2rem !important;
+          }
+        }
+      }
+    }
+  }
+</style>
+<script>
+  $(document).ready(function() {
+    $('.custom-navbar li').first().addClass('active');
+    $('.custom-navbar li').hover(
+        function() {
+            $('.custom-navbar li').removeClass('active');
+            $(this).addClass('active');
+        },
+        function() {
+            if (!$('.custom-navbar li').hasClass('active')) {
+                $('.custom-navbar li').first().addClass('active');
+            }
+        }
+    );
+  //   $('.scroll-link').on('click', function (e) {
+  //   var customHash = $(this).siblings('.hash-url').val();
+  //   var defaultHref = $(this).attr('href');
+  //   if (customHash && defaultHref) {
+  //     e.preventDefault();
+  //     window.location.href = defaultHref;
+  //
+  //     setTimeout(function () {
+  //       window.location.hash = customHash;
+  //     }, 0);
+  //   }
+  //   else if (defaultHref) {
+  //     window.location.href = defaultHref;
+  //   }
+  // });
+    $('.scroll-link').on('click', function (e) {
+      e.preventDefault();
+      var target = $(this).attr('href');
+      var customHash = $(this).siblings('.hash-url').val();
+      var navbarHeight = $('.nav-black-bg').outerHeight();
+
+      if (target.startsWith("#") && $(target).length) {
+        var scrollPosition = $(target).offset().top - navbarHeight - 45;
+
+        $('html, body').stop(true, false).animate({
+          scrollTop: scrollPosition
+        }, 500, 'linear', function() {
+          window.location.hash = customHash || target;
+        });
+      } else {
+        window.location.href = target;
+      }
+    });
+
+  });
+</script>
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      var hash = window.location.hash;
+      if (hash) {
+        var input = document.querySelector('.hash-url[value="' + hash + '"]');
+        if (input) {
+          var link = input.nextElementSibling;
+          if (link && link.classList.contains('scroll-link')) {
+            var targetSelector = link.getAttribute('href');
+            var targetElement = document.querySelector(targetSelector);
+
+            if (targetElement) {
+              var navbarHeight = document.querySelector('.nav-black-bg')?.offsetHeight || 80;
+              var offset = 45;
+              window.scrollTo({
+                top: targetElement.offsetTop - navbarHeight - offset,
+                behavior: "smooth"
+              });
+            }
+          }
+        }
+      }
+    }, 500);
+  };
+</script>
+{% schema %}
+  {
+    "name": "Custom Menu Zago",
+    "class": "custom_menu_zago",
+    "max_blocks": 8,
+    "blocks":[ 
+	  {
+		"type":"text", 
+		"name":"Menu Item", 
+		"settings":[
+          {
+             "type": "text",
+             "id": "title_menu",
+             "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "id_section_scroll",
+            "label": "ID Section Scroll"
+          },
+          {
+            "type": "text",
+            "id": "id_add_hash",
+            "label": "Hash Url"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link Url",
+            "info": "If using Link url scroll function is disabled"
+          }
+	    ] 
+	  }
+    ],
+    "presets": [
+      {
+        "name": "Custom Menu Zago"
+      }
+    ],
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Color Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Color Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_text_hover",
+        "label": "Color Text Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_background_hover",
+        "label": "Color Background Hover",
+        "default": "#ffffff"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,587 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+<style>
+    .banner:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+  }
+  .banner__buttons {
+      justify-content: center;
+    }
+  
+  @media screen and (min-width: 750px) {
+    
+      .banner__box-2 {
+        padding:4.5rem 1rem !important;
+    }
+    .custom-banner--small {
+      height: 420px !important;
+      .rich-text-background-image {
+        min-height: 420px;
+      }
+    }
+    .custom-banner--medium {
+      height: 570px !important;
+      .rich-text-background-image {
+        min-height: 570px;
+      }
+    }
+    .custom-banner--large {
+      height: 720px !important;
+      .rich-text-background-image {
+        min-height: 720px;
+      }
+    }
+    .banner:after{background: linear-gradient(180deg, rgba(0, 0, 0, 0.27) 0%, rgba(0, 0, 0, 0.77) 100%) !important;}
+  }
+  @media screen and (max-width: 749px) {
+    .banner__box-2{padding-bottom:0;}
+    .banner:after{background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.89) 100%) !important;}
+    .custom-banner--small {
+      overflow: hidden;
+    }
+    .custom-banner--medium {
+      overflow: hidden;
+    }
+    .custom-banner--large {
+      overflow: hidden;
+    }
+    .rich-text-background-image {
+      min-height: unset;
+      align-items: unset;
+    }
+    .custom-grid {
+      padding: 40px 37px;
+    }
+    .content-container--full-width-mobile {
+      padding: unset;
+    }
+    .aspect-ratio-16-8 {
+      aspect-ratio: unset !important;
+    }
+    
+    .btn-second {
+      margin-top:10px;
+    }
+  }
+
+    .aspect-ratio-16-8 {
+    aspect-ratio: 16 / 8;
+    }
+
+    /* Updated styles for gradient button and split heading */
+    .gradient-button {
+      background: transparent;
+    border: 1px solid white;
+    color: white;
+      border-radius: 50px; /* Keeps the rounded shape */
+      padding: 12px 30px; /* Consistent padding */
+      min-width: 180px; /* Matches min-w-sm-180 */
+      display: inline-block;
+      {% comment %} text-transform: initial; {% endcomment %}
+      font-size: 14px; /* Slightly larger text */
+      font-weight: 900; /* Extra bold */
+      text-decoration: none; /* Removes underline */
+      transition: background 0.3s ease;
+    }
+    {% comment %} .gradient-button:hover {
+      background: linear-gradient(to right, #05d8c6, #00a9c9);
+    } {% endcomment %}
+    @media screen and (min-width: 750px) {
+      .gradient-button {
+        min-width: 225px; /* Matches min-w-lg-225 */
+      }
+    }
+    .split-heading-first {
+      color: #06f1df;
+    }
+    .split-heading-second {
+      color: white;
+    }
+</style>
+{% assign cleanSectionID = section.id | replace: '-', '' | replace: '_', '' %}
+<div class="banner custom-banner--{{ section.settings.geo-image_height }} banner--{{ section.settings.geo-image_height }} banner--desktop-transparent  banner--content-align-mobile-center">
+ <div class="rich-text-background-image aspect-ratio-16-8"> 
+  <div class="custom-height ">   
+    <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop align-items-center justify-content-center custom-grid">
+      <div class="banner__content banner__content--top-center page-width banner--content-align-center">
+        <div class="banner__box banner__box-2 content-container content-container--full-width-mobile">
+          <div class="text-center">
+            {% case section.settings['geo-small-title-size'] %}
+            {% when 'p' %}
+              <p class="text-uppercase text-white mb-sm-0 mt-0 mb-1 gotham-medium font-sm-12 font-md-14 font-lg-24">{{section.settings.geo-tagline}}</p>
+            {% when 'h1' %}
+              <h1 class="text-uppercase text-white mb-lg-1 mb-sm-0 mt-0 gotham-medium font-sm-12 text-black small-title-font-large lh-normal">{{section.settings.geo-tagline}}</h1>
+            {% when 'h2' %}
+              <h2 class="text-uppercase text-white mb-lg-1 mb-sm-0 mt-0 gotham-medium font-sm-12 text-black small-title-font-medium lh-normal">{{section.settings.geo-tagline}}</h2>
+            {% when 'h3' %}
+              <h3 class="text-uppercase text-white mb-lg-1 mb-sm-0 mt-0 gotham-medium font-sm-12 text-black small-title-font-small lh-normal">{{section.settings.geo-tagline}}</h3>
+            {% endcase %}
+            
+            {% assign headerSize = section.settings['geo-heading-size'] %}
+            {% if headerSize == 'large' %}
+              <h1 id="power-false-{{ cleanSectionID }}" class="font-lg-85 section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-false-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-false-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h1>
+              <h1 id="power-true-{{ cleanSectionID }}" class="font-lg-85 section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-true-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-true-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h1>
+            {% elsif headerSize == 'medium' %}
+              <h2 id="power-false-{{ cleanSectionID }}" class="font-size-medium section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-false-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-false-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h2>
+              <h2 id="power-true-{{ cleanSectionID }}" class="font-size-medium section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-true-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-true-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h2>
+            {% elsif headerSize == 'small' %}
+              <h3 id="power-false-{{ cleanSectionID }}" class="font-size-small section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-false-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-false-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h3>
+              <h3 id="power-true-{{ cleanSectionID }}" class="font-size-small section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-true-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-true-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h3>
+            {% else %}
+              <h1 id="power-false-{{ cleanSectionID }}" class="font-lg-85 section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-false-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-false-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h1>
+              <h1 id="power-true-{{ cleanSectionID }}" class="font-lg-85 section-title-sm font-tungsten mb-0 mt-0 lh-xl-78 text-uppercase">
+                <span id="heading-first-true-{{ cleanSectionID }}" class="split-heading-first"></span>
+                <span id="heading-second-true-{{ cleanSectionID }}" class="split-heading-second"></span>
+              </h1>
+            {% endif %}
+
+            {% assign subheaderSize = section.settings['geo-sub-heading-size'] %}
+            {% if subheaderSize == 'medium' %}
+              <h2 class="lh-xl-78 lh-sm-normal font-lg-85 font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mt-sm-n1-1-4 mb-2">
+                {{ section.settings.subheading }}
+              </h2>
+            {% elsif subheaderSize == 'small' %}
+              <h3 class="lh-xl-78 font-size-medium lh-sm-normal font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mt-sm-n1-1-4 mb-2">
+                {{ section.settings.subheading }}
+              </h3>
+            {% else %}
+              <h2 class="lh-xl-78 lh-sm-normal font-lg-85 font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mt-sm-n1-1-4 mb-2">
+                {{ section.settings.subheading }}
+              </h2>
+            {% endif %}
+
+            <p id="user-free-{{ cleanSectionID }}" class="mb-lg-1 mb-sm-0 mt-1 font-sm-14 font-md-14 text-white font-lg-18 lh-sm-19 lh-lg-22">
+
+            </p>
+            <div class="mt-3 banner__buttons banner__buttons--multiple">
+              <a href="{{section.settings.geo-section-button-url}}" id="button-false-{{ cleanSectionID }}" class="gradient-button">{{section.settings.geo-section-button-false}}</a>
+              <a href="{{section.settings.geo-section-button-url}}" id="button-true-{{ cleanSectionID }}" class="gradient-button">{{section.settings.geo-section-button-true}}</a>
+              <a href="{{section.settings.geo-section-button-url-second}}" class="gradient-button">{{section.settings.geo-section-button-second}}</a>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div> 
+</div>
+</div>
+<style>
+  /* Ẩn cả hai nút khi trang vừa load */
+  #button-true-{{ cleanSectionID }},
+  #button-false-{{ cleanSectionID }},
+  #power-false-{{ cleanSectionID }},
+  #power-true-{{ cleanSectionID }} {
+    display: none;
+  }
+  
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const apiCurrent = 'https://api.utrsports.net/v1/auth/current';
+    const ipstackUrl = "https://api.ipstack.com/check?access_key=ac93c40e09e9724a699c7d2d6e2b2c81";
+
+    // Section-specific ID để tránh xung đột nhiều section
+    const priceUserElement = document.getElementById("user-free-{{ cleanSectionID }}");
+
+    const headingFirstFalse = document.getElementById("heading-first-false-{{ cleanSectionID }}");
+    const headingSecondFalse = document.getElementById("heading-second-false-{{ cleanSectionID }}");
+
+    const headingFirstTrue  = document.getElementById("heading-first-true-{{ cleanSectionID }}");
+    const headingSecondTrue = document.getElementById("heading-second-true-{{ cleanSectionID }}");
+
+    const powerFalseUserElement = document.getElementById("power-false-{{ cleanSectionID }}");
+    const powerTrueUserElement = document.getElementById("power-true-{{ cleanSectionID }}");
+    if (!priceUserElement) return;
+
+    const btnTrue = document.getElementById("button-true-{{ cleanSectionID }}");
+    const btnFalse = document.getElementById("button-false-{{ cleanSectionID }}");
+
+    function formatPrice(priceStr) {
+      return priceStr?.replace(/\.00$/, '') ?? "";
+    }
+      
+    function displayPrices(plans, countryName = "") {
+      const yearlyPlan = plans.find(p => p.interval === "year" || p.interval === "annual");
+      const monthlyPlan = plans.find(p => p.interval === "month");
+      const currentPageHandle = "{{ page.handle | default: '' }}";
+
+      headingFirstFalse.innerHTML = `{{ section.settings.geo-heading_first_false }}`;
+      headingSecondFalse.innerHTML = `{{ section.settings.geo-heading_second_false }}`;
+      powerFalseUserElement.style.display = "block";
+      powerTrueUserElement.style.display = "none";
+
+      if (currentPageHandle === "power-players") {
+        const yearly = yearlyPlan ? formatPrice(yearlyPlan.displayMonthlyAmount) : "";
+        priceUserElement.innerHTML = `
+          There’s never been a better time to track your progress and elevate your game.
+          In ${countryName || "(your country)"}, upgrade to an annual Power Subscription
+          for only ${yearly}/month! 
+        `;
+      } else {
+        const yearly = yearlyPlan ? formatPrice(yearlyPlan.displayAmountPayPerRecurringInterval) : "";
+        const monthly = monthlyPlan ? formatPrice(monthlyPlan.displayAmountPayPerRecurringInterval) : "";
+        priceUserElement.innerHTML = `
+          There’s never been a better time to track your progress and elevate your game.
+          In ${countryName || "(your country)"}, upgrade to an annual Power Subscription
+          for only ${monthly ? `${monthly}/month` : ""}
+          ${yearly ? ` or ${yearly}/year` : ""}!
+        `;
+      }
+    }
+
+    // ✅ Unified geoInfo fetcher
+    async function getGeoInfoUnified() {
+      if (window.__geoInfoPromise) return window.__geoInfoPromise;
+
+      window.__geoInfoPromise = (async () => {
+        try {
+          const storedGeoInfo = localStorage.getItem("geoInfo");
+          if (storedGeoInfo) return JSON.parse(storedGeoInfo);
+
+          const res = await fetch(ipstackUrl);
+          if (!res.ok) throw new Error("IPStack fetch failed");
+
+          const data = await res.json();
+          localStorage.setItem("geoInfo", JSON.stringify(data));
+          return data;
+        } catch (err) {
+          console.error("GeoInfo fetch error:", err);
+          return null;
+        }
+      })();
+
+      return window.__geoInfoPromise;
+    }
+
+    async function fetchPlansForUser(loggedIn = false, currentData = null) {
+      let geoInfo = null;
+      let countryName = "";
+      let theCountries = "{{ section.settings.geo-the_countries }}".trim()
+        .split(",")                
+        .map(c => c.trim().toUpperCase()) 
+        .filter(Boolean);          
+
+      if (!loggedIn) {
+        geoInfo = await getGeoInfoUnified();
+        countryName = geoInfo?.country_name || "";
+      }
+
+      const countryCode = (currentData?.location?.countryCode || geoInfo?.country_code || "").toUpperCase();
+      if (!countryCode) return;
+
+      try {
+        if (countryCode === "AU") {
+          if (loggedIn) {
+            const res = await fetch("https://api.utrsports.net/v1/subscriptions/power/aus/plans");
+            const data = await res.json();
+
+            // ✅ Lấy country từ API
+            let codeFromApi = data.residencyCountryCode?.toUpperCase() || countryCode;
+            countryName = data.residencyCountryName || countryName;
+
+            // Nếu cần thêm "the" mà chưa có sẵn trong name
+            if (theCountries.includes(codeFromApi) && !/^the\s+/i.test(countryName)) {
+              countryName = `the ${countryName}`;
+            }
+
+            if (data.isTennisAustraliaMember) {
+              const resMember = await fetch("https://api.utrsports.net/v1/subscriptions/power/plans/australia");
+              const memberData = await resMember.json();
+              displayPrices(memberData.tennisAustraliaPlans ?? [], countryName);
+            } else {
+              displayPrices(data.subscriptionPlans ?? [], countryName);
+            }
+          } else {
+            const res = await fetch("https://api.utrsports.net/v1/subscriptions/power/plans/australia");
+            const data = await res.json();
+
+            let codeFromApi = data.residencyCountryCode?.toUpperCase() || countryCode;
+            countryName = data.residencyCountryName || countryName;
+
+            if (theCountries.includes(codeFromApi) && !/^the\s+/i.test(countryName)) {
+              countryName = `the ${countryName}`;
+            }
+
+            displayPrices(data.regularPlans ?? [], countryName);
+          }
+        } else {
+          const res = await fetch(`https://api.utrsports.net/v1/subscriptions/power/${countryCode}/plans`);
+          const data = await res.json();
+
+          let codeFromApi = data.residencyCountryCode?.toUpperCase() || countryCode;
+          countryName = data.residencyCountryName || countryName;
+
+          if (theCountries.includes(codeFromApi) && !/^the\s+/i.test(countryName)) {
+            countryName = `the ${countryName}`;
+          }
+
+          displayPrices(data.subscriptionPlans ?? [], countryName);
+        }
+      } catch (e) {
+        console.error("Error fetching plans", e);
+      }
+    }
+
+    try {
+      const resCurrent = await fetch(apiCurrent, { method: 'GET', credentials: 'include' });
+      if (resCurrent.ok) {
+        const currentData = await resCurrent.json();
+        if (currentData && Object.keys(currentData).length > 0) {
+          if (currentData.isPowered) {
+            // Users already have Power
+            headingFirstTrue.innerHTML = `{{ section.settings.geo-heading_first_true }}`;
+            headingSecondTrue.innerHTML = `{{ section.settings.geo-heading_second_true }}`;
+            powerFalseUserElement.style.display = "none";
+            powerTrueUserElement.style.display = "block";
+            priceUserElement.innerHTML = `
+              Take advantage of your UTR Sports Power Subscription and track your progress, scout your opponents, and find better local matches.
+              You also can access advanced analytics and save money on every verified UTR Sports tennis event you play!
+            `;
+            if (btnTrue) btnTrue.style.display = "inline-block";
+            return;
+          }
+          if (btnFalse) btnFalse.style.display = "inline-block";
+          await fetchPlansForUser(true, currentData);
+          return;
+        }
+      }
+      // Người dùng chưa login
+      if (btnFalse) btnFalse.style.display = "inline-block";
+      await fetchPlansForUser(false);
+    } catch (err) {
+      console.error("Error fetching current user", err);
+      if (btnFalse) btnFalse.style.display = "inline-block";
+      await fetchPlansForUser(false);
+    }
+  });
+</script>
+
+
+<style>
+  
+ @media(min-width: 750px) {  
+  .rich-text-background-image {
+    background-image: url("{{section.settings.geo-section-image | image_url}}");
+  }
+ }
+  
+  {% if section.settings.geo-image_mobile %}
+  @media(max-width: 749px) {
+    .rich-text-background-image {
+      background-image: url("{{section.settings.geo-image_mobile | image_url}}");
+    }
+  }
+  {%endif%}
+    .font-size-medium {
+    font-size: 70px;
+    }
+    .font-size-small {
+        font-size: 55px;
+    }
+
+    .small-title-font-large {
+      font-size: 40px;
+    }
+    .small-title-font-medium {
+      font-size: 30px;
+    }
+    .small-title-font-small {
+      font-size: 24px;
+    }
+</style>
+
+{% schema %}
+  {
+    "name": "Geotarget Banner",
+    "class": "geotarget-banner",
+    "presets": [
+      {
+        "name": "Geotarget Banner",
+        "category": "Geotarget"
+      }
+    ],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "geo-section-image",
+        "label": "Desktop Screen Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "geo-image_mobile",
+        "label" : "Mobile Screen Image"
+      },
+      {
+        "type": "select",
+        "id": "geo-image_height",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Banner height"
+      },
+      {
+        "type": "text",
+        "id": "geo-tagline",
+        "label": "Tag Line Title"
+      },
+      {
+        "type": "select",
+        "id": "geo-small-title-size",
+        "label": "Tag Line Title Size",
+        "options": [
+          {
+            "value": "h1",
+            "label": "Large"
+          },
+          {
+            "value": "h2",
+            "label": "Medium"
+          },
+          {
+            "value": "h3",
+            "label": "Small"
+          },
+          {
+            "value": "p",
+            "label": "Normal"
+          }
+        ],
+        "default": "p"
+      },
+      {
+        "type": "header",
+        "content": "IsPower False - Not Login"
+      },
+      {
+        "type": "text",
+        "id": "geo-heading_first_false",
+        "label": "Heading First Half (Teal)"
+      },
+      {
+        "type": "text",
+        "id": "geo-heading_second_false",
+        "label": "Heading Second Half (White)"
+      },
+      {
+        "type": "header",
+        "content": "IsPower True - Login"
+      },
+      {
+        "type": "text",
+        "id": "geo-heading_first_true",
+        "label": "Heading First Half (Teal)"
+      },
+      {
+        "type": "text",
+        "id": "geo-heading_second_true",
+        "label": "Heading Second Half (White)"
+      },
+      {
+        "type": "select",
+        "id": "geo-heading-size",
+        "label": "Header Size",
+        "options": [
+          { "value": "large", "label": "Large" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "small", "label": "Small" }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Title"
+      },
+      {
+        "type": "select",
+        "id": "geo-sub-heading-size",
+        "label": "Sub Header Size",
+        "options": [
+          { "value": "medium", "label": "Medium" },
+          { "value": "small", "label": "Small" }
+        ]
+      },
+
+      {
+        "type": "text",
+        "id": "geo-section-button-false",
+        "label": "Button Title Powered False"
+      },
+      {
+        "type": "text",
+        "id": "geo-section-button-true",
+        "label": "Button Title Powered True"
+      },
+
+      {
+        "type": "url",
+        "id": "geo-section-button-url",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "geo-section-button-second",
+        "label": "Second Button Title "
+      },
+      {
+        "type": "url",
+        "id": "geo-section-button-url-second",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "geo-the_countries",
+        "label": "Countries with Prefix the"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
+
+
+

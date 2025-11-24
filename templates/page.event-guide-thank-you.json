@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246479123cba1221": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_HHbqjE": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_HHbqjE"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "inner_image_banner_full_content_kGgkyA": {
+      "type": "inner-image-banner-full-content",
+      "settings": {
+        "section-image": "shopify://shop_images/team-tennis-manager-top-fold-2560x1280.jpg",
+        "image_mobile": "shopify://shop_images/team-tennis-manager-top-fold-2560x1280.jpg",
+        "image_height": "medium",
+        "tagline": "THANK YOU",
+        "small-title-size": "h1",
+        "heading": "YOUR FORM HAS BEEN SUBMITTED",
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "UTR Sports technology powers tennis and pickleball organizations around the globe. Our innovative solutions help you fill courts economically with level-based play. We will be in touch with you shortly.",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-2": "",
+        "section-button-url-2": ""
+      }
+    },
+    "about_section_NnXghw": {
+      "type": "about-section",
+      "settings": {
+        "heading": "Questions?",
+        "heading-permission": "NO",
+        "subheading": "Contact Us",
+        "description": "For more information/questions, please contact am@utrsports.com."
+      }
+    },
+    "multicolumn_arNNt8": {
+      "type": "multicolumn",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "UPGRADE TO POWER",
+        "button_link": "https://app.utrsports.net/power-perks",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "17246479123cba1221",
+    "main",
+    "inner_image_banner_full_content_kGgkyA",
+    "about_section_NnXghw",
+    "multicolumn_arNNt8"
+  ]
+}

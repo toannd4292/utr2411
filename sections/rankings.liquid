@@ -1,0 +1,708 @@
+<script>
+  function searchTable(inputId, tableId) {
+    var input, filter, table, tr, td, i, txtValue, nameColumnIndex;
+
+    input = document.getElementById(inputId); 
+    filter = input.value.toUpperCase(); 
+    
+    table = document.getElementById(tableId); 
+    tr = table.getElementsByTagName("tr"); 
+
+    var headers = table.getElementsByTagName("thead")[0].getElementsByTagName("th");
+    nameColumnIndex = -1; 
+
+    for (i = 0; i < headers.length; i++) {
+        if (headers[i].textContent.trim().toLowerCase() === "name") {
+            nameColumnIndex = i;
+            break;
+        }
+    }
+
+    if (nameColumnIndex === -1) {
+        alert("Column 'Name' not found in table.");
+        return;
+    }
+
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[nameColumnIndex];
+        
+        if (td) {
+            txtValue = td.textContent || td.innerText;  
+            if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+  }
+  
+  function myFunctionRanking() {
+    for(var i = 1; i <= 14; i++){
+      searchTable("searchInputRanking", "table"+i);
+    }
+  }
+</script>
+
+<script>
+      var getCountry = async function (nationality) {
+        const response = await fetch('https://cdn.shopify.com/s/files/1/0690/8071/1488/files/new_flags_iso.csv?v=1733814604');
+        const text = await response.text();
+        const rows = text.split('\n');
+        const headers = rows[0].split(',').map(header => header.trim());
+    
+        const countryCodeColumnIndex = headers.indexOf('Alpha-3 code');
+        const countryNameColumnIndex = headers.indexOf('Country');
+        const flagUrlColumnIndex = headers.indexOf('URL');
+    
+        let countryInfo = { flagImageUrl: '', countryName: '' };
+        var flag = '';
+    
+        rows.slice(1).forEach(row => {
+            const columns = row.split(',');
+            if (columns[countryCodeColumnIndex] === nationality) {
+                countryInfo.countryName = columns[countryNameColumnIndex];
+                countryInfo.flagImageUrl = columns[flagUrlColumnIndex];
+                flag += '<img src="'+countryInfo.flagImageUrl+'" alt="'+nationality+'" title="'+countryInfo.countryName+'" style="width: 32px; height: 24px; margin-right: 5px;">';
+            }
+        });  
+        return countryInfo;
+      }
+  
+  function fetchAndRenderAllTables() {
+    const filters = [
+      { gender: "m", param: "&tags=Pro&count=25", label: "{{ section.settings.pro_men_title }}", description: "{{ section.settings.pro_men_text }}", button: "{{ section.settings.pro_men_btn_text }}", link: "{{ section.settings.pro_men_btn_link }}" },
+      { gender: "f", param: "&tags=Pro&count=25", label: "{{ section.settings.pro_women_title }}", description: "{{ section.settings.pro_women_text }}", button: "{{ section.settings.pro_women_btn_text }}", link: "{{ section.settings.pro_women_btn_link }}" },
+      { gender: "m", param: "&tags=U14&count=25", label: "{{ section.settings.u14_boys_title }}", description: "{{ section.settings.u14_boys_text }}", button: "{{ section.settings.u14_boys_btn_text }}", link: "{{ section.settings.u14_boys_btn_link }}" },
+      { gender: "f", param: "&tags=U14&count=25", label: "{{ section.settings.u14_girls_title }}", description: "{{ section.settings.u14_girls_text }}", button: "{{ section.settings.u14_girls_btn_text }}", link: "{{ section.settings.u14_girls_btn_link }}" },
+      { gender: "m", param: "&tags=U16&count=25", label: "{{ section.settings.u16_boys_title }}", description: "{{ section.settings.u16_boys_text }}", button: "{{ section.settings.u16_boys_btn_text }}", link: "{{ section.settings.u16_boys_btn_link }}" },
+      { gender: "f", param: "&tags=U16&count=25", label: "{{ section.settings.u16_girls_title }}", description: "{{ section.settings.u16_girls_text }}", button: "{{ section.settings.u16_girls_btn_text }}", link: "{{ section.settings.u16_girls_btn_link }}" },
+      { gender: "m", param: "&tags=U18&count=25", label: "{{ section.settings.u18_boys_title }}", description: "{{ section.settings.u18_boys_text }}", button: "{{ section.settings.u18_boys_btn_text }}", link: "{{ section.settings.u18_boys_btn_link }}" },
+      { gender: "f", param: "&tags=U18&count=25", label: "{{ section.settings.u18_girls_title }}", description: "{{ section.settings.u18_girls_text }}", button: "{{ section.settings.u18_girls_btn_text }}", link: "{{ section.settings.u18_girls_btn_link }}" },
+      { gender: "m", param: "&tags=HighSchool&count=25", label: "{{ section.settings.high_school_boys_title }}", description: "{{ section.settings.high_school_boys_text }}", button: "{{ section.settings.high_school_boys_btn_text }}", link: "{{ section.settings.high_school_boys_btn_link }}" },
+      { gender: "f", param: "&tags=HighSchool&count=25", label: "{{ section.settings.high_school_girls_title }}", description: "{{ section.settings.high_school_girls_text }}", button: "{{ section.settings.high_school_girls_btn_text }}", link: "{{ section.settings.high_school_girls_btn_link }}" },
+      { gender: "m", param: "&tags=College&count=25", label: "{{ section.settings.college_men_title }}", description: "{{ section.settings.college_men_text }}", button: "{{ section.settings.college_men_btn_text }}", link: "{{ section.settings.college_men_btn_link }}" },
+      { gender: "f", param: "&tags=College&count=25", label: "{{ section.settings.college_women_title }}", description: "{{ section.settings.college_women_text }}", button: "{{ section.settings.college_women_btn_text }}", link: "{{ section.settings.college_women_btn_link }}" },
+      { gender: "m", param: "&top=25&skip=200", label: "{{ section.settings.ptt_men_title }}", isPts: true, description: "{{ section.settings.ptt_men_text }}", button: "{{ section.settings.ptt_men_btn_text }}", link: "{{ section.settings.ptt_men_btn_link }}" },
+      { gender: "f", param: "&top=25&skip=199", label: "{{ section.settings.ptt_women_title }}", isPts: true, description: "{{ section.settings.ptt_women_text }}", button: "{{ section.settings.ptt_women_btn_text }}", link: "{{ section.settings.ptt_women_btn_link }}" },
+    ];
+
+    const baseURL = "https://api.universaltennis.com/v3/player/top?";
+    const ptsURL = "https://api.universaltennis.com/pts/player/top?";
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    const fetchPromises = filters.map((filter) => {
+      const url =
+        (filter.isPts ? ptsURL : baseURL) + `gender=${filter.gender}${filter.param}`;
+      console.log("Fetch URL for", filter.label, ":", url);
+      return fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then((data) => ({ label: filter.label, data: data, description: filter.description, button: filter.button, link: filter.link }))
+        .catch((error) => {
+          console.log("Error fetching data for:", filter.label, error);
+          return { label: filter.label, data: [], description: filter.description, button: filter.button, link: filter.link };
+        });
+    });
+
+    Promise.all(fetchPromises)
+      .then((results) => {
+        results.forEach((result, index) => {
+          renderTable(result.data, result.label, result.description, result.button, result.link, index + 1);
+        });
+      })
+      .catch((error) => console.log("Error during fetchPromises:", error));
+  }
+
+  function renderTable(data, label, description, button, link, tableId) {
+    let tableHTML = `
+      <div id="${ link.replace('/pages/', '') }" class="table-ranking-tennis">
+        <h3><a href="${link}">${label}</a></h3>
+        <p>${description}</p>
+      <div class="table-responsive table-scroll-black">
+        <table class="table2" id="table${tableId}">
+          <thead>
+            <tr>
+              <th>rank</th>
+              <th>country</th>
+              <th>name</th>
+              <th>utr</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+
+    data.forEach((player) => {
+      let ranking = "--";
+
+      console.log("Player Data for", label, ":", player);
+
+      if (player.rankings) {
+        const relevantRank =
+          label === "PTT men rankings"
+            ? player.rankings.find((ranking) => ranking.rankListId === 52)
+            : label === "PTT women rankings"
+            ? player.rankings.find((ranking) => ranking.rankListId === 51)
+            : null;
+
+        if (relevantRank) {
+          ranking = relevantRank.rank || "--";
+        }
+      } else if (player.utrRanking) {
+        ranking = player.utrRanking || "--";
+      }
+      
+      const nationality = player.nationality;
+      getCountry(nationality).then((value) => {
+        $('.flag-'+nationality+' img').attr('title', value.countryName);
+        if(nationality == 'GER'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_gm-flag.gif');
+        }else if(nationality == 'VIE'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_vm-flag.gif');
+        }else if(nationality == 'TPE'){
+          $('.flag-'+nationality+' img').attr('src', '{{ 'flag-taiwan.png' | asset_url }}');
+        }else if(nationality == 'GRE'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_gr-flag.gif');
+        }else if(nationality == 'LAT'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_lg-flag.gif');
+        }else if(nationality == 'NED'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_nl-flag.gif');
+        }else if(nationality == 'SLO'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_lo-flag.gif');
+        }else if(nationality == 'NGR'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_ni-flag.gif');
+        }else if(nationality == 'RSA'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_sf-flag.gif');
+        }else if(nationality == 'SUI'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_sz-flag.gif');
+        }else if(nationality == 'BUL'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_bu-flag.gif');
+        }else if(nationality == 'DEN'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_da-flag.gif');
+        }else if(nationality == 'CHI'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_ci-flag.gif');
+        }else if(nationality == 'POR'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_po-flag.gif');
+        }else if(nationality == 'CRO'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_hr-flag.gif');
+        }else if(nationality == 'ES'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_sp-flag.gif');
+        }else if(nationality == 'HKG'){
+          $('.flag-'+nationality+' img').attr('src', '{{ 'flag-hongkong.png' | asset_url }}');
+        }else if(nationality == 'INA'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_id-flag.gif');
+        }
+         else if(nationality == 'BAH'){
+          $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info//img/flags/small/tn_bf-flag.gif');
+        }
+        else if(nationality == 'UKR'){
+  var img = new Image();
+  img.src = 'https://www.worldometers.info/img/flags/small/tn_up-flag.gif';
+  img.onload = function() {
+    $('.flag-'+nationality+' img').attr('src', img.src);
+  };
+  img.onerror = function() {
+    $('.flag-'+nationality+' img').attr('src', 'https://www.worldometers.info/img/flags/up-flag.png');
+  };
+}
+        else{
+          $('.flag-'+nationality+' img').attr('src', value.flagImageUrl);
+        }
+      });
+      
+      const name = `${player.firstName || "--"} ${player.lastName || "--"}`;
+      const id = player.id || "--";
+      const utr = `${(typeof player.utr === "number" ? player.utr.toFixed(2) : player.utr || "")} ${(typeof player.singlesUtrDisplay === "number" ? player.singlesUtrDisplay.toFixed(2) : player.singlesUtrDisplay || "")}`;
+
+      // const utr = `${player.utr || ""} ${player.singlesUtrDisplay || ""}`;
+      tableHTML += `
+        <tr>
+          <td>${ranking}</td>
+          <td class="flag-${nationality}"><img src="" alt="${nationality}" title="" style="width: 32px; height: 24px; margin-right: 5px;"></td>
+          <td> <a href="https://app.universaltennis.com/profiles/${id}" class="ranking-link" target="_blank">${name}</a></td>
+          <td>${utr}</td>
+        </tr>
+      `;
+    });
+
+    tableHTML += `</tbody></table>
+    </div>
+    <a href="${link}" class="ranking-button-new btn-blue button-theme-teal text-uppercase mb-3">${button}</a>
+    </div>`;
+    document.getElementById("tables-container").innerHTML += tableHTML;
+  }
+
+  document.addEventListener("DOMContentLoaded", fetchAndRenderAllTables);
+
+  setTimeout(function(){
+    var temp = $(location).attr('pathname');
+    var id = temp.replace('/pages/', '#');
+    $('html, body').animate({
+      scrollTop: $(id).offset().top - 100
+    }, 500);
+  }, 3000);
+  
+</script>
+
+  <div class="page-width z-index-2 isolate" style="padding-top: 36px; padding-bottom: 24px;">
+    <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop">
+      <div class="grid__item">
+      <form class="position-relative">      
+        <div class="mr-auto bg_black flex-search-bg fs-pb-1-5">
+            <div class="d-flex gap-2 align-items-center justify-content-center">
+              <div class="flex-column d-flex w-xl-100">
+                <div class="position-relative ut-gs-serachbutton pointer">        
+                  <input type="text" class="gotham-bold text-black ut-gs-searchinput text-uppercase" id="searchInputRanking" onkeyup="myFunctionRanking()" placeholder="Search your name to activate your profile" autocomplete="off"/>
+                </div>      
+              </div>
+            <div class="flex-column d-flex">
+                <button class="blue-teal-gradient-bg search-icon">
+                  <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+                  <span class="text-white">
+                    <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                      <use href="#icon-search"></use>
+                    </svg>
+                  </span>
+                </summary>
+                </button>
+              </div>
+            </div>   
+          </div>
+      </form>
+    </div>
+  </div>
+</div> 
+
+<div id="tables-container" class="page-width"></div>
+
+<style>
+  .ranking-link {
+    text-decoration: none;
+    color: black;
+  }
+  .ranking-link:hover{
+    color: var(--color-teal-light);
+    text-decoration: underline;
+  }
+  .ranking-button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+.ranking-button-new.btn-blue.button-theme-teal.text-uppercase.mb-3 {
+    margin: 0px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: max-content;
+    min-width: 225px;
+    max-width: 100%;
+}
+  .table-ranking-tennis h3,
+  .table-ranking-tennis h3 a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--color-teal-light);
+    margin-bottom: 1rem;
+    {% comment %} text-transform: initial; {% endcomment %}
+    text-decoration: none;
+}
+  .table-ranking-tennis p {
+    margin-top: 0;
+  }
+  .ranking-button:hover {
+    background-color: #45a049;
+  }
+.table-ranking-tennis{
+  width: 46%;
+}
+  div#tables-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 50px;
+    row-gap: 0;
+  }
+
+  div#tables-container .table-scroll-black {
+    overflow-y: auto;
+    max-height: 570px;
+    background: #fff;
+    border-radius: 40px;
+    padding: 1.5rem;
+  }
+  div#tables-container .table-scroll-black table thead{
+    display: none;
+  }
+ @media (max-width: 749px) {
+  .table-ranking-tennis {
+    width: 100%;
+  }
+  div#tables-container .table-scroll-black .table2 tr th,
+  div#tables-container .table-scroll-black .table2 tr td {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .ranking-link{
+    color: var(--color-teal-light);
+  }
+  div#tables-container .table-scroll-black .table2 tr th,
+  div#tables-container .table-scroll-black .table2 tr td {
+    padding: 1rem;
+  }
+  /* .ranking-button-new{
+    background: #fff;
+    border: 2px solid #000;
+  } */
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Rankings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Pro Men"
+      },
+      {
+        "type": "text",
+        "id": "pro_men_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "pro_men_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "pro_men_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "pro_men_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "Pro Women"
+      },
+      {
+        "type": "text",
+        "id": "pro_women_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "pro_women_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "pro_women_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "pro_women_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U14 Boys"
+      },
+      {
+        "type": "text",
+        "id": "u14_boys_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u14_boys_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u14_boys_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u14_boys_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U14 Girls"
+      },
+      {
+        "type": "text",
+        "id": "u14_girls_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u14_girls_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u14_girls_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u14_girls_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U16 Boys"
+      },
+      {
+        "type": "text",
+        "id": "u16_boys_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u16_boys_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u16_boys_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u16_boys_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U16 Girls"
+      },
+      {
+        "type": "text",
+        "id": "u16_girls_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u16_girls_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u16_girls_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u16_girls_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U18 Boys"
+      },
+      {
+        "type": "text",
+        "id": "u18_boys_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u18_boys_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u18_boys_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u18_boys_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "U18 Girls"
+      },
+      {
+        "type": "text",
+        "id": "u18_girls_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "u18_girls_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "u18_girls_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "u18_girls_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "High School Boys"
+      },
+      {
+        "type": "text",
+        "id": "high_school_boys_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "high_school_boys_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "high_school_boys_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "high_school_boys_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "High School Girls"
+      },
+      {
+        "type": "text",
+        "id": "high_school_girls_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "high_school_girls_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "high_school_girls_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "high_school_girls_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "College Men"
+      },
+      {
+        "type": "text",
+        "id": "college_men_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "college_men_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "college_men_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "college_men_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "College Women"
+      },
+      {
+        "type": "text",
+        "id": "college_women_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "college_women_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "college_women_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "college_women_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "PTT Men"
+      },
+      {
+        "type": "text",
+        "id": "ptt_men_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "ptt_men_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "ptt_men_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "ptt_men_btn_link",
+        "label": "Button link",
+      },
+      {
+        "type": "header",
+        "content": "PTT Women"
+      },
+      {
+        "type": "text",
+        "id": "ptt_women_title",
+        "label": "Title",
+      },
+      {
+        "type": "inline_richtext",
+        "id": "ptt_women_text",
+        "label": "Text",
+      },
+      {
+        "type": "text",
+        "id": "ptt_women_btn_text",
+        "label": "Button text",
+      },
+      {
+        "type": "url",
+        "id": "ptt_women_btn_link",
+        "label": "Button link",
+      }
+    ]
+  }
+{% endschema %}

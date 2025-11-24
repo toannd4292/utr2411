@@ -1,0 +1,439 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+<style>
+  .banner:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+  @media screen and (min-width: 750px) {
+    .banner__content {
+        padding: unset;
+    }
+}
+@media screen and (min-width: 750px) {
+    .banner__box-2 {
+      max-width: 100rem;
+      padding:4.5rem 1rem !important;
+  }
+  .custom-banner--small {
+    height: 420px !important;
+    .rich-text-background-image {
+      min-height: 420px;
+    }
+  }
+  .custom-banner--medium {
+    height: 570px !important;
+    .rich-text-background-image {
+      min-height: 570px;
+    }
+  }
+  .custom-banner--large {
+    height: 720px !important;
+    .rich-text-background-image {
+      min-height: 720px;
+    }
+  } 
+  .banner:after{background: linear-gradient(180deg, rgba(0, 0, 0, 0.27) 0%, rgba(0, 0, 0, 0.77) 100%) !important;}
+}  
+@media screen and (max-width: 749px) {
+  .banner__box-2{padding-bottom:0; padding-left: 1rem;padding-right: 1rem;}
+  .banner:after{background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.89) 100%) !important;}
+  .custom-btn-banner {
+    display: grid;
+    gap: 10px;
+  }
+  .custom-banner--small {
+      overflow: hidden;
+    }
+  .custom-banner--medium {
+    overflow: hidden;
+  }
+  .custom-banner--large {
+    overflow: hidden;
+  }
+  .rich-text-background-image {
+    min-height: unset;
+    align-items: unset;
+  }
+  .custom-grid {
+    padding: 40px 37px;
+  }
+  .content-container--full-width-mobile {
+    padding: unset;
+  }
+  .aspect-ratio-16-8 {
+    aspect-ratio: unset !important;
+  }
+} 
+   .aspect-ratio-16-8 {
+  aspect-ratio: 16 / 8;
+  }
+    .font-size-medium {
+    font-size: 52px;
+}
+
+.font-size-small {
+    font-size: 45px;
+}
+</style>
+<div class="banner custom-banner--{{ section.settings.image_height }} banner--{{ section.settings.image_height }} banner--desktop-transparent banner--content-align-mobile-center">
+   <div class="rich-text-background-image aspect-ratio-16-8">
+     <div class="page-width">
+        <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop align-items-center justify-content-center custom-grid">
+          <div class="banner__content banner__content--top-center page-width banner--content-align-center">
+            <div class="banner__box banner__box-2 content-container content-container--full-width-mobile">
+              <div class="text-center">
+                <!-- <p class="text-uppercase text-white mb-lg-0 mb-sm-0 mt-0 mb-0 gotham-medium font-sm-10 font-lg-16">
+                   {{section.settings.tagline}}
+                  </p> -->
+                                   {% case section.settings['small-title-size'] %}
+          {% when 'p' %}
+         <p class="text-uppercase text-white mb-lg-0 mb-sm-0 mt-0 mb-0 gotham-medium font-sm-10 font-lg-16">{{section.settings.tagline}}</p>
+          {% when 'h1' %}
+         <h1 class="text-uppercase text-white mb-lg-0 mb-sm-0 mt-0 mb-0 gotham-medium small-title-font-large lh-normal">{{section.settings.tagline}}</h1>
+          {% when 'h2' %}
+         <h2 class="text-uppercase text-white mb-lg-0 mb-sm-0 mt-0 mb-0 gotham-medium small-title-font-medium lh-normal">{{section.settings.tagline}}</h2>
+          {% when 'h3' %}
+         <h3 class="text-uppercase text-white mb-lg-0 mb-sm-0 mt-0 mb-0 gotham-medium small-title-font-small lh-normal">{{section.settings.tagline}}</h3>
+          {% endcase %}
+          
+                  {% assign headerSize = section.settings['heading-size'] %}
+                {% assign subheaderSize = section.settings['sub-heading-size'] %}
+
+                  {% if headerSize == 'large' %}
+                  <h1 class="section-title-lg-65 section-title-sm font-tungsten text-white section-title-sm mb-0 mt-0 lh-xl-90 text-uppercase">{{section.settings.heading}}</h1>
+                {% elsif headerSize == 'medium' %}
+                  <h2 class="font-size-medium section-title-sm font-tungsten text-white section-title-sm mb-0 mt-0 lh-xl-90 text-uppercase">
+                    {{ section.settings.heading }}
+                  </h2>
+                {% elsif headerSize == 'small' %}
+                  <h3 class="font-size-small section-title-sm font-tungsten text-white section-title-sm mb-0 mt-0 lh-xl-90 text-uppercase">
+                    {{ section.settings.heading }}
+                  </h3>
+                {% else %}
+                   <h1 class="section-title-lg-65 section-title-sm font-tungsten text-white section-title-sm mb-0 mt-0 lh-xl-90 text-uppercase">{{section.settings.heading}}</h1>
+                {% endif %}
+
+                {% if subheaderSize == 'medium' %}
+                  <h2 class="lh-xl-90 lh-sm-normal font-lg-85 font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mb-2">
+                    {{ section.settings.subheading }}
+                  </h2>
+                {% elsif subheaderSize == 'small' %}
+                  <h3 class="lh-xl-90 font-size-medium lh-sm-normal font-lg-85 font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mb-2">
+                    {{ section.settings.subheading }}
+                  </h3>
+                {% else %}
+                  <h2 class="lh-xl-90 lh-sm-normal font-lg-85 font-sm-55 mt-sm-n1 text-white font-best-friend text-teal d-block mt-0 mb-2">
+                    {{ section.settings.subheading }}
+                  </h2>
+                {% endif %}
+               
+                 <p class="mb-lg-1 mb-sm-0 mt-1 font-sm-14 font-md-14 text-white font-lg-18 lh-sm-19 lh-lg-22">
+                   {{section.settings.description}}
+                  </p>
+                <div class="d-flex justify-content-center  mt-3 gap-2 custom-btn-banner banner__buttons banner__buttons--multiple">
+                  <a href="{{section.settings.section-button-url}}" class="btn-white-outline btn-hover-black btn-xs-small min-xs-width d-flex justify-content-center align-items-center min-w-lg-225 min-w-sm-180 font-sm-12 text-uppercase">{{section.settings.section-button}}</a>
+                  <a href="{{section.settings.section-button-url-2}}" class="btn-white-outline btn-hover-black btn-xs-small min-xs-width d-flex justify-content-center align-items-center min-w-lg-225  min-w-sm-180 font-sm-12 text-uppercase">{{section.settings.section-button-2}}</a>
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+    </div> 
+  </div>   
+</div>
+<style>
+ 
+ @media(min-width: 750px) {  
+  .rich-text-background-image {
+    background-image: url("{{section.settings.section-image | image_url}}");
+  }
+ }
+  {% if section.settings.image_mobile %}
+  @media(max-width: 749px) {
+	.rich-text-background-image {
+    	background-image: url("{{section.settings.image_mobile | image_url}}");
+      }
+  }
+{%endif%}
+
+  .small-title-font-large {
+    padding: 0.5rem 0;
+    font-size: 24px;
+  }
+  .small-title-font-medium {
+    padding: 0.5rem 0;
+    font-size: 18px;
+  }
+  .small-title-font-small {
+    padding: 0.5rem 0;
+    font-size: 13px;
+  }
+</style>
+
+<script>
+    window.__geoInfoPromise = window.__geoInfoPromise || null;
+
+    window.getGeoInfo = function () {
+        if (window.__geoInfoPromise) {
+            // console.log("[GeoInfo] Reuse __geoInfoPromise");
+            return window.__geoInfoPromise;
+        }
+
+        const cached = localStorage.getItem('geoInfo');
+        if (cached) {
+            try {
+                const parsed = JSON.parse(cached);
+                if (parsed && parsed.region_code) {
+                    // console.log("[GeoInfo] Using data from localStorage:", parsed);
+                    window.__geoInfoPromise = Promise.resolve(parsed);
+                    return window.__geoInfoPromise;
+                } else {
+                    // console.log("[GeoInfo] Clear cache due to lack region_code");
+                    localStorage.removeItem('geoInfo');
+                }
+            } catch (e) {
+                // console.log("[GeoInfo] JSON error cache, clear cache");
+                localStorage.removeItem('geoInfo');
+            }
+        }
+
+        const accessKey = "{{ settings.key_ipstack }}";
+        // console.log("[GeoInfo] Call API ipstack");
+
+        window.__geoInfoPromise = fetch(`https://api.ipstack.com/check?access_key=${accessKey}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.region_code) {
+                    localStorage.setItem('geoInfo', JSON.stringify(data));
+                    // console.log("[GeoInfo] API thành công, lưu vào localStorage:", data);
+                    return data;
+                } else {
+                    throw new Error("Invalid geoInfo: missing region_code");
+                }
+            })
+            .catch(error => {
+                console.error("[GeoInfo] API error:", error);
+                localStorage.removeItem('geoInfo');
+                window.__geoInfoPromise = null;
+                throw error;
+            });
+
+        return window.__geoInfoPromise;
+    };
+
+    {% assign cleanSectionID = section.id | replace: '-', '' | replace: '_', '' %}
+    function section{{ cleanSectionID }}() {
+        let countryCode = "{{ section.settings.country_code }}".trim();
+        let hideCountry = "{{ section.settings.hide_country_code }}".trim();
+
+        if (!countryCode && !hideCountry) {
+            {% comment %}console.log("[Section {{ section.id }}] IGNORE: Both countryCode or hideCountry values ​​are empty.");{% endcomment %}
+            return;
+        }
+
+        {% comment %}console.log("[Section {{ section.id }}] START processing – Country setting available.");{% endcomment %}
+
+        const countryCodeArray = countryCode.replace(/,/g, '')
+            .split(' ')
+            .map(code => code.trim().toUpperCase())
+            .filter(code => code);
+
+        const hideCountryArray = hideCountry.replace(/,/g, '')
+            .split(' ')
+            .map(code => code.trim().toUpperCase())
+            .filter(code => code);
+
+        window.getGeoInfo().then(locationData => {
+            if (!locationData || !locationData.region_code) {
+                {% comment %}console.warn("[Section {{ section.id }}] Don't use region_code.");{% endcomment %}
+                return;
+            }
+
+            const userRegion = locationData.region_code.toUpperCase();
+            {% comment %}console.log("[Section {{ section.id }}] User region:", userRegion);{% endcomment %}
+
+            const el = document.getElementById('shopify-section-{{ section.id }}');
+            if (!el) return;
+
+            if (countryCodeArray.length && countryCodeArray.includes(userRegion)) {
+                el.style.display = 'block';
+            } else if (hideCountryArray.length && hideCountryArray.includes(userRegion)) {
+                el.style.display = 'none';
+            } else {
+                el.style.display = countryCodeArray.length > 0 ? 'none' : 'block';
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        section{{ cleanSectionID }}();
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Image Banner full content",
+    "class": "image-banner-full-content ipstack_inner-image-banner-full-content",
+    "presets": [
+      {
+        "name": "Image Banner full content",
+        "category": "Image Banner full content"
+      }
+    ],
+      "settings": [
+      {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Desktop Screen Image"
+ 	   },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label" : "Mobile Screen Image"
+      },
+        {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Banner height",
+      },
+        {
+			"type":"text",
+			"id":"tagline",
+			"label": "Tag Line Title"
+		},
+                    {
+    "type": "select",
+    "id": "small-title-size",
+    "label": "Tag Line Title Size",
+    "options": [
+      {
+        "value": "h1",
+        "label": "Large"
+      },
+      {
+        "value": "h2",
+        "label": "Medium"
+      },
+      {
+        "value": "h3",
+        "label": "Small"
+      },
+      {
+        "value": "p",
+        "label": "Normal"
+      }
+    ],
+    "default": "p"
+  },
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+       {
+          "type": "select",
+          "id": "heading-size",
+          "label": "Header Size",
+          "options": [
+              { "value": "large", "label": "Large" },
+              { "value": "medium", "label": "Medium" },
+              { "value": "small", "label": "Small" }
+          ]
+      },
+       {
+			"type":"text",
+			"id":"subheading",
+			"label": "Sub Title"
+		},
+      {
+          "type": "select",
+          "id": "sub-heading-size",
+          "label": "Sub Header Size",
+          "options": [
+
+              { "value": "medium", "label": "Medium" },
+              { "value": "small", "label": "Small" }
+          ]
+      },
+       {
+			"type":"text",
+			"id":"description",
+			"label": "Description Title"
+		},
+       
+      
+       {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		},
+       {
+ 			"type": "text",
+ 			"id": "section-button-2",
+ 			"label": "Button 2"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url-2",
+ 			"label": "Button Link 2"
+		},
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Region/State Code",
+          "info": "Regions are separated by (,) For example IA, EN, HN,"
+        },
+        {
+          "type": "text",
+          "id": "hide_country_code",
+          "label": "Hide Region/State Code",
+          "info": "Regions are separated by (,) For example IA, EN, HN,"
+        }
+        
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script>
+    (function () {
+
+    var links = document.links;
+    for (let i = 0, linksLength = links.length ; i < linksLength ; i++) {
+      if (links[i].hostname !== window.location.hostname) {
+        links[i].target = '_blank';
+        links[i].rel = 'noreferrer noopener';
+      }
+    }
+  
+  })();
+</script>

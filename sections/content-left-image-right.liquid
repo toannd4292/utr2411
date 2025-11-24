@@ -1,0 +1,306 @@
+<div class="page-width pt-lg-5 pt-sm-5 text-sm-center" id="WatchLive">
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop justify-content-center align-items-center text-sm-center">
+    <div class="grid__item order-sm-last">
+        {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <h1 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 section-title-large ">
+          {{ section.settings.heading }}
+        </h1>
+      {% when 'h2' %}
+        <h2 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 section-title-medium">
+          {{ section.settings.heading }}
+        </h2>
+      {% when 'h3' %}
+        <h3 class="text-uppercase section-medium-title mt-0 mb-0 mt-sm-1 lh-xl-90 section-title-small">
+          {{ section.settings.heading }}
+        </h3>
+    {% endcase %}
+     {% case section.settings['sub-heading-size'] %}
+     {% when 'h2' %}
+        <h2 class="section-sub-title text-teal mt-0 mb-0 lh-xl-90 ps-lg-2 text-sm-center section-sub-title-medium">
+          {{ section.settings.subheading }}
+        </h2>
+        {% when 'h3' %}
+        <h3 class="section-sub-title text-teal mt-0 mb-0 lh-xl-90 ps-lg-2 text-sm-center section-sub-title-small">
+          {{ section.settings.subheading }}
+        </h3>
+  {% endcase %}
+       <p class="fw-bold font-sm-14">{{section.settings.description}}</p>
+       <a id="{{ section.settings.id_section-button }}" href="{{section.settings.section-button-url}}" class="btn-black btn-sm text-uppercase mt-1 mb-1">{{section.settings.section-button}}</a>
+        {% if section.settings.section-button-url_2 != blank %}
+            <a id="{{ section.settings.id_section-button_2 }}" href="{{section.settings.section-button-url_2}}" class="btn-black btn-sm text-uppercase mt-1 mb-1">{{section.settings.section-button_2}}</a>
+        {% endif %}
+    </div>
+     <div class="grid__item order-sm-first">
+      <div>
+        <img class="img-fluid border-radius-lg-3 border-radius-sm-3" src="{{section.settings.section-image | image_url}}" />
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+
+    .section-medium-title.section-title-large {
+    font-size: 120px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+
+.section-medium-title.section-title-small {
+    font-size: 50px;
+    color: var(--color-black);
+    font-family: var(--font-Tungsten);
+}
+  
+.section-sub-title.section-sub-title-small {
+    font-size: 55px;
+}
+@media screen and (max-width: 989px) {
+    .content-left-image-right {
+        .order-sm-last {
+            order: 2;
+        }
+    }
+}
+
+@media screen and (max-width: 749px){
+    .section-medium-title.section-title-large {
+        font-size: 60px;
+        color: var(--color-black);
+        font-family: var(--font-Tungsten);
+    }
+
+    .section-medium-title.section-title-small {
+        font-size: 26px;
+        color: var(--color-black);
+        font-family: var(--font-Tungsten);
+    }
+
+    .section-medium-title.section-title-medium {
+        font-size: 40px;
+    }
+
+    .section-sub-title.section-sub-title-small {
+        font-size: 35px;
+    }
+    .content-left-image-right {
+        .page-width {
+            padding-bottom: 1.5rem;
+        }
+    }
+}
+</style>
+
+<script>
+  window.__geoInfoPromise = window.__geoInfoPromise || null;
+
+  window.getGeoInfo = function () {
+    if (window.__geoInfoPromise) {
+      // console.log("[GeoInfo] Reuse __geoInfoPromise");
+      return window.__geoInfoPromise;
+    }
+
+    const cached = localStorage.getItem('geoInfo');
+    if (cached) {
+      try {
+        const parsed = JSON.parse(cached);
+        if (parsed && parsed.region_code) {
+          // console.log("[GeoInfo] Using data from localStorage:", parsed);
+          window.__geoInfoPromise = Promise.resolve(parsed);
+          return window.__geoInfoPromise;
+        } else {
+          // console.log("[GeoInfo] Clear cache due to lack region_code");
+          localStorage.removeItem('geoInfo');
+        }
+      } catch (e) {
+        // console.log("[GeoInfo] JSON error cache, clear cache");
+        localStorage.removeItem('geoInfo');
+      }
+    }
+
+    const accessKey = "{{ settings.key_ipstack }}";
+    // console.log("[GeoInfo] Call API ipstack");
+
+    window.__geoInfoPromise = fetch(`https://api.ipstack.com/check?access_key=${accessKey}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data && data.region_code) {
+                localStorage.setItem('geoInfo', JSON.stringify(data));
+                // console.log("[GeoInfo] API thành công, lưu vào localStorage:", data);
+                return data;
+              } else {
+                throw new Error("Invalid geoInfo: missing region_code");
+              }
+            })
+            .catch(error => {
+              console.error("[GeoInfo] API error:", error);
+              localStorage.removeItem('geoInfo');
+              window.__geoInfoPromise = null;
+              throw error;
+            });
+
+    return window.__geoInfoPromise;
+  };
+
+  {% assign cleanSectionID = section.id | replace: '-', '' | replace: '_', '' %}
+  function section{{ cleanSectionID }}() {
+    let countryCode = "{{ section.settings.country_code }}".trim();
+    let hideCountry = "{{ section.settings.hide_country_code }}".trim();
+
+    if (!countryCode && !hideCountry) {
+      {% comment %}console.log("[Section {{ section.id }}] IGNORE: Both countryCode or hideCountry values ​​are empty.");{% endcomment %}
+      return;
+    }
+
+    {% comment %}console.log("[Section {{ section.id }}] START processing – Country setting available.");{% endcomment %}
+
+    const countryCodeArray = countryCode.replace(/,/g, '')
+            .split(' ')
+            .map(code => code.trim().toUpperCase())
+            .filter(code => code);
+
+    const hideCountryArray = hideCountry.replace(/,/g, '')
+            .split(' ')
+            .map(code => code.trim().toUpperCase())
+            .filter(code => code);
+
+    window.getGeoInfo().then(locationData => {
+      if (!locationData || !locationData.region_code) {
+        {% comment %}console.warn("[Section {{ section.id }}] Don't use region_code.");{% endcomment %}
+        return;
+      }
+
+      const userRegion = locationData.region_code.toUpperCase();
+      {% comment %}console.log("[Section {{ section.id }}] User region:", userRegion);{% endcomment %}
+
+      const el = document.getElementById('shopify-section-{{ section.id }}');
+      if (!el) return;
+
+      if (countryCodeArray.length && countryCodeArray.includes(userRegion)) {
+        el.style.display = 'block';
+      } else if (hideCountryArray.length && hideCountryArray.includes(userRegion)) {
+        el.style.display = 'none';
+      } else {
+        el.style.display = countryCodeArray.length > 0 ? 'none' : 'block';
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    section{{ cleanSectionID }}();
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Content left image right",
+    "class": "content-left-image-right ipstack_content-left-image-right",
+    "presets": [
+      {
+        "name": "Content left image right",
+        "category": "Content left image right"
+      }
+    ],
+    "settings": [
+        {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 	   },
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+         {
+    "type": "select",
+    "id": "heading-size",
+    "label": "Heading Size",
+    "options": [
+      {
+        "value": "h1",
+        "label": "Large"
+      },
+      {
+        "value": "h2",
+        "label": "Medium"
+      },
+      {
+        "value": "h3",
+        "label": "Small"
+      }
+    ],
+    "default": "h2"
+  },
+      {
+			"type":"text",
+			"id":"subheading",
+			"label": "SubTitle"
+		},
+        {
+          "type": "select",
+          "id": "sub-heading-size",
+          "label": "Sub Header Size",
+          "options": [
+
+              { "value": "h2", "label": "Medium" },
+              { "value": "h3", "label": "Small" }
+          ],
+               "default": "h2"
+      },
+      {
+			"type":"text",
+			"id":"description",
+			"label": "Description Title"
+		},
+      {
+ 			"type": "text",
+ 			"id": "id_section-button",
+ 			"label": "ID Button Title 1"
+ 		},
+      {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Button Title 1"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link 1"
+		},
+      {
+ 			"type": "text",
+ 			"id": "id_section-button_2",
+ 			"label": "ID Button Title 2"
+ 		},
+      {
+        "type": "text",
+        "id": "section-button_2",
+        "label": "Button Title 2"
+      },
+      {
+        "type": "url",
+        "id": "section-button-url_2",
+        "label": "Button Link 2"
+      },
+      {
+        "type": "text",
+        "id": "country_code",
+        "label": "Region/State Code",
+        "info": "Regions are separated by (,) For example IA, EN, HN,"
+      },
+      {
+        "type": "text",
+        "id": "hide_country_code",
+        "label": "Hide Region/State Code",
+        "info": "Regions are separated by (,) For example IA, EN, HN,"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,1059 @@
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+<style>
+  .card-brieg{height:100%}
+
+  .card-lg-75 .owl-stage{
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      display: flex;
+  }
+  .card-lg-85{width: 90%;text-align: center;
+      display: flex;
+      padding-bottom:2rem;
+      justify-content: center;
+      align-items: center;
+  }
+
+
+  /* 	.slick-slide{
+  		padding:2px;
+  	} */
+  	#thumbs2 .slick-current .owlnum{
+  	background: linear-gradient(249.06deg, #00C0F7 8.42%, #01DFCB 89.68%);
+      color: var(--color-black);
+  	}
+  	#thumbs2 .slick-prev, #thumbs2 .slick-next{z-index:2;}
+
+  .slick-prev:before {
+      content: '';
+    width:26px; height:27px;
+    position: absolute;
+    background:url("https://cdn.shopify.com/s/files/1/0690/8071/1488/files/navigate_next.svg?v=1673952084")
+
+  }
+    .slick-next:before {
+      content: '';
+      width:26px; height:27px;
+      position: absolute;
+      background:url("https://cdn.shopify.com/s/files/1/0690/8071/1488/files/navigate_prev.svg?v=1673952084")
+  }
+    .slick-prev:before, .slick-next:before{color:#000}
+    #thumbs2 .owlnum{cursor:pointer}
+    #thumbs2 .owlnum{
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+      text-align: center;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;}
+  @media(max-width:991px){
+    .card-brieg{border-radius:22px}
+    #thumbs2 .owlnum {font-size: 30px;
+    padding:1rem;width:34px !important; height:50px;}
+    #thumbs2 .owlnum {margin-left:1rem;}
+    #thumbs2 .slick-current  .owlnum {
+      border-radius: 18px;
+      width:34px; height:50px;
+    }
+    #thumbs2 .slick-prev,
+    #thumbs2 .slick-next{top:20%}
+    #thumbs2 .slick-next{right:0;}
+    #thumbs2 .slick-prev{left: -30px;}
+  }
+  @media(min-width:992px){
+    .card-brieg{border-radius:13px}
+    #thumbs2 .owlnum {font-size: 42px;
+    padding:1rem;width:68px !important; height:85px;}
+    #thumbs2 .slick-current .owlnum {
+      border-radius: 30.5px;
+      width:68px; height:85px;
+    }
+    #thumbs2 .slick-prev,
+    #thumbs2 .slick-next{top:31%}
+    #thumbs2 .slick-prev{left: -50px;}
+    #thumbs2 .owlnum {margin-left:0.5rem;}
+  }
+</style>
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+  <h2 class="text-uppercase section-title section-title-sm mb-0 text-center">{{ section.settings.heading }}</h2>
+  {%- if section.settings['heading-permission'] == 'YES' -%}
+    <div class="mb-lg-4 mb-sm-2"><div class="divider-sm-teal divider-lg-teal"></div></div>
+  {%- endif -%}
+
+  <!--
+    Hide Selection temporarily | 31-03-2023 --
+
+    <div class="text-uppercase text-black fw-bold text-center d-flex justify-content-center align-items-center pt-lg-3 pb-lg-3 pt-sm-1 pb-sm-1">
+    <div class="fs-lg-24 fs-sm-18 fw-bold">Tennis</div>
+      <div class="switch">
+        <input type="checkbox" id="checkbox1" />
+        <label for="checkbox1"></label>
+      </div>
+      <div class="fs-lg-24 fs-sm-18 fw-bold">pickleball</div>
+    </div>
+
+      --Hide Selection temporarily | 31-03-2023
+  -->
+
+  <p class="text-center text-black width-lg-75 mr-auto pt-lg-3 pb-3 pt-sm-1 fw-bold">{{ section.settings.subtitle }}</p>
+
+  <div id="thumbs2" class="card-lg-85 mr-auto">
+    <div class="owlnum" id="13">14+</div>
+    <div class="owlnum" id="0">1</div>
+    <div class="owlnum" id="1">2</div>
+    <div class="owlnum" id="2">3</div>
+    <div class="owlnum" id="3">4</div>
+    <div class="owlnum" id="4">5</div>
+    <div class="owlnum" id="5">6</div>
+    <div class="owlnum" id="6">7</div>
+    <div class="owlnum" id="7">8</div>
+    <div class="owlnum" id="8">9</div>
+    <div class="owlnum" id="9">10</div>
+    <div class="owlnum" id="10">11</div>
+    <div class="owlnum" id="11">12</div>
+    <div class="owlnum" id="12">13</div>
+   
+  </div>
+
+  <div id="slider">
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player14"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>Futures</h2>
+              <p>Pro Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>WTA</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>ATP</h2>
+              <p>Pro Men</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items14 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player1"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.0</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~3.0 - 3.5</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U12 - U14</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items1 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player2"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.0</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~3.0 - 3.5</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U12 - U14</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items2 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player3"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.0</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~3.0 - 3.5</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U12 - U14</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items3 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player4"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.5 - 4.5</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~4.0 - 5.0</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U14 - U18</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12 - U16</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items4 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player5"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.5 - 4.5</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~4.0 - 5.0</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U14 - U18</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12 - U16</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items5 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player6"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.5 - 4.5</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~4.0 - 5.0</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U14 - U18</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12 - U16</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items6 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player7"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>~3.5 - 4.5</h2>
+              <p>Men NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>~4.0 - 5.0</h2>
+              <p>Women NTRP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>U14 - U18</h2>
+              <p>Girls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U12 - U16</h2>
+              <p>Boys</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items7 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player8"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items8 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player9"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items9 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player10"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items10 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player11"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items11 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player12"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items12 -->
+    <div>
+      <div
+        class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop sliderscroll-sm"
+        id="player13"
+      ></div>
+      <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>D1 - D3</h2>
+              <p>College Men</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-md-border">
+              <h2>D1</h2>
+              <p>College Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border counter-item-sm-border">
+              <h2>Futures</h2>
+              <p>Pro Women</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid__item">
+          <div class="counter-item text-center">
+            <div class="counter-item-border-0">
+              <h2>U16</h2>
+              <p>Girls Nationals</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./items13 -->
+    
+  </div>
+  <!-- #slider -->
+  <p class="text-center text-black gotham-medium mt-0">{{ section.settings.notetitle }}</p>
+</div>
+<!-- ./page-width -->
+
+{% schema %}
+{
+  "name": "Featured Players Slider",
+  "presets": [
+    {
+      "name": "Featured Players Slider",
+      "category": "Featured Players Slider"
+    }
+  ],
+  "settings": [
+    {
+   "type":"text",
+   "id":"heading",
+   "label": "Heading Title"
+  },
+    {
+          "type": "radio",
+          "id": "heading-permission",
+          "label": "Do You Want Underline Below Heading?",
+        "default": "NO",
+          "options": [
+      {
+          "value": "NO",
+          "label": "NO"
+      },
+      {
+          "value": "YES",
+          "label": "YES"
+      }
+          ]
+      },
+    {
+   "type":"text",
+   "id":"subtitle",
+   "label": "Sub Title"
+  },
+    {
+   "type":"text",
+   "id":"notetitle",
+   "label": "Note Title"
+  },
+    {
+   "type":"text",
+   "id":"menntrp",
+   "label": "MEN NTRP"
+  },
+    {
+   "type":"text",
+   "id":"womenntrp",
+   "label": "WOMEN NTRP"
+  },
+    {
+   "type":"text",
+   "id":"womenntrp2",
+   "label": "WOMEN NTRP"
+  },
+    {
+   "type":"text",
+   "id":"girls",
+   "label": "GIRLS"
+  },
+    {
+   "type":"text",
+   "id":"girls2",
+   "label": "GIRLS"
+  },
+    {
+   "type":"text",
+   "id":"boys",
+   "label": "BOYS"
+  }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  
+
+  
+
+  var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+let apiUrl = `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMax=3`;
+  function oldApiCalls() {
+   fetch(apiUrl)
+  .then(response => {
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // Parse the response body as JSON
+    return response.json();
+  })
+  .then(data => {
+    // Work with the data received from the API
+    let finaldata = data.hits
+    data.hits.map((data) => {
+      console.log("data.hits from map method",data.id)
+    })
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('Fetch error:', error);
+  });
+  };
+  
+
+  let playerId = [
+    3514145, 2993650, 3744084, 3734672, 3431908, 3433141,
+    3338139, 3901482, 2767007, 3595433, 2671569, 3071714,
+    1492977, 2683466, 2940693, 1515641, 2921430, 3432113,
+    3190599, 2754212, 2658245, 1195825, 2669607, 2749240,
+    1771571, 3699031, 3495152, 1594211, 3270683, 3415514,
+    1552734, 2134151, 2885361, 2579636, 1913015, 3776580,
+    2746465, 1367671, 529965, 2085662, 1158331, 667607,
+    3868594, 836616, 1301510, 104801, 2666292, 1891817,
+    1691043, 217221, 98368, 2984681, 3306157, 247560,
+    288274, 226549, 1784605, 1552117, 222511, 3107591,
+    11666, 1313619, 107920, 274857, 1577208, 3619361,
+    92088, 2114659, 219786, 259658, 28487, 3385741,
+    593241, 84281, 146056, 77574, 2554689, 64505,
+    3569175, 3568338, 3554581, 3109578, 247320, 51296,
+];
+  let getTopUrl = [
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=1&utrMax=1`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=2&utrMax=2`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=3&utrMax=3`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=4&utrMax=4`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=5&utrMax=5`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=6&utrMax=6`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=7&utrMax=7`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=8&utrMax=8`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=9&utrMax=9`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=10&utrMax=10`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=11&utrMax=11`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=12&utrMax=12`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=13&utrMax=13`,
+  `https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=14`,
+  ];
+
+  let batches = [];
+const batchSize = 6;
+
+for (let i = 0; i < playerId.length; i += batchSize) {
+  batches.push(playerId.slice(i, i + batchSize));
+}
+
+let variables = [];
+let variableCount = Math.ceil(playerId.length / batchSize);
+
+for (let i = 0; i < variableCount; i++) {
+  let variableName = `data_${i + 1}`;
+  variables.push(variableName);
+   // console.log(variables)
+  // console.log(variableCount)
+}
+  // console.log(variables)
+  // console.log(variableCount)
+
+   
+  
+  
+// Add click event handlers for "slick-next" and "slick-prev" buttons
+    $(".slick-next").on("click",function(){    
+    // console.log("next clicked")    
+    var idValue = $(".slick-current").find(".owlnum").attr("id");
+    // console.log("Element with class 'slick-current':", idValue, batches[idValue]);
+      getPlayerInfo(idValue)
+    
+  })
+    $(".slick-prev").on("click",function(){
+      // console.log("next clicked")     
+      var idValue = $(".slick-current").find(".owlnum").attr("id");
+      // console.log("Element with class 'slick-current':", idValue, batches[idValue]);
+      getPlayerInfo(idValue)
+  })
+
+  // Add click event handler for "slick-slide" elements within the element with ID "thumbs2"
+	$("#thumbs2 .slick-slide").on("click",function(){
+		let index=$(this).attr("data-slick-index");
+        let idValue = $(this).find(".owlnum").attr("id");
+		$("#slider").slick("slickGoTo",index);
+      // console.log(idValue, batches[idValue])
+      getPlayerInfo(idValue)
+	})
+
+         // Function to handle the initial loading
+        function initialLoad() {
+            var idValue = $(".slick-current").find(".owlnum").attr("id");
+           
+            getPlayerInfo(idValue);
+        };
+
+        // Call the initialLoad function on page load
+        $(document).ready(function() {
+            initialLoad();
+          oldApiCalls();
+          // console.log("init loaded")
+        });
+
+  // Function to fetch player information from the API
+  function getPlayerInfo(idValue) {    
+    let playerIdsNew= []
+    // console.log(idValue)
+     if(idValue == "0") {
+       idValue = 0
+     }
+
+    fetch(getTopUrl[idValue])
+  .then(response => {
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // Parse the response body as JSON
+    return response.json();
+  })
+    .then(data => {
+    // Work with the data received from the API
+    let finaldata = data.hits;
+    data.hits.map(data => {
+      playerIdsNew.push(Number(data.id));
+    });
+
+    // Convert playerIdsNew array to a string with "&playerIds=" separator
+    let playerIds = playerIdsNew.join('&playerIds=');  
+   
+        
+   let url = `https://api.utrsports.net/v1/player/get-info?playerIds=${playerIds}`;
+
+      fetch(url, requestOptions)
+     .then(response => response.json())
+     .then((result) => {
+       let data = "";
+       let i = 1;
+       var totalDataCount = 0;
+
+       Object.values(result.playerInfo).forEach((player) => {
+         var playerId = player.id
+         var name = player.name;
+         var location = player.location;
+         var ratings = player.rating;      
+
+         data += ' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <a href=https://app.utrsports.net/profiles/'+ playerId +' class="full-unstyled-link"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">' + name + '</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten-medium">' + Number(ratings).toFixed(2) + '</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">' + location + '</p></div></a></div></div>';
+         i++;
+       
+       });          
+       let outputElement = document.getElementById(`player${Number(idValue) + 1}`);       
+      if (outputElement) {
+        outputElement.innerHTML = data;
+      }      
+    })
+      
+  })
+      
+  .catch(error => {
+    // Handle any errors that occurred during the fetch
+    console.error('Fetch error:', error);
+  });
+
+//     console.log("playerIdsNew playerIdsNew", playerIdsNew, batches[idValue])   
+    
+//     console.log(`apiUrl as come from onclick of numbers ${idValue}`, getTopUrl[idValue])
+    
+    
+   
+// console.log(url)
+//     console.log("playerIdsplayerIdsplayerIdsplayerIds",playerIds)
+    
+   
+  }
+ 
+
+{% endjavascript %}
+<script src="{{ 'slick.min.js' | asset_url }}"></script>
+<script type="text/javascript">
+  $("#slider").slick({
+  	asNavFor:"#thumbs2",
+        autoplaySpeed: 3000,
+       fade: true,
+       arrows: false,
+  })
+  $("#thumbs2").slick({
+  	slidesToShow: 13,
+  	asNavFor:"#slider",
+        arrows: true,
+        responsive: [
+         {
+           breakpoint: 1024,
+           settings: {
+             slidesToShow: 13,
+             slidesToScroll: 1,
+           }
+         },
+         {
+           breakpoint: 768,
+           settings: {
+             slidesToShow: 5,
+             slidesToScroll: 1
+           }
+         },
+         {
+           breakpoint: 480,
+           settings: {
+             slidesToShow: 5,
+             slidesToScroll: 1
+           }
+         }
+       ]
+  })
+</script>

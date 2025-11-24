@@ -1,0 +1,175 @@
+<div id="AboutPTT">
+  <div class="page-width text-center">
+    {% case section.settings['heading-size'] %}
+      {% when 'h1' %}
+        <h1 class="text-uppercase section-title section-title-large lh-sm-90 mb-2 lh-xl-78">
+          {{ section.settings.heading }}
+        </h1>
+      {% when 'h2' %}
+        <h2 class="text-uppercase section-title section-title-medium lh-sm-90 mb-2 lh-xl-78">
+          {{ section.settings.heading }}
+        </h2>
+      {% when 'h3' %}
+        <h3 class="text-uppercase section-title section-title-small lh-sm-90 mb-2 lh-xl-78">
+          {{ section.settings.heading }}
+        </h3>
+    {% endcase %}
+    {%- if section.settings['heading-permission'] == 'YES' -%}
+      <div class="divider-sm-teal divider-lg-teal"></div>
+    {%- endif -%}
+  </div>
+  <div class="ps-2 pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4 position-relative pe-sm-2 video-highlight-img-floating-section-wrapper">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+      <div class="col-lg-9 mt-3 min-w-sm-100">
+        <div
+          class="imageafterborder imageafterborder-null video-sm-min-h fs-pt-0 border-radius-lg-3 border-radius-sm-3 d-flex align-items-center justify-content-center"
+          style="background:url('{{section.settings.section-image-first | image_url}}') no-repeat top center; background-size:cover; width:100%;"
+        >
+          <div class="d-flex justify-content-center align-items-center mt-sm-3">
+            <a
+              href="{{section.settings.section-button-url}}"
+              class="video-btn popup-youtube text-uppercase gap-2 text-center font-tungsten-medium position-relative"
+              ><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/playbtn.svg?v=1671442348">
+              {{- section.settings['section-video-button'] -}}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="section-floating-img-wrapper p-sm-1 d-lg-block d-sm-none position-absolute end-right">
+        <img class="section-floating-img" src="{{section.settings.section-image | image_url}}">
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+    /*h1,h2,h3 conditional CSS  */
+      .section-title.section-title-large {
+      font-size: 80px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-small {
+      font-size: 35px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+
+    @media screen and (max-width: 749px){
+      .section-title.section-title-large {
+      font-size: 60px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-small {
+      font-size: 26px;
+      color: var(--color-black);
+      font-family: var(--font-Tungsten);
+  }
+
+  .section-title.section-title-medium {
+      font-size: 40px;
+  }
+    }
+      /* end of h1,h2,h3 conditional CSS */
+
+    .section-floating-img-wrapper{
+      bottom: 35px;
+      right: 35px;
+    }
+    .section-floating-img-wrapper .section-floating-img {
+      width: 37vw;
+      max-width: 720px;
+    }
+
+    @media screen and (min-width: 1921px) {
+    .video-highlight-img-floating-section-wrapper {
+      width: 1920px; /* Set the fixed width */
+      margin: 0 auto; /* Center the block on the screen, if needed */
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Ut Video Button Banner",
+  "presets": [
+    {
+      "name": "Ut Video Button Banner",
+      "category": "Ut Video Button Banner"
+    }
+  ],
+  "settings": [
+      {
+		"type": "image_picker",
+		"id": "section-image-first",
+		"label": "Section Image First"
+	},
+     {
+	"type":"text",
+	"id":"heading",
+	"label": "Heading Title"
+},
+           {
+    "type": "select",
+    "id": "heading-size",
+    "label": "Heading Size",
+    "options": [
+      {
+        "value": "h1",
+        "label": "Large"
+      },
+      {
+        "value": "h2",
+        "label": "Medium"
+      },
+      {
+        "value": "h3",
+        "label": "Small"
+      }
+    ],
+    "default": "h2"
+  },
+     {
+          "type": "radio",
+          "id": "heading-permission",
+          "label": "Do You Want Underline Below Heading?",
+        "default": "NO",
+          "options": [
+      {
+          "value": "NO",
+          "label": "NO"
+      },
+      {
+          "value": "YES",
+          "label": "YES"
+      }
+          ]
+      },
+     {
+		"type": "image_picker",
+		"id": "section-image",
+		"label": "Section Image"
+	},
+     {
+		"type": "text",
+		"id": "section-video-button",
+		"label": "Video Play Button"
+	},
+    {
+	"type": "url",
+		"id": "section-button-url",
+		"label": "Video Button Link"
+}
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script src="{{ 'jquery.magnific-popup.min.js' | asset_url }}"></script>

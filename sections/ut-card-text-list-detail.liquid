@@ -1,0 +1,149 @@
+<div class="page-width pt-lg-5 pb-lg-5 pt-sm-4 pb-sm-4 nth-sm-left">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop">
+    {% for block in section.blocks %}
+      <div class="grid__item">
+       <div class="card-box-d">
+         <div class="position-relative img-bottom-shadow">
+        	<div class="card-img-d media--square media--square-sm border-radius-lg-3 border-radius-sm-3 " style="background:url('{{block.settings.image | image_url}}') no-repeat top center; background-size: cover;"> 
+    		<div class="card-overlay-hover z-index-1">
+              <div class="want-content-b"> 
+                 <div class="want-heading lh-xl-78">{{block.settings.heading}}</div>
+                 <div class="font-lg-85 font-sm-55 text-teal font-best-friend lh-xl-78 pb-lg-2 pb-sm-3 mt-n1-2-5">{{block.settings.sub-heading}}</div>
+                  <p class="mb-0 font-sm-14 lh-sm-normal w-xl-75 mr-auto">{{block.settings.description}}</p>
+                  <a href="{{block.settings.button-url}}" class="btn-white-outline d-inline-block min-w-lg-225 min-w-sm-130 text-uppercase mt-3 mb-1">{{block.settings.button-title}}</a>
+              </div>
+              <div class="card-overlay-full-visible">
+                <div class="d-flex flex-column pb-lg-2 pt-sm-2 flex-column-sm pb-sm-2">
+                  <h2 class="text-uppercase font-tungsten font-lg-65 font-sm-44 mb-0 mt-0 lh-xl-78 ps-sm-1-5">{{block.settings.heading}}</h2>
+                  <h2 class="font-lg-85 font-sm-55 fst-text-sm-teal font-best-friend text-black mt-0 mb-0 lh-xl-78 ps-lg-2 ps-sm-2-0">{{block.settings.sub-heading}}</h2>
+                </div>  
+                <p class="mt-0 mb-0 font-sm-14 font-md-14 font-lg-16 fw-lg-bold lh-sm-normal">{{block.settings.description}}</p>
+                <div class="fw-lg-bold lh-sm-normal font-sm-14 font-md-14 font-lg-16">
+                 {{block.settings.bulletlist}}
+               </div>
+                <ul class="fw-lg-bold lh-sm-normal font-sm-14 font-md-14 font-lg-16 d-none">
+                  {%- if block.settings.list != blank -%}
+                  <li>{{block.settings.list}}.</li>
+                  {%- endif -%}
+                  {%- if block.settings.list2 != blank -%}
+                  <li>{{block.settings.list2}}.</li>
+                  {%- endif -%}
+                  {%- if block.settings.list3 != blank -%}
+                  <li>{{block.settings.list3}}.</li>
+                  {%- endif -%}
+                  {%- if block.settings.list4 != blank -%}
+                  <li>{{block.settings.list4}}.</li>
+                  {%- endif -%}
+                </ul>
+               {%- if block.settings.button-permission-hover == "NO" -%}  
+                <div class="want-item-second">
+                  <div class="pt-lg-3 pb-lg-2 pt-sm-1 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center">
+                    <a href="{{block.settings.button-url}}" class="btn-black btn-outline-lg-black btn-teal-sm d-flex justify-content-center align-items-center min-w-lg-225  text-uppercase text-center">{{block.settings.button-title}}</a>
+                  </div> 
+                </div>  
+                {%- endif -%}  
+                  {%- if block.settings.button-permission-hover == "YES" -%} 
+                 <div class="want-item-second">
+                  <div class="pt-lg-3 pb-lg-2 pt-sm-1 pb-sm-2 pt-sm-1 d-flex justify-content-center align-items-center">
+                    <a href="{{block.settings.button-more-url}}" class="btn-black btn-outline-lg-black btn-teal-sm fs-sm-12 d-flex justify-content-center align-items-center min-w-lg-225  text-uppercase text-center">{{block.settings.button-more-title}}</a>
+                  </div>  
+                 </div> 
+                {%- endif -%} 
+              </div>  
+            </div>
+          </div> 
+         </div>  
+        </div>
+     </div>
+  {% endfor %}
+  </div> 
+</div> 
+{% schema %}
+  {
+    "name": "Ut Card Text List detail",
+     "presets": [
+      {
+        "name": "Ut Card Text List detail",
+        "category": "Ut Card Text List detail"
+      }
+    ],
+     "settings": [],
+     "blocks":[
+	  {
+		"type":"home-card",
+		"name":"Standrd Power block",
+		"settings":[
+        {
+  		      "type": "image_picker",
+         	  "id": "image",
+         	  "label": "Image"
+  		},
+        {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+			"type":"text",
+			"id":"sub-heading",
+			"label": "Sub Title"
+		},
+        {
+			"type":"text",
+			"id":"description",
+			"label": "Description"
+		},
+        {
+ 			"type": "text",
+ 			"id": "button-title",
+ 			"label": "Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "button-url",
+ 			"label": "Button Link"
+		},
+        {
+           "type": "richtext",
+           "id": "bulletlist",
+           "label": "Bullet List"
+        },
+           {
+            "type": "radio",
+            "id": "button-permission-hover",
+            "label": "Show cta button on hover?",
+            "default": "NO",
+            "options": [
+          {
+            "value": "NO",
+            "label": "NO"
+        },    
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+       
+            ]
+        },
+         {
+ 			"type": "text",
+ 			"id": "button-more-title",
+ 			"label": "Button More Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "button-more-url",
+ 			"label": "Button More Link"
+		} 
+        
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

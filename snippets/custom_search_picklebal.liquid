@@ -1,0 +1,130 @@
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> {% endcomment %}
+
+<div id="search-new_pickleball" class="custom-search">
+  <div class="search-container">
+    <form>
+       <div id="search-input-pickleball" class="search-input">
+        <div class="input-content">
+          <input type="text" class="input-button " id="my_input_pickleball" placeholder="{{ section.settings.placeholder_pickleball }}" autocomplete="off">
+        </div>
+        <div class="btn-icon-search" style="background-color: {{ section.settings.bg_search_pickleball }};">
+          <a id="link-pickleball-btn-search" href="" class="btn-search">
+              <span class="text-white">
+                <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                  <use href="#icon-search"></use>
+                </svg>
+              </span>
+          </a>
+        </div>
+      </div>
+    </form>
+   
+    <div id="menu-drop-pickleball" class="menu-drop">
+      <div class="menu-container">
+        <div class="menu-inner">
+          <div class="header-event">
+            <h4 class="text-menu-inner font-tungsten">Event</h4>
+            <a id="btn-see-all-pickleball" class="see-all" href="">see all</a>
+          </div>
+          <div class="divider-blue"></div>
+        </div>
+        <div class="custom-menu">
+          <ul id="event-list-pickleball" class="menu-content">
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row-btn">
+      <a id="btn-more-pickleball" 
+        href="https://app.utrsports.net/search?sportTypes=pickleball&type=events" 
+        class="link" 
+        style="background-color: {{ section.settings.bg_btn_pickleball }}; color: {{ section.settings.color_btn_pickleball }};border: 1px solid {{ section.settings.color_btn_pickleball }};{% if section.settings.enable_bold_button != blank %} font-weight: bold;{% endif %}">
+        {{ section.settings.button_pickleball }}
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('#search-new_pickleball .menu-drop').hide();
+    
+    let typingTimer;
+    let doneTypingInterval = 500;
+    
+    $("#my_input_pickleball").keyup(function() {
+      clearTimeout(typingTimer); 
+      typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    });
+    
+      function formatDate(date) {
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
+          return {
+              day: day,
+              month: month,
+              year: year
+          };
+      }
+      
+      let currentDate = new Date();
+      let formattedDate = formatDate(currentDate);
+      let day = formattedDate.day;
+      let month = formattedDate.month;
+      let year = formattedDate.year;
+      let formattedDateString = (month < 10 ? '0' : '') + month + '/' + (day < 10 ? '0' : '') + day + '/' + year;
+      
+      function doneTyping() {
+      let inputValue = $("#my_input_pickleball").val();
+      let dataButtonSearch = 'https://app.utrsports.net/search?query='+inputValue+'&sportTypes=pickleball&type=events&startDate='+formattedDateString+'&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified'
+      $('#search-new_pickleball #link-pickleball-btn-search').attr('href', dataButtonSearch);
+      $('#search-new_pickleball #btn-see-all-pickleball').attr('href', dataButtonSearch);
+      // $('#search-new_pickleball #btn-more-pickleball').attr('href', dataButtonSearch);
+      if (inputValue === "") {
+        $('#search-new_pickleball .menu-drop').hide();
+      } else {
+        $.ajax({
+        url: 'https://api.utrsports.net/v2/search/events?top=40&skip=0&utrMax=10&utrType=verified&utrTeamType=doubles&showTennisContent=false&showPickleballContent=true&range=eventSchedule.eventStartUtc>='+formattedDateString+'&searchOrigin=searchPage&query='+inputValue+'',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data)
+          let eventsData="";
+          let event = data.hits;
+          // let totalEventsCount = event.hits.length;
+          // let dataHits = event.hits
+          let myArray = event.slice(0, 4);
+  
+          for (let i = 0; i < myArray.length; i++) {
+              let subArray = myArray[i];
+              let id = subArray.id;
+              let ename = subArray.source.name;
+              let eDateShort = subArray.source.eventSchedule.eventDatesShort;
+              eventsData += '<li><a class="link-menu" href="https://app.utrsports.net/events/'+id+'">'+ename+'</a><svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L5 5L1 1" stroke="#00C0F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></li>'
+          }
+          if (eventsData === "") {
+            let erros = '<p style="color:grey;padding-inline: 10px;">No Matches Found</p>'
+            $('#menu-drop-pickleball .menu-inner').hide();
+            $('#event-list-pickleball').html(erros);
+          } else {
+            $('#menu-drop-pickleball .menu-inner').show();
+            $('#event-list-pickleball').html(eventsData);
+          }  
+        },
+        error: function(xhr, status, error) {
+          console.error('There was a problem with your ajax request:', error);
+        }
+      });
+      $('#search-new_pickleball .menu-drop').show();
+      }
+    }
+    
+    $(document).on("click", function(event){
+        if(!$(event.target).closest("#search-input-pickleball,#menu-drop-pickleball").length){
+            $("#search-new_pickleball .menu-drop").hide();
+        }
+    });
+    
+  });
+</script>

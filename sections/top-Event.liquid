@@ -1,0 +1,356 @@
+
+{% if section.settings.enable_section %}
+  {% assign show_raw = section.settings.show_on_pages | remove: ' ' %}
+  {% if show_raw == '' %}
+    {% assign show_all = true %}
+  {% else %}
+    {% assign show_pages = show_raw | split: ',' %}
+  {% endif %}
+  {% assign page_type = request.page_type %}
+  {% if page_type == 'page' %}
+    {% assign current_page = page.handle %}
+  {% elsif page_type == 'home' %}
+    {% assign current_page = 'index' %}
+  {% elsif page_type == 'blog' %}
+    {% assign current_page = blog.handle %}
+  {% elsif page_type == 'article' %}
+    {% assign current_page = article.handle %}
+  {% else %}
+    {% assign current_page = page_type %}
+  {% endif %}
+  {% if show_all or show_pages contains current_page %}
+    {% if section.settings.enable_accordion_desktop %}
+      <div id="WatchLive-desktop-accordion-{{ section.id }}" class="watch-live-desktop-accordion-section">
+        <div id="toggle-desktop-{{ section.id }}" class="accordion-toggle-desktop">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt="" class="accordion-logo-desktop">
+          {% endif %}
+      {% if section.settings.text_link != blank %}
+          <a href="{{ section.settings.text_link }}"
+             class="accordion-text-link"
+             onclick="event.stopPropagation();">
+           <span class="accordion-text-desktop gotham-medium center h5" id="{{ section.settings.view_match_id }}">{{ section.settings.text | escape }}</span>
+          </a>
+        {% else %}
+          <span class="accordion-text-desktop gotham-medium center h5" id="{{ section.settings.view_match_id }}" >{{ section.settings.text | escape }}</span>
+        {% endif %}
+          
+          <svg class="accordion-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div id="watch-live-content-desktop-{{ section.id }}" class="accordion-content-desktop">
+          <div class="page-width custom-pa top-event">
+            {% if section.settings.iframe-url != blank %}
+              <div class="iframe-wrapper">
+                <iframe src="{{ section.settings.iframe-url }}" class="watch-iframe" allowfullscreen></iframe>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div id="WatchLive-desktop-{{ section.id }}">
+        <div class="page-width custom-pa top-event">
+          {% if section.settings.image != blank or section.settings.text != blank %}
+            {% if section.settings.text_link != blank %}
+              <a href="{{ section.settings.text_link }}" target="_blank" class="watch-info-block text-center">
+            {% else %}
+              <div class="watch-info-block text-center">
+            {% endif %}
+                {% if section.settings.image != blank %}
+                  <img src="{{ section.settings.image | img_url: 'master' }}" alt="" class="watch-info-image">
+                {% endif %}
+                {% if section.settings.text != blank %}
+                  <p class="watch-info-text" id="{{ section.settings.view_match_id }}">
+                    {{ section.settings.text }}
+                    <svg width="18" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0L6.59 1.41 12.17 7H0v2h12.17L6.58 14.58 8 16l8-8z" fill="{{ section.settings.info-text-color }}" /></svg>
+                  </p>
+                {% endif %}
+            {% if section.settings.text_link != blank %}
+              </a>
+            {% else %}
+              </div>
+            {% endif %}
+          {% endif %}
+          {% if section.settings.iframe-url != blank %}
+            <div class="iframe-wrapper">
+              <iframe src="{{ section.settings.iframe-url }}" class="watch-iframe" allowfullscreen></iframe>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<style>
+    a.accordion-text-link {
+    text-decoration: none;
+}
+  #WatchLive-desktop-{{ section.id }} {
+    background-color: {{ section.settings.background-color }};
+    color: {{ section.settings.text-color }};
+  }
+  #WatchLive-desktop-{{ section.id }} .custom-pa, #WatchLive-desktop-accordion-{{ section.id }} .custom-pa {
+    padding: {{ section.settings.padding-desktop }};
+  }
+  #WatchLive-desktop-{{ section.id }} .watch-info-block {
+    background-color: {{ section.settings.info-background-color }};
+    color: {{ section.settings.info-text-color }};
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    height: {{ section.settings.iframe-height }};
+    flex: 0 0 auto;
+    max-width: 250px;
+    text-decoration: none;
+  }
+  #WatchLive-desktop-{{ section.id }} .watch-info-block:hover, #WatchLive-desktop-accordion-{{ section.id }} .accordion-toggle-desktop:hover  {
+    background-color: {{ section.settings.info-background-hover-color }};
+    cursor: pointer;
+  }
+  #WatchLive-desktop-{{ section.id }} .watch-info-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 50px;
+  }
+  #WatchLive-desktop-{{ section.id }} .watch-info-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 5px 0;
+    gap: 0.5rem;
+  }
+  #WatchLive-desktop-{{ section.id }} .iframe-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  #WatchLive-desktop-{{ section.id }} .watch-iframe {
+    width: {{ section.settings.iframe-width }};
+    height: {{ section.settings.iframe-height }};
+    max-width: 100%;
+    border: none;
+  }
+  #WatchLive-desktop-{{ section.id }} .page-width.custom-pa.top-event {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: stretch;
+  }
+  @media only screen and (max-width: 749px) {
+    #WatchLive-desktop-{{ section.id }}, #WatchLive-desktop-accordion-{{ section.id }} { display: none !important; }
+  }
+  @media only screen and (min-width: 750px) {
+    #WatchLive-mobile-{{ section.id }} { display: none !important; }
+  }
+  
+  .watch-live-desktop-accordion-section .accordion-toggle-desktop,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-toggle-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    background-color: {{ section.settings.info-background-color }};
+    color: {{ section.settings.info-text-color }};
+    padding: {{ section.settings.accordion-padding-desktop }};
+  }
+  .watch-live-desktop-accordion-section .accordion-logo-desktop,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-logo-desktop {
+    width: 30px;
+    height: auto;
+  }
+  .watch-live-desktop-accordion-section .accordion-text-desktop,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-text-desktop {
+    text-decoration: none;
+    text-transform: initial;
+    color: {{ section.settings.info-text-color }};
+  }
+  .watch-live-desktop-accordion-section .accordion-arrow,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-arrow {
+    color: {{ section.settings.info-text-color }};
+    transition: transform 0.3s ease;
+  }
+  .watch-live-desktop-accordion-section .accordion-arrow.rotate,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-arrow.rotate {
+    transform: rotate(180deg);
+  }
+  .watch-live-desktop-accordion-section .accordion-content-desktop,
+  #WatchLive-desktop-accordion-{{ section.id }} .accordion-content-desktop {
+    display: none;
+    overflow: hidden;
+    background-color: {{ section.settings.background-color }};
+  }
+  
+  .watch-live-desktop-accordion-section .iframe-wrapper,
+  #WatchLive-desktop-accordion-{{ section.id }} .iframe-wrapper,
+  #watch-live-content-desktop-{{ section.id }} .iframe-wrapper {
+    margin: 0px auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  #watch-live-content-desktop-{{ section.id }} .watch-iframe {
+    width: {{ section.settings.iframe-width }};
+    height: {{ section.settings.iframe-height }};
+    max-width: 100%;
+    border: none;
+  }
+  
+  @media only screen and (min-width: 750px) {
+    .watch-live-desktop-accordion-section,
+    #WatchLive-desktop-accordion-{{ section.id }} { 
+      display: block !important; 
+    }
+  }
+  
+  @media only screen and (max-width: 749px) {
+    #WatchLive-desktop-accordion-{{ section.id }} { 
+      display: none !important; 
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var toggleD = document.getElementById("toggle-desktop-{{ section.id }}");
+    var contentD = document.getElementById("watch-live-content-desktop-{{ section.id }}");
+    var arrowD = toggleD && toggleD.querySelector(".accordion-arrow");
+    
+    if (toggleD && contentD) {
+      contentD.style.display = "none";
+      
+      toggleD.addEventListener("click", function() {
+        if (contentD.style.display === "block") {
+          contentD.style.display = "none";
+          if (arrowD) arrowD.classList.remove("rotate");
+        } else {
+          contentD.style.display = "block";
+          if (arrowD) arrowD.classList.add("rotate");
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Watch Live Desktop",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Enable Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_match_id",
+      "label": "View Match ID",
+      "default": "ptt_match_center_desktop_click"
+    },
+    {
+      "type": "text",
+      "id": "show_on_pages",
+      "label": "Show on Pages"
+        },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "info-background-hover-color",
+      "label": "Info Background Hover Color",
+      "default": "#01dfcb"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "View Live Match Center"
+    },
+    {
+      "type": "url",
+      "id": "text_link",
+      "label": "Text Link"
+    },
+    {
+      "type": "color",
+      "id": "info-background-color",
+      "label": "Info Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "info-text-color",
+      "label": "Info Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "url",
+      "id": "iframe-url",
+      "label": "Iframe URL"
+    },
+    {
+      "type": "text",
+      "id": "iframe-width",
+      "label": "Iframe Width",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "iframe-height",
+      "label": "Iframe Height",
+      "default": "120px"
+    },
+    {
+      "type": "text",
+      "id": "padding-desktop",
+      "label": "Padding (Desktop)",
+      "default": "1rem 4.95rem"
+    },
+    {
+      "type": "text",
+      "id": "accordion-padding-desktop",
+      "label": "Accordion Padding",
+      "default": "14px 16px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Watch Live Desktop",
+      "category": "Custom",
+      "settings": {
+        "image": "shopify://shop_images/trans-ptt-1916x512.png",
+        "text_link": "shopify://pages/watch-tennis-live",
+        "iframe-url": "https://tnnslive.com/widgets/utr?mode=banner"
+      }
+    }
+  ]
+}
+{% endschema %}

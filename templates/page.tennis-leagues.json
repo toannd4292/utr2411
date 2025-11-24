@@ -1,0 +1,408 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "6fecca63-0e31-4f49-9ca9-8aa8d672bea2": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/tennis-flex-leagues-top-fold-marketing-webpage-circuits-backhand-1140x630.png",
+        "image_mobile": "shopify://shop_images/tennis-flex-leagues-top-fold-marketing-webpage-circuits-backhand-1140x630.png",
+        "image_height": "medium",
+        "tagline": "",
+        "small-title-size": "p",
+        "heading": "Tennis Flex leagues",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "For Everyone",
+        "sub-heading-size": "medium",
+        "description": "It’s easy to play more tennis when you join a Tennis Flex League. Become a FREE UTR Sports member and register to play four matches with players at your level. Singles and doubles leagues range from five to eight weeks long and are available as co-adult, women's, and junior player leagues. Level-based play ensures competitive matches. You choose when and where you play around your schedule. Tennis Flex Leagues are now live in more than 85 cities in the U.S., Canada, Mexico, Europe, and Australia!",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_VkCErj": {
+      "type": "Ads",
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 16,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "a82f9211-71f0-470d-87f8-8ee4271d15aa": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/flex-league-tennis-warehouse-white-1140x880.png",
+        "heading": "National Summer",
+        "heading-size": "h2",
+        "subheading": "Points Race",
+        "sub-heading-size": "h2",
+        "description": "The National Summer Points Race is back! Register for events between May 23 and September 5 and earn points to be eligible for the grand prize, an all-inclusive trip for two to ATP/WTA events in New York, Miami, Indian Wells, or Cincinnati!",
+        "id_section-button": "",
+        "section-button": "LEARN MORE",
+        "section-button-url": "shopify://pages/flex-leagues-points-race",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "3003f725-1c10-4890-831d-8d2838dae97a": {
+      "type": "content-right-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/flex-league-city-championships-man-backhand-marketing-image-website-1180x440.png",
+        "smalltitle": "",
+        "small-title-size": "p",
+        "heading": "Tennis Flex League",
+        "heading-size": "h2",
+        "subheading": "City Championships",
+        "sub-heading-size": "h2",
+        "description": "Think you’re the best player in your local league? Then compete in Tennis Flex Leagues to qualify for the UTR Sports Flex Leagues End-of-Season Playoffs! At the end of each Tennis Flex League session, the top player in each group (based on their first four matches) will compete in the end-of-season playoff bracket. Compete for prizes and, of course, bragging rights!",
+        "section-button": "learn how to qualify",
+        "section-button-url": "shopify://pages/flex-leagues-winners",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "8b972355-e296-49c5-84fd-49026651b21e": {
+      "type": "flex-leagues-tennis",
+      "disabled": true,
+      "settings": {
+        "heading": "FIND A TENNIS FLEX LEAGUE NEAR YOU",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "description-title": ""
+      }
+    },
+    "215955f3-86ba-441c-8417-b5b364d0544d": {
+      "type": "ut-flex-leagues-search-map",
+      "settings": {
+        "heading": "FIND A TENNIS FLEX LEAGUE NEAR YOU",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "description-title": "Join a Tennis Flex League, receive your UTR Rating, and choose when and where to play tennis around your schedule.",
+        "distance": 200
+      }
+    },
+    "c15abbee-f074-43f3-ad64-6ea8d1ef693e": {
+      "type": "bg-image-text-button-white",
+      "disabled": true,
+      "settings": {
+        "heading": "GET A FREE FABLETICS POLO!",
+        "section-image": "shopify://shop_images/fabletics-polo-tight-shot-1140x160-ad-flex-leagues.png",
+        "image_overlay_opacity": 0,
+        "paragrap-title": "Now through the end of 2023, all NEW UTR Sports Flex Leagues participants will receive a FREE Fabletics polo once the season finishes.",
+        "section-button": "",
+        "section-button-url": ""
+      }
+    },
+    "1231b910-9516-4b5d-9b83-579e12741b5b": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "4527db1b-0ceb-46ae-9835-812479854a76": {
+      "type": "two-column-image-with-hover",
+      "blocks": {
+        "56dbc0ec-0150-4c23-a525-455a12045104": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/JNP-player-forehand-teenager-boy-flex-leagues-page-1140x840-for-570x440.png",
+            "heading": "For",
+            "sub-heading": "Juniors",
+            "block-list-items": "<ul><li>Guaranteed 4 matches over 5 weeks</li><li>Self-organize matches around busy schedules</li><li>Improve by playing competitive matches</li><li>Compete for playoffs and prizes</li><li>Challenge any player in your league</li><li>Singles $29; Doubles $58</li></ul>"
+          }
+        },
+        "0a4d7d40-a256-4ae6-acf4-9fdcea10f4f2": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-playing-tennis-hitting-backhand-1140x840for-570-420-from-college-circuit-event.png",
+            "heading": "For",
+            "sub-heading": "Adults",
+            "block-list-items": "<ul><li>New opponents and hitting partners at your level</li><li>Improve your UTR Rating</li><li>Get “match tough” with 4 matches over 5 weeks</li><li>Compete for playoffs and prizes</li><li>Challenge any player in your league</li><li>Singles $29; Doubles $58</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "56dbc0ec-0150-4c23-a525-455a12045104",
+        "0a4d7d40-a256-4ae6-acf4-9fdcea10f4f2"
+      ],
+      "settings": {}
+    },
+    "7408eebf-fd31-449d-a979-83c71003cc54": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex2\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "6f2dbf8e-6032-4ff2-8a61-f276f219c99b": {
+      "type": "resources-for-players",
+      "blocks": {
+        "9ca7db19-bdb8-441d-aca9-ff8d7f644971": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "block-image": "shopify://shop_images/whatisflexleague.jpg",
+            "description": "How Flex Leagues make playing tennis easy and fun",
+            "permission": "Artical",
+            "section-button": "watch now",
+            "section-button-url": "https://www.instagram.com/reel/CjqZMMwASEF/?igshid=Zjc2ZTc4Nzk%3D"
+          }
+        },
+        "e80a1cb7-589b-40be-b231-169fffe314d1": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "block-image": "shopify://shop_images/Flex-league-registration-guide-screenshot.jpg",
+            "description": "Registering for Flex Leagues is easier than ever!",
+            "permission": "Artical",
+            "section-button": "Watch now",
+            "section-button-url": "https://www.youtube.com/shorts/-fvf4UZxkpQ"
+          }
+        },
+        "dcb3e05f-6142-4dea-ba29-aefe142b6b8f": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/fabletics-shoot-phone-flex-leagues-v2.jpg",
+            "description": "Flex League Rules and Regulations",
+            "permission": "Artical",
+            "section-button": "read more",
+            "section-button-url": "https://support.universaltennis.com/support/solutions/articles/9000191418-universal-tennis-flex-leagues-rules-and-regulations"
+          }
+        }
+      },
+      "block_order": [
+        "9ca7db19-bdb8-441d-aca9-ff8d7f644971",
+        "e80a1cb7-589b-40be-b231-169fffe314d1",
+        "dcb3e05f-6142-4dea-ba29-aefe142b6b8f"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "learn how flex leagues bend to your schedule",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "39c8489c-85a8-4d05-91c5-1869add02575": {
+      "type": "two-column-image-text",
+      "blocks": {
+        "a2b9979c-bc28-4a18-aeb8-c2b8859a23c7": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-fist-pump-ptt-player-marketing-website-image-1140x800-for-570x400.png",
+            "heading": "Bring tennis flex leagues to your area",
+            "description": "UTR Sports is actively looking for great people to join the team and grow Flex Leagues! Become a UTR Sports Flex League Representative and grow the game.",
+            "section-button": "Apply now",
+            "section-button-url": "https://apply.workable.com/universal-tennis/j/1D8FBAFC6F/"
+          }
+        },
+        "bf40f2f9-3669-48e3-82d3-c393c001bd39": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/boys-shaking-hands-jnp-2023-marketing-website-image-1140x800-for-570x400.png",
+            "heading": "Flex League Rules & Regulations",
+            "description": "Player commitment, fair play, and integrity are important factors for our leagues. Know what we expect from you and your opponents.",
+            "section-button": "read more",
+            "section-button-url": "https://support.universaltennis.com/en/support/solutions/articles/9000191418-universal-tennis-flex-leagues-rules-and-regulations"
+          }
+        }
+      },
+      "block_order": [
+        "a2b9979c-bc28-4a18-aeb8-c2b8859a23c7",
+        "bf40f2f9-3669-48e3-82d3-c393c001bd39"
+      ],
+      "settings": {}
+    },
+    "d0af0776-7aa1-46d6-8293-155da214e182": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex3\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "393abaf2-2637-480d-b1cd-bb808a4cc1c0": {
+      "type": "partners-section",
+      "blocks": {
+        "8c6feb52-a61f-45ec-a90a-440e02616a2e": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/tennis-warehouse-partner-logo.svg",
+            "featured-in-url": ""
+          }
+        }
+      },
+      "block_order": [
+        "8c6feb52-a61f-45ec-a90a-440e02616a2e"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "PARTNERS",
+        "heading-permission": "YES",
+        "sub-heading": ""
+      }
+    },
+    "6f36b241-ba6c-45bd-826d-341ffbadbf78": {
+      "type": "testimonials",
+      "blocks": {
+        "ddd3a5a5-747c-4514-a68b-9249fc0a63f6": {
+          "type": "home-card",
+          "settings": {
+            "description": "I liked the flexibility of it and was keen to see how the UTR Rating worked. The best part is meeting new people and playing with same or better players.",
+            "image": "shopify://shop_images/Sacha-Caller-Aussie-flex-league-player-testimonial-400x400.png",
+            "author": "Sacha Caller",
+            "author-designation": "Tennis Flex League Player in Melbourne, Australia"
+          }
+        },
+        "3f251a51-9657-4d9a-a3fd-dda708e00c6f": {
+          "type": "home-card",
+          "settings": {
+            "description": "Flex Leagues has been a great way to work on groundstrokes in a competitive environment while still offering casual, social play.",
+            "image": "shopify://shop_images/Maureen_flex_leagues_testimonial.png",
+            "author": "Maureen",
+            "author-designation": ""
+          }
+        },
+        "ebf477f9-66d3-4409-bd5d-b88c6616687e": {
+          "type": "home-card",
+          "settings": {
+            "description": "I love Flex Leagues because of the caliber of matches and the players I get to meet. The rating creates good competition and great quality matchups!",
+            "image": "shopify://shop_images/Daniel_flex_leagues_testimonial.png",
+            "author": "Daniel",
+            "author-designation": ""
+          }
+        },
+        "6c7ed6a0-e5a0-4675-8dde-ec9c5bb30245": {
+          "type": "home-card",
+          "settings": {
+            "description": "Flex Leagues are a great way to connect with local players and improve my game.",
+            "image": "shopify://shop_images/Leilani_flex_leagues_testimonial.png",
+            "author": "Leilani",
+            "author-designation": ""
+          }
+        },
+        "e87b3e91-5987-4f9b-9fb8-3bf25d131451": {
+          "type": "home-card",
+          "settings": {
+            "description": "My private club doesn't offer me the same range of players to hit against. Now I'm forced to come up with different strategies to use.",
+            "image": "shopify://shop_images/Stewart_flex_leagues_testimonial.png",
+            "author": "Stewart",
+            "author-designation": ""
+          }
+        },
+        "cd592182-7356-4230-a7ef-b8115c137322": {
+          "type": "home-card",
+          "settings": {
+            "description": "I've met new friends and am addicted to watching my rating update each date!",
+            "image": "shopify://shop_images/Dario_flex_leagues_testimonial.png",
+            "author": "Dario",
+            "author-designation": ""
+          }
+        }
+      },
+      "block_order": [
+        "ddd3a5a5-747c-4514-a68b-9249fc0a63f6",
+        "3f251a51-9657-4d9a-a3fd-dda708e00c6f",
+        "ebf477f9-66d3-4409-bd5d-b88c6616687e",
+        "6c7ed6a0-e5a0-4675-8dde-ec9c5bb30245",
+        "e87b3e91-5987-4f9b-9fb8-3bf25d131451",
+        "cd592182-7356-4230-a7ef-b8115c137322"
+      ],
+      "settings": {
+        "heading": "testimonials",
+        "sub-heading": "Why they love tennis flex leagues..."
+      }
+    },
+    "c7df81ec-f926-4036-b7e4-7218b9c8d4a7": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "1125fb63-55ba-4490-85fd-5ca72d308f26": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download the app</p>"
+          }
+        },
+        "2bc683a2-b3ea-453f-9cc4-e467a4782dca": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create profile, get rated for free</p>"
+          }
+        },
+        "2c2735c3-3341-4612-8aa6-ff3ea08047b0": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create groups, find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "1125fb63-55ba-4490-85fd-5ca72d308f26",
+        "2bc683a2-b3ea-453f-9cc4-e467a4782dca",
+        "2c2735c3-3341-4612-8aa6-ff3ea08047b0"
+      ],
+      "settings": {
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-two-screenshots-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "https://app.utrsports.net/login",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "6fecca63-0e31-4f49-9ca9-8aa8d672bea2",
+    "ads_VkCErj",
+    "a82f9211-71f0-470d-87f8-8ee4271d15aa",
+    "3003f725-1c10-4890-831d-8d2838dae97a",
+    "8b972355-e296-49c5-84fd-49026651b21e",
+    "215955f3-86ba-441c-8417-b5b364d0544d",
+    "c15abbee-f074-43f3-ad64-6ea8d1ef693e",
+    "1231b910-9516-4b5d-9b83-579e12741b5b",
+    "4527db1b-0ceb-46ae-9835-812479854a76",
+    "7408eebf-fd31-449d-a979-83c71003cc54",
+    "6f2dbf8e-6032-4ff2-8a61-f276f219c99b",
+    "39c8489c-85a8-4d05-91c5-1869add02575",
+    "d0af0776-7aa1-46d6-8293-155da214e182",
+    "393abaf2-2637-480d-b1cd-bb808a4cc1c0",
+    "6f36b241-ba6c-45bd-826d-341ffbadbf78",
+    "c7df81ec-f926-4036-b7e4-7218b9c8d4a7"
+  ]
+}

@@ -1,0 +1,71 @@
+ <div class="page-width text-center pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-5">
+       <h2 class="text-uppercase section-title section-title-sm mb-0">{{section.settings.heading}}</h2>
+        {%- if section.settings.heading-permission == "YES" -%}
+          <div class="mb-lg-4 mb-sm-0 mb-md-0"><div class="divider-sm-teal divider-lg-teal"></div></div>
+        {%- endif -%}
+     <div class="brand-carousel section-padding owl-carousel">
+       {% for block in section.blocks %}
+       	<div class="single-logo single-logo-small-border">
+           <a {% if block.settings.featured-in-url == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.featured-in-url }}" target="_blank"{% endif %}>
+          <img src="{{block.settings.providers-logo | img_url:'grande'}}" alt="">
+        </a>
+        <!--<a href="{{ block.settings.featured-in-url }}"><img src="{{block.settings.providers-logo | img_url:'grande'}}" alt=""></a> -->
+      	</div>
+       {% endfor %}
+    </div>
+</div>
+{% schema %}
+  {
+ 	"name": "Providers section",
+	"settings":[
+		{
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+      {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+	],
+ 	"blocks": [{
+ 		"type": "providers-logo-image",
+ 		"name": "image-block",
+ 		"settings": [
+         {
+ 			"type": "image_picker",
+ 			"id": "providers-logo",
+ 			"label": "Providers Logo"
+ 		},
+        {
+ 			"type": "url",
+ 			"id": "featured-in-url",
+ 			"label": "Link for featured In"
+ 		}
+   ]
+ 	}],
+ 	"presets": [{
+ 		"name": "Providers section",
+ 		"category": "Providers images"
+ 	}]
+
+ }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

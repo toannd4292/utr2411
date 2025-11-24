@@ -1,0 +1,39 @@
+<div class="blue-gradient-bg pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-5">
+  <div class="page-width">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--1-col-desktop">
+        <div class="grid__item">
+          <div class="text-center mission-text">
+            <img class="mission-icon1" src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/mission-comma.svg?v=1678346921" />
+            <div class="font-lg-24 font-md-24 font-sm-14 mb-3 gotham-light lh-normal" style="
+    max-width: 1000px;
+    margin: 0px auto;">{{ section.settings.menubnr_text }}</div>
+            <img class="mission-icon2" src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/mission-comma-transparent.svg?v=1678347652" />
+          </div>
+        </div>
+    </div>  
+  </div>
+</div>  
+{% schema %}
+  {
+    "name": "About Mission Statement",
+    "presets": [
+      {
+        "name": "About Mission Statement",
+        "category": "About Mission Statement"
+      }
+    ],
+    "settings": [
+       {
+          "type": "richtext",
+          "id": "menubnr_text",
+          "label": "Paragraph"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

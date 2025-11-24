@@ -1,0 +1,375 @@
+{% render 'partial-style', section: section %}
+<style>
+  .section-{{ section.id }}-padding .page-width {
+        max-width: 167rem;
+  }
+  #section-{{ section.id }} .stats-wrap{
+    display: flex;
+    justify-content: space-between;
+    gap: {{ section.settings.col_gap }}px;
+  }
+  #section-{{ section.id }} .stat-item{
+    flex: 1 1 0;
+    text-align: center;
+    padding: 0 {{ section.settings.inner_x_padding }}px;
+    position: relative;
+  }
+  @media (min-width: 750px){
+    #section-{{ section.id }} .stat-item:not(:last-child)::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -{{ section.settings.col_gap | divided_by: 2 }}px;
+      width: 1px;
+      height: 100%;
+      background: {{ section.settings.divider_color }};
+      opacity: {{ section.settings.divider_opacity | divided_by: 100.0 }};
+    }
+  }
+
+  #section-{{ section.id }} .stat-small{
+    margin: 0 0 38px;
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    font-family: "Inter-SemiBold";
+  }
+
+  #section-{{ section.id }} span.animation-number {
+      font-size: 160px;
+      line-height: 150px;
+      letter-spacing: -7px;
+      font-family: "Inter-SemiBold";
+  }
+  #section-{{ section.id }} .stat-suffix{
+    font-size: 90px;
+    line-height: 70px;
+    font-family: "Inter-SemiBold";
+    position: relative;
+    top: -40px;
+  }
+  #section-{{ section.id }} .stat-desc{
+    margin: 51px auto 0;
+    max-width: 320px;
+    font-size: 17px;
+    line-height: 27px;
+    color: #000;
+    letter-spacing: -0.4px;
+    font-family: "Inter-Regular";
+  }
+   @media (max-width: 1500px){ 
+     #section-{{ section.id }} span.animation-number {
+          font-size: 120px;
+      line-height: 100px;
+    }
+    #section-{{ section.id }} .stat-suffix {
+    top: -22px;
+}
+    
+  }
+  @media (max-width: 1199px){ 
+     #section-{{ section.id }} span.animation-number {
+        font-size: 80px;
+        line-height: 81px;
+        letter-spacing: -2px;
+    }
+    #section-{{ section.id }} .stat-desc {
+        margin: 20px auto 0;
+    }
+    #section-{{ section.id }} .stat-suffix {
+        font-size: 80px;
+        line-height: 70px;
+        top: -10px;
+    }
+  }
+    @media (max-width: 901px){ 
+     #section-{{ section.id }} span.animation-number {
+        font-size: 70px;
+        line-height: 71px;
+        letter-spacing: -2px;
+    }
+   #section-{{ section.id }} .stat-suffix {
+        font-size: 70px;
+        line-height: 70px;
+    }
+  }
+  @media (max-width: 749px){
+    #section-{{ section.id }} .stats-wrap{
+      flex-direction: column;
+      gap: {{ section.settings.row_gap }}px;
+    }
+    #section-{{ section.id }} .stat-item{
+      padding-bottom: {{ section.settings.row_gap }}px;
+      border-bottom: 1px solid {{ section.settings.divider_color }};
+    }
+    #section-{{ section.id }} .stat-item {
+        padding-bottom: 58px;
+        max-width: 399px;
+        margin: 0 auto;
+        margin-bottom: 27px;
+    }
+
+    #section-{{ section.id }} .stat-item:last-child{
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    #section-{{ section.id }} .stat-small {
+      margin: 0 0 6px;
+      font-size: 24px;
+      line-height: 38px;
+    }
+    #section-{{ section.id }} span.animation-number {
+        font-size: 80px;
+        line-height: 81px;
+        letter-spacing: -2px;
+    }
+    #section-{{ section.id }} .stat-desc {
+        margin: 20px auto 0;
+    }
+    #section-{{ section.id }} .stat-suffix {
+        font-size: 80px;
+        line-height: 70px;
+        top: -10px;
+    }
+  }
+  
+</style>
+
+<section id="section-{{ section.id }}" class="stats-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="stats-wrap">
+      {% for block in section.blocks %}
+        <div class="stat-item" {{ block.shopify_attributes }}>
+          {% if block.settings.small_title != blank %}
+            <div class="stat-small">{{ block.settings.small_title }}</div>
+          {% endif %}
+          <div class="stat-number">
+            <span class="animation-number">{{ block.settings.number }}</span>
+            {% if block.settings.suffix != blank %}
+              <span class="stat-suffix">{{ block.settings.suffix }}</span>
+            {% endif %}
+          </div>
+          {% if block.settings.desc != blank %}
+            <p class="stat-desc">{{ block.settings.desc }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll(".animation-number");
+
+      const animateNumber = (el, target, formatFn) => {
+          const duration = 2000;
+          const startTime = performance.now();
+
+          const step = (currentTime) => {
+              const progress = Math.min((currentTime - startTime) / duration, 1);
+              const value = progress * target;
+
+              el.textContent = formatFn(value);
+
+              if (progress < 1) {
+                  requestAnimationFrame(step);
+              } else {
+                  el.textContent = formatFn(target);
+              }
+          };
+
+          requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  const el = entry.target;
+                  const raw = el.textContent.trim();
+                  const match = raw.match(/^([\d.]+)([a-zA-Z%+]+)?$/);
+
+                  if (!match) return;
+
+                  let num = parseFloat(match[1]);
+                  let suffix = match[2] || "";
+                  let target = num;
+                  let formatFn;
+
+                  suffix = suffix.toUpperCase();
+
+                  if (suffix === "K+" || suffix === "K") {
+                      target = num * 1000;
+                      formatFn = (val) => (val / 1000).toFixed(num % 1 === 0 ? 0 : 1) + "K";
+                  } else if (suffix === "M+" || suffix === "M") {
+                      target = num * 1000000;
+                      formatFn = (val) => (val / 1000000).toFixed(num % 1 === 0 ? 0 : 1) + "M";
+                  } else if (suffix === "%") {
+                      formatFn = (val) => Math.floor(val) + "%";
+                  } else if (suffix === "X") {
+                      formatFn = (val) => val.toFixed(1) + "X";
+                  } else {
+                      formatFn = (val) => Math.floor(val);
+                  }
+
+                  animateNumber(el, target, formatFn);
+                  obs.unobserve(el);
+              }
+          });
+      }, { threshold: 0.4 });
+
+      counters.forEach((counter) => observer.observe(counter));
+  });
+</script>
+{% schema %}
+{
+  "name": "Stats columns",
+  "class": "stats-columns shopify-cs-za",
+  "settings": [
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#3ec7ff"
+    },
+    {
+      "type": "range",
+      "id": "divider_opacity",
+      "label": "Divider opacity (%)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "col_gap",
+      "label": "Column gap (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "inner_x_padding",
+      "label": "Inner side padding (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Row gap mobile (px)",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "small_title",
+          "label": "Small title",
+          "default": "Matches"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "1.2M"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix (optional)",
+          "default": "+"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Match your rating in a global league"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats columns",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "small_title": "Matches",
+            "number": "3.7M",
+            "suffix": "+",
+            "desc": "Play locally, count globally!"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "small_title": "Countries",
+            "number": "115",
+            "suffix": "+",
+            "desc": "Join and connect with a global community!"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "small_title": "Players",
+            "number": "3.9M",
+            "suffix": "+",
+            "desc": "Compete in a global community centered around level-based play"
+          }
+        }
+      ],
+      "settings": {
+        "divider_color": "#3ec7ff",
+        "divider_opacity": 100,
+        "col_gap": 32,
+        "inner_x_padding": 0,
+        "row_gap": 24,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "pt_md": 36,
+        "pb_md": 36,
+        "pt_xs": 36,
+        "pb_xs": 36
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}

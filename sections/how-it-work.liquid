@@ -1,0 +1,110 @@
+<div id="Coachplans">
+  <div class="page-width text-center">
+    <div class="mb-2 mb-sm-1">
+       <h2 class="text-uppercase section-title section-title-sm mb-0 lh-sm-90 mb-2 lh-xl-78">{{section.settings.heading}}</h2>
+        {%- if section.settings.heading-permission == "YES" -%}
+        <div class="divider-sm-teal divider-lg-teal"></div>
+        {%- endif -%}
+    </div>    
+      <p class="findtext lh-sm-15 fw-bold font-sm-14 pt-lg-2 w-xl-75 pb-lg-5 pt-sm-2 pb-sm-4 text-center mr-auto">{{ section.settings.description}}</p>   
+  </div>  
+  <div class="position-relative text-center page-width text-center px-sm-0 overflow-hidden">
+      <div class="benefits-carousel owl-carousel">
+         {% for block in section.blocks %}
+          <div class="benefits-card border-radius-lg-3 border-radius-sm-2">
+              <div class="benefit-img">
+                <img width="80" height="80" viewBox="0 0 80 80" fill="none" src="{{block.settings.image | image_url}}">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.8811 2C28.8835 2 29.8877 2.38304 30.6521 3.14739L34.6291 7.12617C35.6298 8.12691 36.9826 8.68766 38.4008 8.68766H43.4856C44.4777 8.68766 45.3749 9.08968 46.0237 9.74016C46.6742 10.3889 47.0762 11.2861 47.0762 12.2765V17.363C47.0762 18.7778 47.6369 20.134 48.6359 21.1313L52.613 25.1101C53.3791 25.8744 53.7621 26.8786 53.7621 27.8811C53.7621 28.8835 53.3791 29.8877 52.613 30.6538L48.6377 34.6308C47.6369 35.6281 47.0762 36.9843 47.0762 38.3991V43.4856C47.0762 44.4777 46.6742 45.3749 46.0237 46.0254C45.3749 46.6759 44.476 47.0779 43.4873 47.0779H38.4008C36.9826 47.0779 35.6298 47.6387 34.6291 48.6359L30.6521 52.6147C29.8877 53.3791 28.8818 53.7621 27.8811 53.7621C26.8769 53.7621 25.8727 53.3791 25.1083 52.6147L21.1313 48.6359C20.1305 47.6387 18.7761 47.0779 17.3613 47.0779H12.2765C11.2844 47.0779 10.3872 46.6759 9.73844 46.0254C9.08796 45.3749 8.68594 44.4777 8.68594 43.4856V38.3991C8.68594 36.9843 8.12518 35.6281 7.12617 34.6308L3.14912 30.6521C2.38304 29.8877 2 28.8835 2 27.8811C2 26.8786 2.38304 25.8744 3.14912 25.1083L7.12445 21.1313C8.12518 20.134 8.68594 18.7778 8.68594 17.363V12.2765C8.68594 11.2861 9.08796 10.3872 9.73844 9.73844C10.3872 9.08796 11.2844 8.68594 12.2748 8.68594H17.3613C18.7761 8.68594 20.1323 8.12518 21.133 7.12617L25.1083 3.14739C25.8727 2.38304 26.8769 2 27.8811 2Z" stroke="#00C0F7" stroke-width="2.58811"></path>
+                <path d="M38.0382 20.9795L24.5852 34.4325L18.4702 28.3175" stroke="#00C0F7" stroke-width="2.58811" stroke-linecap="round" stroke-linejoin="round"></path>
+              </div>    
+              <h4>{{block.settings.h4}}</h4>
+              <p>{{block.settings.description}}</p>
+        </div>
+      {% endfor %}
+    </div>
+      <div class="text-center mt-4 d-sm-none">
+       <div class="banner__buttons pb-3">
+          <a href="{{section.settings.section-button-url}}" class="btn-blue button-theme-teal text-uppercase mb-3">{{section.settings.section-button}}</a>
+       </div>
+    </div>
+  </div>
+</div>  
+{% schema %}
+  {
+    "name": "Icon Card Detail sl-4",
+    "presets": [
+      {
+        "name": "Icon Card Detail",
+        "category": "Icon Card Detail"
+      }
+    ],
+    "settings": [
+      {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+       {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Section Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		},
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+      {
+       "type": "text",
+       "id": "description",
+       "label": "Description Title"
+      }
+     
+    ],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"Benefits block",
+		"settings":[
+        {
+  		      "type": "image_picker",
+         	  "id": "image",
+         	  "label": "Image"
+  		},
+        {
+			"type":"text",
+			"id":"h4",
+			"label": "Heading"
+		},
+        {
+			"type":"text",
+			"id":"description",
+			"label": "Description Title"
+		}
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

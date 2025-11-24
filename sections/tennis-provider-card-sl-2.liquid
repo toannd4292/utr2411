@@ -1,0 +1,136 @@
+<div class="page-width text-center pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+    <h2 class="text-uppercase section-title section-title-sm  mb-0 lh-xl-78">{{section.settings.heading}}</h2>
+    <h2 class="section-sub-title text-teal mt-0 mb-0 lh-xl-78">{{section.settings.sub-heading}}</h2>
+</div>
+<div class="blackbgafter">
+  <div class="page-width">
+    <div class="provider-wrap">
+        <div class="provider-width-75">
+          <div class="twocolumn-carousel owl-carousel">
+            {% for block in section.blocks %} 
+            <div class="tennis-provider-card text-sm-center text-md-center">
+              <div class="tennis-provider-img">
+                <img src="{{block.settings.block-image |  img_url:'large'}}" />
+              </div>
+              <h2 class="font-lg-55 font-sm-34 text-uppercase font-tungsten lh-xl-78 mb-2 text-black">{{block.settings.blockheading}}</h2>
+              <p class="font-sm-14 font-md-16 font-lg-18 fw-bold lh-sm-normal">{{block.settings.description}}</p>
+              <ul class="fw-bold font-sm-14 font-lg-18 d-sm-none d-md-none" style="padding-left: 20px;">
+               {%- if block.settings.list != blank -%}
+                 <li>{{block.settings.list}}.</li>
+               {%- endif -%}
+              {%- if block.settings.list2 != blank -%}
+               <li>{{block.settings.list2}}.</li>
+               {%- endif -%}
+               {%- if block.settings.list3 != blank -%}
+                <li>{{block.settings.list3}}.</li>
+               {%- endif -%}
+               {%- if block.settings.list4 != blank -%}
+                <li>{{block.settings.list4}}.</li>
+              {%- endif -%}
+            </ul>
+              <a href="{{block.settings.section-button-url}}" class="btn-black min-w-sm-auto btn-sm ps-1 text-uppercase mt-lg-3 mt-sm-1">{{block.settings.section-button}}</a>
+            </div>
+           {% endfor %}   
+          </div>
+        </div> 
+    </div>  
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Tennis Provider Card Sl-2",
+    "presets": [
+      {
+        "name": "Tennis Provider Card Sl-2",
+        "category": "Tennis Provider Card Sl-2"
+      }
+    ],
+    "settings": [
+      {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+        {
+			"type":"text",
+			"id":"sub-heading",
+			"label": "Sub Title"
+		}
+    ],
+     "blocks":[
+	  {
+		"type":"tennis-card",
+		"name":"section-column",
+		"settings":[
+          {
+  		      "type": "image_picker",
+         	  "id": "block-image",
+         	  "label": "Card Image"
+  		   },
+           {
+  			"type":"text",
+  			"id":"blockheading",
+  			"label": "Heading"
+  		  },
+  		  {
+           "type": "text",
+           "id": "description",
+           "label": "Description"
+          },
+           {
+			"type":"text",
+			"id":"list",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list2",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list3",
+			"label": "List"
+		},
+        {
+			"type":"text",
+			"id":"list4",
+			"label": "List"
+		},
+          {
+   			"type": "text",
+   			"id": "section-button",
+   			"label": "Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-button-url",
+     			"label": "Button Link"
+    		}
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

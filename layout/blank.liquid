@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Universal Tennis</title>
+    {{ content_for_header }}
+    <script src="{{ 'jquery.min.js' | asset_url }}"></script>
+  
+  {% render 'shogun-head' %}
+</head>
+  <body>
+    {{ content_for_layout }}
+  </body>
+</html>

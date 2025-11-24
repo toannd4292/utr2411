@@ -1,0 +1,419 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="{{ section.id }}" class="find-your-match color-{{ section.settings.color_scheme }} gradient">
+    <div class="page-width section-{{ section.id }}-padding isolate">
+        {%- unless section.settings.title == blank -%}
+            <div class="fym__heading">
+                <h2 class="title">
+                    {{ section.settings.title | escape }}
+                </h2>
+            </div>
+        {%- endunless -%}
+        <div class="fym__wrapper">
+            {% for block in section.blocks %}
+                <div class="fym__item">
+                    <div class="fym__item-image">
+                        {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+                        {% if block.settings.image != blank %}
+                            {{ block.settings.image | image_url: width: 300, height: 300, crop: 'center' | image_tag: loading: 'lazy', widths: '200, 250, 300, 350, 400', sizes: '100vw' }}
+                        {% else %}
+                            {{ 'image' | placeholder_svg_tag }}
+                        {% endif %}
+                        {% if block.settings.link != blank %}</a>{% endif %}
+                    </div>
+                    {% if block.settings.title != blank %}
+                        <div class="fym__item__content">
+                            {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+                                <h4 class="fym__item-title">
+                                    {{ block.settings.title }}
+                                    <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.46875 8.32812L17.4154 8.32813" stroke="black" stroke-width="1.5"></path> <path d="M9.87012 0.78125L17.417 8.32813L9.87012 15.875" stroke="black" stroke-width="1.5"></path> </svg>
+                                </h4>
+                            {% if block.settings.link != blank %}</a>{% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+  $(function(){
+    const items = document.querySelectorAll('.fym__item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(function(){
+            entry.target.classList.add('show');
+          }, 500);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+  });
+</script>
+
+<style>
+  @media (max-width: 749px){
+    .fym__item{
+        gap: 24px;
+        padding-right: 0;
+        padding-bottom: 9px;
+        opacity: 0;
+        transform: translateX(50%);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fym__item.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  /* ============= Find your match section ============= */
+.fym__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+}
+.fym__item:nth-last-child(1):nth-child(3n+1) {
+  border-bottom: none;
+}
+.fym__item:nth-last-child(2):nth-child(3n+1),
+.fym__item:nth-last-child(1):nth-child(3n+2) {
+  border-bottom: none;
+}
+.fym__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    border-bottom: 1px solid #D7E0EA;
+}
+
+.fym__item-image{
+    flex: 0 0 100px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.fym__item-image img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+}
+
+.fym__item-title {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-family: 'Inter';
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03px;
+    margin: 0;
+}
+
+.fym__item-title svg {
+    display: block;
+    width: 16px;
+    height: auto;
+    transition: all .25s ease;
+}
+
+.fym__item:hover .fym__item-title svg {
+    transform: translateX(100%);
+}
+
+.fym__item:hover .fym__item-image img {
+    transform: scale(1.2);
+}
+
+.fym__item__content a {
+    text-decoration: none;
+}
+
+.fym__heading .title {
+    /* font-family: 'Inter'; */
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03px;
+    margin: 0;
+}
+
+.fym__heading {
+    margin-bottom: 100px;
+}
+
+@media (min-width: 750px) and (max-width: 989px){
+    .fym__heading .title{
+        font-size: 48px;
+    }
+    .fym__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fym__item{
+        gap: 24px;
+    }
+    .fym__item-title{
+        font-size: 16px;
+    }
+    .fym__item-image{
+        flex: 0 0 90px;
+    }
+    .fym__item-image img{
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1199px){
+    .fym__heading .title{
+        font-size: 48px;
+    }
+    .fym__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fym__item{
+        gap: 24px;
+    }
+    .fym__item-image{
+        flex: 0 0 90px;
+    }
+    .fym__item-image img{
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 749px){
+  .fym__item:nth-last-child(2):nth-child(3n+1),
+.fym__item:nth-last-child(1):nth-child(3n+2) {
+    border-bottom: 1px solid #D7E0EA;
+}
+    .fym__wrapper {
+        grid-template-columns: 1fr;
+        row-gap: 9px;
+    }
+    .fym__item{
+        gap: 24px;
+        padding-right: 0;
+        padding-bottom: 9px;
+        opacity: 0;
+    }
+    .fym__item__content {
+        width: 100%;
+    }
+    .fym__item-title{
+        font-weight: 600;
+        justify-content: space-between;
+        font-size:17px;
+    }
+    .fym__item-image{
+        flex: 0 0 72px;
+    }
+    .fym__item-image img{
+        width: 72px;
+        height: 72px;
+    }
+    .fym__item-title svg{
+        width: 15px;
+    }
+    .fym__heading{
+        margin-bottom: 30px;
+    }
+    .fym__heading .title{ 
+        font-size: 36px;
+    }
+    .fym__item {
+    gap: 24px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Find Your Match",
+  "class": "section shopify-cs-za",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Find your match",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Lore Ipsum",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Find Your Match",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_43b78271-08df-483c-b65c-0e5d4d30ba78.png",
+            "title": "Tennis Flex Leagues",
+            "link": "shopify://pages/tennis-flex-leagues"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744.png",
+            "title": "Tennis Rating",
+            "link": "shopify://pages/how-utr-works"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_c6f137ec-ceb2-4784-b87a-89021201c6e4.png",
+            "title": "Junior Circuits",
+            "link": "shopify://pages/junior-circuits"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_8b943f27-a58e-4d2b-a873-410c475ec68a.png",
+            "title": "College Circuits",
+            "link": "shopify://pages/college-circuits"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image.jpg",
+            "title": "Tennis Camps",
+            "link": "shopify://pages/college-camps"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_cbd5335e-6f7e-4770-ab38-3fdd66be4091.png",
+            "title": "Pro Tennis Tour",
+            "link": "shopify://pages/pro-tennis"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_06a7ac8f-28f4-45cf-a0dd-a51979b95051.png",
+            "title": "Color Ball",
+            "link": "shopify://pages/color-ball"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_2147222744_d25373cb-259a-4710-bc0b-85f008890754.png",
+            "title": "Junior Team Tennis",
+            "link": "shopify://pages/junior-team-tennis"
+          }
+        }
+      ],
+      "settings": {
+        "title": "Find your match",
+        "color_scheme": "background-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  ]
+}
+{% endschema %}

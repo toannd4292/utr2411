@@ -1,0 +1,26 @@
+{% layout 'blank' %}
+
+<pre id="app-json"></pre>
+
+<script>
+var jdata = {
+   "applinks": {
+      "apps": [],
+      "details": [
+         {
+            "appID": "SS6523F9W7.com.utr.utrplay",
+            "paths": [
+               "/events/*",
+               "/player-group/*",
+               "/leagues/session/*",
+               "/teams/*",
+               "/groups/*"
+            ]
+         }
+      ]
+   }
+}
+
+document.getElementById("app-json").textContent = JSON.stringify(jdata, undefined, 2);
+  
+</script>

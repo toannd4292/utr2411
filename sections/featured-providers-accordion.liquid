@@ -1,0 +1,193 @@
+ <div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+   <div class="mb-4">
+     <h2 class="text-uppercase section-title section-title-sm mb-0 text-center">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+       <div class="divider-sm-teal divider-lg-teal"></div>
+    {%- endif -%}
+  </div>  
+   	<ul class="tabs text-center">
+		<li class="tab-link active" data-tab="1">Clubs</li>
+		<li class="tab-link" data-tab="3">High schools</li>
+        <li class="tab-link" data-tab="4">Colleges</li>
+        <li class="tab-link" data-tab="2">Academies</li>
+	</ul>
+   <div class="accordion-wrapper">
+     
+	 <div id="tab-1" class="tab-content active">
+          <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop" id="clubs" >
+          </div>  
+       <div class="text-center mt-lg-5 mt-sm-0 clear-both">
+         <div class="banner__buttons pb-3">
+          <a href="https://app.utrsports.net/search?type=clubs&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified&startDate=05/29/2021" target="_blank" class="btn-blue button-theme-teal text-uppercase mb-3 d-sm-none">View all</a>
+<!--             <a href="#" class="mb-3 d-lg-none d-sm-block font-xl-16 text-black fw-bold font-italic loadmore">Load More...</a> -->
+         </div>
+       </div> 
+     </div><!--./accordion-wrapper tab-1-->
+
+	 <div id="tab-3"class="tab-content">
+        <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop" id="high_school">
+
+     
+
+        </div> 
+       <div class="text-center mt-lg-5 mt-sm-0">
+         <div class="banner__buttons pb-3">
+          <a href="https://app.utrsports.net/search?type=highSchools&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified&startDate=05/29/2021" target="_blank" class="btn-blue button-theme-teal text-uppercase mb-3 d-sm-none">View all</a>
+<!--             <a href="#" class="mb-3 d-lg-none d-sm-block font-xl-16 text-black fw-bold font-italic loadmore">Load More...</a> -->
+         </div>
+       </div>  
+     </div><!--./accordion-wrapper tab-2-->
+     
+     <div id="tab-4"class="tab-content">
+      <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop" id="college">
+          
+       
+        
+      </div> 
+      <div class="text-center mt-lg-5 mt-sm-0">
+       <div class="banner__buttons pb-3">
+        <a href="https://app.utrsports.net/search?utrMin=1&utrMax=16&utrType=verified&utrTeamType=singles&utrFitPosition=6&type=colleges" target="_blank" class="btn-blue button-theme-teal text-uppercase mb-3 d-sm-none">View all</a>
+<!--           <a href="#" class="mb-3 d-lg-none d-sm-block font-xl-16 text-black fw-bold font-italic loadmore">Load More...</a> -->
+       </div>
+     </div>  
+     </div><!--./accordion-wrapper tab-1-->
+
+     <div id="tab-2" class="tab-content">
+          <div class="grid grid--1-col product-grid grid--1-col-tablet grid--2-col-desktop" id="academies">
+          
+   
+            
+          </div> 
+         <div class="text-center mt-lg-5 mt-sm-0">
+           <div class="banner__buttons pb-3">
+            <a href="https://app.utrsports.net/search?type=clubs&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified&startDate=05/29/2021" target="_blank" class="btn-blue button-theme-teal text-uppercase mb-3 d-sm-none">View all</a>
+<!--               <a href="#" class="mb-3 d-lg-none d-sm-block font-xl-16 text-black fw-bold font-italic loadmore">Load More...</a> -->
+           </div>
+         </div>  
+      </div><!--./accordion-wrapper tab-2-->
+
+	</div><!--./accordion-wrapper-->
+   
+</div>  
+{% schema %}
+  {
+    "name": "Featured Providers",
+    "presets": [
+      {
+        "name": "Featured Providers Accordion",
+        "category": "ZFeatured Providers"
+      }
+    ],
+    "settings": [
+      {
+		 "type":"text",
+		 "id":"heading",
+		 "label": "Heading Title"
+	  },
+         {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+       {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Section Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		}
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  
+  var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+  //club
+  var clubsIds = [9495, 80, 75, 7016];
+  var highSchoolsIds = [6370, 6144, 12211, 3697];
+  var collegesIds =[913,938,920,915];
+  var academiesIds = [13210,8890,329,120];
+  const allClubIds = clubsIds.concat(highSchoolsIds, collegesIds,academiesIds); 
+  
+  var clubParams = clubsIds.map(id => `clubIds=${id}`).join('&'); 
+  var highSchoolParams = highSchoolsIds.map(id => `clubIds=${id}`).join('&'); 
+  var collegesParams = collegesIds.map(id => `clubIds=${id}`).join('&'); 
+  var academiesParams = academiesIds.map(id => `clubIds=${id}`).join('&'); 
+  var allProviderParams = clubParams + '&' + highSchoolParams + '&' + collegesParams + '&' + academiesParams;
+  var fetchProviderUrl = `https://api.utrsports.net/v1/club/get-info?${allProviderParams}`;
+
+  var url = `https://api.utrsports.net/v1/club/get-info?${clubParams}`;
+
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+
+  fetch(fetchProviderUrl, requestOptions)
+    .then(response => response.json())
+    .then(result => { 
+      let clubData = "";
+      let highSchooldata = "";
+      let collegeData = "";
+      let academiesData = "";
+  
+      allClubIds.forEach(id => {
+        var clubInfo = result.clubInfo[id.toString()];
+        var clubId = clubInfo.id;
+        var name = clubInfo.name;
+        var location = clubInfo.locationName;
+        var memberCount = clubInfo.memberCount;
+        var profilePhotoUrl = clubInfo.profilePhotoUrl;
+
+        if (clubsIds.includes(clubId,0)) {
+          clubData += ' <div class="grid__item"><div class="blue-teal-gradient-bg min-h-100 border-radius-lg-3 border-radius-sm-3 mb-2 mb-sm-0"><div class="feature-card-box text-black d-flex justify-content-center align-items-center"><div><div class="featureimg-medium"><img src="https://prod-cdn.utrsports.net/v1/club/' + profilePhotoUrl + '" loading="lazy" width="100" height="100" alt="clubs-img"/></div></div>  <div class="feature-content"><h4>' + name + '</h4><p>' + location + '</p><div class="d-flex justify-content-between align-items-end"><div class="number-title">' + memberCount + ' <span>Players</span></div><a href="https://app.utrsports.net/clubs/' + clubId + '" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">View site</a></div></div>   </div></div></div>';  
+        } 
+
+        if (highSchoolsIds.includes(clubId,0)) {
+          highSchooldata += ' <div class="grid__item"><div class="blue-teal-gradient-bg min-h-100 border-radius-lg-3 border-radius-sm-3 mb-2 mb-sm-0"><div class="feature-card-box text-black d-flex justify-content-center align-items-center"><div><div class="featureimg-medium"><img src="https://prod-cdn.utrsports.net/v1/club/' + profilePhotoUrl + '" loading="lazy" width="100" height="100" alt="high-school-img"/></div></div>  <div class="feature-content"><h4>' + name + '</h4><p>' + location + '</p><div class="d-flex justify-content-between align-items-end"><div class="number-title">' + memberCount + ' <span>Players</span></div><a href="https://app.utrsports.net/clubs/' + clubId + '" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">View site</a></div></div>   </div></div></div>';
+        } 
+
+        if (collegesIds.includes(clubId,0)) {
+          collegeData += ' <div class="grid__item"><div class="blue-teal-gradient-bg min-h-100 border-radius-lg-3 border-radius-sm-3 mb-2 mb-sm-0"><div class="feature-card-box text-black d-flex justify-content-center align-items-center"><div><div class="featureimg-medium"><img src="https://prod-cdn.utrsports.net/v1/club/' + profilePhotoUrl + '" loading="lazy" width="100" height="100" alt="college-img"/></div></div>  <div class="feature-content"><h4>' + name + '</h4><p>' + location + '</p><div class="d-flex justify-content-between align-items-end"><div class="number-title">' + memberCount + ' <span>Players</span></div><a href="https://app.utrsports.net/clubs/' + clubId + '" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">View site</a></div></div>   </div></div></div>';
+        } 
+
+        if (academiesIds.includes(clubId,0)) {
+          academiesData += ' <div class="grid__item"><div class="blue-teal-gradient-bg min-h-100 border-radius-lg-3 border-radius-sm-3 mb-2 mb-sm-0"><div class="feature-card-box text-black d-flex justify-content-center align-items-center"><div><div class="featureimg-medium"><img src="https://prod-cdn.utrsports.net/v1/club/' + profilePhotoUrl + '" loading="lazy" width="100" height="100" alt="academies-img"/></div></div>  <div class="feature-content"><h4>' + name + '</h4><p>' + location + '</p><div class="d-flex justify-content-between align-items-end"><div class="number-title">' + memberCount + ' <span>Players</span></div><a href="https://app.utrsports.net/clubs/' + clubId + '" class="btn-black btn-outline-black min-w-160 btn-xs-1 btn-xs-0 min-w-sm-100-px font-lg-16 font-sm-10 text-uppercase">View site</a></div></div>   </div></div></div>';
+        }
+        
+      });
+  
+      // Display the combined data on the web page
+      document.getElementById("clubs").innerHTML = clubData;
+      document.getElementById("high_school").innerHTML = highSchooldata;
+      document.getElementById("college").innerHTML = collegeData;      
+      document.getElementById("academies").innerHTML = academiesData;
+
+    });
+
+  
+  
+{% endjavascript %}
+

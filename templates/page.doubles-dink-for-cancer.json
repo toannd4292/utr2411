@@ -1,0 +1,747 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1724645394ec45c951": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_wt9Ktq": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": false,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "qikify"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_wt9Ktq"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "b019a020-e6b3-41e7-bae6-b72c641a2510": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/v2-pickleball-women-two-pink-denver-high-five-2560x1280.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE-pickleball-women-two-pink-denver-high-five-820x1100.jpg",
+        "image_height": "small",
+        "tagline": "ACS | APP | UTR Sports",
+        "small-title-size": "h3",
+        "heading": "Doubles Dink for Cancer",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "Help end cancer!",
+        "sub-heading-size": "medium",
+        "description": "The American Cancer Society, the Association of Pickleball Players, and UTR Sports have joined forced to create Doubles Dink for Cancer – a first-of-its-kind community-based fundraising program designed to spark healthier living and raise crucial funds for the fight against cancer.",
+        "section-button": "Learn more",
+        "section-button-url": "https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/EventDirector_TOOLKIT_3.19.24_FINAL.pdf",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_tkXyYU": {
+      "type": "Ads",
+      "disabled": true,
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 56,
+        "padding_bottom": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768": {
+      "type": "ut-card-with-two-column-img",
+      "blocks": {
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-man-red-shirt-waiting-forehand-paddle-571x520.jpg",
+            "heading": "HAVE A TENNIS UTR RATING?",
+            "description": "Get UTR-P Rated within minutes!",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/login?next=%2Fpickleball-survey%3Freturn%3D%2Fhome",
+            "button-permission-hover": "NO"
+          }
+        },
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-forehand-skechers-hat-571x520-pickleball.jpg",
+            "heading": "NEW TO UNIVERSAL TENNIS?",
+            "description": "If you don't already have an account with Universal Tennis, click below to get your UTR-P Rating.",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/join/pickleball",
+            "button-permission-hover": "NO"
+          }
+        }
+      },
+      "block_order": [
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9",
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "f8480aa7-9539-425e-abe1-4f417044800c": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/doubles-dink-cancer-logos-1280x990-transparent.png",
+        "heading": "Doubles Dink for Cancer",
+        "heading-size": "h2",
+        "subheading": "What to know...",
+        "sub-heading-size": "h2",
+        "list": "Doubles Dink for Cancer events are  volunteer-led, round robin doubles tournaments that can happen anytime, anywhere, and are designed to be fun and open to players of all levels – from the most experienced pickleball players to people picking up a paddle for the first time!",
+        "list2": "Doubles Dink for Cancer events are far more than pickleball tournaments – they unite communities around a beloved sport and towards a single mission: to end cancer as we know it, for everyone!",
+        "list3": "",
+        "list4": "",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_title_header_Q4XeHt": {
+      "type": "section-title-header",
+      "settings": {
+        "sub-heading": "Take Part in Doubles Dink for Cancer",
+        "sub-title-size": "h2",
+        "heading-permission": "YES",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "two_column_image_text_8CxymH": {
+      "type": "two-column-image-text",
+      "blocks": {
+        "home_card_LYUebY": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/app-doubles-celebration-mixed-960x674.jpg",
+            "heading": "Organize an event",
+            "description": "Read the Doubles Dink for Cancer Event Toolkit to learn more about running a pickleball tournament in your community. We’re here to help every step of the way!",
+            "section-button": "Learn more",
+            "section-button-url": "https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/EventDirector_TOOLKIT_3.19.24_FINAL.pdf"
+          }
+        },
+        "home_card_LqKpJj": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/man-smiling-holding-pickleball-paddle-960x674.jpg",
+            "heading": "Donate to the cause",
+            "description": "Don’t have time to play, but want to support the mission of the American Cancer Society? Your donation will truly help save lives.",
+            "section-button": "Donate now",
+            "section-button-url": "https://donate.cancer.org/?campaign=doublesdink"
+          }
+        },
+        "home_card_TtQCG6": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-playing-pickleball-holding-paddle-right-hand-960x674.jpg",
+            "heading": "Ready to create your event?",
+            "description": "Click the below button and fill out the brief form to get your Doubles Dink for Cancer event created and ready for registrants.",
+            "section-button": "Submit your event",
+            "section-button-url": "https://forms.monday.com/forms/5f62ac357b3627ca75359b49e46d6519?r=use1"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_LYUebY",
+        "home_card_LqKpJj",
+        "home_card_TtQCG6"
+      ],
+      "settings": {}
+    },
+    "bb619d90-522b-489a-947c-9a558670c712": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "d29aa01c-0302-4904-964a-0a6386867d3d": {
+      "type": "content-right-image-left",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/girls-high-five-pickleball-naborforce-1140x880.jpg",
+        "smalltitle": "APP | UTR Sports Pickleball Leagues",
+        "small-title-size": "p",
+        "heading": "building toward",
+        "heading-size": "h2",
+        "subheading": "the National Championships",
+        "sub-heading-size": "h2",
+        "description": "<p>The 2024 season will culminate in the APP Leagues National Championships. Additional info, including how to register, how to become a Team Captain or District Coordinator, scheduling, rules and regulations, and more will be announced soon. Registration opened Nov. 15, 2023, and closes Jan. 8, 2024.</p>",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex2\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickle1.png",
+        "heading": "Pickleball Flex Leagues",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "description": "Pickleball Flex Leagues are live in 30+ cities across the U.S.! Doubles and singles leagues run five weeks long and are open to all adults. Choose when and where you play around your schedule.",
+        "id_section-button": "",
+        "section-button": "FIND A LEAGUE NEAR YOU",
+        "section-button-url": "shopify://pages/pickleball-flex-leagues",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "2f2c747e-9225-4105-86f3-c11fd058495d": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1": {
+      "type": "content-with-list-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-flex-league-570x440.jpg",
+        "heading": "PICKLEBALL FLEX LEAGUES",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "list": "4 matches over 5 weeks",
+        "list2": "Compete for prizes",
+        "list3": "Qualify for the playoffsMatches at your level on your time",
+        "list4": "",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7": {
+      "type": "resources-for-players",
+      "blocks": {
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/YouTube-video-thumbnail-app-nyc-us-open.jpg",
+            "description": "Pickleball Takes Over US Open",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=mpnv5A_CZW8"
+          }
+        },
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/UT-Web-thumbnail-sam-querrey-pickleball-interview-youtube-video.jpg",
+            "description": "Nadal, Federer? Sam Querrey's Dream Doubles Partner",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=vXKEkYOgU40"
+          }
+        }
+      },
+      "block_order": [
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd",
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "IS EVERYONE PLAYING PICKLEBALL?",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "cf47488f-4071-444b-aaa2-795b967e3793": {
+      "type": "ul-video-button-banner",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/UT-Pickleball-Web_Thumb_V2.jpg",
+        "heading": "PICKLEBALL IS EVERYWHERE",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/Pickleball_player_cut_out-new.png",
+        "section-video-button": "WATCH THE VIDEO",
+        "section-button-url": "https://www.youtube.com/watch?v=21AlbfyORS8"
+      }
+    },
+    "4f64985c-c3d2-4991-a2d0-1bffb7264fc7": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Xb8xVi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I organize a Doubles Dink for Cancer event?",
+            "icon": "none",
+            "row_content": "<p><strong>Step 1:</strong> <a href=\"https://app.utrsports.net/join\" target=\"_blank\" title=\"Join UTR Sports\">Click here to join UTR Sports</a> (it's free!), or download the <a href=\"/pages/mobile-app\" title=\"Mobile App\">UTR Sports mobile app here</a> (available for both iOS and Android) and create a <em>free </em>profile.</p><p><strong>Step 2:</strong> Plan your event by determining important details, including the following:</p><ul><li>What size tournament you want to organize?</li><li>How many courts and how many hours you need to complete your event?</li><li>Where you’re going to host the event – local pickleball or tennis club, community courts, indoor basketball courts, a homemade court, etc.?</li></ul><p>From there, you’ll create your event page, invite your friends, and get ready for the big day!</p><p>For step-by-step guides to running an event in your community, see the Event Director Toolkit <a href=\"https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/EventDirector_TOOLKIT_3.19.24_FINAL.pdf\"><span style=\"text-decoration:underline\">here</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the competition format for Doubles Dink for Cancer?",
+            "icon": "none",
+            "row_content": "<p>Doubles Dink for Cancer tournaments are 100% doubles play – the preferred format for the majority of pickleball players! Why? Because it’s the most fun! Doubles matches are accessible and enjoyable for all, regardless of age or skill level. </p><p>Tournaments follow a round robin format with pool play followed by a single elimination playoff. Play can be organized by gender, age or skill level or simply co-ed open play. All games are rally scoring to 15, win by 1 – simple and easy for all!</p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can anyone organize a Doubles Dink for Cancer event?",
+            "icon": "none",
+            "row_content": "<p>Yes, anyone anywhere can organize a Doubles Dink for Cancer tournament.</p><p>Event organizers do not have to be experienced tournament managers. The program is designed so anyone can organize a tournament, even the most novice players. For more information on being an Event Organizer, see the Event Organizer Toolkit, found <a href=\"https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/EventDirector_TOOLKIT_3.19.24_FINAL.pdf\"><span style=\"text-decoration:underline\">here</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is an Event Director? What do they do?",
+            "icon": "none",
+            "row_content": "<p>Doubles Dink for Cancer would not be possible without Event Directors – captains of compassion that unite their community around pickleball and towards a single mission: to end cancer as we know it, for everyone. Event Directors make a huge difference – and have a lot of fun while they’re at it! Your main responsibilities as Event Director include: </p><ul><li>Finding and reserving (or creating!) pickleball courts</li><li>Recruiting friends to participate</li><li>Finding a few volunteers to help on event day</li><li>Organizing and running the tournament</li><li>Infusing fun and celebration into the event in your own creative ways! </li></ul>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is rally scoring?",
+            "icon": "none",
+            "row_content": "<p>Rally scoring means that every rally ends in a point, regardless of what team serves.</p>",
+            "page": ""
+          }
+        },
+        "40fef88f-b777-418e-9da9-f02782bd6cff": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the rules?",
+            "icon": "none",
+            "row_content": "<p>The Official Rules can be found in the Event Organizer Toolkit, found <a href=\"https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/EventDirector_TOOLKIT_3.19.24_FINAL.pdf\"><span style=\"text-decoration:underline\">here</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "34781fc3-6155-4305-ab23-f1fdac415304": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many people can play in Doubles Dink for Cancer events?",
+            "icon": "none",
+            "row_content": "<p>Tournaments can be as small or large as the Event Organizer prefers, from intimate neighborhood fundraisers of 10 people to large-scale tournaments of 100+ held at dedicated pickleball or tennis venues.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XA7UDf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long is a Doubles Dink for Cancer event?",
+            "icon": "none",
+            "row_content": "<p>The length of tournaments will vary depending on how many people participate and the number of courts available.<strong> </strong></p>",
+            "page": ""
+          }
+        },
+        "797a3592-e5db-44f2-b921-6b130fa409a2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the tournament schedule like? ",
+            "icon": "none",
+            "row_content": "<p>A 20-team (40 people) event at a venue with four courts should follow the below schedule.</p><ul><li>10:00AM \tEvent Starts</li><li>10:00AM – 11:30AM\tPool Play I</li><li>11:30AM – 1:00PM\tPool Play II</li><li>1:00PM – 2:00PM\tPlayoffs / Awards </li><li>2:00PM – Event Ends</li></ul>",
+            "page": ""
+          }
+        },
+        "9e1af1d7-474d-4d2e-ac8a-de761368e72a": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I determine how many courts I need and how long to reserve them?",
+            "icon": "none",
+            "row_content": "<p>One pool of five teams using two courts will take approximately 90 minutes to complete. With transition time and Playoffs, the event would last roughly two hours. If you need further assistance determining court needs, reach out to <a href=\"mailto:information@doublesdink.com\"><span style=\"text-decoration:underline\">information@doublesdink.com</span></a>. </p>",
+            "page": ""
+          }
+        },
+        "cff7fd17-4a21-4496-a82c-5186e041d539": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need to have experience running pickleball tournaments to run a Doubles Dink for Cancer event?",
+            "icon": "none",
+            "row_content": "<p>No. There are two ways to manage a Doubles Dink for Cancer event – all based on your level of experience organizing and managing pickleball tournaments.</p><p>As the event organizer, you can select whichever method you’re most comfortable with!</p><p>You can keep it simple and run the tournament by hand using materials we supply, or you can use UTR Sports’ innovative tournament management system to run the tournament digitally. Your tournament, your choice!</p><p>For those new to running pickleball events, you create your event and manage registration, payments, and player communication using the UTR Sports platform, but when it comes to event day, we arm you with all the materials you need! It’s simple – you simply print the player roster, pool play scoresheets, and playoff bracket and run the tournament on-the-go!</p><p>If you’re an experienced tournament manager or venue operator, you can run your entire event on the UTR Sports Platform and utilize their pickleball Tournament Management System (TMS) including creating draws, setting the event schedule, recording results, adding event details, and communicating with players before, during, or after the event.</p><p>For event organizers not familiar with the UTR Sports Pickleball platform, you can schedule a demo with a member of the UTR Sports team directly through <a href=\"https://calendly.com/joshua-mckinley/utr-demo-doubles-dink-for-cancer\"><span style=\"text-decoration:underline\">Calendly</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "244ed7c7-74b0-4474-866a-f85df72c5cdf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I find a Doubles Dink for Cancer tournament to play in? ",
+            "icon": "none",
+            "row_content": "<p>You can find all Doubles Dink for Cancer events on <a href=\"https://app.utrsports.net/clubs/1094690?t=4\" target=\"_blank\" title=\"American Cancer Society club page\">this page</a>, or search \"Doubles Dink for Cancer\" on <a href=\"https://www.utrsports.net\" title=\"UTR Sports homepage\">www.utrsports.net</a>.</p>",
+            "page": ""
+          }
+        },
+        "e24a7725-42df-4e74-830a-ad7d77133e60": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "How do I get involved if I don’t live in Florida?",
+            "icon": "none",
+            "row_content": "<p>You cannot participate in tournaments outside of the state of Florida during the pilot, but you are welcome to donate to the cause by visiting the Doubles Dink for Cancer <a href=\"https://donate.cancer.org/?campaign=doublesdink\" title=\"Donate to Doubles Dink for Cancer\"><span style=\"text-decoration:underline\">website</span></a>. If you want to be the first to know when the program is scaling beyond Florida, sign up <a href=\"https://utr.typeform.com/to/E8cUZTcc\"><span style=\"text-decoration:underline\">here</span></a>.</p>",
+            "page": ""
+          }
+        },
+        "c7863bea-bd0f-4534-89ce-942c5a220ed7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often are events held?",
+            "icon": "none",
+            "row_content": "<p>While the format is consistent across events, event organizers have ultimate flexibility on when, where, and how often events are held and how they come to life creatively. Whether a Mother-Child event around Mother’s Day, a Date Night on the first Friday of the month, or a World Cancer Day tournament in February, all Doubles Dink for Cancer events will be focused on fun, living an active lifestyle, and supporting a great cause!</p>",
+            "page": ""
+          }
+        },
+        "6802ed0a-0f49-4e5c-9654-c7f65c76ba89": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How much does it cost?",
+            "icon": "none",
+            "row_content": "<p>The registration fee is $75 per player, similar to what you’d pay to compete in other local organized tournaments – only this time, your money supports the fight against cancer.</p>",
+            "page": ""
+          }
+        },
+        "01cc5e0a-7dd8-4fe9-982d-76dcc4aa4969": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where does my registration fee go? ",
+            "icon": "none",
+            "row_content": "<p>Seventy percent (70%) of your event registration goes towards supporting the mission of the American Cancer Society: to improve the lives of people with cancer and their families through advocacy, research, and patient support, to ensure everyone has an opportunity to prevent, detect, treat, and survive cancer. The remainder (30%) goes towards the overall management of the Doubles Dink for Cancer program, including technology, marketing, and personnel. </p>",
+            "page": ""
+          }
+        },
+        "dfe8a230-de6d-40c9-a5d6-d2159b8f4a96": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are there health benefits to pickleball?",
+            "icon": "none",
+            "row_content": "<p>About 1 in 5 cancers in the US are linked to excess body weight and lack of physical activity. 16 out of 100 cancer deaths are related to those same factors. Some of these cancers could’ve been prevented. Regular physical activity has been linked to a lower risk of several types of cancer and a physically active lifestyle may also lower a person's risk of other health problems. To adopt a physically active lifestyle, the American Cancer Society recommends people move more and sit less… and what better way to do that than pickleball!</p><p>Pickleball is a great way to stay physically fit and tone muscles.</p><p>The Apple Heart and Movement <a href=\"https://www.apple.com/newsroom/2023/10/new-apple-research-highlights-the-health-benefits-of-pickleball/\"><span style=\"text-decoration:underline\">Study</span></a>, published in October 2023, analyzed over 250,000 pickleball workouts and concluded that playing pickleball was associated with helping players reach moderate to vigorous heart rate zones that have been linked to an improvement in over health.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_E8AjX6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is pickleball?",
+            "icon": "none",
+            "row_content": "<p>Pickleball is fun, social and friendly! The rules are simple and the game is easy for beginners to learn, but can develop into a fast-paced, competitive game. For more about the sport and to learn the basics, <a href=\"/blogs/news/what-is-pickleball\" target=\"_blank\" title=\"What is Pickleball?\">click here to read this UTR Sports article all about \"What is Pickleball?\"</a></p><p>Read & watch more about pickleball:</p><ul><li><a href=\"/pages/pickleball-amateur-series\" target=\"_blank\" title=\"Pickleball Amateur Series\">Pickleball Amateur Series</a></li><li><a href=\"/pages/pickleball-flex-leagues\" target=\"_blank\" title=\"Pickleball Flex Leagues: Play Pickleball Around Your Schedule\">Pickleball Flex Leagues</a></li><li><a href=\"/pages/pickleball-flex-leagues-rewards\" target=\"_blank\" title=\"Pickleball Flex Leagues Rewards\">Pickleball Flex Leagues Rewards</a></li><li><a href=\"/pages/app-next-gen-series\" title=\"APP Next Gen Series\">APP Next Gen Series</a></li><li><a href=\"/blogs/press/association-of-pickleball-players-and-utr-sports-launch-nationwide-pickleball-leagues\" target=\"_blank\" title=\"APP and UTR Sports Launch Nationwide Pickleball Leagues\">APP & UTR Sports Launch Nationwide Pickleball Leagues</a></li><li><a href=\"/pages/how-utr-p-works\" target=\"_blank\" title=\"How UTR-P Works\">What is the UTR Pickleball Rating (UTR-P)?</a></li></ul>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Xb8xVi",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-0",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-1",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-2",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-3",
+        "40fef88f-b777-418e-9da9-f02782bd6cff",
+        "34781fc3-6155-4305-ab23-f1fdac415304",
+        "collapsible_row_XA7UDf",
+        "797a3592-e5db-44f2-b921-6b130fa409a2",
+        "9e1af1d7-474d-4d2e-ac8a-de761368e72a",
+        "cff7fd17-4a21-4496-a82c-5186e041d539",
+        "244ed7c7-74b0-4474-866a-f85df72c5cdf",
+        "e24a7725-42df-4e74-830a-ad7d77133e60",
+        "c7863bea-bd0f-4534-89ce-942c5a220ed7",
+        "6802ed0a-0f49-4e5c-9654-c7f65c76ba89",
+        "01cc5e0a-7dd8-4fe9-982d-76dcc4aa4969",
+        "dfe8a230-de6d-40c9-a5d6-d2159b8f4a96",
+        "collapsible_row_E8AjX6"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "FAQs About Doubles Dink for Cancer",
+        "heading-size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "5a6f592a-a2ff-4ea1-919a-bd28e92fc4e0": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex3\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0bf8e874-4241-4ab6-b5eb-93fa145c81c3": {
+      "type": "testimonials",
+      "blocks": {
+        "79544b53-d80e-4548-9c19-04eff5d393d5": {
+          "type": "home-card",
+          "settings": {
+            "description": "“APP | UTR Sports Pickleball Leagues will be an unprecedented pickleball competition that builds on our commitment to making pickleball an inclusive sport for all. We know, through our research, that finding opponents is a primary need for pickleball players, and league play directly addresses that point. It can be intimidating to play in a tournament for the first time, but team-based play creates an approachable entry to the world of organized play, enabling recreational players nationwide to start competing at their local courts.”",
+            "image": "shopify://shop_images/APP_Ken_400x400-shopify-marketing-testimonial-circle-quote.png",
+            "author": "Ken Hermann",
+            "author-designation": "Founder of the Association of Pickleball Professionals"
+          }
+        },
+        "a860d31d-b8f4-4410-9331-9e8c4a9c75d8": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "Our first UTR Sports Pickleball event was a total success. It brought a level of competition to our members that I hadn't seen before since every point and set counted towards their rating. We are all looking forward to more of that.",
+            "image": "shopify://shop_images/norbeck-country-club-400x400-testimonial-v2.png",
+            "author": "Carlos Nunez",
+            "author-designation": "Norbeck Country Club"
+          }
+        },
+        "a155b875-feb8-45bf-8ac3-9135be4b0816": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "UTR Sports has created the gold standard in tennis, and all the technology and solutions are perfectly transferable to pickleball.",
+            "image": "shopify://shop_images/ken-solomon-jpg.jpg",
+            "author": "Ken Solomon",
+            "author-designation": "President, Tennis Channel"
+          }
+        },
+        "e7e85bc7-9eb2-47ae-9cbc-ee8e90f1b139": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "We are thrilled UTR Sports is moving its technology and expertise into pickleball to support and enhance the experience for everyone.",
+            "image": "shopify://shop_images/sean-bollettieri-abdali-pickleball-testimonial-new-400x400jp.jpg",
+            "author": "Sean Bollettieri Abdali",
+            "author-designation": "President & Founder of The Tennis & Pickleball Club at Newport Beach"
+          }
+        }
+      },
+      "block_order": [
+        "79544b53-d80e-4548-9c19-04eff5d393d5",
+        "a860d31d-b8f4-4410-9331-9e8c4a9c75d8",
+        "a155b875-feb8-45bf-8ac3-9135be4b0816",
+        "e7e85bc7-9eb2-47ae-9cbc-ee8e90f1b139"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Hear from the app's founder",
+        "sub-heading": ""
+      }
+    },
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "ut_full_width_video_iGdwig": {
+      "type": "ut-full-width-video",
+      "settings": {
+        "section-image-first": "shopify://shop_images/rob-donald-DD4C-1140x720-Thumbnail.jpg",
+        "heading": "WATCH: Why Rob Nunnery, Donald Young Support Doubles Dink for Cancer",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-video-button": "Watch now",
+        "section-button-url": "https://www.youtube.com/watch?v=9Foog7MbeZg",
+        "section-learn-more-button": "",
+        "section-learn-button-url": "",
+        "section-signup-button": "",
+        "section-signup-button-url": ""
+      }
+    },
+    "want_to_play_tennis_BdKBb7": {
+      "type": "want-to-play-tennis",
+      "blocks": {
+        "home_card_jNjzf4": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-woman-cutout-image-ball-background-forehand-black-clothes.png",
+            "section-button": "Pickleball Flex Leagues",
+            "section-button-url": "shopify://pages/pickleball-flex-leagues"
+          }
+        },
+        "home_card_Db6pia": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-woman-cutout-image-ball-background-forehand.png",
+            "section-button": "Pickleball Tournaments",
+            "section-button-url": "shopify://pages/pickleball-tournaments"
+          }
+        },
+        "home_card_EiEhxy": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-boy-cutout-image-ball-background-backhand-at-net-glasses.png",
+            "section-button": "Get Your FREE UTR-P",
+            "section-button-url": "shopify://pages/how-utr-p-works"
+          }
+        },
+        "home_card_Lt398Y": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-man-cutout-image-ball-background-forehand-at-net.png",
+            "section-button": "APP Pickleball",
+            "section-button-url": "shopify://pages/app-pickleball"
+          }
+        },
+        "home_card_m9gA86": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-under-armour-headband-selkirk-red-paddle-UTR-PICKLEBALL-CUTOUT-617x640.png",
+            "section-button": "USA Pickleball",
+            "section-button-url": "shopify://pages/usa-pickleball"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_jNjzf4",
+        "home_card_Db6pia",
+        "home_card_EiEhxy",
+        "home_card_Lt398Y",
+        "home_card_m9gA86"
+      ],
+      "settings": {
+        "heading": "Ready to play?",
+        "sub-heading": "Explore more pickleball opportunities..."
+      }
+    },
+    "3_steps_new_3nYKxj": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_T9GgcR": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_Xty4ja": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_zWnVCV": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_T9GgcR",
+        "text_Xty4ja",
+        "text_zWnVCV"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/mobile-app-screen-pickleball-focused-ios-profile-pages-564x773.png",
+        "section-button": "GET STARTED",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "ads_cyLkgc": {
+      "type": "Ads",
+      "disabled": true,
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-3",
+        "color_scheme": "new",
+        "padding_top": 8,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "1724645394ec45c951",
+    "main",
+    "b019a020-e6b3-41e7-bae6-b72c641a2510",
+    "ads_tkXyYU",
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768",
+    "f8480aa7-9539-425e-abe1-4f417044800c",
+    "section_title_header_Q4XeHt",
+    "two_column_image_text_8CxymH",
+    "bb619d90-522b-489a-947c-9a558670c712",
+    "d29aa01c-0302-4904-964a-0a6386867d3d",
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588",
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637",
+    "2f2c747e-9225-4105-86f3-c11fd058495d",
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1",
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7",
+    "cf47488f-4071-444b-aaa2-795b967e3793",
+    "4f64985c-c3d2-4991-a2d0-1bffb7264fc7",
+    "5a6f592a-a2ff-4ea1-919a-bd28e92fc4e0",
+    "0bf8e874-4241-4ab6-b5eb-93fa145c81c3",
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f",
+    "ut_full_width_video_iGdwig",
+    "want_to_play_tennis_BdKBb7",
+    "3_steps_new_3nYKxj",
+    "ads_cyLkgc"
+  ]
+}

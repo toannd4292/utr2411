@@ -1,0 +1,299 @@
+{% comment %}  SECTION: Dual‑Image Hero – 3 synced carousels  {% endcomment %}
+{% style %}
+#section-{{ section.id }} .owl-carousel { display: block; }
+#section-{{ section.id }} .dual-hero__left .owl-carousel .item, 
+#section-{{ section.id }} .dual-hero__right .owl-carousel .item { display: none; }
+#section-{{ section.id }} .dual-hero__left .owl-carousel  .item:first-child,
+#section-{{ section.id }} .dual-hero__right .owl-carousel  .item:first-child { display: block; }
+{% endstyle %}
+<section id="section-{{ section.id }}" class="dual-hero overflow-hidden">
+  <div class="page-width grid grid--1-col grid--1-col-tablet grid--2-col-desktop align-items-center dual-hero-slide">
+
+    <!-- MAIN IMAGE -->
+    <div class="grid__item dual-hero__left">
+      <div id="dual-main-{{ section.id }}" class="owl-carousel">
+        {% for block in section.blocks %}
+          {% assign img = block.settings.main_image | image_url: width: 2000 %}
+{% assign img_mb = block.settings.main_image_mb | image_url: width: 1100 %}
+<div class="item">
+  {% if img or img_mb %}
+    <picture>
+      {% if img_mb %}<source media="(max-width: 789px)" srcset="{{ img_mb }}">{% endif %}
+      {% if img %}<img src="{{ img }}" alt="{{ block.settings.heading | escape }}" class="dual-hero__main-img">{% endif %}
+    </picture>
+  {% endif %}
+</div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="grid__item dual-hero__right">
+      <div class="hero-flex">
+        <div class="top-part">
+          <div class="wrap-img-hero">
+            <div id="dual-second-{{ section.id }}" class="owl-carousel">
+              {% for block in section.blocks %}
+                {% assign img2 = block.settings.second_image | image_url: width: 1200 %}
+{% assign img2_mb = block.settings.second_image_mb | image_url: width: 900 %}
+<div class="item">
+  {% if img2 or img2_mb %}
+    <picture>
+      {% if img2_mb %}<source media="(max-width: 789px)" srcset="{{ img2_mb }}">{% endif %}
+      {% if img2 %}<img src="{{ img2 }}" alt="{{ block.settings.heading | escape }}" class="dual-hero__second-img">{% endif %}
+    </picture>
+  {% endif %}
+</div>
+
+              {% endfor %}
+            </div>
+          </div>
+          {% if section.blocks.size > 1 %}
+          <div class="dual-hero__arrows mt-1">
+            <button class="dual--prev dual-prev-{{ section.id }}" aria-label="Prev">
+              <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H16" stroke="black" stroke-width="1.5"/><path d="M9 1L16 8L9 15" stroke="black" stroke-width="1.5"/></svg>
+            </button>
+            <button class="dual--next dual-next-{{ section.id }}" aria-label="Next">
+              <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H16" stroke="black" stroke-width="1.5"/><path d="M9 1L16 8L9 15" stroke="black" stroke-width="1.5"/></svg>
+            </button>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="bottom-part">
+          <div id="dual-content-{{ section.id }}" class="owl-carousel mt-1">
+            {% for block in section.blocks %}
+              <div class="item">
+                {% if block.settings.heading %}<h3 class="dual-hero__heading">{{ block.settings.heading }}</h3>{% endif %}
+                {% if block.settings.description %}<div class="dual-hero__desc">{{ block.settings.description }}</div>{% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #section-{{ section.id }} picture { display:block; }
+#section-{{ section.id }} picture > img { width:100%; height:auto; border-radius:inherit; display:block; }
+
+  .dual-hero .owl-carousel.owl-drag .owl-item {
+    border: 1px solid white;
+}
+  #section-{{ section.id }} .dual-hero__arrows button.inactive{
+  opacity: .35;            
+  pointer-events: none;     
+}
+
+  #section-{{ section.id }} .dual-hero-slide{
+
+  align-items: stretch;
+
+}                                                                                                                  
+
+  .wrap-img-hero, .bottom-part {
+
+    pointer-events: none;
+
+}
+{% if section.settings.full %}@media(min-width:750px){#section-{{ section.id }} .page-width{padding:0 2.6rem;max-width:170rem}}{% endif %}
+#section-{{ section.id }}{position:relative;overflow:hidden}
+#section-{{ section.id }} .dual-hero__slide{gap:24px;flex-wrap:nowrap;justify-content:space-between}
+#section-{{ section.id }} .dual-hero__left,#section-{{ section.id }} .dual-hero__right{flex:1}
+#section-{{ section.id }} .grid__item.dual-hero__right{flex:1 0 40.8%;max-width:none;padding-right:6px}
+#section-{{ section.id }} .grid__item.dual-hero__left{flex:1 0 57.6%;max-width:none}
+#section-{{ section.id }} .dual-hero__main-img,#section-{{ section.id }} .dual-hero__second-img{width:100%;height:auto;border-radius:18px;display:block}
+#section-{{ section.id }} .dual-hero__arrows{display:flex;gap:8px;justify-content:flex-end;margin-top:33px}
+#section-{{ section.id }} .dual-hero__arrows button{background:transparent;border:1px solid #D7E0EA;width:44px;height:44px;border-radius:50%;cursor:pointer}
+#section-{{ section.id }} .dual-hero__heading{    font-size: 28px;
+    letter-spacing: -0.6px;
+    line-height: 28px;
+    font-weight: 500;
+    margin: 0px;
+    padding-bottom: 20px;
+    font-family: "Inter-Medium";}
+#section-{{ section.id }} .dual-hero__desc p{font-size:16px;line-height:27px;margin:0;font-family:"Inter-Regular";letter-spacing:0.1px}
+#section-{{ section.id }} .hero-flex{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+#section-{{ section.id }} .bottom-part{padding:0 16px;max-width:470px}
+#section-{{ section.id }} .dual--prev{transform:rotate(180deg)}
+  @media(min-width:789px){
+
+#section-{{ section.id }} .grid__item.dual-hero__right{flex:1 0 40.8%;max-width:41%;padding-right:6px}
+
+#section-{{ section.id }} .grid__item.dual-hero__left{flex: 1 0 51.6%;
+
+    max-width: 59%;
+
+    overflow: hidden;}
+
+#section-{{ section.id }} .dual-hero__main-img,#section-{{ section.id }} .dual-hero__second-img{width:100%;height:auto;border-radius:60px;display:block}
+  }
+
+@media(max-width:789px){
+.wrap-img-hero  {
+        max-width: 376px;
+        aspect-ratio: 1.47;
+        text-align: right;
+        margin: 0px auto;
+        margin-right: 0;
+    }  
+  #section-{{ section.id }} .dual-hero__main-img,#section-{{ section.id }} .dual-hero__second-img{width:100%;height:auto;border-radius:25px;display:block}
+ #section-{{ section.id }} .dual-hero-slide {
+    padding: 0 1.5rem;
+}
+  #section-{{ section.id }} .grid__item.dual-hero__right,#section-{{ section.id }} .grid__item.dual-hero__left{width:100%; max-width:100%;}
+  #section-{{ section.id }} .hero-flex{gap:7px}
+  #section-{{ section.id }} .dual-hero__arrows{margin-top:28px;justify-content:flex-start}
+  #section-{{ section.id }} .wrap-img-hero img{max-width:376px;aspect-ratio:1.47;margin:0 auto 0 0}
+  #section-{{ section.id }} .dual-hero__main-img{aspect-ratio:1.225}
+  #section-{{ section.id }} .bottom-part{padding:20px 0px}
+  #section-{{ section.id }} .dual-hero__heading{font-size:24px;line-height:24px;padding-bottom:15px;letter-spacing:-1px}
+}
+@media(max-width:589px){
+.wrap-img-hero  {
+        max-width: 255px;
+        aspect-ratio: auto;
+        text-align: right;
+        margin: 0px auto;
+        margin-right: 0;
+    }  
+      #section-{{ section.id }} .wrap-img-hero img{max-width:256px;aspect-ratio:auto;margin:0 auto 0 0}
+
+}
+</style>
+
+<script>
+(function(){
+  const id='{{ section.id }}';
+  if(window['dualHero'+id]) return;            
+  window['dualHero'+id]=1;
+
+  function init(){
+    if(!window.jQuery || !jQuery.fn.owlCarousel){
+      setTimeout(init,50); return;
+    }
+
+    const opts = {
+      items:1,
+      loop: {{ section.settings.loop }},
+      nav:false,
+      dots: {{ section.settings.dots | default:false }},
+      autoplay: {{ section.settings.autoplay | default:false }},
+      autoplayTimeout: {{ section.settings.autoplay_timeout | default:5000 }},
+      smartSpeed: {{ section.settings.speed | default:500 }}
+    };
+
+    const $main   = $('#dual-main-'+id).owlCarousel(opts);
+    const $second = $('#dual-second-'+id).owlCarousel(opts);
+    const $content= $('#dual-content-'+id).owlCarousel(opts);
+    const $prev   = $('.dual-prev-'+id);
+    const $next   = $('.dual-next-'+id);
+    const spd     = {{ section.settings.speed | default:500 }};
+
+    $next.on('click', ()=> !$next.hasClass('inactive') && $main.trigger('next.owl.carousel'));
+    $prev.on('click', ()=> !$prev.hasClass('inactive') && $main.trigger('prev.owl.carousel'));
+
+  
+    function setArrows(i,total){
+      if({{ section.settings.loop }}) return;     
+      i===0      ? $prev.addClass('inactive') : $prev.removeClass('inactive');
+      i===total  ? $next.addClass('inactive') : $next.removeClass('inactive');
+    }
+    setArrows(0,$main.find('.owl-item').length-1);
+
+    $main.on('changed.owl.carousel',e=>{
+      const i=e.item.index, last=e.item.count-1;
+      $second.trigger('to.owl.carousel',[i, spd, true]);
+      $content.trigger('to.owl.carousel',[i, spd, true]);
+      setArrows(i,last);
+    });
+  }
+
+  if(document.readyState==='complete') init();
+  else window.addEventListener('load',init);
+
+  document.addEventListener('shopify:section:load',e=>{
+    if(e.detail && e.detail.sectionId==='{{ section.id }}') init();
+  });
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "Dual Image Hero Carousel",
+  "class": "dual-hero shopify-cs-za",
+  "settings": [
+    { "type": "checkbox", "id": "full", "label": "Full width", "default": true },
+    { "type": "checkbox", "id": "loop", "label": "Loop", "default": true },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_timeout", "label": "Autoplay timeout (ms)", "min": 2000, "max": 9000, "step": 500, "default": 5000 },
+    { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 200, "max": 1500, "step": 100, "default": 500 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "main_image", "label": "Main image" },
+        { "type": "image_picker", "id": "second_image", "label": "Second image" },
+        { "type": "image_picker", "id": "main_image_mb", "label": "Main image (mobile)" },
+        { "type": "image_picker", "id": "second_image_mb", "label": "Second image (mobile)" },
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Image Hero Carousel",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "main_image": "shopify://shop_images/woman-tennis-player-action-952_825.png",
+            "second_image": "shopify://shop_images/professional-tennis-player-serving-2.png",
+            "main_image_mb": "shopify://shop_images/588a0865308bb2dad7da6f89276cb8f81567ad00_bd1e9f14-ab6c-49a3-9f13-ad8440f2da6d.jpg",
+            "second_image_mb": "shopify://shop_images/ee41c414d22913f73f835cb11c4dcd31d643153d.jpg",
+            "heading": "Play your way",
+            "description": "<p>From recreational player groups to competitive formats, find matches that suit your style. Explore tennis and pickleball leagues, local clubs, and events near you!</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "main_image": "shopify://shop_images/player-action-shot.png",
+            "second_image": "shopify://shop_images/female-tennis-player-in-action.png",
+            "main_image_mb": "shopify://shop_images/Frame_91758335-5901-4b0a-9306-6cd3d188b8be.png",
+            "second_image_mb": "shopify://shop_images/Frame_e7bce7a0-db41-476b-b1ae-cb7e25b5ee7b.png",
+            "heading": "Level up your game",
+            "description": "<p>Gain insights, track your progress to improve your play, and get rated by the world's most trusted rating systems. See how you compare to other players.</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "main_image": "shopify://shop_images/two-players-outdoor-pickleball-court.png",
+            "second_image": "shopify://shop_images/tennis-players-handshake.png",
+            "main_image_mb": "shopify://shop_images/Frame_ec86ce95-e667-47c8-9acd-e57b89fca7f6.png",
+            "second_image_mb": "shopify://shop_images/Frame_409a3b2e-2de5-471d-8211-0eb1d2bf7f1b.png",
+            "heading": "Find your community",
+            "description": "<p>Whether you're a beginner or a competitive player, connect with millions of other passionate tennis and pickleball players.</p>"
+          }
+        }
+      ],
+      "settings": {
+        "full": true,
+        "loop": false,
+        "autoplay": false,
+        "autoplay_timeout": 5000,
+        "speed": 500
+      }
+    }
+  ]
+}
+{% endschema %}

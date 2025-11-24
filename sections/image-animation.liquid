@@ -1,0 +1,218 @@
+{% render 'partial-style', section: section %}
+{%- style -%}
+ @keyframes translateinfinite {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+  .section-{{ section.id }}-padding .logo-list-wrapper {
+    gap: 15px;
+    width: calc(380px* 24);
+    transform-origin: 50% 50%;
+      animation: translateinfinite {{section.settings.change_slides_speed}}s infinite normal linear;
+  }
+  .section-{{ section.id }}-padding .text-animation-inner {
+    font-size: 32px;
+    line-height: 33.6px;
+    letter-spacing: 0px;
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-right: 40px;
+  }
+  .section-{{ section.id }}-padding .logo-list img {
+      max-width: 192px;
+  }
+  @media screen and (max-width: 989px) {
+    .section-{{ section.id }}-padding .text-animation-inner {
+        font-size: 25px;
+        line-height: 25.2px;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding .logo-list-wrapper {
+      gap: 5px;
+    }
+    .section-{{ section.id }}-padding .text-animation-inner {
+        gap: 20px;
+        margin-right: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient overflow-hidden">
+  <div class="page-width-full w-100 section-{{ section.id }}-padding">
+    <div class="logo-list-wrapper flex inline-box gap-5rem">
+      {% for i in (1..12) %}
+        {%- for block in section.blocks -%}
+          {% case block.type %}
+            {%- when 'item' -%}
+              <div class="logo-list  items-center  flex items-center justify-center">
+                {% if block.settings.image %}
+                  <div class="text-animation-inner w-full">
+                    <img
+                      src="{{ block.settings.image | img_url: 'master' }}"
+                      class="w-full"
+                      style="max-width: {{ block.settings.width }}px;"
+                    >
+                  </div>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image animation",
+  "tag": "section",
+  "class": "section text-animation shopify-cs-za",
+  "settings": [
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 200,
+      "max": 600,
+      "step": 5,
+      "unit": "s",
+      "label": "Speed",
+      "default": 320
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "paragraph", "content": "=========== Desktop ==========="
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Tablet ==========="
+    },
+    { "type": "range", "id": "pt_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_md", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 },
+    {
+      "type": "paragraph", "content": "=========== Mobile ==========="
+    },
+    { "type": "range", "id": "pt_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "pb_xs", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "width",
+          "label": "Width image",
+          "default": "120"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image animation",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo0_05b3a694-740b-4a7a-8b96-2d6eccd135da.png",
+            "width": "100"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo1_3b7f5ab0-c463-44e9-95eb-e775bebbb016.png",
+            "width": "90"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo2_abb2cc64-c7d0-42c3-a113-20bf318a9358.png",
+            "width": "90"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo3_d4b72472-388e-47f8-be1e-97e8249f0aca.png",
+            "width": "82"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo4_8fa2fd88-7922-4bfb-8d8f-d9524524d983.png",
+            "width": "80"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo5_ea01636b-3587-47a3-a599-7f0b3ad28361.png",
+            "width": "82"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo6_8a8311e0-bf26-4dcf-992f-303dc0af0ec6.png",
+            "width": "120"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo7_5f90339a-a8b6-4cd1-844e-0cf578eb1827.png",
+            "width": "120"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo8_df0ab4fd-bb5d-441d-a49c-02a9543fba17.png",
+            "width": "122"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo9_7da8bd3c-7ecc-40d2-b41b-0c584eb12dea.png",
+            "width": "145"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/partner-logo11_dffe6fe7-7729-43f3-a5a9-adebd2e6104d.png",
+            "width": "145"
+          }
+        }
+      ],
+      "settings": {
+        "change_slides_speed": 200,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "pt_md": 36,
+        "pb_md": 36,
+        "pt_xs": 36,
+        "pb_xs": 36
+      }
+    }
+  ]
+}
+{% endschema %}

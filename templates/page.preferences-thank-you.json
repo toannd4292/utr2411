@@ -1,0 +1,307 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246479123cba1221": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_HHbqjE": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "disabled": true,
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_HHbqjE"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "inner_image_banner_full_content_kGgkyA": {
+      "type": "inner-image-banner-full-content",
+      "settings": {
+        "section-image": "shopify://shop_images/sms_page_2560_x_1440.png",
+        "image_mobile": "shopify://shop_images/phone-top-banner-gradient-mobile-sms-820x1100.jpg",
+        "image_height": "small",
+        "tagline": "THANK YOU",
+        "small-title-size": "h1",
+        "heading": "YOU'RE SIGNED UP FOR SMS",
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "medium",
+        "description": "Now you'll be the first to learn about exclusive events, special offers, and the latest tennis and pickleball news. But don't wait to hit the courts; find pickleball and tennis events near you below!",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-2": "",
+        "section-button-url-2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "want_to_play_tennis_wRhnxt": {
+      "type": "want-to-play-tennis",
+      "blocks": {
+        "home_card_efXbHb": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/young-man-star-wars-shirt-bright-glasses-funny-UTR-PICKLEBALL-CUTOUT-617x640.png",
+            "section-button": "PICKLEBALL TOURNAMENTS",
+            "section-button-url": "shopify://pages/pickleball-tournaments"
+          }
+        },
+        "home_card_AADxiJ": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/cutout-tennis-3_-_adult-flex-leagues-B07I3913_-_WS.png",
+            "section-button": "Tennis Flex Leagues",
+            "section-button-url": "shopify://pages/tennis-flex-leagues"
+          }
+        },
+        "home_card_QNeKVp": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Team-Tennis-cutout.png",
+            "section-button": "ADULT TEAM TENNIS",
+            "section-button-url": "shopify://pages/adult-team-tennis"
+          }
+        },
+        "home_card_hVFY6D": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/young-woman-serving-white-top-black-pants-UTR-PICKLEBALL-CUTOUT-617x640.png",
+            "section-button": "PICKLEBALL RATING",
+            "section-button-url": "shopify://pages/how-utr-p-works"
+          }
+        },
+        "home_card_czV8hM": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Junior_Team_Tennis_cut_out.png",
+            "section-button": "JUNIOR TEAM TENNIS",
+            "section-button-url": "shopify://pages/junior-team-tennis"
+          }
+        },
+        "home_card_LFGyzQ": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/young-woman-blonde-hair-UTR-PICKLEBALL-CUTOUT-617x640.png",
+            "section-button": "Create a Group",
+            "section-button-url": "shopify://pages/groups"
+          }
+        },
+        "home_card_Dfa47M": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/college-pathways-icon-college-male-player-UC-Davis-white-shirt-ball-background-color-cutout-image.png",
+            "section-button": "College Circuits",
+            "section-button-url": "shopify://pages/college-circuits"
+          }
+        },
+        "home_card_jiTTBc": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/college-match-experience-blue-ball-background-cutout-image-pepperdine-player-fist.png",
+            "section-button": "UTR RATING",
+            "section-button-url": "shopify://pages/how-utr-works"
+          }
+        },
+        "home_card_ptFpd4": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/5_-_college-camps-UTC-06.07.2022-111_e972610f-97eb-44af-bf4f-51f2ffb0ba68.png",
+            "section-button": "CAMPS",
+            "section-button-url": "shopify://pages/college-camps"
+          }
+        },
+        "home_card_N6gRE6": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/8_-_pro-tennis-B07I9921_-_WS.png",
+            "section-button": "Pro Tennis",
+            "section-button-url": "shopify://pages/pro-tennis"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_efXbHb",
+        "home_card_AADxiJ",
+        "home_card_QNeKVp",
+        "home_card_hVFY6D",
+        "home_card_czV8hM",
+        "home_card_LFGyzQ",
+        "home_card_Dfa47M",
+        "home_card_jiTTBc",
+        "home_card_ptFpd4",
+        "home_card_N6gRE6"
+      ],
+      "settings": {
+        "heading": "READY TO PLAY?",
+        "sub-heading": "Explore more now..."
+      }
+    },
+    "section_title_header_Fwynpy": {
+      "type": "section-title-header",
+      "disabled": true,
+      "settings": {
+        "sub-heading": "UTR sports club demo and event guide",
+        "sub-title-size": "h2",
+        "heading-permission": "NO",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "section_title_header_ppVJcW": {
+      "type": "section-title-header",
+      "disabled": true,
+      "settings": {
+        "sub-heading": "keep scrolling for content",
+        "sub-title-size": "h3",
+        "heading-permission": "YES",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "about_section_NnXghw": {
+      "type": "about-section",
+      "disabled": true,
+      "settings": {
+        "heading": "EVENT GUIDE",
+        "heading-permission": "NO",
+        "subheading": "",
+        "description": "Your complete guide to running tennis and pickleball events on the UTR Sports platform: view and download below."
+      }
+    },
+    "ut_full_width_video_XHRLKa": {
+      "type": "ut-full-width-video",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/Free_Profile_Header_2560x1440_d39f599c-d63b-423c-ae66-69b159b2d4b1.png",
+        "heading": "",
+        "heading-size": "h2",
+        "heading-permission": "NO",
+        "section-video-button": "Watch club demo video",
+        "section-button-url": "https://www.youtube.com/watch?v=LHz9XLx5OB8",
+        "section-learn-more-button": "",
+        "section-learn-button-url": "",
+        "section-signup-button": "",
+        "section-signup-button-url": ""
+      }
+    },
+    "3_steps_new_6Dewpg": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_wekeE3": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_yEn4YA": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_GDyaaH": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_wekeE3",
+        "text_yEn4YA",
+        "text_GDyaaH"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "join_community_xcBFJh": {
+      "type": "join-community",
+      "settings": {
+        "heading": "FOLLOW UTR SPORTS",
+        "heading-permission": "YES",
+        "show_social": true
+      }
+    },
+    "custom_liquid_mR9TQM": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"bg-light-blue\">\n<div class=\"page-width\"><div class=\"elfsight-sapp-4aad0462-c920-4498-9e76-6a66105dd2f5\"></div></div></div>",
+        "color_scheme": "background-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "section_spacing_VJJxXz": {
+      "type": "section-spacing",
+      "settings": {}
+    }
+  },
+  "order": [
+    "17246479123cba1221",
+    "main",
+    "inner_image_banner_full_content_kGgkyA",
+    "want_to_play_tennis_wRhnxt",
+    "section_title_header_Fwynpy",
+    "section_title_header_ppVJcW",
+    "about_section_NnXghw",
+    "ut_full_width_video_XHRLKa",
+    "3_steps_new_6Dewpg",
+    "join_community_xcBFJh",
+    "custom_liquid_mR9TQM",
+    "section_spacing_VJJxXz"
+  ]
+}

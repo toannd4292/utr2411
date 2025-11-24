@@ -1,0 +1,105 @@
+<div class="pb-lg-2 pt-lg-2 pt-sm-2 pb-sm-2 bg bg_white shadow-xxl">
+  <div class="page-width">
+    <div class="table-responsive table-scroll-black">
+      <table class="table2" id="rankingTable">
+        <thead class="thead-b-bottom">
+          <tr>
+            <th class="text-left font-lg-24 font-sm-18">{{section.settings.tableheadinnumber}}</th>
+            <th class="text-left font-lg-24 font-sm-18">{{section.settings.tableheadingname}}</th>  
+            <th class="text-left font-lg-24 font-sm-18 d-sm-none d-md-none-td">{{section.settings.tableheadinlocation}}</th>
+            <th class="text-center font-lg-24 font-sm-18  d-sm-none d-md-none-td">{{section.settings.tableheadinpoints}}</th>
+            <th class="text-center text-sm-left text-md-left font-lg-24 font-sm-18">{{section.settings.tableheadinutrrating}}</th>
+          </tr>
+        </thead> 
+        <tbody id="table">
+          {% for block in section.blocks %} 
+          <tr>
+            <td>{{block.settings.numbers}}</td>
+            <td class="fw-bold">{{block.settings.nameleague}}</td>
+            <td>{{block.settings.locations}}</td>
+            <td class="text-center d-sm-none d-md-none-td">{{block.settings.point}}</td>
+            <td class="text-center d-sm-none d-md-none-td">{{block.settings.utrrating}}</td>
+          </tr>
+         {% endfor %}          
+        </tbody>    
+      </table>
+    </div> 
+  </div>
+</div>  
+{% schema %}
+  {
+    "name": "UTR Ranking Table",
+    "presets": [
+      {
+        "name": "UTR Ranking Table",
+        "category": "UTR Ranking Table"
+      }
+    ],
+    "settings": [
+      {
+            "type":"text",
+            "id":"tableheadinnumber",
+            "label": "Table Heading Number"
+        },
+      {
+            "type":"text",
+            "id":"tableheadingname",
+            "label": "Table Heading Name"
+        },
+       {
+            "type":"text",
+            "id":"tableheadinlocation",
+            "label": "Table Heading Location"
+        },
+       {
+            "type":"text",
+            "id":"tableheadinpoints",
+            "label": "Table Heading Points"
+        },
+      {
+            "type":"text",
+            "id":"tableheadinutrrating",
+            "label": "Table Heading UTR Rating"
+        }
+    ],
+    "blocks":[
+      {
+        "type":"table-card",
+        "name":"section-block",
+        "settings":[
+           {
+              "type": "text",
+              "id": "numbers",
+              "label": "Number"
+           },
+           {
+            "type":"text",
+            "id":"nameleague",
+            "label": "Name League"
+          },
+          {
+           "type": "text",
+           "id": "locations",
+           "label": "Locations"
+          },
+          {
+            "type": "text",
+            "id": "point",
+            "label": "Point"
+          },
+          {
+            "type": "text",
+            "id": "utrrating",
+            "label": "UTR Rating"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

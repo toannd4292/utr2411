@@ -1,0 +1,126 @@
+<style>
+  .colors{display:block}
+</style>
+<div class="bg_black mb-lg-5 mb-sm-3">
+  <div class="page-width"> 
+    <div class="select-gap-lg-3 select-gap-md-3-9 select-gap-md-3 pt-lg-5 pb-lg-5 pt-sm-4 pb-sm-0" >
+        <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-left select-col-md-left select-col-md-left-9 order-sm-2">
+          <div class="select-control-white">
+            <select  class="text-uppercase font-sm-12 min-md-100per min-w-lg-180 min-w-sm-100 min-w-md-100">
+              <option>All</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>   
+        </div>
+        <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-right select-col-md-right-9 select-col-md-right order-sm-3">
+          <div class="select-control-white">
+            <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100">
+              <option value="upcoming">Upcoming</option>
+              <option value="month">By Date</option>
+            </select>
+          </div>   
+        </div>
+       <div class="pb-sm-2 pb-md-3 pb-md-3-9 order-sm-1">
+          <div class="select-control-white min-w-sm-100">
+            <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-180 min-w-lg-180 min-w-sm-100 min-w-md-100">
+              <option selected="">all Open Registration</option>
+              <option>Event Status (All)</option>
+          	<option>Registration Closed</option>
+          	<option>Event In Progress</option>
+          	<option>Event Completed</option>
+            </select>
+          </div>   
+       </div>  
+       <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-left select-col-md-left select-col-md-left-9 order-sm-4">
+          <div class="select-control-white">
+            <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100">
+              <option>Regions</option>
+              <option>AMERICAS</option>
+          	<option>EUROPE</option>
+          	<option>ASIA & PACIFIC</option>
+            </select>
+          </div>   
+       </div>
+       <div class="pb-sm-2 pb-md-3 pb-md-3-9 select-col-sm-right  select-col-md-right select-col-md-right-9 order-sm-last">
+          <div class="select-control-white">
+            <select class="text-uppercase font-sm-12 min-md-100per min-w1-lg-150 min-w-lg-180 min-w-sm-100 min-w-md-100">
+              <option>Single</option>
+              <option>Doubles</option>
+            </select>
+          </div>   
+      </div>  
+    </div>
+  </div>
+</div>  
+<div class="page-width">
+  <div id="" class="colors male">
+    <div class="grid grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-3">
+      <div class="grid__item box-container">
+        <div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3">
+           <div class="feature-card-box fs-p-2">1</div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <div id="" class="colors female">
+    <div class="grid grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-3">
+      <div class="grid__item box-container">
+        <div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3">
+           <div class="feature-card-box fs-p-2">2</div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <div id="" class="colors upcoming">
+    <div class="grid grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-3">
+      <div class="grid__item box-container">
+        <div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3">
+           <div class="feature-card-box fs-p-2">upcoming</div>
+        </div>
+      </div>  
+    </div>
+  </div>
+   <div id="" class="colors month">
+    <div class="grid grid--1-col grid--1-col-tablet grid--3-col-desktop d-flex align-items-center pt-lg-3">
+      <div class="grid__item box-container">
+        <div class="blue-teal-gradient-bg min-h-260 border-radius-lg-3 border-radius-sm-3">
+           <div class="feature-card-box fs-p-2">month</div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".colors").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".colors").show();
+            }
+        });
+    }).change();
+});
+</script>
+{% schema %}
+  {
+    "name": "Tournament Calendar demo",
+     "presets": [
+      {
+        "name": "Tournament Calendar demo",
+        "category": "Tournament Calendar demo"
+      }
+    ],
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

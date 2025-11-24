@@ -1,0 +1,108 @@
+<div class="page-width text-center">
+    <h2 class="text-uppercase section-title section-title-sm mb-0 lh-sm-90">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="mb-lg-4 mb-sm-2 mb-md-2 mt-sm-1"><div class="divider-sm-teal divider-lg-teal"></div></div>
+    {%- endif -%}
+</div>
+
+<div class="page-width pb-lg-2 pt-lg-5 pt-sm-2 pb-sm-2">
+  <div class="grid grid--1-col grid--1-col-tablet grid--2-col-desktop justify-content-center align-items-center text-sm-center">
+    <div class="grid__item mb-1 order-sm-last order-md-last point-sm-wrapper p-sm-1">
+      <div class="grid grid--2-col grid--2-col-tablet grid--2-col-desktop">
+         {% for block in section.blocks %} 
+         <div class="grid__item">
+           <div class="d-flex align-items-center point-card gap-1">
+             <div>
+               <img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/circle-arrow.svg?v=1671785015" />
+             </div>
+             <div>
+               <h4 class="font-tungsten color-black mt-0 mb-0 fs-sm-22 fs-lg-24 text-uppercase">{{block.settings.heading}}</h4>
+               <p class="font-sm-12 mt-0 mb-0">{{block.settings.description}}</p>
+             </div>
+           </div>
+         </div>
+        {% endfor %}
+      </div>
+      <a href="{{section.settings.section-button-url}}" class="btn-black w-lg-95 justify-content-center text-uppercase mt-2 font-sm-14">{{section.settings.section-button}}</a>
+    </div>
+    <div class="grid__item order-sm-first order-md-first">
+       <img class="img-fluid border-radius-lg-3 border-radius-sm-3" src="{{section.settings.section-image | image_url}}" />
+    </div>
+  </div>
+</div>  
+
+{% schema %}
+  {
+    "name": "Play More Points Earn",
+    "presets": [
+      {
+        "name": " Play More Points Earn",
+        "category": " Play More Points Earn"
+      }
+    ],
+    "settings": [
+       {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+       {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+       {
+ 			"type": "image_picker",
+ 			"id": "section-image",
+ 			"label": "Section Image"
+ 		},
+        {
+ 			"type": "text",
+ 			"id": "section-button",
+ 			"label": "Section Button Title"
+ 		},
+		{
+			"type": "url",
+ 			"id": "section-button-url",
+ 			"label": "Button Link"
+		}
+    ],
+  "blocks":[
+	  {
+		"type":"home-card",
+		"name":"section-block",
+		"settings":[
+         {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+		{
+         "type": "text",
+         "id": "description",
+         "label": "Description"
+        }
+        
+		
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

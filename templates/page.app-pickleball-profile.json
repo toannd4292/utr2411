@@ -1,0 +1,735 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1724643736c4afb044": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_UzzYM9": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_UzzYM9"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_HHxqKB": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_THyqpm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Utr-p: Official Rating of App & App Tour",
+            "heading_size": "h0"
+          }
+        },
+        "text_6jHbVj": {
+          "type": "text",
+          "settings": {
+            "text": "If you have played in an APP event, you already have a profile and will just need to claim it! If you are new to the sport, register and receive your UTR-P Rating 100% free!",
+            "text_style": "body"
+          }
+        },
+        "buttons_Gm8Edh": {
+          "type": "buttons",
+          "settings": {
+            "id_button_label_1": "",
+            "button_label_1": "Claim your profile & register for free",
+            "button_link_1": "https://app.utrsports.net/join",
+            "button_style_secondary_1": false,
+            "id_button_label_2": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_THyqpm",
+        "text_6jHbVj",
+        "buttons_Gm8Edh"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/v2-app-doubles-claim-profile-page-2560x1280-top-fold-desktop.png",
+        "image_2": "shopify://shop_images/blue-court-MOBILE-820x1100-app-doubles-claim-profile-page-top-fold.png",
+        "image_overlay_opacity": 70,
+        "image_height": "small",
+        "adapt_height_first_image": false,
+        "tagline": "",
+        "desktop_content_position": "top-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "accent-1",
+        "show_button_downloadApp": false,
+        "custom_sub_heading": "DOWNLOAD NOW",
+        "custom_heading": "IOS & ANDROID MOBILE APP",
+        "custom_heading_button": "Download the app",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "app-button-url": "",
+        "google-pay-button-url": "",
+        "learn-button-url": "",
+        "show_social": false,
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "become_more_image_with_text_M4t4w4": {
+      "type": "become-more-image-with-text",
+      "disabled": true,
+      "settings": {
+        "tag-line": "",
+        "heading": "Official Rating of APP & APP TOUR",
+        "sub-heading": "",
+        "paragrap-title": "If you have played in an APP event, you already have a profile and will just need to claim it! If you are new to the sport, register and receive your UTR-P Rating 100% free!",
+        "section-image": "shopify://shop_images/app-doubles-1600x900-top-fold-app-profile-page.jpg",
+        "image_height": "small",
+        "section-button-first": "CLAIM YOUR PROFILE",
+        "section-button-url-first": "https://app.utrsports.net/join",
+        "section-button-second": "",
+        "section-button-url-second": ""
+      }
+    },
+    "4a0c9541-942a-4610-a830-d951441a88cb": {
+      "type": "inner-image-banner-full-content",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/app-tour-pickleball-photo-new-profile-page-top-fold-2560x1280.jpg",
+        "image_mobile": "shopify://shop_images/app-pickleball-leagues-top-fold-mobile-820x1100.jpg",
+        "image_height": "medium",
+        "tagline": "Welcome to UTR Sports",
+        "small-title-size": "p",
+        "heading": "UTR-P: official rating of APP and APP Tour!",
+        "heading-size": "large",
+        "subheading": "Claim your profile today!",
+        "sub-heading-size": "small",
+        "description": "UTR Sports is proud to partner with the APP to provide a gold-standard rating to allow for fair and more fun play! If you have played in an APP event, you already have a profile and will just need to claim it! If you are new to the sport, register and receive your UTR-P Rating 100% free!",
+        "section-button": "CLAIM YOUR PROFILE & REGISTER FOR FREE",
+        "section-button-url": "https://app.utrsports.net/join/pickleball",
+        "section-button-2": "",
+        "section-button-url-2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_jJDY6n": {
+      "type": "Ads",
+      "disabled": true,
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 24,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "content_left_image_right_6rcTr9": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/New_UTRP_570x400_d4840d59-747d-4287-ba5a-be0a00ae01b1.png",
+        "heading": "GET READY TO PLAY USA PICKLEBALL LEAGUES, EVENTS",
+        "heading-size": "h2",
+        "subheading": "Are you ready?",
+        "sub-heading-size": "h2",
+        "description": "USA Pickleball ambassadors will launch innovative leagues and events for adults, juniors, and collegiate players. League organizers and participants will leverage the UTR tournament platform to run all league activities and events.",
+        "id_section-button": "",
+        "section-button": "LEARN MORE ABOUT UTR-P RATING",
+        "section-button-url": "shopify://pages/how-utr-p-works",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "content_with_list_image_right_Yqzzbn": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/utr-p-new-simple-pickleball-rating-Journey_1280x990_7fb61830-788d-48b1-a947-a4fc12d6bd31.png",
+        "heading": "How does UTR Pickleball Rating Work?",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "The UTR Pickleball Rating (UTR-P Rating) is for players of all ages at all levels.",
+        "list2": "Players without enough match results receive a provisional rating (P1-P5) based on questionnaire results.",
+        "list3": "But after just one match, those players will receive a projected UTR-P Rating.",
+        "list4": "The rating algorithm counts singles and doubles, and verified and unverified separately. So players who play both singles and doubles will receive two UTR Pickleball Ratings - one for singles and one for doubles.",
+        "section-button": "Claim your profile",
+        "section-button-url": "https://app.utrsports.net/join",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_LMm3qJ": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "content_right_image_left_Wey6qY": {
+      "type": "content-right-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/app-backdrop-photo-man-hitting-volley-1280x990-app-profile-pickleball-page.jpg",
+        "smalltitle": "",
+        "small-title-size": "p",
+        "heading": "FIND A PICKLEBALL EVENT NEAR YOU",
+        "heading-size": "h2",
+        "subheading": "Ready to play?",
+        "sub-heading-size": "h2",
+        "description": "Improve your UTR Pickleball Rating (UTR-P) by getting on the court. Click the below button to find APP and UTR Sports pickleball tournaments and leagues near you.",
+        "section-button": "Search events",
+        "section-button-url": "https://app.utrsports.net/search?sportTypes=pickleball&type=events&startDate=05/20/2024&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "section_spacing_cm8Kpa": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "bg_image_text_button_white_8XTeKF": {
+      "type": "bg-image-text-button-white",
+      "disabled": true,
+      "settings": {
+        "heading": "QUESTIONS? WE'RE READY TO HELP",
+        "section-image": "shopify://shop_images/usap-bg-white-banner-1440x160.jpg",
+        "image_overlay_opacity": 70,
+        "paragrap-title": "Need help getting onboarded with UTR Sports & USA Pickleball? We're here to help!",
+        "section-button": "EMAIL SUPPORT",
+        "section-button-url": "mailto:usaphelp@utrsports.net"
+      }
+    },
+    "are_you_an_australian_player_pVEKix": {
+      "type": "are-you-an-australian-player",
+      "disabled": true,
+      "settings": {
+        "heading": "PICKLE",
+        "image_overlay_opacity": 0,
+        "paragrap-title": "",
+        "section-button": "",
+        "section-button-url": ""
+      }
+    },
+    "content_right_image_left_KYXd7p": {
+      "type": "content-right-image-left",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/usa-pickleball-doubles-usap-background-fold-1280x990.jpg",
+        "smalltitle": "UTR SPORTS & USA PICKLEBALL",
+        "small-title-size": "p",
+        "heading": "MORE QUESTIONS ABOUT USA PICKLEBALL PARTNERSHIP?",
+        "heading-size": "h2",
+        "subheading": "Get in touch",
+        "sub-heading-size": "h2",
+        "description": "We're here to help. Email UTR Sports Support directly at usaphelp@utrsports.net, or by clicking the below button.",
+        "section-button": "EMAIL UTR SPORTS SUPPORT",
+        "section-button-url": "mailto:usaphelp@utrsports.net",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "testimonials_fGY9DC": {
+      "type": "testimonials",
+      "blocks": {
+        "home_card_KyKRmV": {
+          "type": "home-card",
+          "settings": {
+            "description": "“This decision to partner with UTR Sports is a direct reflection of our commitment to enhance our tournaments and establish the best playing experience possible.\"",
+            "image": "shopify://shop_images/Mike-Nealy-USAP-head-shoulders-testimonial-shopify-dark-jacket.png",
+            "author": "Mike Nealy",
+            "author-designation": "CEO, USA Pickleball"
+          }
+        },
+        "home_card_pQqwzL": {
+          "type": "home-card",
+          "settings": {
+            "description": "\"We are proud to partner and be selected by USA Pickleball to support the continued growth of the sport with our next generation technology.\"",
+            "image": "shopify://shop_images/Mark_Leschly_testimonial.png",
+            "author": "Mark Leschly",
+            "author-designation": "Chairman & CEO, UTR Sports"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_KyKRmV",
+        "home_card_pQqwzL"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "TESTIMONIALS",
+        "sub-heading": "Why form the historic partnership..."
+      }
+    },
+    "bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf": {
+      "type": "collapsible-content-with-button",
+      "blocks": {
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the UTR Pickleball Rating (UTR-P)?",
+            "icon": "none",
+            "row_content": "<p>Equipped with over a decade of expertise as the creator of the gold-standard UTR Rating for tennis, UTR Sports offers the most accurate and reliable global rating for pickleball.</p><p>The UTR Pickleball Rating (UTR-P) is designed to rate every kind of player, whether you're swinging your first paddle or smashing through pro-level tournaments. The UTR-P includes both provisional and numerical ratings for singles and doubles players.</p><p>Players without match results logged will receive a provisional rating (P1-P5) based on a questionnaire. After one match, the player will receive a projected rating, and after seven matches, the rating automatically converts to a reliable decimal rating on a scale of 1.0 - 10.0 (from beginner to expert/pro).</p>",
+            "page": ""
+          }
+        },
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-1": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "How does the UTR-P Rating scale work?",
+            "icon": "none",
+            "row_content": "<p>1 = Beginner: New to the game with minimal racquet sports experience (provisional rating equivalent of P1)</p><p>2 = Social/Casual: Plays on occasion for fun and can maintain rallies (provisional rating equivalent of P2)</p><p>3 = Intermediate: Has a solid understanding of basics and strategic knowledge with an interest in competitive play (provisional rating equivalent of P3)</p><p>4.0-4.9 = Advanced: Consistent shot maker who can compete in advanced-level tournaments (provisional rating equivalent of P4)</p><p>5.0-10.0 = Expert/Pro: Master of all shots and strategies who participates at the highest levels of competition (provisional rating equivalent of P5)</p><p>The algorithm counts singles, doubles, verified, and unverified ratings separately and it changes dynamically to keep your rating as accurate as possible.</p><p>Read more about the <a href=\"/pages/how-utr-p-works\" target=\"_blank\" title=\"How UTR-P Works\">UTR Pickleball Rating</a>.</p>",
+            "page": ""
+          }
+        },
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What matches count towards the UTR-P Rating, and what is verified vs. unverified?",
+            "icon": "none",
+            "row_content": "<p>Results are either verified or unverified scores depending on whether the match or tournament was organized and played according to UTR Sports’ verified rules, or the match or tournament was a player organized/social/recreational, for which scores are unverified.</p><p>All USA Pickleball-owned events, all APP events, and all UTR Sports events are verified events. The UTR-P algorithm takes into account up to 60 of your most recent matches.</p><p>A verified UTR-P Rating is indicated by a checkmark badge on a player’s profile. Ratings will dynamically move up and down as new results are factored in.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_AXQy6P": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Have more questions about the UTR Pickleball Rating & the APP partnership?",
+            "icon": "none",
+            "row_content": "<p>Find more FAQs at the <a href=\"/pages/how-utr-p-works\" target=\"_blank\" title=\"How UTR-P Works\">UTR Pickleball Rating page</a>.</p>",
+            "page": ""
+          }
+        },
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-3": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "What will happen to UTPR (USA Pickleball Tournament Player Ratings)?",
+            "icon": "none",
+            "row_content": "<p>More information on this transition and the status of UTPR will be communicated in the coming weeks as we transition to the UTR-P Rating. UTPR is not expected to be used in the future. We will carefully manage this process every step of the way.</p>",
+            "page": ""
+          }
+        },
+        "6520a726-21c4-4085-97cd-86ed1f019672": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Can you explain the UTR Pro Tennis Tour deadlines?",
+            "icon": "none",
+            "row_content": "<p>All entries and withdrawals PRIOR to the registration deadline must be submitted online through the player’s account. Withdrawals AFTER the registration deadline must be made via email to ptt@universaltennis.com and resulting fines will be administered according to the Rules and Regulations summarized below:<br/><br/>Late Withdrawals Prior to Freeze Deadline: $500 and up to a potential one-month suspension from all UTR events<br/><br/>Late Withdrawals After Freeze Deadline: $750 and up to a potential one-month suspension from all UTR events<br/><br/>No Show: Minimum $1,000 and up to a two month suspension from all UTR events<br/><br/>Playing another event: $1,000 and up to a two month suspension from all UTR events</p>",
+            "page": ""
+          }
+        },
+        "f931af99-5e29-45c7-974f-8675b8425983": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Can I participate in another event in the same week?",
+            "icon": "none",
+            "row_content": "<p>When a player is accepted into the Qualifying or Main Draw of a Tournament as Direct Acceptance or Wild Card at any time after the Registration Deadline they are Committed to that PTT tournament, without exception.<br/><br/>A player who is committed to and/or has played in the Main Draw or Qualifying of a PTT tournament may not enter or compete in any other tennis event during the period of such tournament, without exception.<br/><br/>Players may not be accepted into any other tournaments during the same week. Players will be withdrawn from all but one Tournament at the Withdrawal Deadline based on the withdrawal procedure described above. If a player is found after the Withdrawal Deadline to have been accepted into two Tournaments in one week, they will be withdrawn from one Tournament at the earliest opportunity, also according to the withdrawal procedure set out above.<br/><br/>Playing another event will result in a $1,000 fine and up to a two month suspension from all UTR events.</p>",
+            "page": ""
+          }
+        },
+        "6473faae-37fb-493f-8449-564065847a20": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "What is the prize money for UTR Pro Tennis Tour?",
+            "icon": "none",
+            "row_content": "<p><strong>20 Draw Format Prize Money:</strong><br/>Winner: $3,600<br/>Finalist: $2,075<br/>Semifinalist: $1,225<br/>5th place: $1,225<br/>6th place: $1,050<br/>7th & 8th place: $950<br/>9th place: $950<br/>10th place: $850<br/>11th & 12th place: $750<br/>13th place: $750<br/>14th place: $650<br/>15th & 16th place: $575<br/>17th place: $575<br/>18th place: $475<br/>19th & 20th place: $400<br/><br/><strong>32 Draw Format Prize Money:</strong><br/>Winner: $3,475<br/>Finalist: $1,750<br/>Semifinalist: $925<br/>5th-8th place: $725<br/>9th place: $725<br/>10th place: $650<br/>11th & 12th place: $550<br/>13th-16th place: $500<br/>17th place: $500<br/>18th place: $450<br/>19th & 20th place: $400<br/>21st-24th place: $350<br/>25th-32nd place: $300</p>",
+            "page": ""
+          }
+        },
+        "0379ec32-2ebe-4b38-b213-e9bede05780f": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "How will I get paid?",
+            "icon": "none",
+            "row_content": "<p>UTR Sports will pay the prize money to all players participating in the Tournament in accordance with the UTR Pro Tennis Tour prize money breakdowns (“Prize Money”), unless otherwise noted. Universal Tennis will make prize money payable by bank transfer available to eligible players.</p>",
+            "page": ""
+          }
+        },
+        "37e0dcd0-fed4-40be-bbc0-38067792a9c7": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "I am travelling to a tournament. What arrangements should I make in advance?",
+            "icon": "none",
+            "row_content": "<p>Prior to departing for a tournament, a player should do the following:<br/><br/>1. Check relevant travel and security information about the country you are traveling to.<br/><br/>Examples: <a href=\"https://www.iatatravelcentre.com/world.php\" target=\"_blank\" title=\"IAT travel centre external link\">https://www.iatatravelcentre.com/world.php</a><br/><br/>2. It is recommended that players obtain travel insurance to cover flight cancellations and other disruptions in travel.<br/><br/>3. Print all relevant tournament information, such as tournament site address, phone number, the PTT PM and head referee number, hotel address and contact number, etc.<br/><br/>4. Confirm the appropriate Visa has been obtained and all necessary Travel Documents.</p>",
+            "page": ""
+          }
+        },
+        "5e59bbaf-daae-4b21-b79f-33bf54ef798f": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "How do I handle threats, offensive and unwanted messages?",
+            "icon": "none",
+            "row_content": "<p>If you are receiving any emails, SMS messages, Facebook, Twitter or other social media messages and/or images that you are concerned about, send a copy of the message, screenshot and the URL to ptt@universaltennis.com or talk to a member of onsite venue staff, ideally the Referee or TD for assistance. For any betting-related messages, please send to integrity@universaltennis.com. Universal Tennis takes player safety seriously and has a policy to report all hostile messages sent to players to authorities with jurisdiction over such matters as well as we take steps to identify the messenger immediately. Learn more about <a href=\"https://utrcdnfiles.blob.core.windows.net/content/webapp/public/media/Pro_Tennis_Series/PTT%20Social%20Media%20Safety.pdf\" target=\"_blank\" title=\"PTT Social media safety info\">PTT Social Media Safety.</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-0",
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-1",
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-2",
+        "collapsible_row_AXQy6P",
+        "template--17520728572224__bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf-167387130818754919-3",
+        "6520a726-21c4-4085-97cd-86ed1f019672",
+        "f931af99-5e29-45c7-974f-8675b8425983",
+        "6473faae-37fb-493f-8449-564065847a20",
+        "0379ec32-2ebe-4b38-b213-e9bede05780f",
+        "37e0dcd0-fed4-40be-bbc0-38067792a9c7",
+        "5e59bbaf-daae-4b21-b79f-33bf54ef798f"
+      ],
+      "settings": {
+        "heading": "FAQs about app, UTR Sports Partnership",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-button": "Read more FAQs",
+        "section-button-url": "shopify://pages/how-utr-p-works"
+      }
+    },
+    "3_steps_new_pcR3Ka": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_nWA4HM": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download the app</p>"
+          }
+        },
+        "text_3AUqgP": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create profile, get rated for free</p>"
+          }
+        },
+        "text_Jxtkw7": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create groups, find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_nWA4HM",
+        "text_3AUqgP",
+        "text_Jxtkw7"
+      ],
+      "settings": {
+        "enable_feature": false,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/mobile-app-screen-pickleball-focused-ios-profile-pages-564x773.png",
+        "section-button": "GET STARTED",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "content_with_list_image_right_KwH3r8": {
+      "type": "content-with-list-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/young-pickleball-player-backhand-paddle-app-junior-circuits-1280x990.jpg",
+        "heading": "establish the best playing experience possible.",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "The APP Junior Circuit offers a world-class tournament experience exclusively for pickleball players under the age of 18.",
+        "list2": "APP Junior Circuit is a pilot program that provides a platform and resources for junior pickleball players to hone their skills.",
+        "list3": "Players will obtain an APP Junior Circuit rating for their age divisions played.",
+        "list4": "Rating points will be awarded for each player’s placement in events, and all players can participate in the APP Junior National Championships, held Dec. 6-7 at The Fort, the APP’s headquarters in Fort Lauderdale, Fla.",
+        "section-button": "REGISTER NOW",
+        "section-button-url": "https://app.utrsports.net/clubs/1071537?t=4",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "content_with_list_image_left_naKVXC": {
+      "type": "content-with-list-image-left",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/app-boy-forehand-camp-photo-1280x990-pickleball-page.jpg",
+        "heading": "TRAIN AT APP CAMPS",
+        "heading-size": "h2",
+        "subheading": "2 camps in 2024",
+        "sub-heading-size": "h2",
+        "list": "The APP is running two APP Next Gen High Performance Summer Camps in 2024: Oklahoma City, OK June 27-30 and Overland Park, KS August 1-4.",
+        "list2": "The camps are led by APP Next Gen U.S. National Team Director, Ken Herrmann and Head Coaches Lee Whitwell and Chad Edwards.",
+        "list3": "This is a unique opportunity to learn how to take your game to the pro level from two world-class pickleball experts.",
+        "list4": "The camps are designed for junior players from around the world, ages 10 -18. Whether you’re a newcomer to pickleball, or a highly-ranked and rated player looking for more intense competition, the APP has the program for you.",
+        "section-button": "REGISTER NOW",
+        "section-button-url": "https://app.utrsports.net/clubs/1071537?t=4",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "2e52afe5-e8f1-49ac-be5f-07bcbb7be8b1": {
+      "type": "ut-sl-3-card-detail-event",
+      "blocks": {
+        "0a47bbff-bc60-4894-9521-49104d06b25f": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/LA_2_Shopify_370x280_cf0f359b-1b1d-4b86-8858-07a2f4d13770.png",
+            "location": "North Macedonia +H",
+            "description": "Women's, May 6-12",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/210884"
+          }
+        },
+        "1bbbed3a-7b51-48b8-88d8-a17adf162070": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/ptt-upcoming-event-980x726-test-florida-event.jpg",
+            "location": "Greece",
+            "description": "Men's, May 27 - June 2",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/207973"
+          }
+        },
+        "eb7f42cf-5bc9-479a-a87b-267c8ca31f7f": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/ptt-women-740x560-event-photo.jpg",
+            "location": "Taiwan +H",
+            "description": "Women's, June 3-9",
+            "section-button": "REGISTER",
+            "section-button-url": "https://app.utrsports.net/events/167408"
+          }
+        },
+        "8cf1fdb9-1e51-4d86-9e3d-9386227205f1": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/man-forehand-740x560-ptt-events-slider.jpg",
+            "location": "Taiwan +H",
+            "description": "Men's, June 10-16",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/191626"
+          }
+        },
+        "b766e313-4a1f-4886-aabb-41d2f9c47292": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/croatia-clay-ptt-player-man-backhand-740x560-ptt-page.jpg",
+            "location": "Charleston",
+            "description": "Men's, June 10-16",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/208000"
+          }
+        },
+        "05627234-1c40-46b8-b128-a9c169954ef3": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/boca_2_Shopify_370x280_68de8946-2bb4-456d-a084-d0284691d788.png",
+            "location": "Charleston",
+            "description": "Women's, June 10-16",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/208003"
+          }
+        }
+      },
+      "block_order": [
+        "0a47bbff-bc60-4894-9521-49104d06b25f",
+        "1bbbed3a-7b51-48b8-88d8-a17adf162070",
+        "eb7f42cf-5bc9-479a-a87b-267c8ca31f7f",
+        "8cf1fdb9-1e51-4d86-9e3d-9386227205f1",
+        "b766e313-4a1f-4886-aabb-41d2f9c47292",
+        "05627234-1c40-46b8-b128-a9c169954ef3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "UPCOMING APP PLAYING OPPORTUNITIES",
+        "heading-permission": "YES"
+      }
+    },
+    "1762f7dc-8bee-4c11-9473-a027331b0831": {
+      "type": "ul-video-button-banner",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/Mia-Horvit-About-PTT-thumbnail-video.jpg",
+        "heading": "WATCH: GO INSIDE THE UTR PRO TENNIS TOUR",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/PTT-woman-backhand-pink-outfit-cutout-image-2022-01-04-UTR-BOCA-PTT-Women-M-PAIZ.png",
+        "section-video-button": "play video",
+        "section-button-url": "https://www.youtube.com/watch?v=R6wf8rL30oI"
+      }
+    },
+    "b00c0939-b9f0-4fb9-9f8b-fc1db9d5a6ae": {
+      "type": "resources-for-players",
+      "blocks": {
+        "789daca0-b991-4528-a086-29c1e5da4fc6": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/UTR_Sports_x_APP_logo_lockup_960x626-high.png",
+            "description": "UTR Sports, APP Establish Landmark Partnership Agreement",
+            "permission": "Artical",
+            "section-button": "READ MORE",
+            "section-button-url": "https://www.utrsports.net/blogs/press/the-app-and-universal-tennis-establish-landmark-partnership-agreement"
+          }
+        },
+        "48afb4b4-1495-4fba-b11a-8950b06eb806": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/app-photo-960x626-boys-doubles-match-app-page.jpg",
+            "description": "What is Pickleball?",
+            "permission": "Artical",
+            "section-button": "READ & WATCH",
+            "section-button-url": "https://www.utrsports.net/blogs/news/what-is-pickleball"
+          }
+        }
+      },
+      "block_order": [
+        "789daca0-b991-4528-a086-29c1e5da4fc6",
+        "48afb4b4-1495-4fba-b11a-8950b06eb806"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "LEARN MORE ABOUT APP & UTR SPORTS PARTNERSHIP",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "82030516-d964-4826-99d4-e1e7e5bacedf": {
+      "type": "ptt-wild-card-events-sl3",
+      "blocks": {
+        "e65dd8a5-69d8-4796-8b34-54417b42d703": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "block-image": "shopify://shop_images/Newport_Shopify_370x280_bc61086c-d25a-433a-a4a1-cfeb4b3c4588.png",
+            "location": "Melbourne",
+            "description": "Men's, April 5-6",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/230080"
+          }
+        },
+        "9e9220df-d5f4-4931-89f3-4a38d9179041": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/Boca_Shopify_370x280_d38d7e0d-80f1-4f94-b4e6-bd5f4767c114.png",
+            "location": "Melbourne",
+            "description": "Women's, April 12-13",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/events/230095"
+          }
+        },
+        "0aaf4a97-6912-495b-be20-67bc0f1c58c6": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/australia-player-taiwan-ptt-forehand-740x560-ptt-page-events-card.jpg",
+            "location": "San Antonio, TX",
+            "description": "Men's & Women's, April 11",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/clubs/683?t=4"
+          }
+        },
+        "5233c01a-a49e-4a87-8c54-cb2c1a5a4d5b": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/LA_Shopify_370x280_7e07f7a2-c048-41f3-95d8-06ddde84d3b7.png",
+            "location": "Boca Raton, FL",
+            "description": "Men's & Women's, Weekly",
+            "section-button": "Register",
+            "section-button-url": "https://app.utrsports.net/clubs/13210"
+          }
+        }
+      },
+      "block_order": [
+        "e65dd8a5-69d8-4796-8b34-54417b42d703",
+        "9e9220df-d5f4-4931-89f3-4a38d9179041",
+        "0aaf4a97-6912-495b-be20-67bc0f1c58c6",
+        "5233c01a-a49e-4a87-8c54-cb2c1a5a4d5b"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Pro Tennis Tour Wild Card Tournaments",
+        "heading-permission": "YES"
+      }
+    }
+  },
+  "order": [
+    "1724643736c4afb044",
+    "main",
+    "image_banner_HHxqKB",
+    "become_more_image_with_text_M4t4w4",
+    "4a0c9541-942a-4610-a830-d951441a88cb",
+    "ads_jJDY6n",
+    "content_left_image_right_6rcTr9",
+    "content_with_list_image_right_Yqzzbn",
+    "section_spacing_LMm3qJ",
+    "content_right_image_left_Wey6qY",
+    "section_spacing_cm8Kpa",
+    "bg_image_text_button_white_8XTeKF",
+    "are_you_an_australian_player_pVEKix",
+    "content_right_image_left_KYXd7p",
+    "testimonials_fGY9DC",
+    "bfcd4a7d-e1ac-4658-bfed-8b01e5734ccf",
+    "3_steps_new_pcR3Ka",
+    "content_with_list_image_right_KwH3r8",
+    "content_with_list_image_left_naKVXC",
+    "2e52afe5-e8f1-49ac-be5f-07bcbb7be8b1",
+    "1762f7dc-8bee-4c11-9473-a027331b0831",
+    "b00c0939-b9f0-4fb9-9f8b-fc1db9d5a6ae",
+    "82030516-d964-4826-99d4-e1e7e5bacedf"
+  ]
+}

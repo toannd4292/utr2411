@@ -1,0 +1,1176 @@
+<style> 
+.card-brieg{height:100%}
+#thumbs2 .item .owlnum {
+  color: var(--color-black);
+  font-family: var(--font-Tungsten);
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#thumbs2 .current .item .owlnum {
+  background: linear-gradient(249.06deg, #00C0F7 8.42%, #01DFCB 89.68%);
+  color: var(--color-black);
+}
+
+.owl-theme .owl-nav [class*="owl-"] {
+  transition: all 0.3s ease;
+  margin: 0px;
+  background: transparent !important;
+}
+
+.owl-theme .owl-nav [class*="owl-"].disabled:hover {
+  opacity:0.5;
+ 
+}
+
+#bigimage1 .owl-theme {
+  position: relative;
+}
+
+#bigimage1 .owl-theme .owl-next,
+#bigimage1 .owl-theme .owl-prev {
+  width: 22px;
+  height: 40px;
+  margin-top: -20px;
+  position: absolute;
+  top: 30%;
+}
+.owl-theme .owl-nav {
+    margin-top: 0;
+}
+#bigimage1 .owl-theme .owl-prev {
+  left: 10px;
+}
+
+
+
+#thumbs2 .owl-nav button.owl-next, 
+#thumbs2 .owl-nav button.owl-prev {
+    position: absolute;
+    top: 36%;
+}
+#thumbs2  .owl-nav button.owl-prev {
+    left: -5.75%;
+}
+#thumbs2  .owl-nav button.owl-next {
+    right: -5.75%;
+}
+@media(min-width:992px){
+  .card-brieg{border-radius:13px}
+  #thumbs2 .item .owlnum {font-size: 42px;
+  padding:1rem;width:68px; height:85px;}
+  #thumbs2 .current .item .owlnum {
+    border-radius: 30.5px;
+    width:68px; height:85px;
+  }
+ 
+  #thumbs2 .item .owlnum {margin-left:0.5rem;}
+}  
+@media(max-width:991px){
+  .card-brieg{border-radius:22px}
+  #thumbs2 .item .owlnum {font-size: 30px;
+  padding:1rem;width:34px; height:50px;}
+  #thumbs2 .item .owlnum {margin-left:1rem;}
+  #thumbs2 .current .item .owlnum {
+    border-radius: 18px;
+    width:34px; height:50px;
+  }
+}  
+@media(min-width:320px) and (max-width:749px){
+    #thumbs2 .owl-nav button.owl-next,
+    #thumbs2 .owl-nav button.owl-prev {
+      position: absolute;
+      top: 25%;
+   }
+}  
+
+.card-lg-75 .owl-stage{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}  
+.card-lg-85{width: 85%;text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+</style>
+
+<script>
+jQuery(document).ready(function() {
+    var bigimage1 = jQuery("#bigimage1");
+    var thumbs2 = jQuery("#thumbs2");
+    var slidesPerPage = 1;
+    var syncedSecondary = false;
+
+    bigimage1
+      .owlCarousel({
+      items: 1,
+      slideSpeed: 3000,
+      nav: true,
+      animateIn: "fadeIn",
+      autoplayHoverPause: true,
+      autoplaySpeed: 1400,
+      dots: false,
+      loop: true,
+      responsiveClass: true,
+      responsiveRefreshRate: 200,
+    })
+      .on("changed.owl.carousel", syncPosition);
+
+    thumbs2
+      .on("initialized.owl.carousel", function() {
+      thumbs2
+        .find(".owl-item")
+        .eq(0)
+        .addClass("current");
+    })
+      .owlCarousel({
+      //items: slidesPerPage,
+      dots: false,
+      nav: true,
+      smartSpeed: 1000,
+      slideSpeed: 1000,
+      slideBy: slidesPerPage, 
+      navText : ["<img src='https://cdn.shopify.com/s/files/1/0690/8071/1488/files/navigate_next.svg?v=1673952084' />",
+      "<img src='https://cdn.shopify.com/s/files/1/0690/8071/1488/files/navigate_prev.svg?v=1673952084'  />"],
+           responsive:{
+        0:{
+          items:5
+        },
+        600:{
+          items:5
+        },
+        1000:{
+          items:13
+        }
+      },
+      responsiveRefreshRate: 100
+    })
+      .on("changed.owl.carousel", syncPosition2);
+
+    function syncPosition(el) {
+      var count = el.item.count - 1;
+      var current = Math.round(el.item.index - el.item.count / 2 - 0.5);
+
+      if (current < 0) {
+        current = count;
+      }
+      if (current > count) {
+        current = 0;
+      }
+      
+      thumbs2
+        .find(".owl-item")
+        .removeClass("current")
+        .eq(current)
+        .addClass("current");
+      var onscreen = thumbs2.find(".owl-item.active").length - 1;
+      var start = thumbs2
+      .find(".owl-item.active")
+      .first()
+      .index();
+      var end = thumbs2
+      .find(".owl-item.active")
+      .last()
+      .index();
+
+      if (current > end) {
+        thumbs2.data("owl.carousel").to(current, 100, true);
+      }
+      if (current < start) {
+        thumbs2.data("owl.carousel").to(current - onscreen, 100, true);
+      }
+    }
+
+    function syncPosition2(el) {
+      if (syncedSecondary) {
+        var number = el.item.index;
+        bigimage1.data("owl.carousel").to(number, 100, true);
+      }
+    }
+
+    thumbs2.on("click", ".owl-item", function(e) {
+      e.preventDefault();
+      var number = jQuery(this).index();
+      bigimage1.data("owl.carousel").to(number, 300, true);
+    });
+  });
+</script>
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-2 pb-sm-2">
+    <h2 class="text-uppercase section-title section-title-sm mb-0 text-center">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="mb-4"><div class="divider-sm-teal divider-lg-teal"></div></div>
+    {%- endif -%}
+    <div class="text-uppercase text-black fw-bold text-center d-flex justify-content-center align-items-center pt-3 pb-3">
+      <div class="fs-lg-24 fs-sm-18 fw-bold">Tennis</div> 
+        <div class="switch">
+        	<input type="checkbox" id="checkbox1" />
+        	<label for="checkbox1"></label>
+        </div>
+        <div class="fs-lg-24 fs-sm-18 fw-bold">pickleball</div>
+      </div>
+   
+    <p class="text-center text-black width-lg-75 mr-auto pt-3 pb-3 fw-bold">{{section.settings.subtitle}}</p>
+<div class="card-lg-85 mr-auto">
+  <div id="thumbs2" class="owl-carousel owl-theme mb-3">
+    <div class="item">
+      <div class="owlnum">1</div>
+    </div>
+    <div class="item">
+     <div class="owlnum">2</div>
+      
+    </div>
+    <div class="item">
+     <div class="owlnum">3</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">4</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">5</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">6</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">7</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">8</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">9</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">10</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">11</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">12</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">13</div>
+    </div>
+    <div class="item">
+      <div class="owlnum">14+</div>
+    </div>
+  </div>
+</div>  
+<div id="bigimage1" class="owl-carousel owl-theme">
+  <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Nela</div> 
+               <div class="brige text-black fw-bold">Sedláková</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Czechia</p>
+         </div>
+       </div>  
+     </div>
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Yushin</div> 
+               <div class="brige text-black fw-bold">Nogami</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Fukuoka, Japan</p></div>
+       </div>  
+     </div>
+  
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> <div> 
+             <div class="brige text-black gotham-medium">Jarvis</div> 
+             <div class="brige text-black fw-bold">Parsons</div> 
+           </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">2.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Manly West, Australia</p>
+         </div>
+       </div>  
+     </div>
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+             <div class="brige text-black gotham-medium">Martin</div> 
+               <div class="brige text-black fw-bold">Gentchev</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Belgium</p>
+         </div>
+       </div>  
+     </div>
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Layton</div> 
+               <div class="brige text-black fw-bold">Fincham</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">2.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Phoenix, AZ</p>
+         </div>
+       </div>  
+     </div>
+ 
+ </div><!--./item--> 
+     <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.menntrp}}</h2>
+             <p>Men NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-md-border">
+             <h2>{{section.settings.womenntrp}} - {{section.settings.womenntrp2}}</h2>
+             <p>Women NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.girls}} - {{section.settings.girls2}}</h2>
+             <p>Girls</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border-0">
+             <h2>{{section.settings.boys}}</h2>
+             <p>Boys</p>
+           </div>  
+         </div>
+       </div>
+    </div>
+  </div><!--./item 1-->
+  <div class="item">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 2</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+     <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.menntrp}}</h2>
+             <p>Men NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-md-border">
+             <h2>{{section.settings.womenntrp}} - {{section.settings.womenntrp2}}</h2>
+             <p>Women NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.girls}} - {{section.settings.girls2}}</h2>
+             <p>Girls</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border-0">
+             <h2>{{section.settings.boys}}</h2>
+             <p>Boys</p>
+           </div>  
+         </div>
+       </div>
+    </div>
+  </div><!--./item 2-->
+  <div class="item">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 3</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+    <div class="grid grid--2-col product-grid grid--2-col-tablet grid--4-col-desktop mt-3 mb-3 bg_black border-radius-lg-2 border-radius-sm-3 p-2">
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.menntrp}}</h2>
+             <p>Men NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-md-border">
+             <h2>{{section.settings.womenntrp}} - {{section.settings.womenntrp2}}</h2>
+             <p>Women NTRP</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border counter-item-sm-border">
+             <h2>{{section.settings.girls}} - {{section.settings.girls2}}</h2>
+             <p>Girls</p>
+           </div>  
+         </div>
+       </div>
+
+       <div class="grid__item">
+         <div class="counter-item text-center">
+           <div class="counter-item-border-0">
+             <h2>{{section.settings.boys}}</h2>
+             <p>Boys</p>
+           </div>  
+         </div>
+       </div>
+    </div> 
+  </div><!--./item 3-->
+  <div class="item">
+  <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 4</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+  </div><!--./item 4-->
+  <div class="item">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 5</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+  </div><!--./item 5-->
+  <div class="item">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 6</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+  </div><!--./item 6-->
+  <div class="item">
+    <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 7</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+  </div><!--./item 7-->
+  <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 8</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div> 
+  </div><!--./item 8-->
+ <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 9</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 9-->
+  <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 10</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 10-->
+  <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 11</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 11--> 
+ <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 12</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 12-->
+  <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 13</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 13-->
+ <div class="item">
+   <div class="grid grid--1-col product-grid grid--1-col-tablet grid--3-col-desktop">
+     <div class="grid__item">
+       <div class="blue-teal-gradient-bg card-brieg shadow-xl"> 
+         <div class="p-2 text-black lh-normal">
+           <div class="d-flex justify-content-between align-items-center"> 
+             <div> 
+               <div class="brige text-black gotham-medium">Alexander 14</div> 
+               <div class="brige text-black fw-bold">Kors</div> 
+             </div> 
+             <div> 
+               <div class="brige-price text-black fw-bold font-tungsten">3.0</div> 
+               <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> 
+             </div> 
+           </div> 
+           <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">Port Washington, NY</p>
+         </div>
+       </div>  
+     </div>
+    </div>
+ </div><!--./item 14-->     
+</div>
+
+
+    
+     
+   
+    
+  
+   <p class="text-center text-black gotham-medium">{{section.settings.notetitle}}</p>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Featured Players Slider-2",
+    "presets": [
+      {
+        "name": "Featured Players Slider",
+        "category": "Featured Players Slider"
+      }
+    ],
+    "settings": [
+      {
+		 "type":"text",
+		 "id":"heading",
+		 "label": "Heading Title"
+	  },
+      {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+      {
+		 "type":"text",
+		 "id":"subtitle",
+		 "label": "Sub Title"
+	  },
+      {
+		 "type":"text",
+		 "id":"notetitle",
+		 "label": "Note Title"
+	  },
+      {
+		 "type":"text",
+		 "id":"menntrp",
+		 "label": "MEN NTRP"
+	  },
+      {
+		 "type":"text",
+		 "id":"womenntrp",
+		 "label": "WOMEN NTRP"
+	  },
+      {
+		 "type":"text",
+		 "id":"womenntrp2",
+		 "label": "WOMEN NTRP"
+	  },
+      {
+		 "type":"text",
+		 "id":"girls",
+		 "label": "GIRLS"
+	  },
+      {
+		 "type":"text",
+		 "id":"girls2",
+		 "label": "GIRLS"
+	  },
+      {
+		 "type":"text",
+		 "id":"boys",
+		 "label": "BOYS"
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+    var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMax=3", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">3.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player1").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=12&utrType=verified&utrTeamType=singles&utrMax=3", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">3.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player2").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=2&utrMax=4", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">3.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player3").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=3&utrMax=5", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">4.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player4").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=4&utrMax=6", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">5.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player5").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMax=7", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">6.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player6").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=6&utrMax=8", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      var rating = values.source.singlesUtr;
+        
+      data +='<div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">'+rating+'</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player7").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+     fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=6&utrMax=8", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      var rating = values.source.singlesUtr;
+        
+      data +='<div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">'+rating+'</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player8").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=8&utrMax=10", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">9.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player9").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=9&utrMax=11", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">10.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player10").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=10&utrMax=12", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">11.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player11").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=11&utrMax=13", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">12.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player12").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+  fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=11&utrMax=13", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">13.0</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player13").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+
+    fetch("https://api.utrsports.net/v2/search/featuredplayers?top=6&utrType=verified&utrTeamType=singles&utrMin=12", requestOptions)
+  .then(response => response.json())
+  .then((result) => {
+    let data="";
+    let i=1;
+    var totalDataCount = 0;
+    
+    result.hits.map((values)=>{
+      if(i < 7){
+        
+      var name = values.source.displayName;
+      var location = values.source.location.display;
+      var nationality= values.source.nationality;
+      var rating = values.source.singlesUtr;
+      
+      data +=' <div class="grid__item"><div class="blue-teal-gradient-bg card-brieg shadow-xl"> <div class="p-2 text-black lh-normal"><div class="d-flex justify-content-between align-items-center"> <div> <div class="brige text-black gotham-medium">'+name+'</div> <div class="brige text-black fw-bold"></div> </div> <div> <div class="brige-price text-black fw-bold font-tungsten">'+rating+'</div> <div class="utr text-mute lh-normal fw-bold text-sm-center gotham-medium">UTR</div> </div> </div> <p class="text-mute pt-2 mb-0 fw-bold font-lg-16 font-sm-13">'+location+', '+nationality+'</p></div></div></div>';
+      i=i+1;
+      }
+    });
+    
+    document.getElementById("player14").innerHTML=data;
+
+}).catch(error => console.log('error', error));
+{% endjavascript %}

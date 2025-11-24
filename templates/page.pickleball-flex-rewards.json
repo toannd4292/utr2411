@@ -1,0 +1,374 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "172464727165c279d8": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_KgedwT": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": false,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "qikify"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_KgedwT"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "bc3dd07b-dbf1-41d5-80eb-b44597ba1108": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-rewards-top-fold-page-forehand-fold-marketing-website-template-1140-x-630.png",
+        "image_mobile": "shopify://shop_images/pickleball-rewards-top-fold-page-forehand-fold-marketing-website-template-1140-x-630.png",
+        "image_height": "small",
+        "tagline": "UTR Sports",
+        "small-title-size": "p",
+        "heading": "Pickleball Flex League Rewards",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "",
+        "sub-heading-size": "small",
+        "description": "Earn rewards by competing in UTR Sports Pickleball Flex Leagues and USA Pickleball PlayMore Leagues!",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "ads_jQPhDt": {
+      "type": "Ads",
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-1",
+        "color_scheme": "new",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "content_with_list_image_right_qfmeka": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-rewards-graphic-2280x1760-v2-no-points_9538adc6-7427-4aca-845f-5cf4feffd7ee.jpg",
+        "heading": "Play More Pickleball, Earn More Rewards!",
+        "heading-size": "h2",
+        "subheading": "",
+        "sub-heading-size": "h2",
+        "list": "How to earn points: 20 points for playing in a league; 20 points for each friend/family member you refer; 10 points for early league registration (7+ days in advance); and 1 point for every match completed",
+        "list2": "Tier One Prizes: Earn 100 points and win a towel and a grip",
+        "list3": "Tier Two Prizes: Earn 200 points and win a Selkirk bag or a Fabletics item",
+        "list4": "Tier Three Prizes: Earn 300 points and win a Selkirk paddle",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "70aba078-3f5c-4b48-a9df-f77a5d183900": {
+      "type": "play-more-points-earn",
+      "blocks": {
+        "a8046c3b-cf8a-429c-9c38-e93fa37c2243": {
+          "type": "home-card",
+          "settings": {
+            "heading": "20 Points",
+            "description": "Per League Played"
+          }
+        },
+        "63ab70c9-6d16-40a3-81c1-083c0ff519dd": {
+          "type": "home-card",
+          "settings": {
+            "heading": "1 Points",
+            "description": "Per Match Completed"
+          }
+        },
+        "d5a518f5-6a1c-4e2a-82ff-ef6421ada982": {
+          "type": "home-card",
+          "settings": {
+            "heading": "10 Points",
+            "description": "For Early League Registration (7+ days in advance)"
+          }
+        },
+        "15314470-7fc0-4282-a0c9-621e87270ebd": {
+          "type": "home-card",
+          "settings": {
+            "heading": "20 Points",
+            "description": "For Each Friend/Family Member You Refer"
+          }
+        },
+        "90634184-f9f9-4940-a320-20d1ba29b6ab": {
+          "type": "home-card",
+          "settings": {
+            "heading": "TIER ONE PRIZES",
+            "description": "Earn 100 points: Win a towel and a grip"
+          }
+        },
+        "d0448b4c-f17c-4764-bb58-3777e80395fc": {
+          "type": "home-card",
+          "settings": {
+            "heading": "TIER TWO PRIZES",
+            "description": "Earn 200 points: Win a Selkirk bag OR a Fabletics item"
+          }
+        },
+        "home_card_kUyyG9": {
+          "type": "home-card",
+          "settings": {
+            "heading": "TIER THREE PRIZES",
+            "description": "Earn 300 points: Win a Selkirk paddle!"
+          }
+        }
+      },
+      "block_order": [
+        "a8046c3b-cf8a-429c-9c38-e93fa37c2243",
+        "63ab70c9-6d16-40a3-81c1-083c0ff519dd",
+        "d5a518f5-6a1c-4e2a-82ff-ef6421ada982",
+        "15314470-7fc0-4282-a0c9-621e87270ebd",
+        "90634184-f9f9-4940-a320-20d1ba29b6ab",
+        "d0448b4c-f17c-4764-bb58-3777e80395fc",
+        "home_card_kUyyG9"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Play More Pickleball, Earn More Rewards!",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/pickleball-rewards-graphic-2280x1760-v2-no-points_9538adc6-7427-4aca-845f-5cf4feffd7ee.jpg",
+        "section-button": "",
+        "section-button-url": ""
+      }
+    },
+    "cb88f54c-67b6-4aec-bb92-056623e83495": {
+      "type": "flex-leagues-for-everyone",
+      "disabled": true,
+      "settings": {
+        "heading": "FLEX LEAGUES For Everyone",
+        "heading-permission": "YES",
+        "description-title": "All players regardless of age, gender, geography or skill level, are rated on the same scale from 1.00 and 16.50 based on daily match results."
+      }
+    },
+    "28266f61-d2af-48a5-a805-832a919114d1": {
+      "type": "points-race-leaderboard",
+      "blocks": {
+        "b3a77c66-8c0d-4f10-8032-c7a3be3e075b": {
+          "type": "home-card",
+          "settings": {
+            "ranking_permison": "2",
+            "score": "86",
+            "utr_rating": "5.58",
+            "player_name": "Andrew Kutsch",
+            "player_location": "Charlotte",
+            "ranking_permison_2": "2",
+            "score_2": "",
+            "utr_rating_2": "",
+            "player_name_2": "",
+            "player_location_2": ""
+          }
+        },
+        "e63b90d5-7fed-4245-be31-7c9a6bc7a50b": {
+          "type": "home-card",
+          "settings": {
+            "ranking_permison": "1",
+            "score": "90",
+            "utr_rating": "4.07",
+            "player_name": "Tony Alschlager",
+            "player_location": "Twin Cities",
+            "ranking_permison_2": "2",
+            "score_2": "",
+            "utr_rating_2": "",
+            "player_name_2": "",
+            "player_location_2": ""
+          }
+        },
+        "8cb90b4b-cb59-4147-a952-202aef000f27": {
+          "type": "home-card",
+          "settings": {
+            "ranking_permison": "3",
+            "score": "86",
+            "utr_rating": "1.73",
+            "player_name": "Mark Moskal",
+            "player_location": "Seattle",
+            "ranking_permison_2": "2",
+            "score_2": "",
+            "utr_rating_2": "",
+            "player_name_2": "",
+            "player_location_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "b3a77c66-8c0d-4f10-8032-c7a3be3e075b",
+        "e63b90d5-7fed-4245-be31-7c9a6bc7a50b",
+        "8cb90b4b-cb59-4147-a952-202aef000f27"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Points Race Leaderboard",
+        "heading-permission": "YES",
+        "updated": "",
+        "button_first": "",
+        "csv_leaderboard1": "",
+        "button_second": "",
+        "csv_leaderboard2": "",
+        "limit_row": 100,
+        "show_table": false
+      }
+    },
+    "4659c0eb-dd51-45a3-8132-67904211b0f9": {
+      "type": "ut-ranking-table-csv",
+      "disabled": true,
+      "settings": {
+        "tableheadinnumber": "No.",
+        "tableheadingname": "Name",
+        "tableheadinlocation": "Location",
+        "tableheadinpoints": "Points",
+        "tableheadinutrrating": "UTR Rating"
+      }
+    },
+    "faf93f37-a08a-4b6d-8e7b-4f93ef5ed573": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "80c336ea-34e0-46e3-85f9-39508d00b322": {
+      "type": "two-column-image-text",
+      "blocks": {
+        "4d2d030e-49f8-4f08-85e5-ba830836a31b": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/man-sunglasses-hitting-pickleball-paddle-forehand-mesa-pickleball-rewards-page.jpg",
+            "heading": "Interested in working with us?",
+            "description": "UTR Sports is opening up Pickleball Flex Leagues across the U.S. If you’re interested in working with us, learn more and apply below.",
+            "section-button": "Apply now",
+            "section-button-url": "https://jobs.workable.com/view/nnc3J5tGbE4A6yXhDqFWEE/remote-pickleball-flex-league-representative-in-united-states-at-universal-tennis"
+          }
+        },
+        "7442f7b5-cbc2-4592-9ae1-c0e38247244c": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-vertical-photo-571x520-facing-one-way-waiting-to-hit-costa-pickleball.jpg",
+            "heading": "Play in a pickleball flex league",
+            "description": "Pickleball Flex Leagues are live in 30 cities across the United States. Choose when and where you play around your schedule.",
+            "section-button": "Register now",
+            "section-button-url": "shopify://pages/pickleball-flex-leagues"
+          }
+        }
+      },
+      "block_order": [
+        "4d2d030e-49f8-4f08-85e5-ba830836a31b",
+        "7442f7b5-cbc2-4592-9ae1-c0e38247244c"
+      ],
+      "settings": {}
+    },
+    "3_steps_new_EkjPbC": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_qMEMFd": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_jNqMFg": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_P6m6TK": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_qMEMFd",
+        "text_jNqMFg",
+        "text_P6m6TK"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/mobile-app-screen-pickleball-focused-ios-profile-pages-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "ads_WcDUNX": {
+      "type": "Ads",
+      "settings": {
+        "heading": "Advertisement",
+        "ads": "ads-3",
+        "color_scheme": "new",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "172464727165c279d8",
+    "bc3dd07b-dbf1-41d5-80eb-b44597ba1108",
+    "ads_jQPhDt",
+    "main",
+    "content_with_list_image_right_qfmeka",
+    "70aba078-3f5c-4b48-a9df-f77a5d183900",
+    "cb88f54c-67b6-4aec-bb92-056623e83495",
+    "28266f61-d2af-48a5-a805-832a919114d1",
+    "4659c0eb-dd51-45a3-8132-67904211b0f9",
+    "faf93f37-a08a-4b6d-8e7b-4f93ef5ed573",
+    "80c336ea-34e0-46e3-85f9-39508d00b322",
+    "3_steps_new_EkjPbC",
+    "ads_WcDUNX"
+  ]
+}

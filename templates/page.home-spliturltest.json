@@ -1,0 +1,618 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17246463227f7840c2": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_DMFrVY": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_DMFrVY"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_HYxbzK": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_cTRAj4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Home for Tennis & Pickleball",
+            "heading_size": "h0"
+          }
+        },
+        "text_BdBWz3": {
+          "type": "text",
+          "settings": {
+            "text": "UTR Sports connects tennis & pickleball players with level-based play, leagues, teams, and analytics to track and improve. Ready to get out and meet other players?",
+            "text_style": "body"
+          }
+        },
+        "buttons_KCmgWL": {
+          "type": "buttons",
+          "settings": {
+            "id_button_label_1": "",
+            "button_label_1": "Get your free UTR-P Rating",
+            "button_link_1": "https://app.utrsports.net/join",
+            "button_style_secondary_1": false,
+            "id_button_label_2": "",
+            "button_label_2": "Get your free UTR Rating",
+            "button_link_2": "https://app.utrsports.net/join",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cTRAj4",
+        "text_BdBWz3",
+        "buttons_KCmgWL"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/v2-pickleball-women-two-pink-denver-high-five-2560x1280.jpg",
+        "image_2": "shopify://shop_images/v2-pickleball-women-two-pink-denver-high-five-2560x1280.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "small",
+        "adapt_height_first_image": false,
+        "tagline": "",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "show_button_downloadApp": false,
+        "custom_sub_heading": "DOWNLOAD NOW",
+        "custom_heading": "IOS & ANDROID MOBILE APP",
+        "custom_heading_button": "Download the app",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "app-button-url": "",
+        "google-pay-button-url": "",
+        "learn-button-url": "",
+        "show_social": false,
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "new_section_search_zago_xiJMPb": {
+      "type": "new-section-search-zago",
+      "settings": {
+        "heading": "",
+        "sub_heading": "",
+        "size_heading": 26,
+        "size_sub_heading": 18,
+        "image_tennis_desktop": "shopify://shop_images/man-backhand-500x600-ptt-tennis-search-homepage.jpg",
+        "title_tennis": "Tennis",
+        "sub_title_tennis": "Connect with tennis players near you and enjoy level-based play, leagues, and tournaments.",
+        "placeholder_tennis": "Find a tennis event near you",
+        "button_tennis": "All tennis events",
+        "bg_color_tennis": "#62e6fc",
+        "color_text_tennis": "#ffffff",
+        "bg_btn_tennis": "#000000",
+        "bg_search_tennis": "#62e6fc",
+        "color_btn_tennis": "#ffffff",
+        "image_pickleball_desktop": "shopify://shop_images/v2-woman-blonde-pickleball-front-search-500x600-homepage-denver-gt.jpg",
+        "title_pickleball": "Pickleball",
+        "sub_title_pickleball": "Join the fastest growing sport and connect with a community of pickleball players near you!",
+        "placeholder_pickleball": "Find a pickleball event near you",
+        "button_pickleball": "all pickleball events",
+        "bg_color_pickleball": "#c7ef8c",
+        "color_text_pickleball": "#ffffff",
+        "bg_btn_pickleball": "#000000",
+        "bg_search_pickleball": "#c7ef8c",
+        "color_btn_pickleball": "#ffffff"
+      }
+    },
+    "section_spacing_44WBrh": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "new_section_banner_zago_CaVJLE": {
+      "type": "new-section-banner-zago",
+      "settings": {
+        "content_banner": "",
+        "content_span_banner": "Register for APP Tour Dallas Open",
+        "content_button": "Register now",
+        "url_button": "https://app.utrsports.net/events/255354"
+      }
+    },
+    "da1dc0de-4389-4406-b6a8-15a7480eb22e": {
+      "type": "content-with-list-image-left",
+      "disabled": true,
+      "settings": {
+        "heading": "Why participate in UTR",
+        "heading-size": "h2",
+        "subheading": "College Match Experience",
+        "sub-heading-size": "h2",
+        "list": "Play UTR Verified Match Play",
+        "list2": "College Tennis Q&A Session",
+        "list3": "Attend a College Dual Match",
+        "list4": "",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "howto_benefits_section_XhiwT3": {
+      "type": "howto-benefits-section",
+      "blocks": {
+        "home_card_Etrkiq": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/get-rated.svg",
+            "h4": "GET RATED",
+            "description": "Enjoy true level-based play"
+          }
+        },
+        "home_card_98dr6q": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/icon_beneits_round_paddle_right_aligned_ball.png",
+            "h4": "PLAY YOUR WAY",
+            "description": "From recreational player groups to competitive formats"
+          }
+        },
+        "home_card_aTdF7X": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/play-with-power.svg",
+            "h4": "BECOME POWERFUL",
+            "description": "Subscribe for advanced features and perks"
+          }
+        },
+        "home_card_Rbpcke": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/know-your-level.svg",
+            "h4": "KNOW YOUR LEVEL",
+            "description": "Assess accurately in real-time"
+          }
+        },
+        "home_card_TzTtWt": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/make-scores-count.svg",
+            "h4": "MAKE SCORES COUNT",
+            "description": "Post scores anytime you play"
+          }
+        },
+        "home_card_mUVPPU": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/icon_beneits_two_paddles_two_pickleballs.png",
+            "h4": "FOR BEGINNERS",
+            "description": "The world's only color ball rating and events"
+          }
+        },
+        "home_card_djyw7G": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/track-your-progress.svg",
+            "h4": "TRACK YOUR PROGRESS",
+            "description": "Advanced analytics to uncover real-time insights"
+          }
+        },
+        "home_card_tNdU8Q": {
+          "type": "home-card",
+          "settings": {
+            "image": "shopify://shop_images/run-pickleball-events.svg",
+            "h4": "PLAY MORE",
+            "description": "Meet players in your area and find local events"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_Etrkiq",
+        "home_card_98dr6q",
+        "home_card_aTdF7X",
+        "home_card_Rbpcke",
+        "home_card_TzTtWt",
+        "home_card_mUVPPU",
+        "home_card_djyw7G",
+        "home_card_tNdU8Q"
+      ],
+      "settings": {
+        "heading": "Benefits to you",
+        "section-button": "Sign up",
+        "section-button-url": "",
+        "heading-permission": "YES"
+      }
+    },
+    "about_section_b7xGUq": {
+      "type": "about-section",
+      "blocks": {
+        "home_card_8kwxfD": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-player-vertical-666-960-naborforce-event-homepage-more.jpg",
+            "heading": "For",
+            "subheading": "Pickleball Players",
+            "description": "We offer everything you need to play pickleball and connect you to the growing community.",
+            "section-button": "Explore",
+            "section-button-url": "shopify://pages/pickleball"
+          }
+        },
+        "home_card_aB8tqw": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-man-homepage-666x960-ready-more-section.jpg",
+            "heading": "For",
+            "subheading": "Providers",
+            "description": "We aspire to innovate tennis and pickleball with solutions for all providers, including clubs, high schools, federations, and everything in between.",
+            "section-button": "Explore",
+            "section-button-url": "shopify://pages/providers"
+          }
+        },
+        "home_card_7QzB7P": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/novak-djokovic-about-pro-tennis-666x960-new-test.jpg",
+            "heading": "For",
+            "subheading": "Tennis Players",
+            "description": "We connect tennis players with level-based play, leagues, teams, and analytics to track and improve their game.",
+            "section-button": "Explore",
+            "section-button-url": "shopify://pages/players"
+          }
+        },
+        "home_card_f4atzM": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/tcu-woman-shouting-vertical-666x960-homepage-more-college.jpg",
+            "heading": "For",
+            "subheading": "Colleges",
+            "description": "UTR and college tennis go hand in hand. Players find the best college for their needs, and coaches elevate their programs with our platform.",
+            "section-button": "Explore",
+            "section-button-url": "shopify://pages/college"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_8kwxfD",
+        "home_card_aB8tqw",
+        "home_card_7QzB7P",
+        "home_card_f4atzM"
+      ],
+      "settings": {
+        "heading": "Ready for",
+        "heading-permission": "NO",
+        "subheading": "More Play?",
+        "description": "One global platform for everything pickleball and tennis. Connecting players, coaches, clubs, and federations – all powered by the world's most accurate ratings. Are you in?"
+      }
+    },
+    "3_steps_new_zGbjdd": {
+      "type": "3-steps-new",
+      "blocks": {
+        "text_Q4bgGj": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_nbwihW": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        },
+        "text_jafFH8": {
+          "type": "text",
+          "settings": {
+            "block-list-items": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_Q4bgGj",
+        "text_nbwihW",
+        "text_jafFH8"
+      ],
+      "settings": {
+        "enable_feature": true,
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/mobile-app-screen-pickleball-focused-ios-profile-pages-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "",
+        "app-button-url": ""
+      }
+    },
+    "content_with_list_image_left_qmwy4y": {
+      "type": "content-with-list-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/power-graphic-craft-two-players-1600x1100-top-fold-power-MOBILE.jpg",
+        "heading": "Elevate your tennis & pickleball with power",
+        "heading-size": "h2",
+        "subheading": "Exclusive analytics & discounts",
+        "sub-heading-size": "h2",
+        "list": "Better prepare for matches and track improvement with advanced stats, rating visibility and insights",
+        "list2": "When you buy a Power subscription, you access exclusive benefits including discounts from brands you love like Tennis Warehouse, Hyperice, Diadem, Fabletics and more",
+        "list3": "30-day free trial, only $10/month",
+        "list4": "",
+        "section-button": "Learn more",
+        "section-button-url": "https://app.utrsports.net/join/pickleball?utm_source=mkt-website&utm_medium=referral&utm_campaign=pickleball&utm_content=utrp-page",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "0565272f-42e3-4cbb-b0cc-feef0cd52560": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "testimonials_4NafmX": {
+      "type": "testimonials",
+      "blocks": {
+        "home_card_dnhDgx": {
+          "type": "home-card",
+          "settings": {
+            "description": "The UTR and UTR-P Ratings make tennis and pickleball more accessible to an ever-widening universe.",
+            "image": "shopify://shop_images/ken-solomon-jpg.jpg",
+            "author": "Ken Solomon",
+            "author-designation": "President, Tennis Channel"
+          }
+        },
+        "home_card_tngG4c": {
+          "type": "home-card",
+          "settings": {
+            "description": "The UTR Rating is the best way to measure yourself against all other players regardless of their age or level.",
+            "image": "shopify://shop_images/Novak_Djokovic_UTR_Testimonial_ffec90b5-947b-420b-860e-5b3621b397ff.jpg",
+            "author": "Novak Djokovic",
+            "author-designation": "24-time Grand Slam Champion"
+          }
+        },
+        "home_card_3rihCa": {
+          "type": "home-card",
+          "settings": {
+            "description": "We are thrilled UTR Sports has moved its technology and expertise into pickleball to support and enhance the experience for everyone.",
+            "image": "shopify://shop_images/sean-bollettieri-abdali-pickleball-testimonial-new-400x400jp.jpg",
+            "author": "Sean Bollettieri Abdali",
+            "author-designation": "President, Founder of The Tennis and Pickleball Club at Newport Beach"
+          }
+        },
+        "home_card_zK9whY": {
+          "type": "home-card",
+          "settings": {
+            "description": "Our first UTR Sports Pickleball event was a total success. It brought a level of competition to our members that I hadn't seen before since every point and set counted towards their rating. We are all looking forward to more of that.",
+            "image": "shopify://shop_images/norbeck-country-club-400x400-testimonial-v2.png",
+            "author": "Carlos Nunez",
+            "author-designation": "Norbeck Country Club"
+          }
+        },
+        "home_card_tqbVX3": {
+          "type": "home-card",
+          "settings": {
+            "description": "UTR Sports provides a standard for all players... the bigger the network gets, the more beneficial.",
+            "image": "shopify://shop_images/jim-courier_UTR_testimonial.png",
+            "author": "Jim Courier",
+            "author-designation": "4-time Grand Slam Champion"
+          }
+        },
+        "home_card_jPYUgc": {
+          "type": "home-card",
+          "settings": {
+            "description": "UTR Sports has revolutionized college tennis. We don’t talk about any player without talking about his UTR Rating.",
+            "image": "shopify://shop_images/Ian-Duvenhage-nit-testimonial-vandy-coach-Quote.png",
+            "author": "Ian Duvenhage",
+            "author-designation": "Vanderbilt, Head Coach Men's Tennis"
+          }
+        },
+        "home_card_63znCR": {
+          "type": "home-card",
+          "settings": {
+            "description": "Their ratings are ageless, genderless, and borderless. UTR Sports truly democratized the game of tennis.",
+            "image": "shopify://shop_images/Martina_Navratilova_UTR_testimonial.jpg",
+            "author": "Martina Navratilova",
+            "author-designation": "59-time Grand Slam Champion"
+          }
+        }
+      },
+      "block_order": [
+        "home_card_dnhDgx",
+        "home_card_tngG4c",
+        "home_card_3rihCa",
+        "home_card_zK9whY",
+        "home_card_tqbVX3",
+        "home_card_jPYUgc",
+        "home_card_63znCR"
+      ],
+      "settings": {
+        "heading": "TESTIMONIALS",
+        "sub-heading": "Why players & providers love us...."
+      }
+    },
+    "featured_providers_accordion_RjfQEm": {
+      "type": "featured-providers-accordion",
+      "settings": {
+        "heading": "PROVIDERS",
+        "heading-permission": "NO",
+        "section-button": "EXPLORE MORE",
+        "section-button-url": ""
+      }
+    },
+    "join_community_rxRRey": {
+      "type": "join-community",
+      "settings": {
+        "heading": "Join The Global Tennis & Pickleball Community",
+        "heading-permission": "NO",
+        "show_social": false
+      }
+    },
+    "custom_liquid_JaLMQM": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"bg-light-blue\">\n<div class=\"page-width\"><div class=\"elfsight-sapp-4aad0462-c920-4498-9e76-6a66105dd2f5\"></div></div></div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_players_ir9wwB": {
+      "type": "featured-players",
+      "settings": {
+        "heading": "Explore Player Ratings",
+        "heading-permission": "NO",
+        "subtitle": "The UTR Rating is the world’s most accurate tennis rating. All players regardless of age, gender, geography or skill level, are rated on the same scale from 1.00 and 16.50 based on daily match results.",
+        "notetitle": "",
+        "menntrp": "~3.0",
+        "womenntrp": "~3.0",
+        "womenntrp2": "~3.5",
+        "girls": "U12",
+        "girls2": "u14",
+        "boys": "u12"
+      }
+    },
+    "partners_section_XVhXNM": {
+      "type": "partners-section",
+      "blocks": {
+        "partner_logo_image_MFYdqb": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/usa-pickleball-540x241-partner-image.png",
+            "featured-in-url": ""
+          }
+        },
+        "partner_logo_image_WDJwhV": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/match-tennis-553x242-partner-image-transparent.png",
+            "featured-in-url": "https://web.matchtennisapp.com/"
+          }
+        },
+        "partner_logo_image_cfTw3K": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/Tennis-Australia-testimonial-image-400x400-Shopify.png",
+            "featured-in-url": "https://www.tennis.com.au/"
+          }
+        },
+        "partner_logo_image_ndgKzF": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/Association-Pickleball-Professionals-APP-black--standalone-logo-540x241-partner-image.png",
+            "featured-in-url": "https://www.theapp.global/"
+          }
+        },
+        "partner_logo_image_FTptzd": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/franklin_new_partner.png",
+            "featured-in-url": "https://www.globenewswire.com/news-release/2024/02/22/2833882/0/en/UTR-Sports-Announces-Franklin-Sports-as-Official-Ball-of-Pickleball-Amateur-Series.html"
+          }
+        },
+        "partner_logo_image_eAYU8f": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/Penn_logo.png",
+            "featured-in-url": "http://www.pennracquet.com/"
+          }
+        },
+        "partner_logo_image_WxzRwb": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/diadem_logo.png",
+            "featured-in-url": "https://diademsports.com/pages/diadem-x-universal-tennis"
+          }
+        },
+        "partner_logo_image_beAKXc": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/novak_djokovic_logo.png",
+            "featured-in-url": "https://novakdjokovicfoundation.org/"
+          }
+        },
+        "partner_logo_image_4cpqqB": {
+          "type": "partner-logo-image",
+          "settings": {
+            "partner-logo": "shopify://shop_images/prime-video-partner-540x241.png",
+            "featured-in-url": "https://www.amazon.com/gp/video/storefront/ref=atv_me_pvs_c_hvqwaq_11_smr?contentType=tournament&contentId=amzn1.dv.icid.a7897353-fd02-4669-b996-4866f0c19710"
+          }
+        }
+      },
+      "block_order": [
+        "partner_logo_image_MFYdqb",
+        "partner_logo_image_WDJwhV",
+        "partner_logo_image_cfTw3K",
+        "partner_logo_image_ndgKzF",
+        "partner_logo_image_FTptzd",
+        "partner_logo_image_eAYU8f",
+        "partner_logo_image_WxzRwb",
+        "partner_logo_image_beAKXc",
+        "partner_logo_image_4cpqqB"
+      ],
+      "settings": {
+        "heading": "Partners",
+        "heading-permission": "NO",
+        "sub-heading": ""
+      }
+    }
+  },
+  "order": [
+    "17246463227f7840c2",
+    "main",
+    "image_banner_HYxbzK",
+    "new_section_search_zago_xiJMPb",
+    "section_spacing_44WBrh",
+    "new_section_banner_zago_CaVJLE",
+    "da1dc0de-4389-4406-b6a8-15a7480eb22e",
+    "howto_benefits_section_XhiwT3",
+    "about_section_b7xGUq",
+    "3_steps_new_zGbjdd",
+    "content_with_list_image_left_qmwy4y",
+    "0565272f-42e3-4cbb-b0cc-feef0cd52560",
+    "testimonials_4NafmX",
+    "featured_providers_accordion_RjfQEm",
+    "join_community_rxRRey",
+    "custom_liquid_JaLMQM",
+    "featured_players_ir9wwB",
+    "partners_section_XVhXNM"
+  ]
+}

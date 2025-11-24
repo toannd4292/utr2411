@@ -1,0 +1,84 @@
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-5 pb-sm-5">
+    <div class="text-center mb-lg-5 mb-sm-3">
+      <h2 class="text-uppercase section-title section-title-sm mb-0 mb-sm-2 mt-0 text-black lh-sm-90">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="divider-sm-teal divider-lg-teal"></div>
+      {%- endif -%}
+    </div>
+   <div class="grid grid--1-col grid--3-col-tablet grid--3-col-desktop d-flex justify-content-center align-items-center pb-lg-2 pb-sm-2 pt-lg-1 pt-sm-1">
+      <div class="grid__item">
+        <div class="blue-teal-gradient-bg border-radius-lg-3 border-radius-sm-3">
+           <div class="feature-card-box fs-p-2 d-flex justify-content-start align-items-start">
+             <div>
+               <div class="featureimg-small">
+                 <img src="{{section.settings.icon-image | image_url}}">
+               </div>
+             </div>
+             
+            <div class="feature-content">
+              <h4 class="fs-sm-14 font-lg-18 text-uppercase">{{section.settings.sub-heading}}</h4>
+              <p class="gotham-medium font-lg-14 font-sm-13 lh-sm-normal fs-mt-0 fs-mb-0">{{ section.settings.paragrap-title }}</p>
+           </div>
+         </div>   
+  
+        </div><!--./blue-teal-gradient-bg-->
+      </div><!--./grid__item-->
+   </div>  
+</div>  
+
+{% schema %}
+  {
+    "name": "Ut Comming Soon Card",
+    "presets": [
+      {
+        "name": "Ut Comming Soon Card",
+        "category": "Ut Comming Soon Card"
+      }
+    ],
+    "settings": [
+      {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+        {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+       {
+ 			"type": "image_picker",
+ 			"id": "icon-image",
+ 			"label": "Icon Image"
+ 		},
+      {
+       "type": "text",
+       "id": "sub-heading",
+       "label": "Sub Heading"
+      },
+      {
+       "type": "text",
+       "id": "paragrap-title",
+       "label": "Paragraph Title"
+      }
+      
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

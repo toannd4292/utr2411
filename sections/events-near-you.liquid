@@ -1,0 +1,574 @@
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="page-width" style="margin-top: 20px; margin-bottom: 30px;">
+    {% if section.settings.title_section != blank %}
+        <div class="title-event-location text-center">
+            <h2 class="text-uppercase section-title section-title-medium mb-0 lh-sm-90 mb-2 lh-xl-78">{{section.settings.title_section}}</h2>
+            <div class="divider-sm-teal divider-lg-teal"></div>
+        </div>
+    {% endif %}
+    <div class="tabs">
+        <div class="btn_tab">
+            <div class="tab tab_left {% unless section.settings.show_table %}active{% endunless %}">Tennis</div>
+            <div class="tab tab_right {% if section.settings.show_table %}active{% endif %}">Pickleball</div>
+        </div>
+        <div class="btn_toggle">
+            <button id="toggleEvents" class="filter-apply-btn">See More</button>
+        </div>
+    </div>
+
+    <hr style="border: none; border-top: 1px solid #CFD7E2; margin: 20px 0;">
+
+    <div class="filters">
+        <button class="filter ">Now Playing</button>
+        <button class="filter active">Upcoming</button>
+
+        <div class="dropdown-container">
+            <button class="filter dropdown-toggle" style="padding: 10px 20px;">Type ▼</button>
+            <div class="dropdown-menu" id="eventDropdown">
+                
+            {% for block in section.blocks %}
+                <label data-type="{{ block.settings.show_filter }}"><input type="checkbox" class="type-filter" value="{{ block.settings.value_filter }}"> {{ block.settings.title_filter }}</label>
+            {% endfor %} 
+                <div style="text-align: right; margin-top: 12px;">
+                    <button id="applyTypeFilters" style="padding: 6px 16px; border: none; background-color: black; color: white; border-radius: 20px; cursor: pointer;">
+                        Apply
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="events-grid compact" id="events-container"></div>
+</div>
+</div>
+
+<script>
+    let userLat = null;
+    let userLng = null;
+
+    function getUserLocation() {
+        return new Promise((resolve) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        userLat = pos.coords.latitude;
+                        userLng = pos.coords.longitude;
+                        // console.log("📍 Get location from browser:", userLat, userLng);
+                        resolve();
+                    },
+                    (error) => {
+                        console.warn("⚠️ Unable to get user location. Using default location.");
+                        userLat = 34.84555;
+                        userLng = -101.299591;
+                        resolve();
+                    },
+                    { timeout: 5000 }
+                );
+            } else {
+                console.warn("⚠️ Browser does not support location");
+                userLat = 34.84555;
+                userLng = -101.299591;
+                resolve();
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        function fetchAndDisplayEvents() {
+            const isTennis = $(".tab.active").text().trim() === "Tennis";
+            const filter = $(".filters .filter.active").text().trim();
+        
+            const today = new Date();
+            const minus30 = new Date(today);
+            minus30.setDate(minus30.getDate() - 30);
+            const plus30 = new Date(today);
+            plus30.setDate(plus30.getDate() + 30);
+        
+            function formatDate(d) {
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const dd = String(d.getDate()).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${mm}/${dd}/${yyyy}`;
+            }
+        
+            let url = "https://api.utrsports.net/v2/search/events?top=40&skip=0&utrType=verified&utrTeamType=singles"
+                + `&showTennisContent=${isTennis}`
+                + `&showPickleballContent=${!isTennis}`
+                + `&searchOrigin=searchPage`;
+        
+            if (filter === "Upcoming") {
+                url += `&range=eventSchedule.eventStartUtc%3E%3D${formatDate(today)}`;
+            } else if (filter === "Now Playing") {
+                url += `&range=eventSchedule.eventStartUtc%3E%3D${formatDate(minus30)}`
+                    + `&range=eventSchedule.eventEndUtc%3C%3D${formatDate(plus30)}`
+                    + `&sort=eventSchedule.eventStartUtc%3Adesc`
+                    + `&showInProgressEvents=true`;
+            }
+        
+            const selectedTypes = $(".type-filter:checked").filter(function () {
+                const type = $(this).closest("label").data("type");
+                return isTennis ? type === "tennis" : type === "pickleball";
+            }).map(function () {
+                return $(this).val();
+            }).get();
+        
+            // console.log("✅ eventTypes gửi đi:", selectedTypes);
+        
+            if (Array.isArray(selectedTypes) && selectedTypes.length > 0) {
+                const uniqueTypes = [...new Set(selectedTypes)];
+                for (const type of uniqueTypes) {
+                    url += `&eventTypes=${encodeURIComponent(type)}`;
+                }
+            }
+        
+            url += `&pin=${userLat},${userLng}&distance=200mi`;
+        
+            $.getJSON(url, function (data) {
+                const container = document.getElementById("events-container");
+                container.innerHTML = "";
+        
+                const events = data.hits || [];
+        
+                if (events.length === 0) {
+                    container.innerHTML = "<p>No events found.</p>";
+                    return;
+                }
+        
+                events.forEach(item => {
+                    const source = item.source;
+                    const imgUrl = source.photoImages?.banner?.oneX ?
+                        `https://prod-cdn.utrsports.net/v1/tms/events/${source.photoImages.banner.oneX}` :
+                        source.photoImages?.default ?
+                            `https://prod-cdn.utrsports.net/v1/tms/events/${source.photoImages.default}` :
+                            'https://cdn.shopify.com/s/files/1/0690/8071/1488/files/UTRSports_Primary_Horizontal_Color_Black_1.png?v=1719892327';
+        
+                    const card = document.createElement("div");
+                    card.className = "utr-card";
+                    card.innerHTML = `
+                        <a class="link_url" href="https://app.utrsports.net/events/${source.id}">
+                            <div class="utr-card-image">
+                                <img src="${imgUrl}" alt="${source.name}">
+                            </div>
+                            <div class="utr-card-body">
+                                <h3 class="utr-card-title">${source.name}</h3>
+                                <div class="utr-card-meta">
+                                    <span class="utr-card-dates">${formatEventDate(source.eventSchedule?.eventDatesShort)}</span>
+                                    <span class="utr-card-location">${source.eventLocations?.[0]?.display || "Unknown location"}</span>
+                                </div>
+                                <div class="utr-card-footer">
+                                    <p class="utr-card-players">${source.registeredCount || 0} players</p>
+                                    ${renderStatusBadge(source.eventState)}
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    container.appendChild(card);
+                });
+            }).fail(function () {
+                document.getElementById("events-container").innerHTML = "<p>Unable to load events.</p>";
+            });
+        }
+
+        function formatEventDate(dateStr) {
+            return dateStr || "TBA";
+        }
+
+        function renderStatusBadge(state) {
+            if (!state?.value) return "";
+
+            let label = state.label.toUpperCase();
+            let className = "utr-badge";
+
+            if (state.value === "complete") {
+                className += " utr-badge-gray";
+            } else if (state.value === "registration_closed") {
+                label = "Reg. Closed";
+                className += " utr-badge-blue";
+            } else if (state.value === "open_registration") {
+                label = "Register";
+                className += " utr-badge-green";
+            } else {
+                className += " utr-badge-green";
+            }
+
+            return `<p class="${className}">${label}</p>`;
+        }
+
+
+        $(".btn_tab .tab").on("click", function () {
+            $(".tab").removeClass("active");
+            $(this).addClass("active");
+            // $(".type-filter").prop("checked", false);
+            updateDropdownByTab();
+            fetchAndDisplayEvents();
+        });
+
+        $(".filters > .filter:not(.dropdown-toggle)").on("click", function () {
+            $(".filters > .filter").removeClass("active");
+            $(this).addClass("active");
+            fetchAndDisplayEvents();
+        });
+
+        $(".dropdown-toggle").on("click", function (e) {
+            e.stopPropagation();
+            $("#eventDropdown").toggle();
+        });
+
+        $(document).on("click", function (e) {
+            if (!$(e.target).closest(".dropdown-container").length) {
+                $("#eventDropdown").hide();
+            }
+        });
+
+        $("#applyTypeFilters").on("click", function () {
+            $("#eventDropdown").hide();
+            fetchAndDisplayEvents();
+        });
+
+        let didAutoCheckTennis = false;
+        let didAutoCheckPickleball = false;
+
+        function updateDropdownByTab() {
+            const isTennis = $(".tab.active").text().trim() === "Tennis";
+        
+            const needAutoCheckTennis = isTennis && !didAutoCheckTennis;
+            const needAutoCheckPickle = !isTennis && !didAutoCheckPickleball;
+        
+            $("#eventDropdown label").each(function () {
+                const type = $(this).data("type");
+                const checkbox = $(this).find("input");
+        
+                const shouldShow = isTennis ? type === "tennis" : type === "pickleball";
+        
+        
+                $(this).css("display", shouldShow ? "" : "none");
+        
+        
+                if (shouldShow) {
+                    if (needAutoCheckTennis || needAutoCheckPickle) {
+                        checkbox.prop("checked", true);
+                    }
+                }
+            });
+        
+        
+            if (isTennis) didAutoCheckTennis = true;
+            else didAutoCheckPickleball = true;
+        }
+
+        getUserLocation().then(() => {
+            updateDropdownByTab();
+            fetchAndDisplayEvents();
+        });
+
+        $('#toggleEvents').on('click', function () {
+            $('#events-container').toggleClass('compact');
+            const isExpanded = !$('#events-container').hasClass('compact');
+            $(this).text(isExpanded ? 'Collapse' : 'See More');
+        });
+    });
+</script>
+
+<style>
+    .events-near-you {
+        .title-event-location {
+            margin-bottom: 50px;
+        }
+        .tabs {
+            display: flex;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            gap: unset;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .tab {
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #e5e7eb;
+            color: #333;
+            transition: all 0.3s ease;
+            width: 152px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .tab_left {
+            border-radius: 6px 0 0 6px;
+        }
+        .tab_right {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .tab.active {
+            background-color: black;
+            color: white;
+        }
+        .btn_tab {
+            display: flex;
+            text-align: center;
+        }
+        .btn_toggle {
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            .filter-apply-btn {
+                padding: 4px 16px;
+                border: none;
+                cursor: pointer;
+                background-color: #e5e7eb;
+                color: #333;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                font-family: 'Gotham';
+            }
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .filter {
+            padding: 4px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 400;
+            cursor: pointer;
+            background-color: #e5e7eb;
+            color: #333;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-family: 'Gotham';  
+        }
+
+        .filter.active {
+            background-color: black;
+            color: white;
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 44px;
+            left: 0;
+            background-color: white;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            width: 250px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .utr-card {
+            .link_url {
+                text-decoration: none;
+                color: inherit;
+            }
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .utr-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .utr-card-image img {
+            width: 100%;
+            min-height: 147px;
+            object-fit: contain;
+            padding: 0 20px;
+        }
+
+        .utr-card-body {
+            padding: 16px;
+        }
+
+        .utr-card-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            min-height: 35px;
+        }
+
+        .utr-card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .utr-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .utr-badge {
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 8px;
+            font-weight: 600;
+            color: white;
+            text-transform: initial;
+        }
+
+        .utr-badge-gray {
+            background-color: #d1d5db;
+            color: #374151;
+        }
+
+        .utr-badge-blue {
+            background-color: #00C0f7;
+        }
+
+        .utr-badge-green {
+            background: linear-gradient(44.76deg, #00C0F7 10.72%, #01DFCB 85.04%);
+            color: #000000;
+            font-weight: bold;
+            font-family: 'Gotham-Medium';
+        }
+        #events-container.compact .utr-card:nth-child(n+5) {
+            display: none;
+        }
+    }
+    @media (max-width: 425px) {
+        .events-near-you {
+            .dropdown-menu {
+                right: -65px;
+                left: unset;
+            }
+            #events-container {
+                grid-template-columns: repeat(2, 1fr) ;
+            }
+            .utr-card-image {
+                img {
+                    min-height: 100px;
+                    padding: unset;
+                }
+            }
+            #events-container {
+                gap: 15px;
+            }
+            .utr-card {
+                .utr-card-body {
+                    padding: 0 8px;
+                    min-height: 185px;
+                    position: relative;
+                    .utr-card-title {
+                        min-height: 65px;
+                        margin: unset;
+                    }
+                    .utr-card-meta {
+                        display: block ;
+                    }
+                    .utr-card-footer {
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        .utr-badge-green {
+                            font-weight: unset;
+                        }
+                        .utr-badge {
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+            .tabs {
+                .btn_toggle {
+                    .filter-apply-btn {
+                        font-size: 11px;
+                        font-family: 'Gotham';
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Events Near You",
+  "class": "events-near-you",
+  "presets": [
+    {
+      "name": "Events Near You",
+      "category": "Events Near You"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_section",
+      "label": "Title section"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_table",
+        "label": "Show Pickleball",
+        "default": false
+      }
+  ],
+  "blocks":[
+    {
+        "type":"text",
+        "name":"Type Filter",
+        "settings":[
+            {
+                "type": "text",
+                "id": "title_filter",
+                "label": "Title Filter"
+            },
+            {
+                "type": "text",
+                "id": "value_filter",
+                "label": "Value Filter"
+            },
+            {
+                "type": "text",
+                "id": "show_filter",
+                "label": "Show Type Tennis/Pickleball",
+                "info": "Show Tennis only: use 'tennis', Show Pickleball only: use 'pickleball'"
+            }
+        ]
+    }  
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

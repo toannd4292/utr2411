@@ -1,0 +1,453 @@
+<style>
+.filter-list ul:nth-child(n + 6) {display: none;}
+.filter-list ul.showList:nth-child(n + 6) {display: list-item;}
+.filter-list2 ul li:nth-child(n + 4) {display: none;}
+.filter-list2 ul li.showList:nth-child(n + 4) {display: flex;}  
+.filter-list .more {}
+.filter-list .more.showMe {display: block;}
+.pricelist3{padding: 0;margin: 0;list-style: none;}  
+.pricelist3 li{border-bottom: 0.3px solid #C8C8C8;margin-top: -1px;padding: 1rem 1rem;display:flex;} 
+.textalignbottom{display: flex;align-items: center;justify-content: center;flex-direction: column;}
+  .textbottom-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+.textbottom-body {
+    flex: 1 1 auto;
+    min-height:98px;
+  max-width:200px;
+}
+@media(min-width:992px) and (max-width:1060px){
+  .paddright-7{padding-right:1.5rem}
+} 
+@media(min-width:1061px) and (max-width:1120px){
+  .paddright-7{padding-right:2.5rem}
+}   
+@media(min-width:1200px){  
+  .paddright-7{padding-right: 1.5rem;gap: 3rem;}
+} 
+@media(min-width:1300px){  
+  .paddright-7{padding-right:5rem;gap: 5rem;}
+}    
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="page-width text-center pb-lg-2 pb-sm-1 pb-md-1" id="Coachplans3cols">
+   <h2 class="text-uppercase section-title section-title-sm mb-0">{{section.settings.heading}}</h2>
+      {%- if section.settings.heading-permission == "YES" -%}
+      <div class="mb-lg-4"><div class="divider-sm-teal divider-lg-teal"></div></div>
+    {%- endif -%}
+</div>  
+<div class="d-lg-block d-md-none d-sm-none">
+  <div class="page-width pb-lg-5 pt-lg-1 pt-sm-1 pb-sm-2 d-none d-md-none d-sm-none">
+    <div class="grid grid--1-col grid--2-col-tablet grid--2-col-desktop">
+        <div class="grid__item">
+            <h3 class="mb-0 mt-0 fw-bold text-uppercase font-tungsten-medium font-lg-45 font-sm-24 text-sm-center text-black">{{section.settings.plantype}}</h3> 
+        </div>
+       <div class="grid__item d-sm-none">
+         <div class="d-flex justify-content-end align-items-center gap-2 text-center paddright-7">
+            <a href="{{section.settings.plan_type1-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200">{{section.settings.plan_type1}}</a>
+            <a href="{{section.settings.plan_type2-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200">{{section.settings.plan_type2}}</a>
+          </div>
+       </div>
+    </div>
+  </div>
+ <div class="page-width pt-lg-3">    
+   <div class="d-flex pb-lg-8 pt-lg-1 pt-sm-1 pb-sm-2">
+     <div class="d-sm-none d-lg-block" style="width:60%">
+       <h3 class="mb-0 mt-0 fw-bold text-uppercase font-tungsten-medium font-lg-45 font-sm-24 text-sm-center text-black">{{section.settings.plantype}}</h3>  
+     </div>
+       <div class="card-col-20 text-center d-sm-none">
+         <a href="{{section.settings.plan_type1-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200">{{section.settings.plan_type1}}</a>  
+       </div>
+       <div class="card-col-20 text-center d-sm-none">
+         <a href="{{section.settings.plan_type2-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200 me-1">{{section.settings.plan_type2}}</a>
+       </div>
+   </div>  
+<div class="bg_white shadow-xxl border-radius-lg-3 border-radius-sm-3" id="plans">
+  <div class="pricing-plan card-group d-flex filter-list position-relative">
+    <div class="d-sm-none d-lg-block" style="width:60%">
+      <div class="itemtable">
+         <div class="cardtitle d-flex align-items-center pb-4">
+            <h3 class="section-title-lg text-uppercase text-black font-tungsten mb-0 px-4">{{section.settings.title}}</h3>
+         </div> 
+      </div>
+      <div class="pricelist-body d-flex flex-column">
+        {% for block in section.blocks %}
+        <ul class="pricelist">
+          <li>{{block.settings.description}}</li>
+        </ul>
+        {% endfor %} 
+         <a href="javascript:void(0)" class="d-lg-none d-sm-block gotham-medium more text-hover-black text-teal-light font-lg-24 font-sm-14 d-flex gap-1 align-items-center px-lg-4 px-sm-1 pb-lg-2 pt-sm-2 pb-sm-2">View All Features<svg class="d-sm-none" width="6" height="25" viewBox="0 0 6 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M3 25L5.88675 20L0.113248 20L3 25ZM2.5 -2.18557e-08L2.5 20.5L3.5 20.5L3.5 2.18557e-08L2.5 -2.18557e-08Z" fill="black"></path>
+         </svg>
+      </a>  
+      </div>
+    </div>
+    <div class="card starter border-radius-lg-3 border-radius-sm-3 card-middle">
+      <div class="itemtable">
+        <div class="text-center d-block bg-gray-sm pb-sm-2">
+          <div class="cardtitle d-sm-flex justify-content-sm-between align-items-center ptrl-sm textbottom-card">
+            <div class="textbottom-body">
+              <h3 class="section-title-lg font-sm-30 text-uppercase text-teal-light font-tungsten mt-0 mb-0">{{section.settings.heading1}}</h3>
+            </div> 
+            <div class="textalignbottom">
+              <p class="text-mute pt-2 mt-1 mb-0 gotham-bold">{{section.settings.heading1-line1}}</p>
+              <p class="text-mute pt-2 mt-1 mb-0 gotham-bold">{{section.settings.heading1-line2}}</p>
+            </div>  
+          </div> 
+        </div>  
+      </div>
+      <div class="pricelist-body d-flex flex-column">
+        {% for block in section.blocks %}
+        <ul class="pricelist pricelist1 text-center">
+          <li>
+          <span class="d-lg-none">{{block.settings.description}}</span>
+          {%- if block.settings.plan-permission-free == "YES" -%}
+          <svg width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="15" fill="black"></circle>
+          <path d="M22.3983 10.2148L12.3249 20.2883L7.74609 15.7094" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          {% elsif block.settings.plan-permission-free == "NO" %}
+          <svg class="opacity-05" width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0ZM15 13.1807L11.5157 9.69643C11.2745 9.45518 10.9473 9.31964 10.6061 9.31964C10.2649 9.31964 9.93768 9.45518 9.69643 9.69643C9.45518 9.93768 9.31964 10.2649 9.31964 10.6061C9.31964 10.9473 9.45518 11.2745 9.69643 11.5157L13.1807 15L9.69643 18.4843C9.57697 18.6037 9.48221 18.7456 9.41757 18.9016C9.35292 19.0577 9.31964 19.225 9.31964 19.3939C9.31964 19.5629 9.35292 19.7301 9.41757 19.8862C9.48221 20.0423 9.57697 20.1841 9.69643 20.3036C9.81588 20.423 9.9577 20.5178 10.1138 20.5824C10.2699 20.6471 10.4371 20.6804 10.6061 20.6804C10.775 20.6804 10.9423 20.6471 11.0984 20.5824C11.2544 20.5178 11.3963 20.423 11.5157 20.3036L15 16.8193L18.4843 20.3036C18.6037 20.423 18.7456 20.5178 18.9016 20.5824C19.0577 20.6471 19.225 20.6804 19.3939 20.6804C19.5629 20.6804 19.7301 20.6471 19.8862 20.5824C20.0423 20.5178 20.1841 20.423 20.3036 20.3036C20.423 20.1841 20.5178 20.0423 20.5824 19.8862C20.6471 19.7301 20.6804 19.5629 20.6804 19.3939C20.6804 19.225 20.6471 19.0577 20.5824 18.9016C20.5178 18.7456 20.423 18.6037 20.3036 18.4843L16.8193 15L20.3036 11.5157C20.423 11.3963 20.5178 11.2544 20.5824 11.0984C20.6471 10.9423 20.6804 10.775 20.6804 10.6061C20.6804 10.4371 20.6471 10.2699 20.5824 10.1138C20.5178 9.9577 20.423 9.81588 20.3036 9.69643C20.1841 9.57697 20.0423 9.48221 19.8862 9.41757C19.7301 9.35292 19.5629 9.31964 19.3939 9.31964C19.225 9.31964 19.0577 9.35292 18.9016 9.41757C18.7456 9.48221 18.6037 9.57697 18.4843 9.69643L15 13.1807Z" fill="white"></path>
+          </svg>
+          {%- endif -%} 
+          </li>
+        </ul>
+          {% endfor %}
+      </div>
+    </div>  
+    <div class="d-lg-none d-sm-block pt-sm-3 pb-sm-3 bg-gray-sm">
+      <div class="d-flex justify-content-center align-items-center text-center">
+        <a href="#" class="btn-black justify-content-center text-uppercase font-sm-12 btn-small-sm w-sm-130">Get started</a>
+      </div>
+    </div>
+    <div class="card card-right">
+      <div class="itemtable">
+        <div class="text-center d-block bg-gray-sm pb-sm-2">
+           <div class="cardtitle d-sm-flex justify-content-sm-between align-items-center ptrl-sm textbottom-card">
+             <div class="textbottom-body">
+              <h3 class="section-title-lg font-sm-30 text-uppercase text-teal-light font-tungsten mt-0 mb-0">{{section.settings.heading2}}</h3>
+             </div>  
+               <div class="textalignbottom"> 
+                <p class="text-mute pt-2 mt-1 mb-0 gotham-bold lh-lg-20">{{section.settings.heading2-line1}}</p>
+                <p class="text-mute pt-2 mt-1 mb-0 gotham-bold lh-lg-20">{{section.settings.heading2-line2}}</p>
+               </div>  
+           </div>  
+        </div> 
+      </div>
+      <div class="pricelist-body d-flex flex-column">
+        {% for block in section.blocks %}
+        <ul class="pricelist pricelist1 text-center">
+          <li>
+          <span class="d-lg-none">{{block.settings.description}}</span>
+          {%- if block.settings.plan-permission-paid == "YES" -%}
+          <svg width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="15" fill="black"></circle>
+          <path d="M22.3983 10.2148L12.3249 20.2883L7.74609 15.7094" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          {% elsif block.settings.plan-permission-paid == "NO" %}
+          <svg class="opacity-05" width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0ZM15 13.1807L11.5157 9.69643C11.2745 9.45518 10.9473 9.31964 10.6061 9.31964C10.2649 9.31964 9.93768 9.45518 9.69643 9.69643C9.45518 9.93768 9.31964 10.2649 9.31964 10.6061C9.31964 10.9473 9.45518 11.2745 9.69643 11.5157L13.1807 15L9.69643 18.4843C9.57697 18.6037 9.48221 18.7456 9.41757 18.9016C9.35292 19.0577 9.31964 19.225 9.31964 19.3939C9.31964 19.5629 9.35292 19.7301 9.41757 19.8862C9.48221 20.0423 9.57697 20.1841 9.69643 20.3036C9.81588 20.423 9.9577 20.5178 10.1138 20.5824C10.2699 20.6471 10.4371 20.6804 10.6061 20.6804C10.775 20.6804 10.9423 20.6471 11.0984 20.5824C11.2544 20.5178 11.3963 20.423 11.5157 20.3036L15 16.8193L18.4843 20.3036C18.6037 20.423 18.7456 20.5178 18.9016 20.5824C19.0577 20.6471 19.225 20.6804 19.3939 20.6804C19.5629 20.6804 19.7301 20.6471 19.8862 20.5824C20.0423 20.5178 20.1841 20.423 20.3036 20.3036C20.423 20.1841 20.5178 20.0423 20.5824 19.8862C20.6471 19.7301 20.6804 19.5629 20.6804 19.3939C20.6804 19.225 20.6471 19.0577 20.5824 18.9016C20.5178 18.7456 20.423 18.6037 20.3036 18.4843L16.8193 15L20.3036 11.5157C20.423 11.3963 20.5178 11.2544 20.5824 11.0984C20.6471 10.9423 20.6804 10.775 20.6804 10.6061C20.6804 10.4371 20.6471 10.2699 20.5824 10.1138C20.5178 9.9577 20.423 9.81588 20.3036 9.69643C20.1841 9.57697 20.0423 9.48221 19.8862 9.41757C19.7301 9.35292 19.5629 9.31964 19.3939 9.31964C19.225 9.31964 19.0577 9.35292 18.9016 9.41757C18.7456 9.48221 18.6037 9.57697 18.4843 9.69643L15 13.1807Z" fill="black"></path>
+          </svg>
+          {%- endif -%} 
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+    <a class="gotham-medium more pointer morebutton text-hover-black text-teal-light font-lg-24 font-sm-14 d-flex gap-1 align-items-center px-lg-4 px-sm-1 pb-lg-2 pt-sm-2 pb-sm-2"><span class="morebtn to-top">View All Features</span> <svg class="d-sm-none" width="6" height="25" viewBox="0 0 6 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 25L5.88675 20L0.113248 20L3 25ZM2.5 -2.18557e-08L2.5 20.5L3.5 20.5L3.5 2.18557e-08L2.5 -2.18557e-08Z" fill="black"></path>
+      </svg>
+    </a>
+    <div class="d-lg-none d-sm-block pt-sm-3 pb-sm-3 bg-gray-sm">
+      <div class="d-flex justify-content-center align-items-center text-center">
+        <a href="#" class="btn-black justify-content-center text-uppercase font-sm-12 btn-small-sm w-sm-130">Get started</a>
+      </div>
+    </div>
+ </div>
+  <div class="pb-lg-1 pt-lg-3 pt-sm-1 pb-sm-2 data">
+    <div class="grid grid--1-col grid--2-col-tablet grid--2-col-desktop">
+        <div class="grid__item"></div>
+       <div class="grid__item d-sm-none">
+         <div class="d-flex justify-content-end align-items-center gap-2 text-center paddright-7">
+            <a href="{{section.settings.plan_type1-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200">{{section.settings.plan_type1}}</a>
+            <a href="{{section.settings.plan_type2-url}}" class="btn-black justify-content-center text-uppercase font-sm-12 font-lg-18 font-md-14 btn-small-sm min-w1-lg-160 w-sm-130 min-w-lg-200">{{section.settings.plan_type2}}</a>
+          </div>
+       </div>
+    </div>
+  </div>
+  </div>
+</div><!--./d-lg-none--> 
+<div class="d-lg-none d-md-block d-sm-block">
+ <div class="page-width">
+    <h3 class="mb-3 mt-0 fw-bold text-uppercase font-tungsten-medium font-sm-24 font-md-24 text-center text-black">{{section.settings.plantype}}</h3> 
+    <div class="grid grid--2-col grid--2-col-tablet grid--2-col-desktop p-x-2">
+      <div class="grid__item">
+        <div class="price-card-mobile text-center">
+          <h3 class="section-title-lg font-price-22 text-uppercase text-main-teal font-tungsten mt-0 mb-0">{{section.settings.heading1}}</h3>
+          <p class="text-mute font-sm-14 font-md-14 pt-2 mt-2 mb-0 gotham-bold">{{section.settings.heading1-line1}}<br>{{section.settings.heading1-line2}}</p>
+        </div>
+      </div>
+      <div class="grid__item">
+        <div class="price-card-mobile text-center">
+          <h3 class="section-title-lg font-price-22 text-uppercase text-main-teal font-tungsten mt-0 mb-0">{{section.settings.heading2}}</h3>
+          <p class="text-mute mt-2 font-sm-14 font-md-14 mb-0 gotham-bold">{{section.settings.heading2-line1}}<br>{{section.settings.heading2-line2}}</p>
+        </div>
+      </div>
+    </div><!--./grid-->
+   <div class="grid grid--1-col grid--1-col-tablet grid--1-col-desktop mt-3 mb-3">
+      <div class="grid__item">
+        <div class="price-card-bg" id="Compareplans">
+          <div class="clear-both">
+            <ul class="d-flex pricelist3" style="width:100%">
+               <li class="col-60 font-price-10 text-black gotham-bold">{{section.settings.title}}</li>
+               <li class="col-20 justify-content-center text-center font-price-10 text-black gotham-bold">{{section.settings.heading1}}</li>
+               <li class="col-20 justify-content-center text-center font-price-10 text-black gotham-bold">{{section.settings.heading2}}</li>
+            </ul>
+          <div class="clear-both filter-list2">
+        <ul class="pricelist3">
+          {% for block in section.blocks %}
+          <li class="text-black align-items-center" style="width:100%"> 
+          <div class="font-price-10 col-60 gotham-medium">{{block.settings.description}}</div>
+          <div class="col-20 text-center justify-content-center ps-1">
+            {%- if block.settings.plan-permission-free == "YES" -%}
+            <svg width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill="black"></circle>
+            <path d="M22.3983 10.2148L12.3249 20.2883L7.74609 15.7094" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            {% elsif block.settings.plan-permission-free == "NO" %}
+            <svg class="opacity-05" width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0ZM15 13.1807L11.5157 9.69643C11.2745 9.45518 10.9473 9.31964 10.6061 9.31964C10.2649 9.31964 9.93768 9.45518 9.69643 9.69643C9.45518 9.93768 9.31964 10.2649 9.31964 10.6061C9.31964 10.9473 9.45518 11.2745 9.69643 11.5157L13.1807 15L9.69643 18.4843C9.57697 18.6037 9.48221 18.7456 9.41757 18.9016C9.35292 19.0577 9.31964 19.225 9.31964 19.3939C9.31964 19.5629 9.35292 19.7301 9.41757 19.8862C9.48221 20.0423 9.57697 20.1841 9.69643 20.3036C9.81588 20.423 9.9577 20.5178 10.1138 20.5824C10.2699 20.6471 10.4371 20.6804 10.6061 20.6804C10.775 20.6804 10.9423 20.6471 11.0984 20.5824C11.2544 20.5178 11.3963 20.423 11.5157 20.3036L15 16.8193L18.4843 20.3036C18.6037 20.423 18.7456 20.5178 18.9016 20.5824C19.0577 20.6471 19.225 20.6804 19.3939 20.6804C19.5629 20.6804 19.7301 20.6471 19.8862 20.5824C20.0423 20.5178 20.1841 20.423 20.3036 20.3036C20.423 20.1841 20.5178 20.0423 20.5824 19.8862C20.6471 19.7301 20.6804 19.5629 20.6804 19.3939C20.6804 19.225 20.6471 19.0577 20.5824 18.9016C20.5178 18.7456 20.423 18.6037 20.3036 18.4843L16.8193 15L20.3036 11.5157C20.423 11.3963 20.5178 11.2544 20.5824 11.0984C20.6471 10.9423 20.6804 10.775 20.6804 10.6061C20.6804 10.4371 20.6471 10.2699 20.5824 10.1138C20.5178 9.9577 20.423 9.81588 20.3036 9.69643C20.1841 9.57697 20.0423 9.48221 19.8862 9.41757C19.7301 9.35292 19.5629 9.31964 19.3939 9.31964C19.225 9.31964 19.0577 9.35292 18.9016 9.41757C18.7456 9.48221 18.6037 9.57697 18.4843 9.69643L15 13.1807Z" fill="#C8C8C8"></path>
+            </svg>
+            {%- endif -%} 
+          </div>  
+         <div class="col-20 text-center justify-content-center ps-1-75">
+            {%- if block.settings.plan-permission-paid == "YES" -%}
+          <svg width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="15" fill="black"></circle>
+          <path d="M22.3983 10.2148L12.3249 20.2883L7.74609 15.7094" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg> 
+          {% elsif block.settings.plan-permission-paid == "NO" %}
+          <svg class="opacity-05" width="15" height="15" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0C18.9782 0 22.7936 1.58035 25.6066 4.3934C28.4196 7.20644 30 11.0218 30 15C30 18.9782 28.4196 22.7936 25.6066 25.6066C22.7936 28.4196 18.9782 30 15 30C11.0218 30 7.20644 28.4196 4.3934 25.6066C1.58035 22.7936 0 18.9782 0 15C0 11.0218 1.58035 7.20644 4.3934 4.3934C7.20644 1.58035 11.0218 0 15 0ZM15 13.1807L11.5157 9.69643C11.2745 9.45518 10.9473 9.31964 10.6061 9.31964C10.2649 9.31964 9.93768 9.45518 9.69643 9.69643C9.45518 9.93768 9.31964 10.2649 9.31964 10.6061C9.31964 10.9473 9.45518 11.2745 9.69643 11.5157L13.1807 15L9.69643 18.4843C9.57697 18.6037 9.48221 18.7456 9.41757 18.9016C9.35292 19.0577 9.31964 19.225 9.31964 19.3939C9.31964 19.5629 9.35292 19.7301 9.41757 19.8862C9.48221 20.0423 9.57697 20.1841 9.69643 20.3036C9.81588 20.423 9.9577 20.5178 10.1138 20.5824C10.2699 20.6471 10.4371 20.6804 10.6061 20.6804C10.775 20.6804 10.9423 20.6471 11.0984 20.5824C11.2544 20.5178 11.3963 20.423 11.5157 20.3036L15 16.8193L18.4843 20.3036C18.6037 20.423 18.7456 20.5178 18.9016 20.5824C19.0577 20.6471 19.225 20.6804 19.3939 20.6804C19.5629 20.6804 19.7301 20.6471 19.8862 20.5824C20.0423 20.5178 20.1841 20.423 20.3036 20.3036C20.423 20.1841 20.5178 20.0423 20.5824 19.8862C20.6471 19.7301 20.6804 19.5629 20.6804 19.3939C20.6804 19.225 20.6471 19.0577 20.5824 18.9016C20.5178 18.7456 20.423 18.6037 20.3036 18.4843L16.8193 15L20.3036 11.5157C20.423 11.3963 20.5178 11.2544 20.5824 11.0984C20.6471 10.9423 20.6804 10.775 20.6804 10.6061C20.6804 10.4371 20.6471 10.2699 20.5824 10.1138C20.5178 9.9577 20.423 9.81588 20.3036 9.69643C20.1841 9.57697 20.0423 9.48221 19.8862 9.41757C19.7301 9.35292 19.5629 9.31964 19.3939 9.31964C19.225 9.31964 19.0577 9.35292 18.9016 9.41757C18.7456 9.48221 18.6037 9.57697 18.4843 9.69643L15 13.1807Z" fill="black"></path>
+          </svg>
+          {%- endif -%} 
+         </div>
+          </li>
+        {% endfor %} 
+        </ul>
+   <a class="gotham-medium more2 pointer text-hover-black text-teal-light font-price-10 d-flex gap-1 align-items-center px-lg-4 px-sm-1 pb-lg-2 pt-sm-2 pb-sm-2"><span class="morebtn2">View All Features</span> <svg width="6" height="25" viewBox="0 0 6 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 25L5.88675 20L0.113248 20L3 25ZM2.5 -2.18557e-08L2.5 20.5L3.5 20.5L3.5 2.18557e-08L2.5 -2.18557e-08Z" fill="black"></path>
+      </svg>
+    </a>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+  <div class="d-flex justify-content-end align-items-center gap-2 text-center mb-2">
+            <a href="{{section.settings.plan_type1-url}}" class="btn-black justify-content-center text-uppercase font-price-10 btn-small-sm w-sm-130 ">{{section.settings.plan_type1}}</a>
+            <a href="{{section.settings.plan_type2-url}}" class="btn-black justify-content-center text-uppercase font-price-10 btn-small-sm w-sm-130">{{section.settings.plan_type2}}</a>
+          </div> 
+</div>
+</div>  
+{% schema %}
+  {
+    "name": "Comparison plan",
+     "presets": [
+      {
+        "name": "Comparison plan",
+        "category": "Comparison plan"
+      }
+    ],
+    "settings": [
+        {
+      "type":"text",
+      "id":"heading",
+      "label": "Main Heading"
+      },
+       {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        },
+       {
+      "type":"text",
+      "id":"plantype",
+      "label": "Plan Type"
+      },
+        {
+      "type":"text",
+      "id":"plan_type1",
+      "label": "Plan Name"
+      },
+        {
+      "type": "url",
+      "id": "plan_type1-url",
+      "label": "Button Link"
+    },
+        {
+      "type":"text",
+      "id":"plan_type2",
+      "label": "Plan Name"
+      },
+        {
+      "type": "url",
+      "id": "plan_type2-url",
+      "label": "Button Link"
+    },
+    {
+      "type":"text",
+      "id":"title",
+      "label": "Title"
+      },
+        {
+      "type":"text",
+      "id":"heading1",
+      "label": "Heading-1"
+      },
+       {
+      "type":"text",
+      "id":"heading1-line1",
+      "label": "Heading-1 Line-1"
+      },
+      {
+      "type":"text",
+      "id":"heading1-line2",
+      "label": "Heading-1 Line-2"
+      },
+       {
+      "type":"text",
+      "id":"heading2",
+      "label": "Heading-2"
+      },
+     {
+      "type":"text",
+      "id":"heading2-line1",
+      "label": "Heading-2 Line-1"
+      },
+      {
+      "type":"text",
+      "id":"heading2-line2",
+      "label": "Heading-2 Line-2"
+      }
+    ],
+     "blocks":[
+    {
+    "type":"home-card",
+    "name":"Comparison Plan Block",
+    "settings":[
+        {
+      "type":"text",
+      "id":"description",
+      "label": "Description"
+    },
+        {
+            "type": "radio",
+            "id": "plan-permission-free",
+            "label": "Plan Permisson For Free",
+            "default": "NO",
+            "options": [
+                {
+                    "value": "NO",
+                    "label": "NO"
+                },
+                {
+                    "value": "YES",
+                    "label": "YES"
+                }
+            ]
+        },
+        {
+            "type": "radio",
+            "id": "plan-permission-paid",
+            "label": "Plan Permisson For Paid",
+            "default": "YES",
+            "options": [
+                {
+                    "value": "NO",
+                    "label": "NO"
+                },
+                {
+                    "value": "YES",
+                    "label": "YES"
+                }
+            ]
+        }
+    ]
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script src="{{ 'jquery.matchHeight-min.js' | asset_url }}" defer="defer"></script>
+<script>
+  $(function() {
+  $('.itemtable').matchHeight();
+});
+$(".filter-list").each(function () {
+  var liCount = $(this).children("ul").length;
+  if (liCount > 5) {
+    $(this).next(".more").addClass("showMe");
+  }
+});
+$(".more").click(function () {
+  $(this).prev(".filter-list").find("ul").toggleClass("showList");
+  $(".more svg").toggleClass("rotate-180");
+  //$(this).text(this.innerHTML.includes("more") ? "See more..." : "See less...");
+   var lable = $(".morebtn").text().trim();
+   if(lable == "View Less") {
+     $(".morebtn").text("View All Features");
+     $(".myText").hide();
+   }
+   else {
+     $(".morebtn").text("View Less");
+     $(".myText").show();
+   }
+  });
+$(".filter-list2 ul").each(function () {
+  var liCount = $(this).children("li").length;
+  if (liCount > 3) {
+    $(this).next(".more2").addClass("showMe");
+  }
+});
+
+$(".more2").click(function () {
+   $(".more2 svg").toggleClass("rotate-180")
+  $(this).prev("ul").find("li").toggleClass("showList");
+   var lable = $(".morebtn2").text().trim();
+   if(lable == "View Less") {
+     $(".morebtn2").text("View All Features");
+     $(".myText").hide();
+   }
+   else {
+     $(".morebtn2").text("View Less");
+     $(".myText").show();
+   }
+  });
+  $('.data').hide()
+  jQuery('.morebutton').on('click',function(){
+    jQuery('.data').toggle();
+  })
+</script>

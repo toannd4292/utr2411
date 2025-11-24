@@ -1,0 +1,97 @@
+.accordion summary {
+  display: flex;
+  position: relative;
+  line-height: 1;
+  padding: 2rem 0;
+}
+
+.accordion .summary__title {
+  display: flex;
+  flex: 1;
+}
+
+.accordion .summary__title + .icon-caret {
+  height: calc(var(--font-heading-scale) * 0.6rem);
+}
+
+.accordion + .accordion {
+  margin-top: 0;
+  border-top: none;
+}
+
+.accordion {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  border-bottom:.5px solid rgb(0 192 247 / 39%);
+  
+  /*border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08); */
+}
+
+.accordion__title {
+  display: inline-block;
+  max-width: calc(100% - 6rem);
+  min-height: 1.6rem;
+  margin: 0;
+  word-break: break-word;
+  letter-spacing: -1.2px;
+  font-weight:600;
+   /* font-family: "Tungsten-Medium"; */
+/*   font-family:var(--font-Tungsten); */
+}
+
+.accordion .icon-accordion {
+  align-self: center;
+  fill: rgb(var(--color-foreground));
+  height: calc(var(--font-heading-scale) * 2rem);
+  margin-right: calc(var(--font-heading-scale) * 1rem);
+  width: calc(var(--font-heading-scale) * 2rem);
+}
+
+.accordion details[open] > summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+  overflow-x: auto;
+  padding: 0 2rem 0 0rem;
+  color:var(--color-black);
+  font-weight: 600;
+/*   font-family:var( --font-gotham-medium) */
+}
+
+.accordion__content img {
+  max-width: 100%;
+}
+.accordion details[open]>summary .accordion__title {
+    color:var(--color-teal-light);
+}
+.accordion details[open]>summary .icon-caret {
+    transform: rotate(180deg);
+    color:var(--color-teal-light);
+}
+@media (max-width: 749px) {
+   .accordion__title {
+      font-size: 24px;
+  }
+  .accordion__content p{
+    line-height: 24px;
+  }
+  .accordion__content{
+    font-size:15px;
+    padding-right:0px;
+  }
+}
+ 
+@media (min-width: 750px) {
+   .accordion__title {
+      font-size: 34px;
+  }
+  summary .icon-caret {
+    height: 1rem;
+    transition: all .5s ease;
+ }
+}
+ 

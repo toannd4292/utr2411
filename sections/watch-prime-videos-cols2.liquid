@@ -1,0 +1,112 @@
+<div id="WatchLive">
+  <div class="page-width text-center">
+    <div class="mb-4 mb-sm-0">
+       <h2 class="text-uppercase text-black font-tungsten font-lg-55 font-sm-38 mb-0 lh-sm-37 mb-sm-1">{{section.settings.heading}}</h2>
+        {%- if section.settings.heading-permission == "YES" -%}
+        <div class="divider-sm-teal divider-lg-teal"></div>
+      {%- endif -%}
+    </div>  
+</div>
+
+<div class="page-width pb-lg-5 pt-lg-5 pt-sm-4 pb-sm-4">
+  <div class="resources-carousel owl-carousel">
+    {% for block in section.blocks %}
+      <div class="resources-players">
+        <div class="position-relative img-bottom-shadow">
+             <img class="border-radius-lg-3 border-radius-sm-3 img-fluid" src="{{block.settings.block-image |  img_url:'large'}}" />
+              <div class="position-absolute start-top end-right watch-sm-center">
+                  <div class="d-flex justify-content-lg-end justify-content-center align-items-sm-center align-items-center mb-3 position-relative z-index-1 p-lg-3 p-sm-1">
+                      <a href="{{block.settings.section-button-url}}" class="video-btn popup-youtube Watch Prime Videos Cols2 text-uppercase gap-2 font-tungsten position-relative"><img src="https://cdn.shopify.com/s/files/1/0690/8071/1488/files/playbtn.svg?v=1671442348">{{block.settings.section-button}}</a> 
+                  </div>
+              </div>  
+              <div class="end-0 position-absolute">
+                 <div class="position-relative z-index-1 p-lg-3 p-sm-1">
+                    <p class="text-white mb-0 font-sm-14 font-lg-16 text-sm-wrap text-md-wrap gotham-medium">{{block.settings.description}}</p>
+                    <p class="text-white mt-05 mb-0 font-lg-16 font-sm-12">{{block.settings.location}} <span class="ps-1 pe-1">|</span>Round {{block.settings.roundnum}}</p>
+                </div>
+              </div>  
+            </div>  
+         </div>
+       {% endfor %}
+   </div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "Watch Prime Videos Cols2",
+    "presets": [
+      {
+        "name": "Watch Prime Videos Cols2",
+        "category": "Watch Prime Videos Cols2"
+      }
+    ],
+    "settings": [
+      {
+			"type":"text",
+			"id":"heading",
+			"label": "Heading Title"
+		},
+       {
+            "type": "radio",
+            "id": "heading-permission",
+            "label": "Do You Want Underline Below Heading?",
+          "default": "NO",
+            "options": [
+        {
+            "value": "NO",
+            "label": "NO"
+        },
+        {
+            "value": "YES",
+            "label": "YES"
+        }
+            ]
+        }
+    ],
+    "blocks":[
+	  {
+		"type":"home-card",
+		"name":"block-image",
+		"settings":[
+           {
+  		      "type": "image_picker",
+         	  "id": "block-image",
+         	  "label": "Card Image"
+  		   },
+  		  {
+           "type": "text",
+           "id": "description",
+           "label": "Description"
+          },
+           {
+           "type": "text",
+           "id": "location",
+           "label": "Location"
+          },
+           {
+           "type": "text",
+           "id": "roundnum",
+           "label": "Round Number"
+          },
+          {
+   			"type": "text",
+   			"id": "section-button",
+   			"label": "Button Title"
+   		   },
+    		{
+    			"type": "url",
+     			"id": "section-button-url",
+     			"label": "Button Link"
+    		}
+		]
+	  }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+<script src="{{ 'jquery.magnific-popup.min.js' | asset_url }}"></script>

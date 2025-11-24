@@ -1,0 +1,569 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "172433873483bf6879": {
+      "type": "apps",
+      "blocks": {
+        "ph_breadcrumbs_app_block_mW4fWW": {
+          "type": "shopify://apps/ph-breadcrumbs/blocks/app-block/457dc635-4337-4779-8f31-361dd27778c8",
+          "settings": {
+            "show_breadcrumbs": true,
+            "color": "#000000",
+            "horizontal_alignment": "left",
+            "fontsize": 14,
+            "breadcrumb_font": "mono",
+            "marginleft": 0,
+            "margintop": 0,
+            "marginright": 0,
+            "marginbottom": 0,
+            "show_home_link": true,
+            "show_last_crumb": true,
+            "home_page": "Home",
+            "home_url": "/",
+            "all_uppercase": true,
+            "use_slider": false,
+            "article_use_tag": true,
+            "separator": "<span> › </span>",
+            "css_tablet": "/* font-family: Helvetica; */",
+            "css_mobile": "/* font-family: Helvetica; */",
+            "custom_css": "/* font-family: Helvetica; */",
+            "css_last_crumb": "/* font-weight: medium; */",
+            "css_hover": "/* text-decoration-line: underline; */",
+            "menus": "*"
+          }
+        }
+      },
+      "block_order": [
+        "ph_breadcrumbs_app_block_mW4fWW"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "b019a020-e6b3-41e7-bae6-b72c641a2510": {
+      "type": "inner-page-image-banner",
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-doubles-app-tour-app-leagues-photo-2560x1400-top-fold-marketing.jpg",
+        "image_mobile": "shopify://shop_images/mobile-pickleball-doubles-app-tour-app-leagues-photo-1600x1100-top-fold-marketing.jpg",
+        "image_height": "medium",
+        "tagline": "APP | UTR sports",
+        "small-title-size": "p",
+        "heading": "Pickleball Leagues",
+        "enable_tm": false,
+        "heading-size": "large",
+        "subheading": "Coming in 2024!",
+        "sub-heading-size": "medium",
+        "description": "Launching in early 2024, APP | UTR Sports Pickleball Leagues will offer athletes of all ages and abilities the opportunity to form teams and compete head-to-head in their local communities for the opportunity to be crowned National Champions. Divisions are expected to include competition for men’s, women’s and mixed teams among various age divisions and skill levels.",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button-second": "",
+        "section-button-url-second": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "4273517d-50e8-4841-97a5-d3779fc2a306": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_ldb\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768": {
+      "type": "ut-card-with-two-column-img",
+      "blocks": {
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/pickleball-man-red-shirt-waiting-forehand-paddle-571x520.jpg",
+            "heading": "HAVE A TENNIS UTR RATING?",
+            "description": "Get UTR-P Rated within minutes!",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/login?next=%2Fpickleball-survey%3Freturn%3D%2Fhome",
+            "button-permission-hover": "NO"
+          }
+        },
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/woman-forehand-skechers-hat-571x520-pickleball.jpg",
+            "heading": "NEW TO UNIVERSAL TENNIS?",
+            "description": "If you don't already have an account with Universal Tennis, click below to get your UTR-P Rating.",
+            "section-button": "GET UTR-P RATED",
+            "section-button-url": "https://app.universaltennis.com/join/pickleball",
+            "button-permission-hover": "NO"
+          }
+        }
+      },
+      "block_order": [
+        "ad5ed27c-5b04-468b-8f4c-94acf4cc55d9",
+        "0a648e24-9f22-40a3-9411-02cf598e4c2e"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "f8480aa7-9539-425e-abe1-4f417044800c": {
+      "type": "content-with-list-image-right",
+      "settings": {
+        "section-image": "shopify://shop_images/APP_League_Logo_Website_Shopify_Image_570x440_ade524b4-6189-4894-b6e9-794472cfd723.png",
+        "heading": "What to know",
+        "heading-size": "h2",
+        "subheading": "about the Leagues",
+        "sub-heading-size": "h2",
+        "list": "Players of all ages and abilities can form teams to join APP Leagues powered by UTR Sports.",
+        "list2": "Teams will compete at the local, state, regional, and national level to be crowned national champions.",
+        "list3": "Each team will be comprised of a minimum of 8 - 16 players, organized by an elected team captain.",
+        "list4": "Each league will feature men’s, women’s, and mixed teams, among different age divisions and skill levels.",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "bb619d90-522b-489a-947c-9a558670c712": {
+      "type": "section-spacing",
+      "settings": {}
+    },
+    "d29aa01c-0302-4904-964a-0a6386867d3d": {
+      "type": "content-right-image-left",
+      "settings": {
+        "section-image": "shopify://shop_images/girls-high-five-pickleball-naborforce-1140x880.jpg",
+        "smalltitle": "APP | UTR Sports Pickleball Leagues",
+        "small-title-size": "p",
+        "heading": "building toward",
+        "heading-size": "h2",
+        "subheading": "the National Championships",
+        "sub-heading-size": "h2",
+        "description": "The 2024 season will culminate in the APP Leagues National Championships. Additional info, including how to register, how to become a Team Captain or District Coordinator, scheduling, rules and regulations, and more will be announced soon. Registration opened Nov. 15, 2023, and closes Jan. 8, 2024.",
+        "section-button": "",
+        "section-button-url": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex2\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637": {
+      "type": "content-left-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickle1.png",
+        "heading": "Pickleball Flex Leagues",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "description": "Pickleball Flex Leagues are live in 30+ cities across the U.S.! Doubles and singles leagues run five weeks long and are open to all adults. Choose when and where you play around your schedule.",
+        "id_section-button": "",
+        "section-button": "FIND A LEAGUE NEAR YOU",
+        "section-button-url": "shopify://pages/pickleball-flex-leagues",
+        "id_section-button_2": "",
+        "section-button_2": "",
+        "section-button-url_2": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "2f2c747e-9225-4105-86f3-c11fd058495d": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1": {
+      "type": "content-with-list-image-right",
+      "disabled": true,
+      "settings": {
+        "section-image": "shopify://shop_images/pickleball-flex-league-570x440.jpg",
+        "heading": "PICKLEBALL FLEX LEAGUES",
+        "heading-size": "h2",
+        "subheading": "For Everyone",
+        "sub-heading-size": "h2",
+        "list": "4 matches over 5 weeks",
+        "list2": "Compete for prizes",
+        "list3": "Qualify for the playoffsMatches at your level on your time",
+        "list4": "",
+        "section-button": "",
+        "section-button-url": "",
+        "country_code": "",
+        "hide_country_code": ""
+      }
+    },
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7": {
+      "type": "resources-for-players",
+      "blocks": {
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/YouTube-video-thumbnail-app-nyc-us-open.jpg",
+            "description": "Pickleball Takes Over US Open",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=mpnv5A_CZW8"
+          }
+        },
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a": {
+          "type": "home-card",
+          "settings": {
+            "block-image": "shopify://shop_images/UT-Web-thumbnail-sam-querrey-pickleball-interview-youtube-video.jpg",
+            "description": "Nadal, Federer? Sam Querrey's Dream Doubles Partner",
+            "permission": "Video",
+            "section-button": "WATCH NOW",
+            "section-button-url": "https://www.youtube.com/watch?v=vXKEkYOgU40"
+          }
+        }
+      },
+      "block_order": [
+        "85e919b5-1688-406c-92e1-4b6adc04dbdd",
+        "407c92f0-af8a-4ef7-b28f-7c0125dab75a"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "IS EVERYONE PLAYING PICKLEBALL?",
+        "heading-size": "h2",
+        "heading-permission": "YES"
+      }
+    },
+    "cf47488f-4071-444b-aaa2-795b967e3793": {
+      "type": "ul-video-button-banner",
+      "disabled": true,
+      "settings": {
+        "section-image-first": "shopify://shop_images/UT-Pickleball-Web_Thumb_V2.jpg",
+        "heading": "PICKLEBALL IS EVERYWHERE",
+        "heading-size": "h2",
+        "heading-permission": "YES",
+        "section-image": "shopify://shop_images/Pickleball_player_cut_out-new.png",
+        "section-video-button": "WATCH THE VIDEO",
+        "section-button-url": "https://www.youtube.com/watch?v=21AlbfyORS8"
+      }
+    },
+    "4f64985c-c3d2-4991-a2d0-1bffb7264fc7": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What leagues seasons are planned for 2024?",
+            "icon": "clipboard",
+            "row_content": "<p>Winter/Spring Season: January 29 - May 20, 2024; Summer Season: June 10 - August 5, 2024.</p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What league seasons are planned for 2025?",
+            "icon": "clipboard",
+            "row_content": "<p>Winter/Spring Season: January - May 2025; Summer Season: June to August 2025; Fall Season: October - December 2025</p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What types of leagues are available?",
+            "icon": "question_mark",
+            "row_content": "<p>Three leagues to choose from:</p><ul><li>Women's</li><li>Men's</li><li>Mixed each week 3 females and 3 male players will form a mixed team to compete against the opposing teams mixed team</li></ul><p>Coed teams are not offered at this time. </p>",
+            "page": ""
+          }
+        },
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What age divisions are available?",
+            "icon": "silhouette",
+            "row_content": "<p>Players' age at the end of the year (12/31/2024), will be used to determine their age eligible to participate during the year of the league season.<br/>‍<br/>Three age divisions will be available for each skill level:<br/>• 39 and below - player can not be older than age 39 by December 31, 2024<br/>• 40-59 - player must be age 40 by December 31, 2024 but not older than age 59 by December 31, 2024<br/>• 60 and above - player must be age 60 or older by December 31, 2024</p><p>Anyone can play. No minimum age level.</p>",
+            "page": ""
+          }
+        },
+        "40fef88f-b777-418e-9da9-f02782bd6cff": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What skill levels correspond to each division?",
+            "icon": "ruler",
+            "row_content": "<p>The following skill levels allow a pathway to success for an individual player to grow their game with a group of players.<br/>• Players transitioning between 3.0 and 3.5 have two leagues to participate.<br/>• Players transitioning between 3.5 and 4.0 have two leagues to participate.<br/>• Social/Intermediate (3.0/3.5)<br/>Intermediate (3.5/4.0)<br/>• Advanced (4.0 and above)</p>",
+            "page": ""
+          }
+        },
+        "34781fc3-6155-4305-ab23-f1fdac415304": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How many players can be on a team?",
+            "icon": "shirt",
+            "row_content": "<p>Each team will require six players to compete each week with a minimum of eight players per team and maximum of 16 to complete the roster. Each team will be comprised of a minimum of eight and maximum of 16 players.<br/><br/>Each team will elect a team captain, who will be responsible for organizing their team roster, securing their team’s venue for home matches, and coordinating with the District Coordinator on scheduling.</p>",
+            "page": ""
+          }
+        },
+        "797a3592-e5db-44f2-b921-6b130fa409a2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What rating will I use?",
+            "icon": "question_mark",
+            "row_content": "<p>The APP | UTR Sports Pickleball Leagues will use the UTR Pickleball Rating (UTR-P).<br/><br/>If you have participated in a previous APP Tour event, then a UTR-P rating has been determined based on your tournament results and you will verify it during the registration process.<br/>‍<br/>If you have not participated in a previous APP Tour event, then you will select a starter rating for the league. This rating will start with a “P” designation to represent a “Preliminary” rating. Once 4-6 matches have been recorded, you will receive a UTR-P rating.<br/>‍<br/>Your rating at the time of registration will be reviewed to ensure you are eligible to participate in the specified division.</p>",
+            "page": ""
+          }
+        },
+        "9e1af1d7-474d-4d2e-ac8a-de761368e72a": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will APP/UTR handle sandbagging within the league?",
+            "icon": "question_mark",
+            "row_content": "<p>The UTR-P uses a 10-point rating system.<br/><br/>A player’s rating will be updated after each match played.  <br/>‍<br/>The captain will have access to the team’s roster, each player's UTR-P rating and the team’s average UTR-P rating.  The UTR Sports software will assist the captain in maintaining the roster average for their team's division.<br/><br/>Social/Intermediate (3.0/3.5) - Roster Average can not exceed 3.4<br/>Intermediate (3.5/4.0) - Roster Average can not exceed 4.4<br/>Advanced (4.0+) - Roster Average can not exceed 5.4<br/>‍<br/>The UTR Sports software has tools to assist the captain in maintaining a healthy roster average for the team.</p>",
+            "page": ""
+          }
+        },
+        "cff7fd17-4a21-4496-a82c-5186e041d539": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where do I play?",
+            "icon": "map_pin",
+            "row_content": "<p>Each team will secure a home venue of their choosing for their matches. These can include park districts, country clubs, indoor tennis clubs, private courts, or any other local area approved by APP | UTR Sports Pickleball Leagues District Coordinators.</p>",
+            "page": ""
+          }
+        },
+        "244ed7c7-74b0-4474-866a-f85df72c5cdf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often will my team play?",
+            "icon": "stopwatch",
+            "row_content": "<p>This will vary depending on the number of teams participating in your skill bracket type (type, age, skill level).  </p><p>Ideally, eight teams would participate in each bracket type.<br/>‍<br/>There are typically 10 to 14 matches per season, including city and state championship playoffs.<br/>‍<br/>Winning team(s) have the opportunity to advance through regionals to nationals.</p>",
+            "page": ""
+          }
+        },
+        "e24a7725-42df-4e74-830a-ad7d77133e60": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long are matches?",
+            "icon": "stopwatch",
+            "row_content": "<p>Each matchup between teams has a two-hour time limit to complete their matches for the day.  </p>",
+            "page": ""
+          }
+        },
+        "c7863bea-bd0f-4534-89ce-942c5a220ed7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the weekly match format?",
+            "icon": "question_mark",
+            "row_content": "<p>Each team captain will provide six players each week to participate forming three doubles teams. Prior to the match, each team captain will exchange the team line-up for the scoresheet. Once submitted, it cannot be changed.  <br/><br/>Team captains or designated team members are required to stay on-site for the duration of the match.<br/>‍<br/>Each doubles team will play two games against each of the opponents teams.</p><p>Games are played 1 to 11 win by 2. Visiting team will choose to serve, side, or receive at the beginning of each new opponent. Teams will switch sides after the first game against the new opponent.</p><p>Team captain or designated team member of the home team will record the scores AFTER each game.  The visiting team captain should review for accuracy.League points are awarded per game played as follows: 2 points to the team winning the game, 1 point if the losing team scored 6 or more points in the game, 0 points if the losing team scored 5 or less points in the game.<br/><br/>Maximum of 36 points could be earned by any team per match.Win for the match goes to the team with the most league points earned for the day. If a tie, then the total points earned for each team will be calculated to determine the winner. </p>",
+            "page": ""
+          }
+        },
+        "6802ed0a-0f49-4e5c-9654-c7f65c76ba89": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How much will each league season cost?",
+            "icon": "price_tag",
+            "row_content": "<p>TBD</p>",
+            "page": ""
+          }
+        },
+        "01cc5e0a-7dd8-4fe9-982d-76dcc4aa4969": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is this open to the entire world?",
+            "icon": "map_pin",
+            "row_content": "<p>While the APP supports pickleball globally, right now teams will compete across the United States with the opportunity for international countries to participate in the future. Within each region, teams are organized within cities and counties in their corresponding states. As pickleball leagues grow, the regional boundaries will change to develop more local competition.</p>",
+            "page": ""
+          }
+        },
+        "dfe8a230-de6d-40c9-a5d6-d2159b8f4a96": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How are the regions defined?",
+            "icon": "map_pin",
+            "row_content": "<p>To be determined based on league registrations for the 2024 year and projected growth patterns for 2025.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-0",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-1",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-2",
+        "template--17374906057024__4f64985c-c3d2-4991-a2d0-1bffb7264fc7-16722937237e1dea82-3",
+        "40fef88f-b777-418e-9da9-f02782bd6cff",
+        "34781fc3-6155-4305-ab23-f1fdac415304",
+        "797a3592-e5db-44f2-b921-6b130fa409a2",
+        "9e1af1d7-474d-4d2e-ac8a-de761368e72a",
+        "cff7fd17-4a21-4496-a82c-5186e041d539",
+        "244ed7c7-74b0-4474-866a-f85df72c5cdf",
+        "e24a7725-42df-4e74-830a-ad7d77133e60",
+        "c7863bea-bd0f-4534-89ce-942c5a220ed7",
+        "6802ed0a-0f49-4e5c-9654-c7f65c76ba89",
+        "01cc5e0a-7dd8-4fe9-982d-76dcc4aa4969",
+        "dfe8a230-de6d-40c9-a5d6-d2159b8f4a96"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "FAQs about APP | UTR Sports Pickleball Leagues",
+        "heading-size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "5a6f592a-a2ff-4ea1-919a-bd28e92fc4e0": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"display: flex; align-items: center; justify-content: center; margin: 10px auto; background-color: #F3FCFF; text-align: center; width: 100%; min-height: 90px;\">\n<div id=\"snack_dex3\"></div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0bf8e874-4241-4ab6-b5eb-93fa145c81c3": {
+      "type": "testimonials",
+      "blocks": {
+        "79544b53-d80e-4548-9c19-04eff5d393d5": {
+          "type": "home-card",
+          "settings": {
+            "description": "“APP | UTR Sports Pickleball Leagues will be an unprecedented pickleball competition that builds on our commitment to making pickleball an inclusive sport for all. We know, through our research, that finding opponents is a primary need for pickleball players, and league play directly addresses that point. It can be intimidating to play in a tournament for the first time, but team-based play creates an approachable entry to the world of organized play, enabling recreational players nationwide to start competing at their local courts.”",
+            "image": "shopify://shop_images/APP_Ken_400x400-shopify-marketing-testimonial-circle-quote.png",
+            "author": "Ken Hermann",
+            "author-designation": "Founder of the Association of Pickleball Professionals"
+          }
+        },
+        "a860d31d-b8f4-4410-9331-9e8c4a9c75d8": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "Our first UTR Sports Pickleball event was a total success. It brought a level of competition to our members that I hadn't seen before since every point and set counted towards their rating. We are all looking forward to more of that.",
+            "image": "shopify://shop_images/norbeck-country-club-400x400-testimonial-v2.png",
+            "author": "Carlos Nunez",
+            "author-designation": "Norbeck Country Club"
+          }
+        },
+        "a155b875-feb8-45bf-8ac3-9135be4b0816": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "UTR Sports has created the gold standard in tennis, and all the technology and solutions are perfectly transferable to pickleball.",
+            "image": "shopify://shop_images/ken-solomon-jpg.jpg",
+            "author": "Ken Solomon",
+            "author-designation": "President, Tennis Channel"
+          }
+        },
+        "e7e85bc7-9eb2-47ae-9cbc-ee8e90f1b139": {
+          "type": "home-card",
+          "disabled": true,
+          "settings": {
+            "description": "We are thrilled UTR Sports is moving its technology and expertise into pickleball to support and enhance the experience for everyone.",
+            "image": "shopify://shop_images/sean-bollettieri-abdali-pickleball-testimonial-new-400x400jp.jpg",
+            "author": "Sean Bollettieri Abdali",
+            "author-designation": "President & Founder of The Tennis & Pickleball Club at Newport Beach"
+          }
+        }
+      },
+      "block_order": [
+        "79544b53-d80e-4548-9c19-04eff5d393d5",
+        "a860d31d-b8f4-4410-9331-9e8c4a9c75d8",
+        "a155b875-feb8-45bf-8ac3-9135be4b0816",
+        "e7e85bc7-9eb2-47ae-9cbc-ee8e90f1b139"
+      ],
+      "settings": {
+        "heading": "Hear from the app's founder",
+        "sub-heading": ""
+      }
+    },
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f": {
+      "type": "section-spacing",
+      "disabled": true,
+      "settings": {}
+    },
+    "e4c5e721-a290-4509-be92-55acff9c63fe": {
+      "type": "join-3easy-steps",
+      "blocks": {
+        "a4c3bd96-c7ae-4a99-b1e4-405e1bf74d72": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Download the app</p>"
+          }
+        },
+        "89e5a3a0-1818-479a-adbd-5ee011121510": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create profile, get rated for free</p>"
+          }
+        },
+        "eee76819-03ed-4a8e-a789-e034a97daf8a": {
+          "type": "text",
+          "settings": {
+            "block-list-items": "<p>Create groups, find play</p>"
+          }
+        }
+      },
+      "block_order": [
+        "a4c3bd96-c7ae-4a99-b1e4-405e1bf74d72",
+        "89e5a3a0-1818-479a-adbd-5ee011121510",
+        "eee76819-03ed-4a8e-a789-e034a97daf8a"
+      ],
+      "settings": {
+        "heading": "Join UTR Sports in 3 easy steps",
+        "heading-size": "h2",
+        "sub-heading": "",
+        "sub-heading-size": "h2",
+        "sub-title": "Now available globally!",
+        "section-heading": "Download the app today!",
+        "paragrap-title": "It’s easier than ever to enjoy more tennis and pickleball and connect with players near you on the UTR Sports app.",
+        "section-image": "shopify://shop_images/utr-sports-mobile-app-ios-two-screenshots-564x773.png",
+        "section-button": "Get started",
+        "section-button-url": "shopify://pages/mobile-app",
+        "app-store-image": "shopify://shop_images/app-store-white_ac2b33cc-b4e2-4a11-b050-41f60bf3aa78.png",
+        "app-button-url": "https://apps.apple.com/us/app/universal-tennis/id1519232627"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "172433873483bf6879",
+    "b019a020-e6b3-41e7-bae6-b72c641a2510",
+    "4273517d-50e8-4841-97a5-d3779fc2a306",
+    "b134d41b-1fcf-4aa9-97f5-913697ac8768",
+    "f8480aa7-9539-425e-abe1-4f417044800c",
+    "bb619d90-522b-489a-947c-9a558670c712",
+    "d29aa01c-0302-4904-964a-0a6386867d3d",
+    "948fc5f5-0f81-41df-9b5b-eac316d1f588",
+    "55b5064c-ab2b-40ef-a49d-0fddfe43a637",
+    "2f2c747e-9225-4105-86f3-c11fd058495d",
+    "5a94a2e2-a44e-4166-bad4-6ffb570f59f1",
+    "e52a2fdf-e734-444f-8fb4-288c63c95be7",
+    "cf47488f-4071-444b-aaa2-795b967e3793",
+    "4f64985c-c3d2-4991-a2d0-1bffb7264fc7",
+    "5a6f592a-a2ff-4ea1-919a-bd28e92fc4e0",
+    "0bf8e874-4241-4ab6-b5eb-93fa145c81c3",
+    "62d8f13c-863b-46a1-8ea5-c6c810354c9f",
+    "e4c5e721-a290-4509-be92-55acff9c63fe"
+  ]
+}

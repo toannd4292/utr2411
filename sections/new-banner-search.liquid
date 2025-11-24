@@ -1,0 +1,932 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+  /* start fix style Zago */
+  @media only screen and (max-width: 430px) {
+    
+  }
+  /* end */
+  .banner {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  .banner__content {
+    padding: 0;
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .banner::after,
+  .banner__media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    background: #000000;
+    opacity: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .custom-banner--adapt {
+      overflow: hidden;
+      height: 1080px !important;
+      .rich-text-background-image {
+        min-height: 1080px;
+      }
+    }
+    .custom-banner--small {
+      overflow: hidden;
+      height: 53rem !important;
+      .rich-text-background-image {
+        min-height: 53rem;
+      }
+    }
+    .custom-banner--medium {
+      overflow: hidden;
+      height: 75rem !important;
+      .rich-text-background-image {
+        min-height: 75rem;
+      }
+    }
+    .custom-banner--large {
+      overflow: hidden;
+      height: 72rem !important;
+      .rich-text-background-image {
+        min-height: 72rem;
+      }
+    } 
+    .custom-banner--extra_large {
+      overflow: hidden;
+      height: 110vh !important;
+      .rich-text-background-image {
+        min-height: 110vh;
+      }
+    } 
+  }  
+  @media screen and (max-width: 749px) {
+    
+    .custom-btn-banner {
+      display: grid;
+      gap: 10px;
+    }
+    .custom-banner--adapt {
+      overflow: hidden;
+      height: 81vh !important;
+      .rich-text-background-image {
+        min-height: 81vh;
+      }
+    }
+    .custom-banner--small {
+      overflow: hidden;
+      height: 28rem !important;
+      .rich-text-background-image {
+        min-height: 28rem;
+      }
+    }
+    .custom-banner--medium {
+      overflow: hidden;
+      height: 60rem !important;
+      .rich-text-background-image {
+        min-height: 60rem;
+      }
+    }
+    .custom-banner--large {
+      overflow: hidden;
+      height: 91.5vh !important;
+      .rich-text-background-image {
+        min-height: 91.5vh;
+      }
+    }
+    .custom-banner--extra_large {
+      overflow: hidden;
+      height: 77.5vh !important;
+      .rich-text-background-image {
+        min-height: 77.5vh;
+      }
+    } 
+    .rich-text-background-image {
+      min-height: unset;
+      align-items: unset;
+    }
+    .banner-container .custom-grid {
+      padding: 40px 25px;
+      padding-bottom:100px;
+    }
+    .aspect-ratio-16-8 {
+      aspect-ratio: unset !important;
+    }
+    .banner__content--mobile-bottom {
+      align-items: flex-end;
+    }
+    
+  } 
+    .aspect-ratio-16-8 {
+    aspect-ratio: 16 / 8;
+    }
+      .font-size-medium {
+      font-size: 52px;
+  }
+
+  .font-size-small {
+      font-size: 45px;
+  }
+</style>
+<div class="banner-container">
+  <div class="banner custom-banner--{{ section.settings.image_height }}">
+    <div id="Banner-{{ section.id }}" class="rich-text-background-image aspect-ratio-16-8 banner__content--mobile-bottom">
+      <span class="black-blur"></span>
+    </div>   
+  </div>
+  <div class="page-width">
+    <div class=" custom-grid">
+      <div class="banner__content">
+        <div class="content-container">
+          <div class="text-center">
+            <h1 class="section-title-80 font-tungsten text-white mb-0 mt-0 lh-100 ">{{section.settings.heading}}</h1>
+              <p class="mb-lg-1 mb-sm-0 mt-1 text-white font-17">
+                {{section.settings.description}}
+              </p>
+            <div class="mt-3 custom-btn-banner">
+              <div id="search-banner_pickleball" class="custom-search">
+                <div class="search-container">
+                  <form>
+                    <div id="search-input-banner" class="search-input">
+                      <div class="input-content">
+                        <input type="text" class="input-button" id="input_search_banner" placeholder="{{ section.settings.placeholder_input }}" autocomplete="off">
+                      </div>
+                      <div class="btn-icon-search" style="background-color: black;">
+                        <a id="link-btn-search" href="" class="btn-search">
+                            <span class="text-btn">Search</span>
+                        </a>
+                      </div>
+                    </div>
+                  </form>
+                
+                  <div id="menu-drop-pickleball" class="menu-drop">
+                    <div class="menu-container">
+                      <div class="custom-menu">
+                        <div id="event-banner" class="menu-content">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div> 
+</div>
+
+<div id="popup-search" class="popup-search">
+  <div class="popup-content">
+    <div class="content-search">
+      <div class="input-svg">
+        <input type="text" id="popup_input_search" placeholder="{{ section.settings.placeholder_input }}" />
+        {%render 'icon-search' %}
+      </div>
+      <span class="popup-close">&times;</span>
+    </div>
+    <div id="popup-event-banner" class="menu-drop">
+      <div class="menu-container">
+        <div class="custom-menu">
+          <div id="popup-event-list" class="menu-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let isMobile = window.innerWidth < 749;
+
+    // Popup elements
+    const $popup = $('#popup-search');
+    const $popupClose = $('.popup-close');
+
+    // Input & list elements
+    const $inputBanner = $('#input_search_banner');
+    const $resultList = $('#event-banner');
+    const $inputPopup = $('#popup_input_search');
+    const $popupResultList = $('#popup-event-list');
+
+    // Config taken from Liquid
+    const distanceSetting = {{ section.settings.distance }};
+    const searchTypeSetting = "{{ section.settings.search_type }}";
+
+    // ====== Mobile popup control ======
+    function enableMobilePopup() {
+      $('#search-input-banner').on('click.mobile', function (e) {
+        e.preventDefault();
+        $popup.show();
+        $inputPopup.focus();
+      });
+
+      $popupClose.on('click.mobile', function () {
+        $popup.hide();
+      });
+
+      $popup.on('click.mobile', function (e) {
+        if ($(e.target).is('#popup-search')) {
+          $popup.hide();
+        }
+      });
+    }
+
+    function disableMobilePopup() {
+      $inputBanner.off('.mobile');
+      $popupClose.off('.mobile');
+      $popup.off('.mobile');
+      $popup.hide();
+    }
+
+    if (isMobile) enableMobilePopup();
+
+    $(window).on('resize', function () {
+      const newIsMobile = window.innerWidth < 749;
+      if (newIsMobile !== isMobile) {
+        isMobile = newIsMobile;
+        if (isMobile) {
+          enableMobilePopup();
+          $resultList.empty().hide();
+        } else {
+          disableMobilePopup();
+          $popupResultList.empty().hide();
+        }
+      }
+    });
+
+    // ====== Search input attach ======
+    let typingTimer;
+    const typingDelay = 1000;
+
+    function attachSearch($input, $list) {
+      $list.hide();
+
+      $input.on('input', function () {
+        clearTimeout(typingTimer);
+        const address = $(this).val().trim();
+
+        if (address.length > 0) {
+          typingTimer = setTimeout(() => {
+            getCoordinates(address, $list, false);
+          }, typingDelay);
+        } else {
+          $list.hide();
+        }
+      });
+
+      $(document).on('click', function (e) {
+        if (!$(e.target).closest($input).length && !$(e.target).closest($list).length) {
+          $list.hide();
+        }
+      });
+    }
+
+    attachSearch($inputBanner, $resultList);
+    attachSearch($inputPopup, $popupResultList);
+
+    // ====== Utils ======
+    function formatDateMMDDYYYY(d) {
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      const yyyy = d.getFullYear();
+      return `${mm}/${dd}/${yyyy}`;
+    }
+
+    // ====== Google API ======
+    function getCoordinates(address, $list, isRedirect = false) {
+      const apiKey = "AIzaSyCapzh9VsfXAzC9fAaosZJulONx7H1BFaY";
+      const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}&language=en`;
+
+      $.get(apiUrl)
+              .done(function (data) {
+                if (data.status === "OK" && data.results.length > 0) {
+                  const location = data.results[0].geometry.location;
+                  if (isRedirect) {
+                    redirectToUTR(address, location.lat, location.lng);
+                  } else {
+                    getUTRClubs(location.lat, location.lng, $list);
+                  }
+                } else {
+                  if (isRedirect) {
+                    alert("Google could not find this location.");
+                  } else {
+                    $list.html("<li style='display: block'>No results from location</li>").show();
+                  }
+                }
+              })
+              .fail(function () {
+                console.error("Error calling API Google Geocoding");
+              });
+    }
+
+    // ====== UTR API (render list) ======
+    function getUTRClubs(lat, lng, $list) {
+      const today = new Date();
+      const startDate = formatDateMMDDYYYY(today);
+
+      const isPickleball = searchTypeSetting === "pickleball";
+      const utrApiUrl = `https://api.utrsports.net/v2/search/events?top=40&skip=0&distance=${distanceSetting}mi&pin=${lat},${lng}&utrTeamType=singles&showTennisContent=${!isPickleball}&showPickleballContent=${isPickleball}&range=eventSchedule.eventStartUtc>=${startDate}&searchOrigin=searchPage`;
+
+      $.get(utrApiUrl)
+        .done(function (data) {
+          let htmlList = "";
+          data.hits.forEach((item) => {
+            const name = item.source?.name || "No name";
+            const display = item.source?.eventLocations?.[0]?.display || "No location";
+            const eventId = item.id;
+
+            htmlList += `<li>
+              <a class="link-menu" href="https://app.utrsports.net/events/${eventId}">
+                ${name}
+              </a>
+              <span class="display_location">${display}</span>
+            </li>`;
+          });
+
+          $list.html(htmlList || "<li style='display: block'>No matching events found</li>").show();
+        })
+        .fail(function (err) {
+          console.error("[UTR API] Error calling API", err);
+        });
+    }
+
+    // ====== Redirect search button ======
+    function redirectToUTR(address, lat, lng) {
+      const today = new Date();
+      const startDate = formatDateMMDDYYYY(today);
+      const sportTypes = (searchTypeSetting === "pickleball") ? "pickleball" : "tennis";
+
+      const redirectUrl = `https://app.utrsports.net/search?sportTypes=${sportTypes}&type=events&startDate=${startDate}&distance=${distanceSetting}mi&lat=${lat}&lng=${lng}&locationInputValue=${encodeURIComponent(address)}&location=${encodeURIComponent(address)}&utrFitPosition=6&utrMax=16&utrMin=1&utrTeamType=singles&utrType=verified`;
+
+      window.location.href = redirectUrl;
+    }
+
+    if (!isMobile) {
+      $('.btn-icon-search').on('click', function (e) {
+        e.preventDefault();
+        const address = $inputBanner.val().trim() || $inputPopup.val().trim();
+        if (!address) {
+          alert("Please enter a location");
+          return;
+        }
+        getCoordinates(address, null, true); 
+      });
+    }
+
+    if (isMobile) {
+      $('.icon-search-mobile').on('click', function (e) {
+        e.preventDefault();
+        const address = $inputPopup.val().trim(); 
+        if (!address) {
+          alert("Please enter a location");
+          return;
+        }
+        getCoordinates(address, null, true);
+      });
+    }
+
+  });
+
+</script>
+
+<style>
+  @media(max-width: 430px) {
+    .image-banner_search {
+      #popup-search {
+        .popup-content {
+          padding: 20px;
+        }
+        .input-svg {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 375px) {
+    .image-banner_search {
+      #popup-search {
+        .popup-content {
+          padding: 20px 10px;
+        }
+        
+      }
+    }
+  }
+ .image-banner_search {
+    .popup-search {
+      display: none; 
+      position: fixed;
+      z-index: 999999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      .popup-content {
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: auto;
+        #popup_input_search {
+          width: 90%;
+          background-color: #E8EFF7;
+          border: unset;
+          border-radius: 12px;
+          padding-left: 16px;
+          font-size: 14px;
+          font-family: 'Inter';
+        }
+        #popup_input_search:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+        .content-search {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .input-svg {
+          display: flex;
+          align-items: center;
+          background: #E8EFF7;
+          border-radius: 12px;
+          width: 316px;
+          height: 56px;
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        #popup-event-banner {
+          #popup-event-list {
+            list-style-type: none;
+            li {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              font-family: 'Inter';
+              font-weight: 400;
+              border-bottom: 1px solid #E8EFF7;
+              .link-menu {
+                color: #000000;
+                font-size: 14px;
+                padding: 1rem 0;
+                text-decoration: none;
+                position: relative;
+                {% comment %} white-space: nowrap; {% endcomment %}
+                overflow: hidden;
+                width: 250px;
+                {% comment %} text-overflow: ellipsis; {% endcomment %}
+                display: block;
+                text-align: left;
+              }
+              .display_location {
+                font-size: 11px;
+                margin-right: 10px; 
+              }
+            }
+          }
+        }
+      }
+      .popup-close {
+        font-size: 50px;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .banner-container {
+      position: relative;
+    }
+    .banner::after {
+      opacity: 0.2 !important;
+      content: "" !important;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      right: 0%;
+      top: auto;
+      bottom: 0%;
+      background: #000000;
+      filter: blur(80px);
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      z-index: 1;
+      display: block !important;
+    }
+    
+    #Banner-{{ section.id }}::after {
+      opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }} !important;
+      content: "" !important;
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      right: 0%;
+      top: auto;
+      bottom: 0%;
+      background: #01dfcb !important;
+      filter: blur(80px);
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      z-index: 1;
+      display: block !important;
+    }
+    #Banner-{{ section.id }}::before {
+      opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }} !important;
+      content: "" !important;
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 0%;
+      bottom: 0%;
+      background: #0968e7 !important;
+      filter: blur(80px);
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      z-index: 1;
+      padding: 0px !important;
+      display: block !important;
+    }
+    #Banner-{{ section.id }} .banner:after, #Banner-{{ section.id }} .banner__media:after {
+        opacity: 0 !important;        background-color: transparent !important;
+    }
+    .page-width {
+      position: absolute;
+      max-width: unset!important;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0
+    }
+    .custom-grid {
+      margin-top: 160px;
+    }
+    .text-center {
+      width: 530px;
+    }
+    .section-title-80 {
+      font-size: 80px;
+      font-family: 'Inter';
+      font-weight: 600;
+    }
+    .font-17 {
+      font-size: 17px;
+      font-family: 'Inter';
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .lh-100 {
+      line-height: 100%
+    }
+
+    #search-input-banner {
+      display: flex;
+      height: 63px;
+      justify-content: center;
+      background: #ffffff;
+      align-items: center;
+      border-radius: 12px;
+      .input-content {
+        width: 100%;
+        #input_search_banner:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+        #input_search_banner {
+          width: 90%;
+          height: 40px;
+          border: none; 
+          font-size: 14px;
+          font-family: 'Inter';
+          font-weight: 400;
+        }
+      }
+      .btn-icon-search {
+        width: 157px;
+        height: 48px;
+        background-color: #000000;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        .btn-search {
+          text-decoration: none;
+        }
+      }
+      .text-btn {
+        color: #ffffff;
+        font-size: 14px;
+        font-family: 'Inter';
+        font-weight: 400;
+        line-height: 40px;
+      }
+    }
+    #search-banner_pickleball {
+      .search-container {
+        position: relative;
+      }
+      #menu-drop-pickleball {
+        position: absolute;
+      }
+    }
+    #menu-drop-pickleball {
+      .menu-content {
+        list-style-type: none;
+        padding: unset;
+        margin-top: 10px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        width: 530px;
+        box-shadow: 0 8px 24px -8px rgba(0,0,0,.25);
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .link-menu {
+            color: #000000;
+            font-size: 14px;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 65%;
+            text-overflow: ellipsis;
+            display: block;
+            text-align: left;
+          }
+          .display_location {
+            font-size: 11px;
+            margin-right: 10px;
+          }
+        }
+        li:hover {
+          background-color: #E8EFF7;
+        }
+        .not_found {
+          color: #000000;
+          font-size: 14px;
+          padding: 1rem 1.5rem;
+          position: relative;
+          width: 65%;
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+  }
+ @media(min-width: 750px) {
+     #shopify-section-{{ section.id }} {
+         .rich-text-background-image {
+            background-image: url("{{section.settings.section-image | image_url}}");
+            overflow: hidden;
+            position: relative;
+         }
+     }
+ }
+
+  {% if section.settings.image_mobile %}
+  @media(max-width: 749px) {
+      #shopify-section-{{ section.id }} {
+          .rich-text-background-image {
+            background-image: url("{{section.settings.image_mobile | image_url}}");
+            overflow: hidden;
+            position: relative;
+          }
+      }
+      .image-banner_search {
+        overflow: unset;
+        .banner::after {
+          height: 50%;
+        }
+        #Banner-{{ section.id }}::after {
+          opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }} !important;
+          content: "" !important;
+          position: absolute;
+          width: 50%;
+          height: 50%;
+          right: 0%;
+          top: auto;
+          bottom: 0%;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.89) 100%) !important;
+          filter: blur(80px);
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+          z-index: 1;
+          display: block !important;
+        }
+        #Banner-{{ section.id }}::before {
+          opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }} !important;
+          content: "" !important;
+          position: absolute;
+          width: 50%;
+          height: 50%;
+          left: 0%;
+          bottom: 0%;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.89) 100%) !important;
+          filter: blur(80px);
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+          z-index: 1;
+          padding: 0px !important;
+          display: block !important;
+        }
+        .page-width {
+          position: absolute;
+          align-items: flex-end;
+          top: 0;
+        }
+        .custom-grid {
+          margin-top: unset;
+        }
+        .text-center {
+          width: 355px;
+        }
+        .section-title-80 {
+          font-size: 36px;
+        }
+        .mt-1 {
+          margin-top: 2rem !important;
+        }
+        .font-17 {
+          line-height: 1.6;
+        }
+        #search-input-banner {
+          width: 320px !important;  
+        }
+        .menu-content {
+          width: 100% !important;
+        }
+        .search-container {
+          display: flex;
+          justify-content: center;
+        }
+        .text-btn {
+          font-size: 14px;
+        }
+        #menu-drop-pickleball {
+          bottom: -150px;
+          z-index: 9999999;
+        }
+        
+      }
+    } 
+  {%endif%}
+
+  #event-banner {
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #event-banner li a {
+      text-decoration: none;
+      color: #333;
+  }
+
+  #event-banner li a:hover {
+      text-decoration: underline;
+  }
+
+  #event-banner {
+      scrollbar-width: none;
+  }
+  
+</style>
+  {% schema %}
+{
+  "name": "Image Banner Search",
+  "class": "image-banner_search",
+  "presets": [
+    {
+      "name": "Image Banner Search",
+      "category": "Image Banner Search"
+    }
+  ],
+  "settings": [
+          {
+          "type": "image_picker",
+          "id": "section-image",
+          "label": "Desktop Screen Image"
+        },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label" : "Mobile Screen Image"
+          },
+          {
+            "type": "range",
+            "id": "image_overlay_opacity",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "%",
+            "label": "Image overlay opacity",
+            "default": 0
+          },
+            {
+            "type": "select",
+            "id": "image_height",
+            "options": [
+              {
+                "value": "adapt",
+                "label": "Adapt"
+              },
+              {
+                "value": "small",
+                "label": "Small"
+              },
+              {
+                "value": "medium",
+                "label": "Medium"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              },
+              {
+                "value": "extra_large",
+                "label": "Extra large"
+              }
+            ],
+            "default": "medium",
+            "label": "Banner height"
+          },
+       {
+        "type":"text",
+        "id":"heading",
+        "label": "Heading Title"
+      },
+      {
+        "type":"text",
+        "id":"description",
+        "label": " Title"
+      },
+      {
+        "type":"text",
+        "id":"placeholder_input",
+        "label": "Placeholder Title"
+      },
+      {
+        "type":"select",
+        "id":"search_type",
+        "label": "Search Type",
+        "options": [
+          {
+            "value": "pickleball",
+            "label": "Pickleball"
+          },
+          {
+            "value": "tennis",
+            "label": "Tennis"
+          }
+        ]
+      },
+      {
+        "type": "number",
+        "id": "distance",
+        "label": "Distance",
+        "default": 200
+      }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
